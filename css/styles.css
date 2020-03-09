@@ -24,11 +24,30 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: -webkit-gradient(linear, right top, left top, from(#e4c1c1), to(#2a1198));
   background: linear-gradient(270deg, #e4c1c1, #2a1198);
   background-size: 400% 400%;
   -webkit-animation: gradientChange 45s ease infinite;
   animation: gradientChange 45s ease infinite;
+}
+
+main img {
+  width: 500px;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main img:hover {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 main h1 {

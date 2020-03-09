@@ -18,12 +18,25 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	background: linear-gradient(270deg, #e4c1c1, #2a1198);
 	background-size: 400% 400%;
 
 	-webkit-animation: gradientChange 45s ease infinite;
 	-moz-animation: gradientChange 45s ease infinite;
 	animation: gradientChange 45s ease infinite;
+
+	img {
+		width: 500px;
+		cursor: pointer;
+		transform: scale(1);
+		transition: 0.5s;
+	}
+
+	img:hover {
+		transition: 0.5s;
+		transform: scale(1.1);
+	}
 
 	h1 {
 		text-align: center;
