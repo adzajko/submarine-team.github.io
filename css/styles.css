@@ -8,12 +8,6 @@ html {
   margin: 0;
 }
 
-@media (max-width: 750px) {
-  img {
-    width: 200px;
-  }
-}
-
 main {
   position: fixed;
   top: 0;
@@ -54,6 +48,12 @@ main img:hover {
   transition: 0.5s;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+@media (max-width: 750px) {
+  main img {
+    width: 200px;
+  }
 }
 
 main h1 {
