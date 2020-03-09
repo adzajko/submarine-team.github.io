@@ -9,6 +9,12 @@ html {
 	margin: 0;
 }
 
+@media (max-width: 750px) {
+	img {
+		width: 200px;
+	}
+}
+
 main {
 	position: fixed;
 	top: 0;
