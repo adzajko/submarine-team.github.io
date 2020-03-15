@@ -20,3 +20,19 @@ const saveCompany = company => {
   let newCompanyRef = companyRef.push();
   newCompanyRef.set(company);
 };
+
+//Hamburger toggler
+
+const navbarBrand = document.querySelector(".navbar-brand");
+
+navbarBrand.addEventListener("click", () => {
+  const hamburgerLineTop = document.querySelector(".hamburger-line.top");
+  const hamburgerLineBottom = document.querySelector(".hamburger-line.bottom");
+  const overlay = document.querySelector(".overlay");
+
+  navbarBrand.classList.toggle("brand-fixed");
+  hamburgerLineTop.classList.toggle("open");
+  hamburgerLineBottom.classList.toggle("open");
+  overlay.classList.toggle("h-100");
+  document.querySelector(".img-logo").classList.toggle("v-none");
+});

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body,
@@ -8,12 +8,142 @@ html {
   margin: 0;
 }
 
-main {
+header {
+  background: #efd6ac;
+  background: -webkit-gradient(linear, left bottom, left top, from(#efd6ac), to(#432534));
+  background: linear-gradient(0deg, #efd6ac 0%, #432534 100%);
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+header .img-logo {
+  width: 75px;
+}
+
+header .navbar-brand {
+  position: relative;
+  height: 50px;
+  width: 150px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+header .navbar-brand .hamburger-line {
+  width: 75px;
+  height: 2px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  display: block;
+  -webkit-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+  position: absolute;
+}
+
+header .navbar-brand .hamburger-line.top {
+  top: 18%;
+}
+
+header .navbar-brand .hamburger-line.bottom {
+  width: 40px;
+  top: 48%;
+}
+
+header .navbar-brand .hamburger-line.top.open,
+header .navbar-brand .hamburger-line.bottom.open {
+  -webkit-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  width: 50px;
+  top: 48%;
+}
+
+header .navbar-brand .hamburger-line.bottom.open {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+header .brand-fixed {
   position: fixed;
   top: 0;
-  bottom: 0;
+  margin-top: 1rem;
+}
+
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
   left: 0;
+  top: 0;
+  background-color: black;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.overlay .overlay-content {
+  position: relative;
+  top: 25%;
+  width: 300px;
+  margin: 30px auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.overlay .overlay-link {
+  padding: 8px;
+  position: relative;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.45s;
+  transition: 0.45s;
+}
+
+.overlay .overlay-link::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
   right: 0;
+  bottom: 0;
+  background-color: whitesmoke;
+}
+
+.overlay .overlay-link:hover::before {
+  content: "";
+  width: 100%;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+.overlay .overlay-link:hover,
+.overlay .overlay-link:focus {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay .overlay-link {
+    font-size: 20px;
+  }
+}
+
+.v-none {
+  visibility: hidden;
+}
+
+main {
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,11 +157,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: -webkit-gradient(linear, right top, left top, from(#e4c1c1), to(#2a1198));
-  background: linear-gradient(270deg, #e4c1c1, #2a1198);
-  background-size: 400% 400%;
-  -webkit-animation: gradientChange 45s ease infinite;
-  animation: gradientChange 45s ease infinite;
 }
 
 main img {
@@ -50,6 +175,17 @@ main img:hover {
           transform: scale(1.1);
 }
 
+main #animated-submarine {
+  -webkit-animation-name: makeMeDizzy;
+          animation-name: makeMeDizzy;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
 @media (max-width: 750px) {
   main img {
     width: 200px;
@@ -59,30 +195,74 @@ main img:hover {
 main h1 {
   text-align: center;
   font-size: 72px;
-  color: whitesmoke;
+  color: black;
 }
 
-@-webkit-keyframes gradientChange {
+@-webkit-keyframes floatSubmarine {
   0% {
-    background-position: 0% 50%;
+    -webkit-transform: translate(-200%);
+            transform: translate(-200%);
+  }
+  25% {
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
   }
   50% {
-    background-position: 100% 50%;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  75% {
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
   }
   100% {
-    background-position: 0% 50%;
+    -webkit-transform: translate-x(200%);
+            transform: translate-x(200%);
   }
 }
 
-@keyframes gradientChange {
+@keyframes floatSubmarine {
   0% {
-    background-position: 0% 50%;
+    -webkit-transform: translate(-200%);
+            transform: translate(-200%);
+  }
+  25% {
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
   }
   50% {
-    background-position: 100% 50%;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  75% {
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
   }
   100% {
-    background-position: 0% 50%;
+    -webkit-transform: translate-x(200%);
+            transform: translate-x(200%);
+  }
+}
+
+@-webkit-keyframes makeMeDizzy {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes makeMeDizzy {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 /*# sourceMappingURL=styles.css.map */
