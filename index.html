@@ -22,7 +22,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-dark d-flex">
+      <nav class="navbar d-flex">
         <div class="navbar-brand">
           <span class="hamburger-line top"></span>
           <span class="hamburger-line bottom"></span>
@@ -44,30 +44,54 @@
           </form>
         </ul>
       </nav>
-    </header>
-    <div class="overlay">
-      <div class="overlay-content">
-        <a href="#" class="overlay-link"><i class="fa fa-home mr-2"></i>Home</a>
-        <a href="#" class="overlay-link"
-          ><i class="fa fa-user mr-2"></i>My Account</a
-        >
-        <a href="#" class="overlay-link"
-          ><i class="fa fa-question mr-2"></i>About</a
-        >
-        <a href="#" class="overlay-link"
-          ><i class="fa fa-phone mr-2"></i>Contact</a
-        >
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="#" class="overlay-link"
+            ><i class="fa fa-home mr-2"></i>Home</a
+          >
+          <a href="#" class="overlay-link"
+            ><i class="fa fa-user mr-2"></i>My Account</a
+          >
+          <a href="#" class="overlay-link"
+            ><i class="fa fa-question mr-2"></i>About</a
+          >
+          <a href="#" class="overlay-link"
+            ><i class="fa fa-phone mr-2"></i>Contact</a
+          >
+        </div>
       </div>
-    </div>
-    <main>
-      <img
-        id="animated-submarine"
-        class="mt-5"
-        src="./submarine.png"
-        alt="Submarine"
-      />
-      <h1>Coming Soon...</h1>
-      <p>Keep an eye out!</p>
+    </header>
+
+    <main class="d-flex justify-content-between">
+      <section class="main-section w-100 w-lg-75">
+        <img
+          id="animated-submarine"
+          class="mt-5"
+          src="./submarine.png"
+          alt="Submarine"
+        />
+        <h1>Coming Soon...</h1>
+        <p>Keep an eye out!</p>
+      </section>
+      <aside class="account-controls d-none d-lg-block">
+        <div class="account-wrapper">
+          <div class="avatar-wrapper">
+            <img
+              src="./assets/avatar-png-1.png"
+              alt="User Avatar"
+              class="img-fluid mt-5"
+            />
+          </div>
+          <div class="dropdown-divider mx-3"></div>
+          <h4 class="text-center my-3 px-3">
+            You need to create an account first.
+          </h4>
+          <div class="btn-group d-flex justify-content-center">
+            <a href="#" class="btn btn-dark">Log In</a>
+            <a href="#" class="btn btn-dark">Sign Up</a>
+          </div>
+        </div>
+      </aside>
     </main>
     <!-- Firebase dependencies -->
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
@@ -75,22 +99,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
 
-    <!-- jQuery, Popper.js and Bootstrap Dependencies -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
     <!-- Custom JS -->
     <script type="module" src="./script.js"></script>
   </body>
