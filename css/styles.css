@@ -146,7 +146,7 @@ header .navbar-nav {
   visibility: hidden;
 }
 
-main {
+.main-section {
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,23 +163,9 @@ main {
           align-items: center;
 }
 
-main img {
+.main-section #animated-submarine {
   width: 500px;
   cursor: pointer;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-main img:hover {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-main #animated-submarine {
   -webkit-animation-name: makeMeDizzy;
           animation-name: makeMeDizzy;
   -webkit-animation-timing-function: linear;
@@ -191,61 +177,45 @@ main #animated-submarine {
 }
 
 @media (max-width: 750px) {
-  main img {
+  .main-section img {
     width: 200px;
   }
 }
 
-main h1 {
+.main-section h1 {
   text-align: center;
   font-size: 72px;
   color: black;
 }
 
-@-webkit-keyframes floatSubmarine {
-  0% {
-    -webkit-transform: translate(-200%);
-            transform: translate(-200%);
-  }
-  25% {
-    -webkit-transform: translate(-100%);
-            transform: translate(-100%);
-  }
-  50% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-  75% {
-    -webkit-transform: translate(100%);
-            transform: translate(100%);
-  }
-  100% {
-    -webkit-transform: translate-x(200%);
-            transform: translate-x(200%);
-  }
+aside {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  width: 25%;
+  height: 75vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-@keyframes floatSubmarine {
-  0% {
-    -webkit-transform: translate(-200%);
-            transform: translate(-200%);
-  }
-  25% {
-    -webkit-transform: translate(-100%);
-            transform: translate(-100%);
-  }
-  50% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-  }
-  75% {
-    -webkit-transform: translate(100%);
-            transform: translate(100%);
-  }
-  100% {
-    -webkit-transform: translate-x(200%);
-            transform: translate-x(200%);
-  }
+aside .img-fluid {
+  width: 150px;
+  display: block;
+  margin: auto;
+}
+
+aside .btn-group .btn {
+  margin: 10px;
 }
 
 @-webkit-keyframes makeMeDizzy {

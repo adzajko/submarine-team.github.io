@@ -126,29 +126,16 @@ header {
   visibility: hidden;
 }
 
-main {
+.main-section {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  img {
+  #animated-submarine {
     width: 500px;
     cursor: pointer;
-    transform: scale(1);
-    transition: 0.5s;
-  }
-
-  img:hover {
-    transition: 0.5s;
-    transform: scale(1.1);
-  }
-  #animated-submarine {
-    // animation-name: floatSubmarine;
-    // animation-timing-function: ease;
-    // animation-duration: 10s;
-    // animation-iteration-count: infinite;
     animation-name: makeMeDizzy;
     animation-timing-function: linear;
     animation-duration: 5s;
@@ -168,25 +155,23 @@ main {
   }
 }
 
-@keyframes floatSubmarine {
-  0% {
-    transform: translate(-200%);
+aside {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  width: 25%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .img-fluid {
+    width: 150px;
+    display: block;
+    margin: auto;
   }
-
-  25% {
-    transform: translate(-100%);
-  }
-
-  50% {
-    transform: translate(0);
-  }
-
-  75% {
-    transform: translate(100%);
-  }
-
-  100% {
-    transform: translate-x(200%);
+  .btn-group {
+    .btn {
+      margin: 10px;
+    }
   }
 }
 
