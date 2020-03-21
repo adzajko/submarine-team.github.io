@@ -1,6 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+/* Extendable classes */
+.flex-column-center, .overlay .overlay-content, .main-section, aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* Extendable classes end */
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body,
@@ -9,7 +27,6 @@ html {
 }
 
 header {
-  background: #efd6ac;
   background: -webkit-gradient(linear, left bottom, left top, from(#efd6ac), to(#432534));
   background: linear-gradient(0deg, #efd6ac 0%, #432534 100%);
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
@@ -91,16 +108,6 @@ header .navbar-nav {
   top: 25%;
   width: 300px;
   margin: 30px auto 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .overlay .overlay-link {
@@ -115,7 +122,7 @@ header .navbar-nav {
 }
 
 .overlay .overlay-link::before {
-  content: "";
+  content: '';
   width: 0;
   height: 2px;
   position: absolute;
@@ -125,7 +132,7 @@ header .navbar-nav {
 }
 
 .overlay .overlay-link:hover::before {
-  content: "";
+  content: '';
   width: 100%;
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
@@ -148,19 +155,6 @@ header .navbar-nav {
 
 .main-section {
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .main-section #animated-submarine {
@@ -177,8 +171,8 @@ header .navbar-nav {
 }
 
 @media (max-width: 750px) {
-  .main-section img {
-    width: 200px;
+  .main-section #animated-submarine {
+    width: 250px;
   }
 }
 
@@ -193,19 +187,6 @@ aside {
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   width: 25%;
   height: 75vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 aside .img-fluid {
@@ -216,6 +197,20 @@ aside .img-fluid {
 
 aside .btn-group .btn {
   margin: 10px;
+}
+
+footer {
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+
+footer p {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 0;
+  background-color: #e0e0e0;
+  color: black;
 }
 
 @-webkit-keyframes makeMeDizzy {

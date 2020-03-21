@@ -1,7 +1,37 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+$colors: (
+  'box-shadow-color': rgba(0, 0, 0, 0.3),
+  'lightYellowGradient': rgba(239, 214, 172, 1),
+  'darkMaroonGradient': rgba(67, 37, 52, 1)
+);
+
+$fontSizes: (
+  'h1': 72px,
+  'h2': 36px,
+  'h3': 24px
+);
+
+@function getColor($colorName) {
+  @return map-get($colors, $colorName);
+}
+
+@function getFontSize($font) {
+  @return map-get($fontSizes, $font);
+}
+
+/* Extendable classes */
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Extendable classes end */
 
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body,
@@ -10,13 +40,12 @@ html {
 }
 
 header {
-  background: rgb(239, 214, 172);
   background: linear-gradient(
     0deg,
-    rgba(239, 214, 172, 1) 0%,
-    rgba(67, 37, 52, 1) 100%
+    getColor(lightYellowGradient) 0%,
+    getColor(darkMaroonGradient) 100%
   );
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 0 getColor(box-shadow-color);
   .img-logo {
     width: 75px;
   }
@@ -82,9 +111,7 @@ header {
     top: 25%;
     width: 300px;
     margin: 30px auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @extend .flex-column-center;
   }
 
   .overlay-link {
@@ -97,7 +124,7 @@ header {
     transition: 0.45s;
   }
   .overlay-link::before {
-    content: "";
+    content: '';
     width: 0;
     height: 2px;
     position: absolute;
@@ -106,7 +133,7 @@ header {
     background-color: whitesmoke;
   }
   .overlay-link:hover::before {
-    content: "";
+    content: '';
     width: 100%;
     transition: ease 0.5s;
   }
@@ -128,10 +155,7 @@ header {
 
 .main-section {
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend .flex-column-center;
 
   #animated-submarine {
     width: 500px;
@@ -143,26 +167,23 @@ header {
   }
 
   @media (max-width: 750px) {
-    img {
-      width: 200px;
+    #animated-submarine {
+      width: 250px;
     }
   }
 
   h1 {
     text-align: center;
-    font-size: 72px;
+    font-size: getFontSize(h1);
     color: black;
   }
 }
 
 aside {
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 0 getColor(box-shadow-color);
   width: 25%;
   height: 75vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend .flex-column-center;
   .img-fluid {
     width: 150px;
     display: block;
@@ -172,6 +193,18 @@ aside {
     .btn {
       margin: 10px;
     }
+  }
+}
+
+footer {
+  box-shadow: 0 0 3px 0 getColor(box-shadow-color);
+  margin-top: 2rem;
+  p {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 0;
+    background-color: darken(white, 12%);
+    color: black;
   }
 }
 
