@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Submarine Project</title>
+    <title>About - The Submarine Project</title>
     <!-- Bootstrap 4 CDN -->
     <link
       rel="stylesheet"
@@ -17,8 +17,8 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="shortcut icon" href="submarine.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="shortcut icon" href="../submarine.png" type="image/x-icon" />
   </head>
   <body>
     <header>
@@ -52,60 +52,22 @@
       </nav>
       <div class="overlay">
         <div class="overlay-content">
-          <a href="#" class="overlay-link"
+          <a href="/index.html" class="overlay-link"
             ><i class="fa fa-home mr-2"></i>Home</a
           >
           <a href="#" class="overlay-link"
             ><i class="fa fa-user mr-2"></i>My Account</a
           >
-          <a href="./pages/about.html" class="overlay-link"
+          <a href="#" class="overlay-link"
             ><i class="fa fa-question mr-2"></i>About</a
           >
-          <a href="./pages/contact.html" class="overlay-link"
+          <a href="./contact.html" class="overlay-link"
             ><i class="fa fa-phone mr-2"></i>Contact</a
           >
         </div>
       </div>
     </header>
-    <div class="filter-options py-3 d-flex justify-content-center w-100">
-      <select class="form-control bg-light" name="options" id="filter-options">
-        <option value="City">City</option>
-        <option value="Country">Country</option>
-        <option value="Rating">Rating</option>
-      </select>
-      <button class="btn btn-dark">Filter</button>
-    </div>
-    <main class="d-flex justify-content-between">
-      <section class="main-section w-100 w-lg-75 mr-3">
-        <img
-          id="animated-submarine"
-          class="mt-5"
-          src="./submarine.png"
-          alt="Submarine"
-        />
-        <h1>Coming Soon...</h1>
-        <p>Keep an eye out!</p>
-      </section>
-      <aside class="account-controls d-none d-lg-block">
-        <div class="account-wrapper">
-          <div class="avatar-wrapper">
-            <img
-              src="./assets/avatar-png-1.png"
-              alt="User Avatar"
-              class="img-fluid mt-5"
-            />
-          </div>
-          <div class="dropdown-divider mx-3"></div>
-          <h4 class="text-center my-3">
-            You need to create an account first.
-          </h4>
-          <div class="btn-group d-flex justify-content-center">
-            <a href="#" class="btn btn-dark">Log In</a>
-            <a href="#" class="btn btn-dark">Sign Up</a>
-          </div>
-        </div>
-      </aside>
-    </main>
+
     <footer>
       <p>&copy; The Submarine Team | 2020</p>
     </footer>
@@ -116,6 +78,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
 
     <!-- Custom JS -->
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="../script.js"></script>
   </body>
 </html>

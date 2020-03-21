@@ -90,6 +90,20 @@ header .navbar-nav {
   max-width: 50%;
 }
 
+header #sub-to-home {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+header #sub-to-home:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
 .overlay {
   height: 0;
   width: 100%;
@@ -153,6 +167,20 @@ header .navbar-nav {
   visibility: hidden;
 }
 
+.filter-options {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.filter-options .form-control {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.filter-options .btn {
+  width: 150px;
+}
+
 .main-section {
   overflow: hidden;
 }
@@ -183,10 +211,15 @@ header .navbar-nav {
 }
 
 aside {
+  margin: 3rem 3rem 0 0;
+  padding: 3rem;
+  padding-top: 0;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   width: 25%;
-  height: 75vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 aside .img-fluid {
@@ -197,6 +230,10 @@ aside .img-fluid {
 
 aside .btn-group .btn {
   margin: 10px;
+}
+
+aside h4.text-center {
+  font-size: 18px;
 }
 
 footer {
