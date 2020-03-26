@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 /* Extendable classes */
-.flex-column-center, .overlay .overlay-content, .main-section, aside {
+.flex-column-center, .overlay .overlay-content, .main-section, aside, #login-screen, #login-screen .modal-wrapper .left-screen-gradient, #login-screen .modal-wrapper .right-screen {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,6 +273,152 @@ footer p {
 
 #home-aside {
   margin: 10px;
+}
+
+#login-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#login-screen .modal-wrapper {
+  height: 75%;
+  width: 65%;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+#login-screen .modal-wrapper .left-screen-gradient {
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  background: -webkit-gradient(linear, left bottom, left top, from(#ffb997), to(#d47171));
+  background: linear-gradient(0deg, #ffb997 0%, #d47171 100%);
+}
+
+#login-screen .modal-wrapper .left-screen-gradient .btn {
+  color: #d47171;
+  font-size: 24px;
+}
+
+#login-screen .modal-wrapper .right-screen {
+  background-color: white;
+}
+
+#login-screen .modal-wrapper .right-screen form {
+  padding: 2rem;
+}
+
+#login-screen .modal-wrapper .right-screen form .label,
+#login-screen .modal-wrapper .right-screen form input {
+  display: block;
+}
+
+#login-screen .modal-wrapper .right-screen form .label {
+  text-align: center;
+}
+
+#login-screen .modal-wrapper .right-screen form input {
+  padding: 10px;
+  border: 0;
+  border-bottom: 1px solid rgba(212, 113, 113, 0.7);
+}
+
+#login-screen .modal-wrapper .right-screen form input:focus {
+  outline: none;
+  outline: 1px solid #d47171;
+  outline-offset: 2px;
+}
+
+#login-screen .modal-wrapper .right-screen form .btn {
+  margin: auto;
+  display: block;
+  background-color: #d47171;
+  color: white;
+  font-size: 24px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+#login-screen .modal-wrapper .right-screen form .btn:hover {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border: 1px solid #d47171;
+  color: #d47171;
+}
+
+#login-screen .modal-wrapper .right-screen a {
+  color: #d47171;
+}
+
+#login-screen::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 2px;
+  background-color: #d47171;
+  -webkit-animation-name: oscilate;
+          animation-name: oscilate;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+          animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes oscilate {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  25% {
+    -webkit-transform: translate(-200px) rotate(255deg);
+            transform: translate(-200px) rotate(255deg);
+  }
+  50% {
+    -webkit-transform: translate(-700px) rotate(255deg);
+            transform: translate(-700px) rotate(255deg);
+  }
+  75% {
+    -webkit-transform: translate(-200px) rotate(255deg);
+            transform: translate(-200px) rotate(255deg);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes oscilate {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  25% {
+    -webkit-transform: translate(-200px) rotate(255deg);
+            transform: translate(-200px) rotate(255deg);
+  }
+  50% {
+    -webkit-transform: translate(-700px) rotate(255deg);
+            transform: translate(-700px) rotate(255deg);
+  }
+  75% {
+    -webkit-transform: translate(-200px) rotate(255deg);
+            transform: translate(-200px) rotate(255deg);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
 }
 
 @-webkit-keyframes makeMeDizzy {
