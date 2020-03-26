@@ -250,6 +250,31 @@ footer p {
   color: black;
 }
 
+.featured-company-wrapper {
+  margin: 10px;
+  margin-right: 0;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  background: yellow;
+}
+
+.featured-company-wrapper .main-title {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+}
+
+.featured-company-wrapper .other-company {
+  background: yellow;
+}
+
+.featured-company-wrapper .other-company-two {
+  background: yellow;
+}
+
+#home-aside {
+  margin: 10px;
+}
+
 #login-screen {
   position: fixed;
   top: 0;
