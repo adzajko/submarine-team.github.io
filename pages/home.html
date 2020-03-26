@@ -17,7 +17,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <link rel="shortcut icon" href="submarine.png" type="image/x-icon" />
   </head>
   <body>
@@ -52,7 +52,7 @@
       </nav>
       <div class="overlay">
         <div class="overlay-content">
-          <a href="pages/home.html" class="overlay-link"
+          <a href="#" class="overlay-link"
             ><i class="fa fa-home mr-2"></i>Home</a
           >
           <a href="#" class="overlay-link"
@@ -76,21 +76,21 @@
       <button class="btn btn-dark">Filter</button>
     </div>
     <main class="d-flex justify-content-between">
-      <section class="main-section w-100 w-lg-75 mr-3">
-        <img
-          id="animated-submarine"
-          class="mt-5"
-          src="submarine.png"
-          alt="Submarine"
-        />
-        <h1>Coming Soon...</h1>
-        <p>Keep an eye out!</p>
+      <section class="featured-company-wrapper container"> 
+          <h1 class="main-title">Featured Company</h1>
       </section>
-      <aside class="account-controls d-none d-lg-block">
+      <section class="other-company">
+        <h2>Other Company</h2>
+
+      </section>
+      <section class="other-company-two">
+        <h2>Other Company</h2>
+      </section>
+      <aside id = "home-aside" class="account-controls d-none d-lg-block">
         <div class="account-wrapper">
           <div class="avatar-wrapper">
             <img
-              src="./assets/avatar-png-1.png"
+              src="/assets/avatar-png-1.png"
               alt="User Avatar"
               class="img-fluid mt-5"
             />
@@ -116,6 +116,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
 
     <!-- Custom JS -->
-    <script type="module" src="script.js"></script>
+    <script type="module" src="/script.js"></script>
   </body>
 </html>
