@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - The Submarine Project</title>
+    <!-- Bootstrap 4 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- FontAwesome4 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="shortcut icon" href="../submarine.png" type="image/x-icon" />
+  </head>
+  <body>
+    <main id="login-screen">
+      <div class="modal-wrapper row">
+        <div class="col-md-12 col-lg-6 left-screen-gradient">
+          <h2 class="text-center text-white mb-3">
+            Don't have an account yet?
+          </h2>
+          <button class="btn btn-light">Register</button>
+        </div>
+        <div class="col-md-12 col-lg-6 right-screen">
+          <h2>Welcome Back.</h2>
+          <form>
+            <label for="username" class="label mt-3" id="username-label"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              required
+              id="username-input"
+              placeholder="Username"
+            />
+            <label for="password" class="label mt-3" id="password-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              required
+              id="username-input"
+              placeholder="Password"
+            />
+            <button class="btn mt-3" type="submit">Log In</button>
+          </form>
+          <a href="#">Forgot Password?</a>
+        </div>
+      </div>
+    </main>
+    <!-- Firebase dependencies -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-database.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="../script.js"></script>
+  </body>
+</html>
