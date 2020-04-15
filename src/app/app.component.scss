@@ -1,0 +1,19 @@
+@import '../assets/scss_extendables/index';
+
+header {
+  background: linear-gradient(
+    0deg,
+    getColor(lightYellowGradient) 0%,
+    getColor(darkMaroonGradient) 100%
+  );
+  box-shadow: 0 0 5px 0 getColor(box-shadow-color);
+}
+
+footer {
+  box-shadow: 0 0 3px 0 getColor(box-shadow-color);
+  margin-top: 2rem;
+}
+
+main {
+  min-height: 100vh;
+}

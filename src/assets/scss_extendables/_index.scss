@@ -1,0 +1,62 @@
+$colors: (
+  'box-shadow-color': rgba(0, 0, 0, 0.3),
+  'lightYellowGradient': rgba(239, 214, 172, 1),
+  'darkMaroonGradient': rgba(67, 37, 52, 1),
+  'peachColor': rgba(212, 113, 113, 1)
+);
+
+$fontSizes: (
+  'h1': 72px,
+  'h2': 36px,
+  'h3': 24px
+);
+
+@function getColor($colorName) {
+  @return map-get($colors, $colorName);
+}
+
+@function getFontSize($font) {
+  @return map-get($fontSizes, $font);
+}
+
+/* Extendable classes */
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Extendable classes end */
+
+@keyframes oscilate {
+  0% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(-200px) rotate(255deg);
+  }
+
+  50% {
+    transform: translate(-700px) rotate(255deg);
+  }
+
+  75% {
+    transform: translate(-200px) rotate(255deg);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes makeMeDizzy {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

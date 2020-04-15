@@ -1,0 +1,9 @@
+@import '../../../../assets/scss_extendables/index';
+
+p {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 0;
+  background-color: darken(white, 12%);
+  color: black;
+}

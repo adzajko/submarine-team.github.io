@@ -1,0 +1,58 @@
+@import '../../../../assets/scss_extendables/index';
+
+.main-section {
+  overflow: hidden;
+  @extend .flex-column-center;
+
+  #animated-submarine {
+    width: 500px;
+    cursor: pointer;
+    animation: makeMeDizzy linear 5s infinite;
+  }
+
+  @media (max-width: 750px) {
+    #animated-submarine {
+      width: 250px;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-size: getFontSize(h1);
+    color: black;
+  }
+}
+
+aside {
+  margin: 3rem 3rem 0 0;
+  padding: 3rem;
+  padding-top: 0;
+  box-shadow: 0 0 5px 0 getColor(box-shadow-color);
+  width: 25%;
+  height: fit-content;
+  @extend .flex-column-center;
+  .img-fluid {
+    width: 150px;
+    display: block;
+    margin: auto;
+  }
+  .btn-group {
+    .btn {
+      margin: 10px;
+    }
+  }
+  h4.text-center {
+    font-size: 18px;
+  }
+}
+
+.filter-options {
+  box-shadow: 0 0 5px 0 getColor(box-shadow-color);
+  .form-control {
+    width: 200px;
+    margin-right: 10px;
+  }
+  .btn {
+    width: 150px;
+  }
+}

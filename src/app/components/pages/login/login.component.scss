@@ -1,0 +1,82 @@
+@import '../../../../assets/scss_extendables/index';
+
+#login-screen {
+  height: 100vh;
+  @extend .flex-column-center;
+  .modal-wrapper {
+    height: 75%;
+    width: 65%;
+    box-shadow: 0 0 5px 0 getColor(box-shadow-color);
+    .left-screen-gradient {
+      box-shadow: 0 0 3px 0 getColor(box-shadow-color);
+      @extend .flex-column-center;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 185, 151, 1) 0%,
+        rgba(212, 113, 113, 1) 100%
+      );
+
+      .btn {
+        color: getColor(peachColor);
+        font-size: 24px;
+      }
+    }
+    .right-screen {
+      background-color: white;
+      @extend .flex-column-center;
+      form {
+        padding: 2rem;
+        .label,
+        input {
+          display: block;
+        }
+        .label {
+          text-align: center;
+        }
+        input {
+          padding: 10px;
+          border: 0;
+          border-bottom: 1px solid rgba(getColor(peachColor), 0.7);
+        }
+        input:focus {
+          outline: none;
+          outline: 1px solid getColor(peachColor);
+          outline-offset: 2px;
+        }
+        .btn {
+          margin: auto;
+          display: block;
+          background-color: getColor(peachColor);
+          color: white;
+          font-size: 24px;
+          transition: 0.4s;
+        }
+        .btn:hover {
+          transition: 0.4s;
+          box-shadow: 0 0 3px 0 getColor(box-shadow-color);
+          background-color: white;
+          border: 1px solid getColor(peachColor);
+          color: getColor(peachColor);
+        }
+      }
+      a {
+        color: getColor(peachColor);
+      }
+    }
+  }
+}
+
+#login-screen::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 2px;
+  background-color: getColor(peachColor);
+  animation-name: oscilate;
+  animation-duration: 10s;
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
