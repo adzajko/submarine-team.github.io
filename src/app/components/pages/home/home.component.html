@@ -9,6 +9,7 @@
 <section class="d-flex justify-content-between">
   <section class="main-section w-100 w-lg-75 mr-3">
     <img
+      (click)="triggerToast()"
       id="animated-submarine"
       class="mt-5"
       src="/assets/submarine.png"
@@ -31,8 +32,8 @@
         You need to create an account first.
       </h4>
       <div class="btn-group d-flex justify-content-center">
-        <a href="#" class="btn btn-dark">Log In</a>
-        <a href="#" class="btn btn-dark">Sign Up</a>
+        <button class="btn btn-dark">Log In</button>
+        <button class="btn btn-dark">Sign Up</button>
       </div>
     </div>
   </aside>

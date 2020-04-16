@@ -12,9 +12,6 @@ import { MaterialModule } from './modules/material/material.module';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularFireModule } from '@angular/fire/angular-fire';
-import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 
@@ -34,9 +31,6 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
-    AngularFirestoreModule,
     ToastrModule.forRoot()
   ],
   providers: [],
