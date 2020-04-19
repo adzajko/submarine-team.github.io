@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-about',
@@ -7,12 +6,18 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  constructor(private toastr: ToastrService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  triggerToast(event: Event) {
-    this.toastr.success('Success!', event.type);
-    this.toastr.error('LMamo');
+  toggleInfo(id: number) {
+    document.querySelectorAll('.section').forEach(element => {
+      element.classList.remove('h-100');
+    });
+    if (document.getElementById(`p${id}`).classList.contains('h-100')) {
+      document.getElementById(`p${id}`).classList.remove('h-100');
+      return;
+    }
+    document.getElementById(`p${id}`).classList.toggle('h-100');
   }
 }
