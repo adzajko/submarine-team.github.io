@@ -1,4 +1,4 @@
-@import '../../../../assets/scss_extendables/index';
+@import "../../../../assets/scss_extendables/index";
 
 .img-logo {
   width: 75px;
@@ -86,7 +86,7 @@
     transition: 0.45s;
   }
   .overlay-link::before {
-    content: '';
+    content: "";
     width: 0;
     height: 2px;
     position: absolute;
@@ -95,7 +95,7 @@
     background-color: whitesmoke;
   }
   .overlay-link:hover::before {
-    content: '';
+    content: "";
     width: 100%;
     transition: ease 0.5s;
   }
@@ -113,4 +113,9 @@
 
 .v-none {
   margin-left: calc(800%);
+}
+
+#email-login-input,
+#email-login-input {
+  margin-right: 8px;
 }
