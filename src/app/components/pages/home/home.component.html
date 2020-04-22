@@ -32,8 +32,32 @@
         You need to create an account first.
       </h4>
       <div class="btn-group d-flex justify-content-center">
-        <button class="btn btn-dark">Log In</button>
-        <button class="btn btn-dark">Sign Up</button>
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Email"
+              formControlName="email"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              formControlName="password"
+            />
+          </mat-form-field>
+
+          <br />
+          <button mat-raised-button color="accent" id="signup-btn-home">
+            Sign Up
+          </button>
+        </form>
       </div>
     </div>
   </aside>

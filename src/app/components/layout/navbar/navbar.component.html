@@ -12,19 +12,23 @@
         id="sub-to-home"
     /></a>
   </div>
-  <ul class="navbar-nav">
-    <form class="form-inline my-2 my-lg-0">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
-        Search
-      </button>
+  <div id="login-logout-form" class="d-flex">
+    <!--Login Form-->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <mat-form-field id="email-login-input">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email" />
+      </mat-form-field>
+      <mat-form-field id="password-login-input">
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+      <button mat-raised-button color="warn">Log In</button>
     </form>
-  </ul>
+    <!--Login Form-->
+    <button mat-raised-button color="warn" (click)="this.logOut()">
+      Log Out
+    </button>
+  </div>
 </nav>
 <div class="overlay" #overlay>
   <div class="overlay-content">

@@ -1,4 +1,4 @@
-@import '../../../../assets/scss_extendables/index';
+@import "../../../../assets/scss_extendables/index";
 
 .main-section {
   overflow: hidden;
@@ -55,4 +55,9 @@ aside {
   .btn {
     width: 150px;
   }
+}
+
+#signin-btn-home,
+#signup-btn-home {
+  margin-right: 4px;
 }
