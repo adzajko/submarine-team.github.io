@@ -12,8 +12,8 @@
         id="sub-to-home"
     /></a>
   </div>
-  <div id="login-logout-form" class="d-flex">
-    <!--Login Form-->
+  <!-- <div id="login-logout-form" class="d-flex">
+    -Login Form-
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
       <mat-form-field id="email-login-input">
         <mat-label>Email</mat-label>
@@ -24,11 +24,22 @@
       </mat-form-field>
       <button mat-raised-button color="warn">Log In</button>
     </form>
-    <!--Login Form-->
+    Login Form
     <button mat-raised-button color="warn" (click)="this.logOut()">
       Log Out
     </button>
-  </div>
+  </div> -->
+  <form class="form-inline my-2 my-lg-0">
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <button class="btn my-2 my-sm-0" type="submit">
+      Search
+    </button>
+  </form>
 </nav>
 <div class="overlay" #overlay>
   <div class="overlay-content">

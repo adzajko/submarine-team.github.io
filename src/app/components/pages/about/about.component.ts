@@ -6,18 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  public teamMemberText: string;
+  public teamMemberTitle: string;
+  public showInfo = false;
   constructor() {}
 
   ngOnInit(): void {}
 
-  toggleInfo(id: number) {
-    document.querySelectorAll('.section').forEach(element => {
-      element.classList.remove('h-100');
-    });
-    if (document.getElementById(`p${id}`).classList.contains('h-100')) {
-      document.getElementById(`p${id}`).classList.remove('h-100');
-      return;
-    }
-    document.getElementById(`p${id}`).classList.toggle('h-100');
-  }
+  toggleInfo() {}
 }

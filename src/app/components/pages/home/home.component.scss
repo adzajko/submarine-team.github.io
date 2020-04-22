@@ -1,4 +1,4 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .main-section {
   overflow: hidden;
@@ -27,7 +27,7 @@ aside {
   margin: 3rem 3rem 0 0;
   padding: 3rem;
   padding-top: 0;
-  box-shadow: 0 0 5px 0 getColor(box-shadow-color);
+  box-shadow: 0 0 5px 0 #333333;
   width: 25%;
   height: fit-content;
   @extend .flex-column-center;
@@ -47,13 +47,16 @@ aside {
 }
 
 .filter-options {
-  box-shadow: 0 0 5px 0 getColor(box-shadow-color);
+  background: rgb(246, 243, 243);
+  box-shadow: 0 0 3px 0 getColor(box-shadow-color);
   .form-control {
     width: 200px;
     margin-right: 10px;
   }
   .btn {
     width: 150px;
+    background-color: #212121;
+    color: #ffffff;
   }
 }
 

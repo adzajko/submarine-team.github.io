@@ -1,78 +1,91 @@
-<div class="team-section">
-  <h1>About us</h1>
-  <span class="border"></span>
-  <div class="ps">
-    <button type="button" (click)="toggleInfo(1)">
-      <img src="/assets/submarine.png" alt="Submarine Team Member" />
-    </button>
-    <button type="button" (click)="toggleInfo(2)">
-      <img src="/assets/submarine.png" alt="Submarine Team Member" />
-    </button>
-    <button type="button" (click)="toggleInfo(3)">
-      <img src="/assets/submarine.png" alt="Submarine Team Member" />
-    </button>
-    <button type="button" (click)="toggleInfo(4)">
-      <img src="/assets/submarine.png" alt="Submarine Team Member" />
-    </button>
-    <button type="button" (click)="toggleInfo(5)">
-      <img src="/assets/submarine.png" alt="Submarine Team Member" />
-    </button>
-    <button type="button" (click)="toggleInfo(6)">
-      <img src="/assets/submarine.png" alt="Submarine Team Member" />
-    </button>
-  </div>
-  <div class="section" id="p1">
-    <span class="name">dzajko</span>
-    <span class="border"></span>
+<section class="about-page">
+  <section class="intro-section">
+    <h1 class="title page-title">The Submarine Team</h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit illo,
-      pariatur, nemo iusto veritatis asperiores eligendi dolore hic harum
-      aliquid placeat voluptate temporibus est nam alias cumque in unde aliquam.
+      We are a group of students at the SEDC academy. This project is our effort
+      to dive into the secrets companies may keep.
     </p>
-  </div>
-  <div class="section" id="p2">
-    <span class="name">vane</span>
-    <span class="border"></span>
     <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit illo,
-      pariatur, nemo iusto veritatis asperiores eligendi dolore hic harum
-      aliquid placeat voluptate temporibus est nam alias cumque in unde aliquam.
+      There are very few ways of finding out how it's like to actually work at a
+      company. We aim to rectify that problem by providing a platform where
+      users can share their stories, anonymously.
     </p>
-  </div>
-  <div class="section" id="p3">
-    <span class="name">zadnio</span>
-    <span class="border"></span>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit illo,
-      pariatur, nemo iusto veritatis asperiores eligendi dolore hic harum
-      aliquid placeat voluptate temporibus est nam alias cumque in unde aliquam.
-    </p>
-  </div>
-  <div class="section" id="p4">
-    <span class="name">mar4e</span>
-    <span class="border"></span>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit illo,
-      pariatur, nemo iusto veritatis asperiores eligendi dolore hic harum
-      aliquid placeat voluptate temporibus est nam alias cumque in unde aliquam.
-    </p>
-  </div>
-  <div class="section" id="p5">
-    <span class="name">bojan4e</span>
-    <span class="border"></span>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit illo,
-      pariatur, nemo iusto veritatis asperiores eligendi dolore hic harum
-      aliquid placeat voluptate temporibus est nam alias cumque in unde aliquam.
-    </p>
-  </div>
-  <div class="section" id="p6">
-    <span class="name">boomer</span>
-    <span class="border"></span>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit illo,
-      pariatur, nemo iusto veritatis asperiores eligendi dolore hic harum
-      aliquid placeat voluptate temporibus est nam alias cumque in unde aliquam.
-    </p>
-  </div>
-</div>
+    <h2 class="title">The Submarine Project Team Members:</h2>
+  </section>
+
+  <section class="team-section pt-0">
+    <section class="row upper">
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Djajko"
+          class="img-fluid"
+        />
+      </div>
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Vane"
+          class="img-fluid"
+        />
+      </div>
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Babu6o"
+          class="img-fluid"
+        />
+      </div>
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Ivana"
+          class="img-fluid"
+        />
+      </div>
+    </section>
+    <section class="row lower">
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Blagio"
+          class="img-fluid"
+        />
+      </div>
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Jovica"
+          class="img-fluid"
+        />
+      </div>
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Matej"
+          class="img-fluid"
+        />
+      </div>
+      <div class="member-img-container col-sm-6 col-lg-3">
+        <img
+          src="/assets/submarine.png"
+          (click)="toggleInfo()"
+          alt="Damjan"
+          class="img-fluid"
+        />
+      </div>
+    </section>
+  </section>
+
+  <section class="rendered-bio" *ngIf="showInfo">
+    <h1>{{ teamMemberTitle }}</h1>
+    <p>{{ teamMemberText }}</p>
+  </section>
+</section>

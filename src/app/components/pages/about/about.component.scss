@@ -1,75 +1,73 @@
 @import '../../../../assets/scss_extendables/index';
 
-.team-section {
-  overflow: hidden;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 60px;
-  @extend .flex-column-center;
-}
-.team-section h1 {
-  text-transform: uppercase;
-  margin-bottom: 60px;
-  color: white;
-  font-size: 40px;
-  @extend .flex-column-center;
-}
-.border {
-  display: block;
-  margin: auto;
-  width: 160px;
-  height: 3px;
-  background: rgba(67, 37, 52, 1);
-  margin-bottom: 40px;
-  @extend .flex-column-center;
-}
-
-.ps {
-  margin-bottom: 40px;
-  // @extend .flex-column-center;
-
-  button {
-    background-image: url('../../../../assets/submarine.png');
-    display: inline-block;
-    outline: none;
-    margin: 0 30px;
-    width: 160px;
-    height: 160px;
-    overflow: hidden;
-    border-radius: 50%;
-    @extend .flex-column-center;
+.about-page {
+  background: rgb(250, 250, 250);
+  background: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  .intro-section {
+    padding: 3rem;
+    p {
+      text-align: center;
+    }
+    .title {
+      text-align: center;
+      margin: 2rem;
+      margin-bottom: 0;
+    }
+    .title.page-title {
+      margin-bottom: 2rem;
+    }
   }
 }
-.ps button img {
-  outline: none;
-  width: 100%;
-  filter: grayscale(100%);
-  transition: 0.4s all;
-  @extend .flex-column-center;
-}
-.ps button:hover > img {
-  filter: none;
-  @extend .flex-column-center;
-}
+section.team-section {
+  padding: 2rem 5rem;
 
-.section {
-  width: 600px;
-  margin: auto;
-  font-size: 20px;
-  color: white;
-  text-align: justify;
-  height: 0;
-  overflow: hidden;
-}
-.section:target {
-  height: auto;
-  @extend .flex-column-center;
-}
-.name {
-  display: block;
-  margin-bottom: 30px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 22px;
-  @extend .flex-column-center;
+  section.row {
+    margin: 2rem;
+    padding: 2rem;
+    position: relative;
+    .member-img-container {
+      margin: auto;
+      display: flex;
+      .img-fluid {
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 0 3px 0 getColor(boxShadowColor);
+        margin: auto;
+        width: 150px;
+        transition: 0.4s;
+        transform: scale(1);
+      }
+
+      .img-fluid:hover {
+        transition: 0.4s;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .upper::before {
+    content: '';
+    position: absolute;
+    max-width: 750px;
+    width: 100%;
+    height: 1px;
+    top: -10%;
+    left: 21%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .lower::before {
+    content: '';
+    position: absolute;
+    max-width: 750px;
+    width: 100%;
+    height: 1px;
+    bottom: -20%;
+    left: 21%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }

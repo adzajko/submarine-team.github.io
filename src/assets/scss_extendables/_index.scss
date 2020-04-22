@@ -1,8 +1,10 @@
 $colors: (
-  'box-shadow-color': rgba(0, 0, 0, 0.3),
+  'box-shadow-color': rgba(0, 0, 0, 1),
   'lightYellowGradient': rgba(239, 214, 172, 1),
   'darkMaroonGradient': rgba(67, 37, 52, 1),
-  'peachColor': rgba(212, 113, 113, 1)
+  'peachColor': rgba(212, 113, 113, 1),
+  'greyDark': rgba(0, 0, 0, 0.7),
+  'whiteGrey': #fafafa
 );
 
 $fontSizes: (
