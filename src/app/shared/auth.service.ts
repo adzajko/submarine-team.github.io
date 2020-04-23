@@ -26,11 +26,11 @@ export class AuthService {
   // User Management Methods (Sign In / Sign Out / Sign Up)
   async signIn(email: string, password: string) {
     await this.afAuth.signInWithEmailAndPassword(email, password);
-    this.toastr.info('User signed in!');
   }
 
   async signOut() {
     await this.afAuth.signOut();
+    this.router.navigate(['/']);
     this.toastr.info('User signed out!');
   }
 
