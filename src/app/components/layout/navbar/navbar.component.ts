@@ -51,4 +51,15 @@ export class NavbarComponent implements OnInit {
   triggerModal() {
     this.openModal.emit(true);
   }
+
+  checkMyAccount() {
+    this.auth.authStateTrack().then(response => {
+      if (response) {
+        this.toggleOverlay();
+      } else {
+        this.triggerModal();
+        this.toggleOverlay();
+      }
+    });
+  }
 }
