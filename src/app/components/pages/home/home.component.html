@@ -16,7 +16,7 @@
     ></app-review-element>
   </section>
   <aside class="account-controls d-none d-lg-block">
-    <div class="account-wrapper">
+    <div class="account-wrapper" *ngIf="!loggedIn">
       <div class="avatar-wrapper">
         <img
           src="/assets/submarine.png"
@@ -51,7 +51,7 @@
           </mat-form-field>
 
           <br />
-          <button mat-raised-button color="accent" id="signup-btn-home">
+          <button class="btn btn-dark" id="signup-btn-home">
             Sign Up
           </button>
         </form>

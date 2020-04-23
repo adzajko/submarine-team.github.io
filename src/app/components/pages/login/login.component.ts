@@ -72,7 +72,6 @@ export class LoginComponent implements OnInit {
       .catch(error => {
         this.toastrService.error(error.message, 'An error has occurred.');
       });
-    this.toastrService.success('You have created an account!', 'Success!');
     this.closeModal();
   }
 
@@ -91,10 +90,12 @@ export class LoginComponent implements OnInit {
   onLoginFormSubmit() {
     this.auth
       .signIn(this.loginForm.value.email, this.loginForm.value.password)
+      .then(response => {
+        this.toastrService.success('You have been logged in.', 'Success!');
+      })
       .catch(error => {
         this.toastrService.error(error.message, 'An error has occurred.');
       });
-    this.toastrService.success('Logged in!', 'Success!');
     this.closeModal();
   }
 

@@ -5,7 +5,7 @@ import { User } from 'firebase';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   user: User;
@@ -14,7 +14,7 @@ export class AuthService {
     public router: Router,
     private toastr: ToastrService
   ) {
-    this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged(user => {
       if (user) {
         console.log('Logged In!');
       } else {
@@ -41,7 +41,7 @@ export class AuthService {
 
   async authStateTrack() {
     let result: boolean;
-    await this.afAuth.onAuthStateChanged((user) => {
+    await this.afAuth.onAuthStateChanged(user => {
       if (user) {
         result = true;
       } else {
