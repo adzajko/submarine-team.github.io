@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReviewElementComponent } from './components/reviews/review-element/review-element.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     ContactComponent,
     LoginComponent,
+    ReviewElementComponent,
   ],
   imports: [
     BrowserModule,

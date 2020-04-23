@@ -1,0 +1,42 @@
+<div class="review-container d-flex">
+  <div class="card-aside">
+    <div class="img-container">
+      <img
+        src="{{ reviewElement.imagePath }}"
+        alt="{{ reviewElement.companyName }}"
+        class="img-fluid"
+      />
+    </div>
+    <p class="text-center my-2 font-italic">{{ reviewElement.timeStamp }}</p>
+  </div>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <a [routerLink]="['/companies/:id']" class="card-title">{{
+        reviewElement.companyName
+      }}</a>
+      <p class="font-italic mb-0 mt-2 text-white">
+        by: {{ reviewElement.userName }}
+      </p>
+      <div class="stars-container mt-2">
+        <span><i class="fa fa-star mr-1"></i></span>
+        <span><i class="fa fa-star"></i></span>
+      </div>
+    </div>
+    <div class="card-body d-flex justify-content-between">
+      <div class="supporting-flex">
+        <p class="card-text">{{ reviewElement.textExcerpt }}</p>
+        <button class="see-more-btn" mat-raised-button color="primary">
+          More
+        </button>
+      </div>
+      <div class="votes-container">
+        <button type="button" class="btn fa fa-arrow-up" id="upVote"></button>
+        <button
+          type="button"
+          class="btn fa fa-arrow-down"
+          id="downVote"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
