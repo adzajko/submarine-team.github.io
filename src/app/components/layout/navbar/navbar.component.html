@@ -12,23 +12,9 @@
         id="sub-to-home"
     /></a>
   </div>
-  <!-- <div id="login-logout-form" class="d-flex">
-    -Login Form-
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-      <mat-form-field id="email-login-input">
-        <mat-label>Email</mat-label>
-        <input matInput type="text" formControlName="email" />
-      </mat-form-field>
-      <mat-form-field id="password-login-input">
-        <input matInput type="password" formControlName="password" />
-      </mat-form-field>
-      <button mat-raised-button color="warn">Log In</button>
-    </form>
-    Login Form
-    <button mat-raised-button color="warn" (click)="this.logOut()">
-      Log Out
-    </button>
-  </div> -->
+  <button mat-raised-button color="warn" (click)="this.logOut()">
+    Log Out
+  </button>
   <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
 </nav>
 <div class="overlay" #overlay>
@@ -37,7 +23,7 @@
       ><i class="fa fa-home mr-2"></i>Home</a
     >
     <a
-      [routerLink]="['/account']"
+      [routerLink]="['/my-account']"
       class="overlay-link"
       (click)="toggleOverlay()"
       ><i class="fa fa-user mr-2"></i>My Account</a

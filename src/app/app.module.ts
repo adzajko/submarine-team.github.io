@@ -18,6 +18,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReviewElementComponent } from './components/reviews/review-element/review-element.component';
+import { MyAccountComponent } from './components/pages/my-account/my-account.component';
+import { CompaniesComponent } from './components/pages/companies/companies.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ReviewElementComponent } from './components/reviews/review-element/revi
     ContactComponent,
     LoginComponent,
     ReviewElementComponent,
+    MyAccountComponent,
+    CompaniesComponent,
   ],
   imports: [
     BrowserModule,
