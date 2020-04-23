@@ -35,11 +35,11 @@ export class HomeComponent implements OnInit {
         userName: '69420'
       },
       {
-        companyName: 'Telekom',
+        companyName: 'Endava',
         imagePath: '/assets/submarine.png',
         numberOfStars: 2,
-        textExcerpt: 'lorem ipsum ke se farbam rozov',
-        timeStamp: '15 minutes ago',
+        textExcerpt: 'Bojana i pizza, untold love story',
+        timeStamp: '5 minutes ago',
         userName: '69420'
       },
       {

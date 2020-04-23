@@ -1,12 +1,18 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MaterialModule } from '../../../modules/material/material.module';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
   @ViewChild('hamTop', { static: false }) hamTop: ElementRef;
@@ -15,13 +21,15 @@ export class NavbarComponent implements OnInit {
   @ViewChild('overlay', { static: false }) overlay: ElementRef;
   @ViewChild('subLogo', { static: false }) subLogo: ElementRef;
 
+  @Output() openModal = new EventEmitter();
+
   // Login Logic
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private auth: AuthService) {
     this.loginForm = this.formBuilder.group({
       email: '',
-      password: 'password',
+      password: 'password'
     });
   }
 
@@ -42,5 +50,9 @@ export class NavbarComponent implements OnInit {
     this.hamTop.nativeElement.classList.toggle('open');
     this.hamBot.nativeElement.classList.toggle('open');
     this.overlay.nativeElement.classList.toggle('h-100');
+  }
+
+  triggerModal() {
+    this.openModal.emit(true);
   }
 }

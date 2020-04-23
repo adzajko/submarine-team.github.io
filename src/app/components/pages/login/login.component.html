@@ -1,36 +1,44 @@
-<section id="login-screen">
-  <div class="modal-wrapper row">
-    <div class="col-md-12 col-lg-6 left-screen-gradient">
-      <h2 class="text-center text-white mb-3">
-        Don't have an account yet?
-      </h2>
-      <button class="btn btn-light">Register</button>
-    </div>
-    <div class="col-md-12 col-lg-6 right-screen">
-      <h2>Welcome Back.</h2>
-      <form>
-        <label for="username" class="label mt-3" id="username-label"
-          >Username</label
-        >
-        <input
-          type="text"
-          name="username"
-          required
-          id="username-input"
-          placeholder="Username"
-        />
-        <label for="password" class="label mt-3" id="password-label"
-          >Password</label
-        >
+<main class="henlo">
+  <div class="login-register" id="logiRegiContainer" #logiRegi>
+    <div class="form-container register-container">
+      <form action="#">
+        <h1>Register</h1>
+        <input type="text" required placeholder="Username" />
+        <input type="email" required placeholder="Email" />
         <input
           type="password"
           required
-          id="username-input"
+          id="passwordInput"
           placeholder="Password"
         />
-        <button class="btn mt-3" type="submit">Log In</button>
+        <button>Register</button>
       </form>
-      <a href="#">Forgot Password?</a>
+    </div>
+    <div class="form-container login-container">
+      <form action="#">
+        <h1>Log in</h1>
+        <input type="text" required placeholder="Username" />
+        <input type="password" required placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button>Log in</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay-wrapper">
+        <div class="overlay-panel overlay-login">
+          <h1>Welcome Back</h1>
+          <button id="login" (click)="triggerLogin()" class="ghost">
+            Log in
+          </button>
+        </div>
+        <div class="overlay-panel overlay-register">
+          <h1>Don't have an account yet?</h1>
+          <button id="register" (click)="triggerRegister()" class="ghost">
+            Register
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+  <i class="fa fa-times" (click)="closeModal()"></i>
+</main>
