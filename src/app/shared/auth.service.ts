@@ -1,24 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   user: User;
-  constructor(public afAuth: AngularFireAuth, public router: Router) {
-    this.afAuth.authState.subscribe((user) => {
-      if (user) {
-        this.user = user;
-        localStorage.setItem('user', JSON.stringify(this.user));
-      } else {
-        localStorage.setItem('user', null);
-      }
-    });
-
+  constructor(
+    public afAuth: AngularFireAuth,
+    public router: Router,
+    private toastr: ToastrService
+  ) {
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {
         console.log('Logged In!');
@@ -28,34 +23,31 @@ export class AuthService {
     });
   }
 
+  // User Management Methods (Sign In / Sign Out / Sign Up)
   async signIn(email: string, password: string) {
-    const result = await this.afAuth.signInWithEmailAndPassword(
-      email,
-      password
-    );
-    console.log(result);
+    await this.afAuth.signInWithEmailAndPassword(email, password);
+    this.toastr.info('User signed in!');
   }
 
   async signOut() {
     await this.afAuth.signOut();
-    localStorage.removeItem('user');
+    this.toastr.info('User signed out!');
   }
 
   async signUp(email: string, password: string) {
-    const result = await this.afAuth.createUserWithEmailAndPassword(
-      email,
-      password
-    );
-    console.log(result);
+    await this.afAuth.createUserWithEmailAndPassword(email, password);
+    this.toastr.info('User created!');
   }
 
   async authStateTrack() {
+    let result: boolean;
     await this.afAuth.onAuthStateChanged((user) => {
       if (user) {
-        console.log('Logged In!');
+        result = true;
       } else {
-        console.log('Logged Out!');
+        result = false;
       }
     });
+    return result;
   }
 }
