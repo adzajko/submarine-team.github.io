@@ -40,10 +40,6 @@ export class NavbarComponent implements OnInit {
     this.loginForm.reset();
   }
 
-  logOut() {
-    this.auth.signOut();
-  }
-
   toggleOverlay() {
     this.subLogo.nativeElement.classList.toggle('v-none');
     this.navBrand.nativeElement.classList.toggle('brand-fixed');

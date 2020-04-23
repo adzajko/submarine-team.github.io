@@ -1,4 +1,4 @@
-<main class="henlo">
+<main class="henlo" *ngIf="!isLoggedIn">
   <div class="login-register" id="logiRegiContainer" #logiRegi>
     <div class="form-container register-container">
       <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit()">
@@ -67,3 +67,17 @@
   </div>
   <i class="fa fa-times" (click)="closeModal()"></i>
 </main>
+
+<section *ngIf="isLoggedIn">
+  <div class="card">
+    <div class="card-header">
+      <i class="fa fa-times white-icon" (click)="closeModal()"></i>
+    </div>
+    <div class="card-body">
+      <a [routerLink]="['/my-account']" class="btn btn-dark mr-2">My Account</a>
+      <button class="btn btn-danger" (click)="logOut()">
+        Log Out
+      </button>
+    </div>
+  </div>
+</section>

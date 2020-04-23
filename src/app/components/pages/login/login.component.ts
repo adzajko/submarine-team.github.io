@@ -9,6 +9,7 @@ import {
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,15 +21,36 @@ export class LoginComponent implements OnInit {
   @Output() clMod = new EventEmitter();
   loginForm: FormGroup;
   registerForm: FormGroup;
+  isLoggedIn = false;
 
   constructor(
     private auth: AuthService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.auth
+      .authStateTrack()
+      .then(
+        response => {
+          this.isLoggedIn = response;
+        },
+        errRes => {
+          this.toastrService.error(errRes.message, 'Error.');
+        }
+      )
+      .catch(errorRes => {
+        this.toastrService.error(errorRes.message, 'Error.');
+      });
     this.initLoginForm();
     this.initRegisterForm();
+
+    this.router.events.subscribe(eventChange => {
+      if (eventChange instanceof NavigationStart) {
+        this.closeModal();
+      }
+    });
   }
 
   initRegisterForm() {
@@ -82,6 +104,11 @@ export class LoginComponent implements OnInit {
 
   triggerRegister() {
     this.logiRegi.nativeElement.classList.add('panel-active');
+  }
+
+  logOut() {
+    this.auth.signOut();
+    this.clMod.emit(false);
   }
 
   closeModal() {
