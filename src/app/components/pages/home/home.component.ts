@@ -73,8 +73,4 @@ export class HomeComponent implements OnInit {
     this.auth.signUp(authData.email, authData.password);
     this.authForm.reset();
   }
-
-  triggerToast() {
-    this.toastr.info('Submarine Project coming soon!');
-  }
 }

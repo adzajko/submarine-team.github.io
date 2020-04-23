@@ -4,22 +4,21 @@
   overflow: hidden;
   @extend .flex-column-center;
 
-  #animated-submarine {
-    width: 500px;
-    cursor: pointer;
-    animation: makeMeDizzy linear 5s infinite;
-  }
-
-  @media (max-width: 750px) {
-    #animated-submarine {
-      width: 250px;
-    }
-  }
-
   h1 {
     text-align: center;
     font-size: getFontSize(h1);
     color: black;
+    position: relative;
+  }
+
+  h1::before {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
   }
 }
 
