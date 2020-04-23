@@ -122,8 +122,14 @@ form {
   }
 }
 
+.fa.fa-user {
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
 .v-none {
-  margin-left: calc(750%);
+  margin-left: calc(950%);
 }
 
 #email-login-input,

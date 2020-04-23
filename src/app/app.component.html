@@ -1,5 +1,5 @@
 <header>
-  <app-navbar></app-navbar>
+  <app-navbar (openModal)="openModalFunction($event)"></app-navbar>
 </header>
 <main>
   <router-outlet></router-outlet>
@@ -7,3 +7,5 @@
 <footer>
   <app-footer></app-footer>
 </footer>
+
+<app-login (clMod)="closeModal($event)" *ngIf="shouldModalOpen"></app-login>

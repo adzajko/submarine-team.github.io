@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +13,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('logiRegi') logiRegi: ElementRef;
+  @Output() clMod = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  triggerLogin() {
+    this.logiRegi.nativeElement.classList.remove('panel-active');
   }
 
+  triggerRegister() {
+    this.logiRegi.nativeElement.classList.add('panel-active');
+  }
+
+  closeModal() {
+    this.clMod.emit(false);
+  }
 }
