@@ -1,26 +1,51 @@
 <main class="henlo">
   <div class="login-register" id="logiRegiContainer" #logiRegi>
     <div class="form-container register-container">
-      <form action="#">
+      <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit()">
         <h1>Register</h1>
-        <input type="text" required placeholder="Username" />
-        <input type="email" required placeholder="Email" />
         <input
+          type="text"
+          formControlName="registerUserName"
+          required
+          placeholder="Username"
+        />
+        <input
+          type="email"
+          formControlName="registerEmail"
+          required
+          placeholder="Email"
+        />
+        <input
+          formControlName="registerPassword"
           type="password"
           required
           id="passwordInput"
           placeholder="Password"
         />
-        <button>Register</button>
+        <button [disabled]="!registerForm.valid" class="btn btn-dark">
+          Register
+        </button>
       </form>
     </div>
     <div class="form-container login-container">
-      <form action="#">
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginFormSubmit()">
         <h1>Log in</h1>
-        <input type="text" required placeholder="Username" />
-        <input type="password" required placeholder="Password" />
+        <input
+          type="email"
+          formControlName="email"
+          required
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          formControlName="password"
+          required
+          placeholder="Password"
+        />
         <a href="#">Forgot your password?</a>
-        <button>Log in</button>
+        <button class="btn btn-dark" [disabled]="!loginForm.valid">
+          Log in
+        </button>
       </form>
     </div>
     <div class="overlay-container">

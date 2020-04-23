@@ -57,18 +57,8 @@
   font-size: 12px;
 }
 
-.contact-form-btn {
-  border-radius: 5px;
-  border: 1px solid #343a40e0;
-  background: #343a40e0;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 10px 40px;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
+.btn.btn-dark {
+  width: 150px;
 }
 
 .main-contact .contact-address {
@@ -128,4 +118,9 @@
   .content p {
     padding: unset;
   }
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
 }

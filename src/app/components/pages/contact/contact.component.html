@@ -2,17 +2,34 @@
   <div class="main-contact">
     <div class="contact-form">
       <h1>Send Us A Message</h1>
-      <form action="">
-        <input type="text" required placeholder="FULL NAME" />
-        <input type="email" required placeholder="EMAIL ADDRESS" />
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()">
+        <input
+          formControlName="name"
+          type="text"
+          required
+          placeholder="FULL NAME"
+        />
+        <input
+          formControlName="email"
+          type="email"
+          required
+          placeholder="EMAIL ADDRESS"
+        />
         <textarea
           name="message"
           required
           cols="30"
           rows="5"
+          formControlName="message"
           placeholder="MESSAGE"
         ></textarea>
-        <button class="contact-form-btn">Submit</button>
+        <button
+          [disabled]="!contactForm.valid"
+          class="btn btn-dark"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </div>
     <div class="contact-address">
