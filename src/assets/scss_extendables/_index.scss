@@ -30,35 +30,3 @@ $fontSizes: (
 }
 
 /* Extendable classes end */
-
-@keyframes oscilate {
-  0% {
-    transform: translate(0);
-  }
-
-  25% {
-    transform: translate(-200px) rotate(255deg);
-  }
-
-  50% {
-    transform: translate(-700px) rotate(255deg);
-  }
-
-  75% {
-    transform: translate(-200px) rotate(255deg);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes makeMeDizzy {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}

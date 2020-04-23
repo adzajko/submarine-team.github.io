@@ -8,15 +8,11 @@
 </div>
 <section class="d-flex justify-content-between">
   <section class="main-section w-100 w-lg-75 mr-3">
-    <img
-      (click)="triggerToast()"
-      id="animated-submarine"
-      class="mt-5"
-      src="/assets/submarine.png"
-      alt="Submarine"
-    />
-    <h1>Coming Soon...</h1>
-    <p>Keep an eye out!</p>
+    <app-review-element
+      class="my-3"
+      [reviewElement]="review"
+      *ngFor="let review of listOfReviews"
+    ></app-review-element>
   </section>
   <aside class="account-controls d-none d-lg-block">
     <div class="account-wrapper">

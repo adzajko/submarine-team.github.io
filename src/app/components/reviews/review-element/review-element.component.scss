@@ -1,0 +1,56 @@
+@import '../../../../assets/scss_extendables/index';
+
+.review-container {
+  box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+.card-aside {
+  .img-container {
+    .img-fluid {
+      width: 150px;
+      padding: 10px;
+    }
+  }
+  p.text-center.my-2.font-italic {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.card {
+  flex: 1;
+}
+
+.card-header {
+  box-shadow: inset 0 0 10px 0 #00000066;
+  // background-color: #ff5252;
+  background-color: #673ab7;
+  .card-title {
+    font-size: 30px;
+    margin: 0;
+    color: #ffffff;
+    transition: 0.4s;
+  }
+  .card-title:hover {
+    transition: 0.4s;
+    text-decoration: none;
+    color: #ffccbc;
+  }
+
+  .fa.fa-star {
+    font-size: 26px;
+    color: #ffccbc;
+  }
+}
+
+.card-body {
+  button.see-more-btn {
+    width: 100px;
+  }
+
+  .votes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

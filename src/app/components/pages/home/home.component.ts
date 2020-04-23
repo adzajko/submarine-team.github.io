@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { MaterialModule } from '../../../modules/material/material.module';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Review } from '../../reviews/review-element/Review.model';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
+  listOfReviews: Review[] = [];
 
   constructor(
     private toastr: ToastrService,
@@ -19,11 +20,54 @@ export class HomeComponent implements OnInit {
   ) {
     this.authForm = this.formBuilder.group({
       email: '',
-      password: '',
+      password: ''
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.listOfReviews = [
+      {
+        companyName: 'Telekom',
+        imagePath: '/assets/submarine.png',
+        numberOfStars: 2,
+        textExcerpt: 'lorem ipsum ke se farbam rozov',
+        timeStamp: '15 minutes ago',
+        userName: '69420'
+      },
+      {
+        companyName: 'Telekom',
+        imagePath: '/assets/submarine.png',
+        numberOfStars: 2,
+        textExcerpt: 'lorem ipsum ke se farbam rozov',
+        timeStamp: '15 minutes ago',
+        userName: '69420'
+      },
+      {
+        companyName: 'Telekom',
+        imagePath: '/assets/submarine.png',
+        numberOfStars: 2,
+        textExcerpt: 'lorem ipsum ke se farbam rozov',
+        timeStamp: '15 minutes ago',
+        userName: '69420'
+      },
+      {
+        companyName: 'Telekom',
+        imagePath: '/assets/submarine.png',
+        numberOfStars: 2,
+        textExcerpt: 'lorem ipsum ke se farbam rozov',
+        timeStamp: '15 minutes ago',
+        userName: '69420'
+      },
+      {
+        companyName: 'Telekom',
+        imagePath: '/assets/submarine.png',
+        numberOfStars: 2,
+        textExcerpt: 'lorem ipsum ke se farbam rozov',
+        timeStamp: '15 minutes ago',
+        userName: '69420'
+      }
+    ];
+  }
 
   onSubmit(authData) {
     this.auth.signUp(authData.email, authData.password);
