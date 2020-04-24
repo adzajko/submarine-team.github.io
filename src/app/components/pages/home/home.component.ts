@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit, OnChanges {
       {
         companyName: 'Telekom',
         imagePath: '/assets/submarine.png',
-        numberOfStars: 2,
+        CompanyRating: 2,
+        reviewId: '1',
         textExcerpt: 'lorem ipsum ke se farbam rozov',
         timeStamp: '15 minutes ago',
         userName: '69420'
@@ -38,7 +39,8 @@ export class HomeComponent implements OnInit, OnChanges {
       {
         companyName: 'Endava',
         imagePath: '/assets/submarine.png',
-        numberOfStars: 2,
+        CompanyRating: 2,
+        reviewId: '1',
         textExcerpt: 'Bojana i pizza, untold love story',
         timeStamp: '5 minutes ago',
         userName: '69420'
@@ -46,7 +48,8 @@ export class HomeComponent implements OnInit, OnChanges {
       {
         companyName: 'Telekom',
         imagePath: '/assets/submarine.png',
-        numberOfStars: 2,
+        CompanyRating: 2,
+        reviewId: '1',
         textExcerpt: 'lorem ipsum ke se farbam rozov',
         timeStamp: '15 minutes ago',
         userName: '69420'
@@ -54,7 +57,8 @@ export class HomeComponent implements OnInit, OnChanges {
       {
         companyName: 'Telekom',
         imagePath: '/assets/submarine.png',
-        numberOfStars: 2,
+        CompanyRating: 2,
+        reviewId: '1',
         textExcerpt: 'lorem ipsum ke se farbam rozov',
         timeStamp: '15 minutes ago',
         userName: '69420'
@@ -62,7 +66,8 @@ export class HomeComponent implements OnInit, OnChanges {
       {
         companyName: 'Telekom',
         imagePath: '/assets/submarine.png',
-        numberOfStars: 2,
+        CompanyRating: 2,
+        reviewId: '1',
         textExcerpt: 'lorem ipsum ke se farbam rozov',
         timeStamp: '15 minutes ago',
         userName: '69420'

@@ -3,21 +3,21 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject, from } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   user: User;
-  publishEmail: Subject<any>;
+  publishEmail: Subject<any> = new Subject<any>();
 
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
     private toastr: ToastrService
   ) {
-    this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged(user => {
       if (user) {
         console.log('Logged In!');
       } else {
@@ -44,7 +44,7 @@ export class AuthService {
 
   async authStateTrack() {
     let result: boolean;
-    await this.afAuth.onAuthStateChanged((user) => {
+    await this.afAuth.onAuthStateChanged(user => {
       if (user) {
         result = true;
       } else {
@@ -56,9 +56,7 @@ export class AuthService {
 
   // Get the User
 
-  async getUsername() {
-    const response = (await this.afAuth.currentUser).providerData;
-    const email = response.map((profile) => profile.email);
-    this.publishEmail.next(email);
+  getUsername() {
+    return from(this.afAuth.currentUser);
   }
 }
