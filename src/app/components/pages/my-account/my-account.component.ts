@@ -32,6 +32,7 @@ export class MyAccountComponent implements OnInit {
   }
   create() {
     const review = this.inputForm.value;
+    this.inputForm.reset();
     review.timeStamp = new Date();
 
     this.companies.forEach(c => {
@@ -45,11 +46,9 @@ export class MyAccountComponent implements OnInit {
         .postReview(review)
         .then(response => {
           this.toastr.success('Review submitted.', 'Success!');
-          this.inputForm.reset();
         })
         .catch(errorRes => {
           this.toastr.error(errorRes.message, 'An Error occurred.');
-          this.inputForm.reset();
         });
     });
   }

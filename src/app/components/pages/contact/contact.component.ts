@@ -29,7 +29,7 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmitContactForm() {
+    this.contactForm.reset();
     this.toastrService.info('Feature coming soon!');
-    console.log(this.contactForm.value);
   }
 }
