@@ -8,18 +8,27 @@ import { MyAccountComponent } from './components/pages/my-account/my-account.com
 import { AuthGuardGuard } from './shared/auth-guard.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: '', component: HomeComponent, data: { animationState: 'Home' } },
+  {
+    path: 'about',
+    component: AboutComponent,
+    data: { animationState: 'About' }
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: { animationState: 'Contact' }
+  },
   {
     path: 'my-account',
     component: MyAccountComponent,
+    data: { animationState: 'About' },
     canActivate: [AuthGuardGuard]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
