@@ -14,8 +14,11 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
+// <Firebase Imports>
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+// </Firebase Imports>
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReviewElementComponent } from './components/reviews/review-element/review-element.component';
 import { MyAccountComponent } from './components/pages/my-account/my-account.component';
@@ -45,6 +48,7 @@ import { CompaniesComponent } from './components/pages/companies/companies.compo
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

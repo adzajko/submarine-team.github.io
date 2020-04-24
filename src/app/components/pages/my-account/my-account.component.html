@@ -1,1 +1,25 @@
-<p>my-account works!</p>
+<div class="container">
+  <form [formGroup]="inputForm" class="d-flex flex-column">
+    <!-- Company Input -->
+    <mat-form-field class="mt-4">
+      <mat-label>Company</mat-label>
+      <mat-select formControlName="companyName">
+        <mat-option *ngFor="let company of companies" [value]="company.name">
+          {{ company.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- Company Rating -->
+    <mat-form-field class="mt-3">
+      <mat-label>Rating</mat-label>
+      <input matInput type="text" formControlName="companyRating" />
+    </mat-form-field>
+    <!-- Review Text -->
+    <mat-form-field>
+      <mat-label>Write Something...</mat-label>
+      <textarea matInput formControlName="textExcerpt" cols="30" rows="10">
+      </textarea>
+    </mat-form-field>
+    <button mat-raised-button (click)="create()">Submit</button>
+  </form>
+</div>
