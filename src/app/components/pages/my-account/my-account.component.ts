@@ -7,7 +7,7 @@ import { AuthService } from '../../../shared/auth.service';
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
-  styleUrls: ['./my-account.component.scss']
+  styleUrls: ['./my-account.component.scss'],
 })
 export class MyAccountComponent implements OnInit {
   companies = [];
@@ -20,8 +20,8 @@ export class MyAccountComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.companyService.getCompanies().subscribe(data => {
-      data.map(e => {
+    this.companyService.getCompanies().subscribe((data) => {
+      data.map((e) => {
         this.companies.push(e.payload.doc.data());
       });
     });
@@ -32,14 +32,14 @@ export class MyAccountComponent implements OnInit {
     const review = this.inputForm.value;
     review.timeStamp = new Date();
 
-    this.companies.forEach(c => {
+    this.companies.forEach((c) => {
       if (c.name === review.companyName) {
         review.imagePath = c.logo;
       }
     });
-    this.authService.getUsername().subscribe(e => {
-      review.Name = e.email;
-      this.reviewService.postReview(review).then(response => {
+    this.authService.getUsername().subscribe((e) => {
+      review.userName = e.email;
+      this.reviewService.postReview(review).then((response) => {
         console.log(response);
       });
     });
@@ -47,13 +47,13 @@ export class MyAccountComponent implements OnInit {
 
   initInputForm() {
     const companyName = '';
-    const companyRating = '';
+    const rating = '';
     const textExcerpt = '';
 
     this.inputForm = new FormGroup({
       companyName: new FormControl(companyName),
-      companyRating: new FormControl(companyRating, Validators.required),
-      textExcerpt: new FormControl(textExcerpt, Validators.required)
+      rating: new FormControl(rating, Validators.required),
+      textExcerpt: new FormControl(textExcerpt, Validators.required),
     });
   }
 }
