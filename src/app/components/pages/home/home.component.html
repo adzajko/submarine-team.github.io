@@ -28,7 +28,7 @@
       <h4 class="text-center my-3">
         You need to create an account first.
       </h4>
-      <div class="btn-group d-flex justify-content-center">
+      <div class="d-flex justify-content-center">
         <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
           <mat-form-field>
             <mat-label>Email</mat-label>
@@ -51,7 +51,11 @@
           </mat-form-field>
 
           <br />
-          <button class="btn btn-dark" id="signup-btn-home">
+          <button
+            type="submit"
+            class="btn btn-dark mx-auto d-block"
+            id="signup-btn-home"
+          >
             Sign Up
           </button>
         </form>

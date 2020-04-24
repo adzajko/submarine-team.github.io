@@ -20,6 +20,8 @@
       <textarea matInput formControlName="textExcerpt" cols="30" rows="10">
       </textarea>
     </mat-form-field>
-    <button mat-raised-button (click)="create()">Submit</button>
+    <button [disabled]="!inputForm.valid" mat-raised-button (click)="create()">
+      Submit
+    </button>
   </form>
 </div>
