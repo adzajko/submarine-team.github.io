@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,5 +8,6 @@
 html,
 body {
   margin: 0;
-  font-family: 'Monsterrat', sans-serif;
+  font-family: "Monsterrat", sans-serif;
+  height: 100%;
 }
