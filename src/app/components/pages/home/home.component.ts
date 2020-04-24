@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -9,7 +9,7 @@ import { Review } from '../../reviews/review-element/Review.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnChanges {
+export class HomeComponent implements OnInit {
   authForm: FormGroup;
   listOfReviews: Review[] = [];
   loggedIn = false;
@@ -75,10 +75,8 @@ export class HomeComponent implements OnInit, OnChanges {
     ];
   }
 
-  ngOnChanges() {
-    this.auth.authStateTrack().then(res => {
-      this.loggedIn = res;
-    });
+  async checkIfLoggedIn() {
+    this.loggedIn = await this.auth.authStateTrack();
   }
 
   onSubmit(authData) {
