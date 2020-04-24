@@ -20,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCheckboxModule,
     MatMenuModule,
     MatSlideToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule,
   ],
 
   exports: [
@@ -67,7 +69,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatCheckboxModule,
     MatMenuModule,
     MatSlideToggleModule,
-    MatRadioModule
-  ]
+    MatRadioModule,
+    MatSelectModule,
+  ],
 })
 export class MaterialModule {}

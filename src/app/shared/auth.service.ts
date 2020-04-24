@@ -3,12 +3,15 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import { ToastrService } from 'ngx-toastr';
+import { Subject, BehaviorSubject, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user: User;
+  publishEmail: Subject<any> = new Subject<any>();
+
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
@@ -49,5 +52,11 @@ export class AuthService {
       }
     });
     return result;
+  }
+
+  // Get the User
+
+  getUsername() {
+    return from(this.afAuth.currentUser);
   }
 }
