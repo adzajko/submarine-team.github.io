@@ -6,6 +6,7 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { MyAccountComponent } from './components/pages/my-account/my-account.component';
 
 import { AuthGuardGuard } from './shared/auth-guard.guard';
+import { CompaniesComponent } from './components/pages/companies/companies.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animationState: 'Home' } },
@@ -24,6 +25,11 @@ const routes: Routes = [
     component: MyAccountComponent,
     data: { animationState: 'About' },
     canActivate: [AuthGuardGuard]
+  },
+  {
+    path: 'companies',
+    component: CompaniesComponent,
+    data: { animationState: 'Contact' }
   }
 ];
 
