@@ -23,6 +23,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReviewElementComponent } from './components/reviews/review-element/review-element.component';
 import { MyAccountComponent } from './components/pages/my-account/my-account.component';
 import { CompaniesComponent } from './components/pages/companies/companies.component';
+import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,6 +44,7 @@ import { CompaniesComponent } from './components/pages/companies/companies.compo
     ReviewElementComponent,
     MyAccountComponent,
     CompaniesComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +58,13 @@ import { CompaniesComponent } from './components/pages/companies/companies.compo
     FormsModule,
     ReactiveFormsModule,
     AngularFireDatabaseModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

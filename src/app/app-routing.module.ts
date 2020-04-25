@@ -4,6 +4,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { MyAccountComponent } from './components/pages/my-account/my-account.component';
+import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
 
 import { AuthGuardGuard } from './shared/auth-guard.guard';
 
@@ -12,23 +13,29 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
-    data: { animationState: 'About' }
+    data: { animationState: 'About' },
   },
   {
     path: 'contact',
     component: ContactComponent,
-    data: { animationState: 'Contact' }
+    data: { animationState: 'Contact' },
   },
   {
     path: 'my-account',
     component: MyAccountComponent,
     data: { animationState: 'About' },
-    canActivate: [AuthGuardGuard]
-  }
+    canActivate: [AuthGuardGuard],
+  },
+  {
+    path: 'admin-panel',
+    component: AdminPanelComponent,
+    data: { animationState: 'About' },
+    canActivate: [AuthGuardGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

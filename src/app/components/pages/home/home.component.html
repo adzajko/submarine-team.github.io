@@ -6,9 +6,8 @@
   </select>
   <button class="btn filter-btn">Filter</button>
 </div>
-<section class="d-flex justify-content-between">
+<section class="d-flex justify-content-between dark-bg">
   <section class="main-section w-100 w-lg-75 mr-3">
-    <h1 class="py-5">Latest Reviews</h1>
     <app-review-element
       class="my-3"
       [reviewElement]="review"
@@ -32,26 +31,16 @@
         <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input
-              type="text"
-              matInput
-              placeholder="Email"
-              formControlName="email"
-            />
+            <input type="text" matInput formControlName="email" />
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input
-              type="password"
-              matInput
-              placeholder="Password"
-              formControlName="password"
-            />
+            <input type="password" matInput formControlName="password" />
           </mat-form-field>
 
           <br />
-          <button class="btn btn-dark" id="signup-btn-home">
+          <button mat-raised-button color="accent" id="signup-btn-home">
             Sign Up
           </button>
         </form>

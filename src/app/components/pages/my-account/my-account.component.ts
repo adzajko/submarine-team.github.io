@@ -12,6 +12,7 @@ import { AuthService } from '../../../shared/auth.service';
 export class MyAccountComponent implements OnInit {
   companies = [];
   inputForm: FormGroup;
+  accountChangesForm: FormGroup;
 
   constructor(
     private reviewService: ReviewService,
@@ -26,7 +27,7 @@ export class MyAccountComponent implements OnInit {
       });
     });
 
-    this.initInputForm();
+    this.initForms();
   }
   create() {
     const review = this.inputForm.value;
@@ -45,7 +46,7 @@ export class MyAccountComponent implements OnInit {
     });
   }
 
-  initInputForm() {
+  initForms() {
     const companyName = '';
     const rating = '';
     const textExcerpt = '';
@@ -54,6 +55,16 @@ export class MyAccountComponent implements OnInit {
       companyName: new FormControl(companyName),
       rating: new FormControl(rating, Validators.required),
       textExcerpt: new FormControl(textExcerpt, Validators.required),
+    });
+    const linkedInAccount = '';
+    const changeEmailInput = '';
+    const oldPassword = '';
+    const newPassword = '';
+    this.accountChangesForm = new FormGroup({
+      linkedInAccount: new FormControl(linkedInAccount),
+      changeEmailInput: new FormControl(changeEmailInput, Validators.email),
+      oldPassword: new FormControl(oldPassword),
+      newPassword: new FormControl(newPassword),
     });
   }
 }
