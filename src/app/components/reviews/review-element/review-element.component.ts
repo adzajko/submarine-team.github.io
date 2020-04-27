@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Review } from './Review.model';
-import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -23,8 +22,8 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
       .filled.bad {
         color: #ff1e1e;
       }
-    `,
-  ],
+    `
+  ]
 })
 export class ReviewElementComponent implements OnInit {
   @Input() reviewElement: Review;

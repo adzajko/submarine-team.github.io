@@ -1,4 +1,4 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .login-register h1 {
   margin: 0;
@@ -301,6 +301,11 @@
 .card-header {
   display: flex;
   justify-content: flex-end;
+  .acc-header {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+  }
   .fa.fa-times.white-icon {
     position: static;
   }

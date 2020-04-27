@@ -1,4 +1,4 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .review-container {
   box-shadow: 5px 3px 3px 0 rgba(0, 0, 0, 0.4);
@@ -35,18 +35,8 @@
   .card-title {
     font-size: 30px;
     margin: 0;
-    color: #ffffff;
-    transition: 0.4s;
-  }
-  .card-title:hover {
-    transition: 0.4s;
     text-decoration: none;
-    color: #ebf875;
-  }
-
-  .fa.fa-star {
-    font-size: 26px;
-    color: #ebf875;
+    @extend .animatedBefore;
   }
 }
 
