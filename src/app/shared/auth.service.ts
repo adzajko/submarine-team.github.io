@@ -63,8 +63,6 @@ export class AuthService {
           result = { logged: true, verified: true };
         } else {
           result = { logged: true, verified: false };
-          console.log('SHTO TI E FUNNY BUNNY?>!?!?');
-          this.sendConfirmationEmail();
         }
       } else {
         result = { logged: false, verified: false };
