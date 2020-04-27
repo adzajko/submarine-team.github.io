@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subject, BehaviorSubject, from } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   user: User;
@@ -17,7 +17,7 @@ export class AuthService {
     public router: Router,
     private toastr: ToastrService
   ) {
-    this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged(user => {
       if (user) {
         console.log('Logged In!');
       } else {
@@ -57,14 +57,12 @@ export class AuthService {
 
   async authStateTrack() {
     let result: any;
-    await this.afAuth.onAuthStateChanged((user) => {
+    await this.afAuth.onAuthStateChanged(user => {
       if (user) {
         if (user.emailVerified) {
           result = { logged: true, verified: true };
         } else {
           result = { logged: true, verified: false };
-          console.log('SHTO TI E FUNNY BUNNY?>!?!?');
-          this.sendConfirmationEmail();
         }
       } else {
         result = { logged: false, verified: false };
