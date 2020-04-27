@@ -33,6 +33,7 @@
       <input matInput formControlName="linkedInAccount" />
     </mat-form-field>
     <button mat-raised-button color="accent">Connect!</button>
+    <hr />
 
     <!--Change Email-->
     <mat-form-field class="mt-3">
@@ -40,9 +41,9 @@
       <input matInput formControlName="changeEmailInput" />
     </mat-form-field>
     <button mat-raised-button color="accent">Change Email</button>
+    <hr />
 
     <!--Change Password-->
-
     <mat-form-field class="mt-3">
       <mat-label>Old Password</mat-label>
       <input matInput formControlName="oldPassword" />
@@ -52,10 +53,26 @@
       <mat-label>New Password</mat-label>
       <input matInput formControlName="newPassword" />
     </mat-form-field>
-
     <button mat-raised-button color="accent">Change Password</button>
-
-    <!--Forgot Password-->
+    <hr />
+    <!-- Notifications control -->
+    <!-- company notifications -->
+    <mat-form-field>
+      <mat-label>Companies</mat-label>
+      <mat-select formControlName="multipleCompanies" multiple>
+        <mat-option *ngFor="let company of companies" [value]="company.name">{{
+          company.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox formControlName="myCompanyNotifications"
+      >Notify me when a company is reviewed</mat-checkbox
+    >
+    <mat-checkbox formControlName="companyAddedNotification"
+      >Notify me when a company is added</mat-checkbox
+    >
+    <hr />
+    <!--Forgot Password -->
     <button class="mt-4" mat-raised-button color="warn">
       Forgot Password!
     </button>

@@ -4,12 +4,6 @@
       <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit()">
         <h1>Register</h1>
         <input
-          type="text"
-          formControlName="registerUserName"
-          required
-          placeholder="Username"
-        />
-        <input
           type="email"
           formControlName="registerEmail"
           required

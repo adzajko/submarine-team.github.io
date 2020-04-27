@@ -27,9 +27,9 @@ const routes: Routes = [
     canActivate: [AuthGuardGuard],
   },
   {
-    path: 'admin-panel',
+    path: 'admin',
     component: AdminPanelComponent,
-    data: { animationState: 'About' },
+    data: { animationState: 'Contact' },
     canActivate: [AuthGuardGuard],
   },
 ];

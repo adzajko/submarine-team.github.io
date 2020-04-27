@@ -47,6 +47,7 @@ export class MyAccountComponent implements OnInit {
   }
 
   initForms() {
+    // Review Input Form
     const companyName = '';
     const rating = '';
     const textExcerpt = '';
@@ -56,15 +57,25 @@ export class MyAccountComponent implements OnInit {
       rating: new FormControl(rating, Validators.required),
       textExcerpt: new FormControl(textExcerpt, Validators.required),
     });
+
+    // Account Changes Form
+
     const linkedInAccount = '';
     const changeEmailInput = '';
     const oldPassword = '';
     const newPassword = '';
+    const companyAddedNotification = '';
+    const myCompanyNotifications = '';
+    const multipleCompanies = '';
+
     this.accountChangesForm = new FormGroup({
       linkedInAccount: new FormControl(linkedInAccount),
       changeEmailInput: new FormControl(changeEmailInput, Validators.email),
       oldPassword: new FormControl(oldPassword),
       newPassword: new FormControl(newPassword),
+      companyAddedNotification: new FormControl(companyAddedNotification),
+      myCompanyNotifications: new FormControl(myCompanyNotifications),
+      multipleCompanies: new FormControl(multipleCompanies),
     });
   }
 }
