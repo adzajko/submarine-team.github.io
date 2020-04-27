@@ -43,33 +43,35 @@ export class AuthService {
     this.toastr.info('User created!');
   }
 
-  async authStateTrack() {
-    let result: any;
-    await this.afAuth.onAuthStateChanged((user) => {
-      if (user) {
-        result = true;
-      } else {
-        result = false;
-      }
-    });
-    return result;
-  }
-
   // async authStateTrack() {
   //   let result: any;
   //   await this.afAuth.onAuthStateChanged((user) => {
   //     if (user) {
-  //       if (user.emailVerified) {
-  //         result = { logged: true, verified: true };
-  //       } else {
-  //         result = { logged: true, verified: false };
-  //       }
+  //       result = true;
   //     } else {
-  //       result = { logged: false, verified: false };
+  //       result = false;
   //     }
   //   });
   //   return result;
   // }
+
+  async authStateTrack() {
+    let result: any;
+    await this.afAuth.onAuthStateChanged((user) => {
+      if (user) {
+        if (user.emailVerified) {
+          result = { logged: true, verified: true };
+        } else {
+          result = { logged: true, verified: false };
+          console.log('SHTO TI E FUNNY BUNNY?>!?!?');
+          this.sendConfirmationEmail();
+        }
+      } else {
+        result = { logged: false, verified: false };
+      }
+    });
+    return result;
+  }
 
   async sendConfirmationEmail() {
     (await this.afAuth.currentUser).sendEmailVerification();

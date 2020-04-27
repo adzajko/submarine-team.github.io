@@ -1,16 +1,16 @@
-<mat-toolbar class="navbar d-flex" color="primary">
+<mat-toolbar class="navbar d-flex" color="warn">
   <div #navBrand class="navbar-brand" (click)="toggleOverlay()">
     <span #hamTop class="hamburger-line top"></span>
     <span #hamBot class="hamburger-line bottom"></span>
   </div>
   <div class="img-logo d-none d-lg-block">
     <a [routerLink]="['/']" id="img-logo-container" #subLogo>
-      <!-- <img
+      <img
         src="/assets/submarine.png"
         alt="submarine-logo"
         class="img-fluid"
         id="sub-to-home"
-      /> -->
+      />
     </a>
   </div>
   <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>

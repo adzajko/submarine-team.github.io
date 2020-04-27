@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit {
 
   checkMyAccount() {
     this.auth.authStateTrack().then((response) => {
-      if (response) {
+      if (response.logged) {
         this.toggleOverlay();
       } else {
         this.triggerModal();

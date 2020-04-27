@@ -7,7 +7,7 @@
 }
 
 .card-aside {
-  background-color: whitesmoke;
+  background-color: #dfe6e9;
   .img-container {
     .img-fluid {
       width: 150px;
@@ -54,7 +54,8 @@
   button.see-more-btn {
     width: 100px;
   }
-
+  background: linear-gradient(163deg, #444a50 0%, #2c3e50 80%);
+  color: whitesmoke;
   .votes-container {
     display: flex;
     flex-direction: column;
