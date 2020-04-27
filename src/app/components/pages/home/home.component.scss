@@ -64,9 +64,18 @@
   }
 }
 
+.top-reviewed-companies {
+  h3 {
+    width: fit-content;
+    margin: auto;
+  }
+}
+
 .reviewed-companies-container {
+  justify-content: space-between;
   .card {
     border: none;
+    width: 100%;
     box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.4);
     .card-header {
       background-color: #2c3e50;
