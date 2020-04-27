@@ -35,6 +35,7 @@ export class ContactComponent implements OnInit {
   onSubmitContactForm() {
     this.toastrService.success('Thank You!');
     const newComment = this.contactForm.value;
+    this.contactForm.reset();
     this.post(newComment);
   }
 

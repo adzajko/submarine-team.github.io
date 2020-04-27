@@ -3,11 +3,12 @@ import { ReviewService } from '../../../shared/review.service';
 import { CompanyService } from 'src/app/shared/company.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
-  styleUrls: ['./my-account.component.scss'],
+  styleUrls: ['./my-account.component.scss']
 })
 export class MyAccountComponent implements OnInit {
   companies = [];
@@ -17,12 +18,13 @@ export class MyAccountComponent implements OnInit {
   constructor(
     private reviewService: ReviewService,
     private companyService: CompanyService,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
-    this.companyService.getCompanies().subscribe((data) => {
-      data.map((e) => {
+    this.companyService.getCompanies().subscribe(data => {
+      data.map(e => {
         this.companies.push(e.payload.doc.data());
       });
     });
@@ -31,18 +33,24 @@ export class MyAccountComponent implements OnInit {
   }
   create() {
     const review = this.inputForm.value;
+    this.inputForm.reset();
     review.timeStamp = new Date();
 
-    this.companies.forEach((c) => {
+    this.companies.forEach(c => {
       if (c.name === review.companyName) {
         review.imagePath = c.logo;
       }
     });
-    this.authService.getUsername().subscribe((e) => {
+    this.authService.getUsername().subscribe(e => {
       review.userName = e.email;
-      this.reviewService.postReview(review).then((response) => {
-        console.log(response);
-      });
+      this.reviewService
+        .postReview(review)
+        .then(response => {
+          this.toastr.success('Review submitted.', 'Success!');
+        })
+        .catch(errorRes => {
+          this.toastr.error(errorRes.message, 'An Error occurred.');
+        });
     });
   }
 
@@ -55,7 +63,7 @@ export class MyAccountComponent implements OnInit {
     this.inputForm = new FormGroup({
       companyName: new FormControl(companyName),
       rating: new FormControl(rating, Validators.required),
-      textExcerpt: new FormControl(textExcerpt, Validators.required),
+      textExcerpt: new FormControl(textExcerpt, Validators.required)
     });
 
     // Account Changes Form

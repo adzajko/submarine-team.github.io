@@ -26,6 +26,12 @@
       (click)="checkMyAccount()"
       ><i class="fa fa-user mr-2"></i>My Account</a
     >
+    <a
+      [routerLink]="['/companies']"
+      class="overlay-link"
+      (click)="toggleOverlay()"
+      ><i class="fa fa-building-o mr-2"></i>Companies</a
+    >
     <a [routerLink]="['/about']" class="overlay-link" (click)="toggleOverlay()"
       ><i class="fa fa-question mr-2"></i>About</a
     >

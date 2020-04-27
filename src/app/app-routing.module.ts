@@ -7,6 +7,7 @@ import { MyAccountComponent } from './components/pages/my-account/my-account.com
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
 
 import { AuthGuardGuard } from './shared/auth-guard.guard';
+import { CompaniesComponent } from './components/pages/companies/companies.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animationState: 'Home' } },
@@ -31,6 +32,11 @@ const routes: Routes = [
     component: AdminPanelComponent,
     data: { animationState: 'Contact' },
     canActivate: [AuthGuardGuard],
+  },
+  {
+    path: 'companies',
+    component: CompaniesComponent,
+    data: { animationState: 'Contact' },
   },
 ];
 
