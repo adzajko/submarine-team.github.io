@@ -1,4 +1,4 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .img-logo {
   width: 75px;
@@ -6,7 +6,9 @@
 // mat-toolbar {
 //   box-shadow: outline 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
 // }
-
+mat-toolbar {
+  height: fit-content;
+}
 .navbar-brand {
   position: relative;
   height: 50px;
@@ -97,7 +99,7 @@ form {
     transition: 0.45s;
   }
   .overlay-link::before {
-    content: "";
+    content: '';
     width: 0;
     height: 2px;
     position: absolute;
@@ -106,7 +108,7 @@ form {
     background-color: whitesmoke;
   }
   .overlay-link:hover::before {
-    content: "";
+    content: '';
     width: 100%;
     transition: ease 0.5s;
   }

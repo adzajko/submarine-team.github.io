@@ -1,4 +1,4 @@
-<div class="filter-options py-3 d-flex justify-content-center w-100">
+<div class="filter-options py-3 d-flex justify-content-center w-100 bg-light">
   <select class="form-control bg-light" name="options" id="filter-options">
     <option value="City">City</option>
     <option value="Country">Country</option>
@@ -7,142 +7,148 @@
   <button class="btn filter-btn">Filter</button>
 </div>
 <section class="d-flex justify-content-between dark-bg">
-  <section class="main-section w-100 w-lg-75 mr-3">
-    <section class="main-section w-100 w-lg-75 mr-3">
-      <h1 class="featured-companies-h">Top Company</h1>
-
-      <div class="grid-container">
-        <div class="hero-company">
-          <div class="company-header">
-            <h2>Hero Company</h2>
+  <section class="main-section w-100 mr-3">
+    <section class=" hero-companies my-5">
+      <h1 class="featured-companies-h">Featured Company</h1>
+      <div class="card dark-bg">
+        <div class="card-header">
+          <a [routerLink]="['/']">Hero Company</a>
+        </div>
+        <div class="card-body d-flex">
+          <div class="card-aside">
+            <div class="img-fluid">
+              <img src="/assets/submarine.png" alt="Hero Company Title" />
+            </div>
           </div>
-          <div class="company-body">
-            <div class="img-container">
-              <img
-                src="/assets/submarine.png"
-                alt="featured company"
-                class="img-fluid"
-              />
+          <div class="company-info">
+            <div class="icon-toolbar d-flex py-2 mb-3">
+              <div class="company-info-item">
+                <h6 class="company-info">
+                  <i class="fa fa-industry mr-2" aria-hidden="true"></i
+                  >Technology
+                </h6>
+              </div>
+              <div class="company-info-item">
+                <h6 class="company-info">
+                  <i class="fa fa-map-marker mr-2" aria-hidden="true"></i>Vidoe
+                  Smilevski Bato 95
+                </h6>
+              </div>
+              <div class="company-info-item">
+                <h6 class="company-info">
+                  <i class="fa fa-phone-square mr-2" aria-hidden="true"></i>+389
+                  77 500 000
+                </h6>
+              </div>
             </div>
-            <div class="company-info-container">
-              <div class="company-info-item">
-                <i class="fa fa-industry" aria-hidden="true"></i>
-                <h4 class="company-info">Technology</h4>
-              </div>
-              <div class="company-info-item">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <h4 class="company-info">Vidoe Smilevski Bato 95</h4>
-              </div>
-              <div class="company-info-item">
-                <i class="fa fa-phone-square" aria-hidden="true"></i>
-                <h4 class="company-info">+389 77 500 000</h4>
-              </div>
-            </div>
-            <h2>About the company:</h2>
-            <p class="company-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo
-              est aut voluptatum enim cupiditate atque dolor recusandae, quas
-              doloremque nostrum aperiam ipsam. Velit fuga explicabo similique
-              rem quo tempore? Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Saepe qui con. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Aliquam quo incidunt et facilis
-              error eveniet odit est. Similique, explicabo necessitatibus. Nemo
-              praesentium quasi cupiditate repellat, error nam incidunt nostrum
-              veritatis.
+            <p class="card-text text-white mt-2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Distinctio possimus error odit adipisci, commodi modi.
             </p>
+            <a
+              href="#"
+              mat-raised-button
+              color="primary"
+              class="d-block mx-auto mt-5 w-50 td-none"
+              >See More</a
+            >
           </div>
         </div>
-        <!--      Featured Company              -->
-        <h2 class="featured-companies-h">Featured Companies</h2>
-        <div class="d-flex justify-content-between">
-          <div class="featured-company">
-            <div class="company-header">
-              <h3>Featured Company</h3>
+      </div>
+      <div class="top-reviewed-companies mt-6">
+        <h3 class="text-center text-white my-5 underlineBefore p-2">
+          Top Reviewed Companies
+        </h3>
+        <div
+          class="reviewed-companies-container d-flex justify-content-between"
+        >
+          <div class="card mr-3 dark-bg">
+            <div class="card-header">
+              <a>Company name</a>
             </div>
-            <div class="company-body">
-              <div class="img-container">
-                <img
-                  src="/assets/submarine.png"
-                  alt="featured company"
-                  class="img-fluid"
-                />
+            <div class="card-body">
+              <div class="card-aside">
+                <div class="img-fluid">
+                  <img src="/assets/submarine.png" alt="BestReviewedCompany" />
+                </div>
               </div>
-              <div class="featured-company-info-container">
-                <div class="featured-company-info-item">
-                  <i class="fa fa-industry" aria-hidden="true"></i>
-                  <h4 class="company-info">Technology</h4>
+              <div class="reviewed-body">
+                <div class="icon-bundle">
+                  <h6><i class="fa fa-map-marker mr-2"></i>Location</h6>
+                  <h6 class="ml-2">
+                    <i class="fa fa-star mr-2"></i>Average: 5
+                  </h6>
                 </div>
-                <div class="featured-company-info-item">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  <h4 class="company-info">Vidoe Smilevski Bato 95</h4>
-                </div>
-                <div class="featured-company-info-item">
-                  <i class="fa fa-phone-square" aria-hidden="true"></i>
-                  <h4 class="company-info">+389 77 500 000</h4>
-                </div>
+                <a
+                  href="#"
+                  mat-raised-button
+                  color="primary"
+                  class="d-block mx-auto mt-5 td-none"
+                  >See More</a
+                >
               </div>
             </div>
           </div>
-          <div class="featured-company">
-            <div class="company-header">
-              <h3>Featured Company</h3>
+          <div class="card mr-3 dark-bg">
+            <div class="card-header">
+              <a>Company name</a>
             </div>
-            <div class="company-body">
-              <div class="img-container">
-                <img
-                  src="/assets/submarine.png"
-                  alt="featured company"
-                  class="img-fluid"
-                />
+            <div class="card-body">
+              <div class="card-aside">
+                <div class="img-fluid">
+                  <img src="/assets/submarine.png" alt="BestReviewedCompany" />
+                </div>
               </div>
-            </div>
-            <div class="featured-company-info-container">
-              <div class="featured-company-info-item">
-                <i class="fa fa-industry" aria-hidden="true"></i>
-                <h4 class="company-info">Technology</h4>
-              </div>
-              <div class="featured-company-info-item">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <h4 class="company-info">Vidoe Smilevski Bato 95</h4>
-              </div>
-              <div class="featured-company-info-item">
-                <i class="fa fa-phone-square" aria-hidden="true"></i>
-                <h4 class="company-info">+389 77 500 000</h4>
+              <div class="reviewed-body">
+                <div class="icon-bundle">
+                  <h6><i class="fa fa-map-marker mr-2"></i>Location</h6>
+                  <h6 class="ml-2">
+                    <i class="fa fa-star mr-2"></i>Average: 5
+                  </h6>
+                </div>
+                <a
+                  href="#"
+                  mat-raised-button
+                  color="primary"
+                  class="d-block mx-auto mt-5 td-none"
+                  >See More</a
+                >
               </div>
             </div>
           </div>
-          <div class="featured-company">
-            <div class="company-header">
-              <h3>Featured Company</h3>
+          <div class="card mr-3 dark-bg">
+            <div class="card-header">
+              <a>Company name</a>
             </div>
-            <div class="company-body">
-              <div class="img-container">
-                <img
-                  src="/assets/submarine.png"
-                  alt="featured company"
-                  class="img-fluid"
-                />
+            <div class="card-body">
+              <div class="card-aside">
+                <div class="img-fluid">
+                  <img src="/assets/submarine.png" alt="BestReviewedCompany" />
+                </div>
               </div>
-            </div>
-            <div class="featured-company-info-container">
-              <div class="featured-company-info-item">
-                <i class="fa fa-industry" aria-hidden="true"></i>
-                <h4 class="company-info">Technology</h4>
-              </div>
-              <div class="featured-company-info-item">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <h4 class="company-info">Vidoe Smilevski Bato 95</h4>
-              </div>
-              <div class="featured-company-info-item">
-                <i class="fa fa-phone-square" aria-hidden="true"></i>
-                <h4 class="company-info">+389 77 500 000</h4>
+              <div class="reviewed-body">
+                <div class="icon-bundle">
+                  <h6><i class="fa fa-map-marker mr-2"></i>Location</h6>
+                  <h6 class="ml-2">
+                    <i class="fa fa-star mr-2"></i>Average: 5
+                  </h6>
+                </div>
+                <a
+                  href="#"
+                  mat-raised-button
+                  color="primary"
+                  class="d-block mx-auto mt-5 td-none"
+                  >See More</a
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
+    <h3 class="text-center text-white mt-6 mb-3 underlineBefore p-2">
+      Reviews
+    </h3>
     <app-review-element
       class="my-3"
       [reviewElement]="review"
