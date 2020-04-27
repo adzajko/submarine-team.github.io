@@ -6,7 +6,7 @@
   </select>
   <button class="btn filter-btn">Filter</button>
 </div>
-<section class="d-flex justify-content-between">
+<section class="d-flex justify-content-between dark-bg">
   <section class="main-section w-100 w-lg-75 mr-3">
     <section class="main-section w-100 w-lg-75 mr-3">
       <h1 class="featured-companies-h">Top Company</h1>
@@ -55,7 +55,7 @@
         <!--      Featured Company              -->
         <h2 class="featured-companies-h">Featured Companies</h2>
         <div class="d-flex justify-content-between">
-          <div class="featured-company ">
+          <div class="featured-company">
             <div class="company-header">
               <h3>Featured Company</h3>
             </div>
@@ -83,7 +83,7 @@
               </div>
             </div>
           </div>
-          <div class="featured-company ">
+          <div class="featured-company">
             <div class="company-header">
               <h3>Featured Company</h3>
             </div>
@@ -111,7 +111,7 @@
               </div>
             </div>
           </div>
-          <div class="featured-company ">
+          <div class="featured-company">
             <div class="company-header">
               <h3>Featured Company</h3>
             </div>
@@ -167,22 +167,12 @@
         <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input
-              type="text"
-              matInput
-              placeholder="Email"
-              formControlName="email"
-            />
+            <input type="text" matInput formControlName="email" />
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input
-              type="password"
-              matInput
-              placeholder="Password"
-              formControlName="password"
-            />
+            <input type="password" matInput formControlName="password" />
           </mat-form-field>
 
           <br />

@@ -1,7 +1,7 @@
 export interface Review {
   reviewId: string;
   companyName: string;
-  CompanyRating: number;
+  rating: number;
   textExcerpt: string;
   userName: string;
   imagePath: string;

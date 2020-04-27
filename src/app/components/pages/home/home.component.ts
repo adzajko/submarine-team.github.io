@@ -3,76 +3,40 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Review } from '../../reviews/review-element/Review.model';
+import { ReviewService } from '../../../shared/review.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
-  listOfReviews: Review[] = [];
+  listOfReviews: any[];
   loggedIn = false;
+  reviewList: any;
 
   constructor(
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    private reviewService: ReviewService
   ) {
     this.authForm = this.formBuilder.group({
       email: '',
-      password: ''
+      password: '',
     });
   }
 
   ngOnInit(): void {
-    this.listOfReviews = [
-      {
-        companyName: 'Telekom',
-        imagePath: '/assets/submarine.png',
-        CompanyRating: 2,
-        reviewId: '1',
-        textExcerpt: 'lorem ipsum ke se farbam rozov',
-        timeStamp: '15 minutes ago',
-        userName: '69420'
-      },
-      {
-        companyName: 'Endava',
-        imagePath: '/assets/submarine.png',
-        CompanyRating: 2,
-        reviewId: '1',
-        textExcerpt: 'Bojana i pizza, untold love story',
-        timeStamp: '5 minutes ago',
-        userName: '69420'
-      },
-      {
-        companyName: 'Telekom',
-        imagePath: '/assets/submarine.png',
-        CompanyRating: 2,
-        reviewId: '1',
-        textExcerpt: 'lorem ipsum ke se farbam rozov',
-        timeStamp: '15 minutes ago',
-        userName: '69420'
-      },
-      {
-        companyName: 'Telekom',
-        imagePath: '/assets/submarine.png',
-        CompanyRating: 2,
-        reviewId: '1',
-        textExcerpt: 'lorem ipsum ke se farbam rozov',
-        timeStamp: '15 minutes ago',
-        userName: '69420'
-      },
-      {
-        companyName: 'Telekom',
-        imagePath: '/assets/submarine.png',
-        CompanyRating: 2,
-        reviewId: '1',
-        textExcerpt: 'lorem ipsum ke se farbam rozov',
-        timeStamp: '15 minutes ago',
-        userName: '69420'
-      }
-    ];
+    this.reviewService.getReviews().subscribe((data) => {
+      this.reviewList = data.map((e) => e.payload.doc.data());
+      this.reviewList = this.reviewList.sort(
+        (f, s) => s.timeStamp - f.timeStamp
+      );
+      this.render(this.reviewList);
+    });
   }
 
   async checkIfLoggedIn() {
@@ -82,5 +46,13 @@ export class HomeComponent implements OnInit {
   onSubmit(authData) {
     this.auth.signUp(authData.email, authData.password);
     this.authForm.reset();
+  }
+
+  render(revs) {
+    revs.map((item) => {
+      item.timeStamp = item.timeStamp.toDate();
+      item.timeStamp = moment(item.timeStamp).format('Do MMMM YY');
+    });
+    this.listOfReviews = revs;
   }
 }

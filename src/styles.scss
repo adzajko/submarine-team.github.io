@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import "app/shared/material-theme.scss";
 
 * {
   box-sizing: border-box;
@@ -11,3 +12,6 @@ body {
   font-family: "Monsterrat", sans-serif;
   height: 100%;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

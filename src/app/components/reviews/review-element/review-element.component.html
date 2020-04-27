@@ -14,13 +14,16 @@
       <a [routerLink]="['/companies/:id']" class="card-title">{{
         reviewElement.companyName
       }}</a>
-      <p class="font-italic mb-0 mt-2 text-white">
-        by: {{ reviewElement.userName }}
-      </p>
-      <div class="stars-container mt-2">
-        <span><i class="fa fa-star mr-1"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>
+      <ngb-rating [(rate)]="currentRate">
+        <ng-template let-fill="fill" let-index="index">
+          <span
+            class="star"
+            [class.filled]="fill === 100"
+            [class.bad]="index < 3"
+            >&#9733;</span
+          >
+        </ng-template>
+      </ngb-rating>
     </div>
     <div class="card-body d-flex justify-content-between">
       <div class="supporting-flex">

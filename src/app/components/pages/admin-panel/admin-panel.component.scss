@@ -1,0 +1,20 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.admin-metrics {
+  grid-area: 1 / 1 / 5 / 15;
+}
+.admin-user-management {
+  grid-area: 6 / 1 / 14 / 5;
+}
+.admin-review-management {
+  grid-area: 6 / 6 / 14 / 10;
+}
+.admin-company-management {
+  grid-area: 6 / 11 / 14 / 15;
+}

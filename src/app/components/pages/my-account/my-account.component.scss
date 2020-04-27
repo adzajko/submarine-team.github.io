@@ -1,0 +1,32 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 2 / 5 / 4;
+}
+.div2 {
+  grid-area: 1 / 5 / 5 / 7;
+}
+.div3 {
+  grid-area: 5 / 3 / 7 / 6;
+}
+.body {
+  background: linear-gradient(180deg, #2d3436, #2c3e50);
+}
+
+input,
+select,
+textarea,
+mat-checkbox {
+  color: #ecf0f1;
+}
+
+textarea:focus,
+input:focus {
+  color: #ecf0f1;
+}

@@ -1,11 +1,13 @@
-@import '../../../../assets/scss_extendables/index';
+@import "../../../../assets/scss_extendables/index";
 
 .review-container {
-  box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 3px 3px 0 rgba(0, 0, 0, 0.4);
   width: 100%;
+  border: 1px solid #2c3e50;
 }
 
 .card-aside {
+  background-color: whitesmoke;
   .img-container {
     .img-fluid {
       width: 150px;
@@ -19,13 +21,17 @@
 
 .card {
   flex: 1;
-  border: none;
+  border: 0;
+  border-radius: 0px !important;
+}
+
+.card-header:first-child {
+  border-radius: 0px !important;
 }
 
 .card-header {
-  box-shadow: inset 0 0 10px 0 #00000066;
-  // background-color: #ff5252;
-  background-color: #673ab7;
+  // background: linear-gradient(163deg, #2d3436, #2c3e50);
+  background: linear-gradient(163deg, #444a50 0%, #2c3e50 80%);
   .card-title {
     font-size: 30px;
     margin: 0;
@@ -35,12 +41,12 @@
   .card-title:hover {
     transition: 0.4s;
     text-decoration: none;
-    color: #ffccbc;
+    color: #ebf875;
   }
 
   .fa.fa-star {
     font-size: 26px;
-    color: #ffccbc;
+    color: #ebf875;
   }
 }
 
