@@ -17,7 +17,13 @@
     <!-- Review Text -->
     <mat-form-field>
       <mat-label>Write Something...</mat-label>
-      <textarea matInput formControlName="textExcerpt" cols="30" rows="10">
+      <textarea
+        matInput
+        style="resize: none;"
+        formControlName="textExcerpt"
+        cols="30"
+        rows="10"
+      >
       </textarea>
     </mat-form-field>
     <button [disabled]="!inputForm.valid" mat-raised-button (click)="create()">

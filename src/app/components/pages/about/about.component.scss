@@ -1,6 +1,7 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .about-page {
+  min-height: 100vh;
   background: rgb(250, 250, 250);
   background: linear-gradient(180deg, #2d3436, #2c3e50);
   color: whitesmoke;
@@ -22,7 +23,8 @@
 section.team-section {
   padding: 2rem 5rem;
 
-  section.row-upper, section.row-lower {
+  section.row-upper,
+  section.row-lower {
     display: flex;
     margin: 2rem;
     padding: 2rem;
@@ -84,7 +86,7 @@ section.team-section {
   }
 
   .row-upper::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     height: 1px;
@@ -93,7 +95,7 @@ section.team-section {
   }
 
   .row-lower::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     height: 1px;

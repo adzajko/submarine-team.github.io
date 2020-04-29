@@ -72,3 +72,7 @@
     justify-content: flex-end;
   }
 }
+
+ngb-rating:focus {
+  outline: none;
+}
