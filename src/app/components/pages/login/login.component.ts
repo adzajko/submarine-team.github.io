@@ -67,11 +67,13 @@ export class LoginComponent implements OnInit {
       .signUp(
         this.registerForm.value.registerEmail,
         this.registerForm.value.registerPassword
-      )
+      ).then(response => {
+        this.closeModal();
+      })
       .catch(error => {
         this.toastrService.error(error.message, 'An error has occurred.');
       });
-    this.closeModal();
+
   }
 
   initLoginForm() {
@@ -88,11 +90,12 @@ export class LoginComponent implements OnInit {
       .signIn(this.loginForm.value.email, this.loginForm.value.password)
       .then(response => {
         this.toastrService.success('You have been logged in.', 'Success!');
+        this.closeModal();
       })
       .catch(error => {
         this.toastrService.error(error.message, 'An error has occurred.');
       });
-    this.closeModal();
+
   }
 
   triggerLogin() {

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import { ToastrService } from 'ngx-toastr';
-import { Subject, BehaviorSubject, from } from 'rxjs';
+import { Subject, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

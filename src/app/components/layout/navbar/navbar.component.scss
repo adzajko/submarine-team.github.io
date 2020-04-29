@@ -132,6 +132,10 @@ form {
 
 .v-none {
   margin-left: calc(950%);
+  @include smallPhoneMixin {
+    margin-left: 10.3rem;
+  }
+
 }
 
 #email-login-input,

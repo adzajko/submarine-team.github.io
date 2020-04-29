@@ -1,9 +1,14 @@
 @import '../../../../assets/scss_extendables/index';
 
 .review-container {
+  display: flex;
+  @include smallPhoneMixin {
+    display: block;
+  }
   box-shadow: 5px 3px 3px 0 rgba(0, 0, 0, 0.4);
   width: 100%;
   border: 1px solid #2c3e50;
+  position: relative;
 }
 
 .card-aside {
@@ -12,10 +17,20 @@
     .img-fluid {
       width: 150px;
       padding: 10px;
+        @include smallPhoneMixin {
+          width: 100px;
+          display: block;
+          margin: auto;
+          padding: 5px;
+          height: 75px;
+      }
     }
   }
-  p.text-center.my-2.font-italic {
+  p.text-center.my-md-2.my-sm-0.font-italic {
     color: rgba(0, 0, 0, 0.4);
+    @include smallPhoneMixin {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -30,6 +45,11 @@
 }
 
 .card-header {
+  display: flex;
+  justify-content: space-between;
+  @include smallPhoneMixin {
+    display: block;
+  }
   // background: linear-gradient(163deg, #2d3436, #2c3e50);
   background: linear-gradient(163deg, #444a50 0%, #2c3e50 80%);
   .card-title {
