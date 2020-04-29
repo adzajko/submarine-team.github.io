@@ -9,7 +9,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
@@ -25,18 +25,26 @@ export class HomeComponent implements OnInit {
   ) {
     this.authForm = this.formBuilder.group({
       email: '',
-      password: '',
+      password: ''
     });
   }
 
   ngOnInit(): void {
-    this.reviewService.getReviews().subscribe((data) => {
-      this.reviewList = data.map((e) => e.payload.doc.data());
-      this.reviewList = this.reviewList.sort(
-        (f, s) => s.timeStamp - f.timeStamp
-      );
-      this.render(this.reviewList);
-    });
+    this.auth.showHTTPLoader(true);
+    this.reviewService.getReviews().subscribe(
+      data => {
+        this.auth.showHTTPLoader(false);
+        this.reviewList = data.map(e => e.payload.doc.data());
+        this.reviewList = this.reviewList.sort(
+          (f, s) => s.timeStamp - f.timeStamp
+        );
+        this.render(this.reviewList);
+      },
+      errorRes => {
+        this.toastr.error(errorRes.message, 'Error.');
+        this.auth.showHTTPLoader(false);
+      }
+    );
   }
 
   async checkIfLoggedIn() {
@@ -49,7 +57,7 @@ export class HomeComponent implements OnInit {
   }
 
   render(revs) {
-    revs.map((item) => {
+    revs.map(item => {
       item.timeStamp = item.timeStamp.toDate();
       item.timeStamp = moment(item.timeStamp).format('Do MMMM YY');
     });

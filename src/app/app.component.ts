@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { routeTransitionAnimations } from './shared/animations';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,17 @@ import { routeTransitionAnimations } from './shared/animations';
 export class AppComponent implements OnInit {
   title = 'TSP';
   @Input() openModal;
+  pendingHttpRequest = false;
 
   shouldModalOpen = false;
 
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.auth.triggerLoadingScreen.subscribe(response => {
+      this.pendingHttpRequest = response;
+    });
+  }
 
   openModalFunction(event) {
     this.shouldModalOpen = event;

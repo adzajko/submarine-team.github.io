@@ -11,6 +11,7 @@ import { Subject, from } from 'rxjs';
 export class AuthService {
   user: User;
   publishEmail: Subject<any> = new Subject<any>();
+  triggerLoadingScreen: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -34,13 +35,13 @@ export class AuthService {
   async signOut() {
     await this.afAuth.signOut();
     this.router.navigate(['/']);
-    this.toastr.info('User signed out!');
+    this.toastr.success('User signed out!');
   }
 
   async signUp(email: string, password: string) {
     await this.afAuth.createUserWithEmailAndPassword(email, password);
     this.sendConfirmationEmail();
-    this.toastr.info('User created!');
+    this.toastr.success('User created!');
   }
 
   // async authStateTrack() {
@@ -79,5 +80,9 @@ export class AuthService {
   // Get the User
   getUsername() {
     return from(this.afAuth.currentUser);
+  }
+
+  showHTTPLoader(value: boolean) {
+    this.triggerLoadingScreen.next(value);
   }
 }

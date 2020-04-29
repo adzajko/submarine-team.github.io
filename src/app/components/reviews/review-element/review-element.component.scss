@@ -17,12 +17,12 @@
     .img-fluid {
       width: 150px;
       padding: 10px;
-        @include smallPhoneMixin {
-          width: 100px;
-          display: block;
-          margin: auto;
-          padding: 5px;
-          height: 75px;
+      @include smallPhoneMixin {
+        width: 100px;
+        display: block;
+        margin: auto;
+        padding: 5px;
+        height: 75px;
       }
     }
   }
@@ -35,6 +35,7 @@
 }
 
 .card {
+  background: linear-gradient(163deg, #444a50 0%, #2c3e50 80%);
   flex: 1;
   border: 0;
   border-radius: 0px !important;
@@ -51,7 +52,7 @@
     display: block;
   }
   // background: linear-gradient(163deg, #2d3436, #2c3e50);
-  background: linear-gradient(163deg, #444a50 0%, #2c3e50 80%);
+  background: #2c3e50;
   .card-title {
     font-size: 30px;
     margin: 0;
@@ -64,7 +65,6 @@
   button.see-more-btn {
     width: 100px;
   }
-  background: linear-gradient(163deg, #444a50 0%, #2c3e50 80%);
   color: whitesmoke;
   .votes-container {
     display: flex;

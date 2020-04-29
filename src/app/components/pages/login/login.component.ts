@@ -63,17 +63,20 @@ export class LoginComponent implements OnInit {
   }
 
   onRegisterFormSubmit() {
+    this.auth.showHTTPLoader(true);
     this.auth
       .signUp(
         this.registerForm.value.registerEmail,
         this.registerForm.value.registerPassword
-      ).then(response => {
+      )
+      .then(response => {
         this.closeModal();
+        this.auth.showHTTPLoader(false);
       })
       .catch(error => {
+        this.auth.showHTTPLoader(false);
         this.toastrService.error(error.message, 'An error has occurred.');
       });
-
   }
 
   initLoginForm() {
@@ -86,16 +89,18 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginFormSubmit() {
+    this.auth.showHTTPLoader(true);
     this.auth
       .signIn(this.loginForm.value.email, this.loginForm.value.password)
       .then(response => {
         this.toastrService.success('You have been logged in.', 'Success!');
         this.closeModal();
+        this.auth.showHTTPLoader(false);
       })
       .catch(error => {
         this.toastrService.error(error.message, 'An error has occurred.');
+        this.auth.showHTTPLoader(false);
       });
-
   }
 
   triggerLogin() {

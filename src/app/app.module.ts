@@ -31,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
+import { HttpLoaderComponent } from './shared/http-loader/http-loader.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.
     MyAccountComponent,
     CompaniesComponent,
     AdminPanelComponent,
+    HttpLoaderComponent,
   ],
   imports: [
     BrowserModule,
