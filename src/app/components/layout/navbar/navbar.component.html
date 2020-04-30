@@ -1,9 +1,9 @@
 <mat-toolbar class="navbar d-flex" color="warn">
-  <div #navBrand class="navbar-brand" (click)="toggleOverlay()">
+  <div #navBrand class="navbar-brand mt-sm-2 mt-lg-0" (click)="toggleOverlay()">
     <span #hamTop class="hamburger-line top"></span>
     <span #hamBot class="hamburger-line bottom"></span>
   </div>
-  <div class="img-logo d-none d-lg-block">
+  <div class="img-logo">
     <a [routerLink]="['/']" id="img-logo-container" #subLogo>
       <img
         src="/assets/submarine.png"

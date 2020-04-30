@@ -22,10 +22,11 @@
           rows="5"
           formControlName="message"
           placeholder="MESSAGE"
+          style="resize: none;"
         ></textarea>
         <button
           [disabled]="!contactForm.valid"
-          class="btn btn-dark"
+          class="btn btn-dark submit-btn"
           type="submit"
         >
           Submit

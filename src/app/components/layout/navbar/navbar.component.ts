@@ -4,7 +4,7 @@ import {
   ViewChild,
   ElementRef,
   Output,
-  EventEmitter,
+  EventEmitter
 } from '@angular/core';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
   @ViewChild('hamTop', { static: false }) hamTop: ElementRef;
@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private auth: AuthService) {
     this.loginForm = this.formBuilder.group({
       email: '',
-      password: 'password',
+      password: 'password'
     });
   }
 
@@ -53,7 +53,7 @@ export class NavbarComponent implements OnInit {
   }
 
   checkMyAccount() {
-    this.auth.authStateTrack().then((response) => {
+    this.auth.authStateTrack().then(response => {
       if (response.logged) {
         this.toggleOverlay();
       } else {

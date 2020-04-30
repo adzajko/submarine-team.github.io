@@ -3,21 +3,22 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import { ToastrService } from 'ngx-toastr';
-import { Subject, BehaviorSubject, from } from 'rxjs';
+import { Subject, from } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   user: User;
   publishEmail: Subject<any> = new Subject<any>();
+  triggerLoadingScreen: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
     private toastr: ToastrService
   ) {
-    this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged(user => {
       if (user) {
         console.log('Logged In!');
       } else {
@@ -34,13 +35,13 @@ export class AuthService {
   async signOut() {
     await this.afAuth.signOut();
     this.router.navigate(['/']);
-    this.toastr.info('User signed out!');
+    this.toastr.success('User signed out!');
   }
 
   async signUp(email: string, password: string) {
     await this.afAuth.createUserWithEmailAndPassword(email, password);
     this.sendConfirmationEmail();
-    this.toastr.info('User created!');
+    this.toastr.success('User created!');
   }
 
   // async authStateTrack() {
@@ -57,7 +58,7 @@ export class AuthService {
 
   async authStateTrack() {
     let result: any;
-    await this.afAuth.onAuthStateChanged((user) => {
+    await this.afAuth.onAuthStateChanged(user => {
       if (user) {
         if (user.emailVerified) {
           result = { logged: true, verified: true };
@@ -79,5 +80,9 @@ export class AuthService {
   // Get the User
   getUsername() {
     return from(this.afAuth.currentUser);
+  }
+
+  showHTTPLoader(value: boolean) {
+    this.triggerLoadingScreen.next(value);
   }
 }

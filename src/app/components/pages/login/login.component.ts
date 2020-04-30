@@ -4,7 +4,7 @@ import {
   ViewChild,
   ElementRef,
   Output,
-  EventEmitter,
+  EventEmitter
 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
@@ -14,7 +14,7 @@ import { Router, NavigationStart } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   @ViewChild('logiRegi') logiRegi: ElementRef;
@@ -33,20 +33,20 @@ export class LoginComponent implements OnInit {
     this.auth
       .authStateTrack()
       .then(
-        (response) => {
+        response => {
           this.isLoggedIn = response.logged;
         },
-        (errRes) => {
+        errRes => {
           this.toastrService.error(errRes.message, 'Error.');
         }
       )
-      .catch((errorRes) => {
+      .catch(errorRes => {
         this.toastrService.error(errorRes.message, 'Error.');
       });
     this.initLoginForm();
     this.initRegisterForm();
 
-    this.router.events.subscribe((eventChange) => {
+    this.router.events.subscribe(eventChange => {
       if (eventChange instanceof NavigationStart) {
         this.closeModal();
       }
@@ -56,47 +56,51 @@ export class LoginComponent implements OnInit {
   initRegisterForm() {
     const eMail = '';
     const passWord = '';
-
-    this.loginForm = new FormGroup({
-      email: new FormControl(eMail, Validators.email),
-      password: new FormControl(passWord, Validators.required),
+    this.registerForm = new FormGroup({
+      registerEmail: new FormControl(eMail, Validators.email),
+      registerPassword: new FormControl(passWord, Validators.required)
     });
   }
 
   onRegisterFormSubmit() {
+    this.auth.showHTTPLoader(true);
     this.auth
       .signUp(
         this.registerForm.value.registerEmail,
         this.registerForm.value.registerPassword
       )
-      .catch((error) => {
+      .then(response => {
+        this.closeModal();
+        this.auth.showHTTPLoader(false);
+      })
+      .catch(error => {
+        this.auth.showHTTPLoader(false);
         this.toastrService.error(error.message, 'An error has occurred.');
       });
-    this.closeModal();
   }
 
   initLoginForm() {
-    const userName = '';
     const eMail = '';
     const passWord = '';
-
-    this.registerForm = new FormGroup({
-      registerUserName: new FormControl(userName, Validators.required),
-      registerEmail: new FormControl(eMail, Validators.email),
-      registerPassword: new FormControl(passWord, Validators.required),
+    this.loginForm = new FormGroup({
+      email: new FormControl(eMail, Validators.email),
+      password: new FormControl(passWord, Validators.required)
     });
   }
 
   onLoginFormSubmit() {
+    this.auth.showHTTPLoader(true);
     this.auth
       .signIn(this.loginForm.value.email, this.loginForm.value.password)
-      .then((response) => {
+      .then(response => {
         this.toastrService.success('You have been logged in.', 'Success!');
+        this.closeModal();
+        this.auth.showHTTPLoader(false);
       })
-      .catch((error) => {
+      .catch(error => {
         this.toastrService.error(error.message, 'An error has occurred.');
+        this.auth.showHTTPLoader(false);
       });
-    this.closeModal();
   }
 
   triggerLogin() {

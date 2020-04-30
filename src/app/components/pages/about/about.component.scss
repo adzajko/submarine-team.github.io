@@ -1,6 +1,7 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .about-page {
+  min-height: 100vh;
   background: rgb(250, 250, 250);
   background: linear-gradient(180deg, #2d3436, #2c3e50);
   color: whitesmoke;
@@ -22,13 +23,42 @@
 section.team-section {
   padding: 2rem 5rem;
 
-  section.row {
+  section.row-upper,
+  section.row-lower {
+    display: flex;
     margin: 2rem;
     padding: 2rem;
+    @include smallPhoneMixin {
+      margin: 1rem 0;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    @include largePhoneMixin {
+      margin: 1rem 0;
+      padding: 1rem 0;
+      flex-wrap: nowrap;
+    }
+    @include tabletMixin {
+      margin: 1rem 0;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
     position: relative;
     .member-img-container {
       margin: auto;
       display: flex;
+      @include smallPhoneMixin {
+        margin-bottom: 1rem;
+        // margin-right: 1rem;
+      }
+      @include largePhoneMixin {
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+      }
+      @include tabletMixin {
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+      }
       .img-fluid {
         border-radius: 50%;
         cursor: pointer;
@@ -37,6 +67,15 @@ section.team-section {
         width: 150px;
         transition: 0.4s;
         transform: scale(1);
+        @include smallPhoneMixin {
+          width: 100px;
+        }
+        @include largePhoneMixin {
+          width: 125px;
+        }
+        @include tabletMixin {
+          width: 150px;
+        }
       }
 
       .img-fluid:hover {
@@ -46,25 +85,21 @@ section.team-section {
     }
   }
 
-  .upper::before {
-    content: "";
+  .row-upper::before {
+    content: '';
     position: absolute;
-    max-width: 750px;
     width: 100%;
     height: 1px;
     top: -10%;
-    left: 21%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: whitesmoke;
   }
 
-  .lower::before {
-    content: "";
+  .row-lower::before {
+    content: '';
     position: absolute;
-    max-width: 750px;
     width: 100%;
     height: 1px;
-    bottom: -20%;
-    left: 21%;
-    background-color: rgba(0, 0, 0, 0.3);
+    bottom: -10%;
+    background-color: whitesmoke;
   }
 }

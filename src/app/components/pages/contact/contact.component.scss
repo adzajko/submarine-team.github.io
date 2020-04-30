@@ -116,6 +116,12 @@
   .content p {
     padding: unset;
   }
+
+  .submit-btn {
+    width: 150px;
+    display: block;
+    margin: 0 auto 1rem auto;
+  }
 }
 
 input.ng-invalid.ng-touched,

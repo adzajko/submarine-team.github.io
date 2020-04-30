@@ -75,3 +75,42 @@ $fontSizes: (
 }
 
 /* Extendable classes end */
+
+/* Responsive Mixins */
+
+@mixin smallPhoneMixin {
+  @media only screen and (max-width: 600px) {
+      @content;
+  }
+}
+@mixin mediumPhoneMixin {
+  @media only screen and (min-width: 325px) and (max-width: 992px){
+      @content;
+  }
+}
+@mixin largePhoneMixin {
+  @media only screen and (min-width: 600px) and (max-width: 768px){
+      @content;
+  }
+}
+@mixin tabletMixin {
+  @media only screen and (min-width: 768px) and (max-width: 992px){
+      @content;
+  }
+}
+@mixin smallDesktopMixin {
+  @media only screen and (min-width: 992px) and (max-width: 1200px){
+      @content;
+  }
+}
+@mixin largeDesktopMixin {
+  @media only screen and (min-width: 1200px) and (max-width: 1440px) {
+      @content;
+  }
+}
+@mixin ExtraLargeDesktopMixin {
+  @media only screen and (min-width: 1980px){
+      @content;
+  }
+}
+/*Responsive Mixins END */

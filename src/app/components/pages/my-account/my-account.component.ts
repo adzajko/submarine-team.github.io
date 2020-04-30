@@ -23,15 +23,24 @@ export class MyAccountComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.companyService.getCompanies().subscribe(data => {
-      data.map(e => {
-        this.companies.push(e.payload.doc.data());
-      });
-    });
+    this.authService.showHTTPLoader(true);
+    this.companyService.getCompanies().subscribe(
+      data => {
+        this.authService.showHTTPLoader(false);
+        data.map(e => {
+          this.companies.push(e.payload.doc.data());
+        });
+      },
+      errorRes => {
+        this.authService.showHTTPLoader(false);
+        this.toastr.error(errorRes, 'Error.');
+      }
+    );
 
     this.initForms();
   }
   create() {
+    this.authService.showHTTPLoader(true);
     const review = this.inputForm.value;
     this.inputForm.reset();
     review.timeStamp = new Date();
@@ -46,9 +55,11 @@ export class MyAccountComponent implements OnInit {
       this.reviewService
         .postReview(review)
         .then(response => {
+          this.authService.showHTTPLoader(false);
           this.toastr.success('Review submitted.', 'Success!');
         })
         .catch(errorRes => {
+          this.authService.showHTTPLoader(false);
           this.toastr.error(errorRes.message, 'An Error occurred.');
         });
     });
@@ -83,7 +94,7 @@ export class MyAccountComponent implements OnInit {
       newPassword: new FormControl(newPassword),
       companyAddedNotification: new FormControl(companyAddedNotification),
       myCompanyNotifications: new FormControl(myCompanyNotifications),
-      multipleCompanies: new FormControl(multipleCompanies),
+      multipleCompanies: new FormControl(multipleCompanies)
     });
   }
 }

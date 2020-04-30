@@ -10,6 +10,24 @@
     color: whitesmoke;
     position: relative;
     padding: 10px;
+    @include smallPhoneMixin {
+      font-size: 42px;
+    }
+    @include largePhoneMixin {
+      font-size: 48px;
+    }
+
+    @include tabletMixin {
+      font-size: 54px;
+    }
+
+    @include smallDesktopMixin {
+      font-size: 60px;
+    }
+
+    @include largeDesktopMixin {
+      font-size: 66px;
+    }
   }
 
   h1::before {
@@ -23,6 +41,20 @@
   }
 
   border-right: 2px solid #2c3e50;
+  @include smallPhoneMixin {
+    border-right: none;
+  }
+
+  @include largePhoneMixin {
+    border-right: none;
+  }
+
+  @include tabletMixin {
+    border-right: none;
+  }
+  @include smallDesktopMixin {
+    border-right: 2px solid #2c3e50;
+  }
 }
 
 .hero-companies {
@@ -42,21 +74,84 @@
       }
     }
     .card-body {
+      display: flex;
+      @include smallPhoneMixin {
+        display: block;
+      }
+      @include smallDesktopMixin {
+        display: block;
+      }
       .card-aside {
         .img-fluid {
           img {
             width: 200px;
+            @include smallPhoneMixin {
+              width: 100px;
+              margin: auto;
+              display: block;
+            }
+            @include largePhoneMixin {
+              width: 150px;
+            }
+            @include smallDesktopMixin {
+              width: 150px;
+              margin: auto;
+              display: block;
+            }
+            @include largeDesktopMixin {
+              width: 175px;
+            }
           }
         }
       }
       .company-info {
         width: 100%;
         margin-left: 2rem;
+        @include smallPhoneMixin {
+          margin-left: 10px;
+        }
+        @include largePhoneMixin {
+          margin-left: 10px;
+        }
+
+        @include tabletMixin {
+          margin-left: 10px;
+        }
+
+        @include smallDesktopMixin {
+          margin-left: 10px;
+        }
+
+        @include largeDesktopMixin {
+          margin-left: 10px;
+        }
         .icon-toolbar {
-          .company-info-item h6,
-          .company-info-item i {
-            color: whitesmoke;
-            font-size: 20px;
+          .company-info-item {
+            h6, i {
+              color: whitesmoke;
+              font-size: 20px;
+              @include smallPhoneMixin {
+              font-size: 18px;
+              }
+            }
+            @include smallPhoneMixin {
+              margin-bottom: 10px;
+            }
+            @include largePhoneMixin {
+              margin-bottom: 10px;
+            }
+            @include tabletMixin {
+              margin-bottom: 10px;
+            }
+            @include largeDesktopMixin {
+              h6 {
+                font-size: 16px;
+                margin-right: 5px;
+              }
+              i {
+                margin-right: 5px;
+              }
+            }
           }
         }
       }
@@ -68,15 +163,50 @@
   h3 {
     width: fit-content;
     margin: auto;
+    @include smallPhoneMixin {
+      font-size: 22px;
+    }
+    @include smallDesktopMixin {
+      font-size: 24px;
+    }
   }
 }
 
 .reviewed-companies-container {
+  display: flex;
   justify-content: space-between;
+  @include smallPhoneMixin {
+    display: block;
+  }
+
+  @include largePhoneMixin {
+    display: block;
+  }
+
+  @include tabletMixin {
+    display: block;
+  }
+
+  @include smallDesktopMixin{
+    display: block;
+  }
+
   .card {
     border: none;
     width: 100%;
     box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.4);
+    @include smallPhoneMixin {
+      margin: 1rem auto;
+    }
+    @include largePhoneMixin {
+      margin: 1rem auto;
+    }
+    @include tabletMixin {
+      margin: 1rem auto;
+    }
+    @include smallDesktopMixin {
+      margin: 1rem auto;
+    }
     .card-header {
       background-color: #2c3e50;
       a {
@@ -84,26 +214,75 @@
         text-decoration: none;
         font-size: 32px;
         color: whitesmoke;
+        @include smallPhoneMixin {
+          font-size: 24px;
+        }
+        @include largeDesktopMixin {
+          font-size: 24px;
+        }
         @extend .animatedBefore;
       }
     }
     .card-body {
       display: flex;
+      @include largeDesktopMixin {
+        display: block;
+      }
       .card-aside {
         .img-fluid {
           img {
             width: 100px;
+            display: block;
+            margin: auto;
+            @include tabletMixin {
+              width: 150px;
+            }
+
           }
         }
       }
     }
     .reviewed-body {
       flex: 1;
+      @include largeDesktopMixin {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
       .icon-bundle {
+        @include smallPhoneMixin {
+          display: flex;
+          justify-content: center;
+        }
+        @include largePhoneMixin {
+          display: flex;
+          justify-content: center;
+        }
+        @include smallDesktopMixin {
+          display: flex;
+          justify-content: center;
+        }
+        @include tabletMixin {
+          display: flex;
+          justify-content: center;
+        }
         h6 {
           text-align: center;
           margin-top: 1rem;
           color: whitesmoke;
+          @include largePhoneMixin {
+            margin-right: 10px;
+          }
+          @include tabletMixin {
+            margin-right: 10px;
+          }
+          @include smallDesktopMixin {
+            margin-right: 10px;
+          }
+          @include largeDesktopMixin {
+            font-size: 22px;
+          }
         }
       }
     }
@@ -154,9 +333,59 @@ aside {
 }
 
 app-review-element {
+  margin: auto;
   width: 80%;
+  @include smallPhoneMixin {
+    width: 90%;
+  }
+
+  @include largePhoneMixin {
+    width: 90%;
+  }
+
+  @include tabletMixin {
+    width: 90%;
+  }
 }
 
 .dark-bg {
   background: linear-gradient(180deg, #2d3436, #2c3e50);
+}
+
+.fa {
+  margin-right: 1rem;
+  @include smallPhoneMixin {
+    font-size: 16px;
+  }
+  @include largePhoneMixin {
+    font-size: 18px;
+  }
+
+  @include tabletMixin {
+    font-size: 20px;
+  }
+
+  @include smallDesktopMixin {
+    font-size: 20px;
+  }
+
+  @include largeDesktopMixin {
+    font-size: 20px;
+  }
+}
+
+.d-block.mx-auto.mt-5.td-none {
+  width: 75%;
+  @include smallPhoneMixin {
+    width: fit-content;
+  }
+  @include largePhoneMixin{
+    width: 50%;
+  }
+  @include tabletMixin {
+    width: 50%;
+  }
+  @include smallDesktopMixin {
+    width: 50%;
+  }
 }

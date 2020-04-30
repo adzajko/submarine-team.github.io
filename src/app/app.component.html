@@ -9,3 +9,4 @@
 </footer>
 
 <app-login (clMod)="closeModal($event)" *ngIf="shouldModalOpen"></app-login>
+<app-http-loader *ngIf="pendingHttpRequest"></app-http-loader>
