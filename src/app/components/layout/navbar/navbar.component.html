@@ -13,7 +13,20 @@
       />
     </a>
   </div>
-  <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
+  <div class="d-flex">
+    <div class="mr-4">
+      <select
+        name="languages"
+        id="langSelect"
+        class="custom-select"
+        (change)="changeLanguage($event.target.value)"
+      >
+        <option value="English">en</option>
+        <option value="Macedonian">мк</option>
+      </select>
+    </div>
+    <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
+  </div>
 </mat-toolbar>
 <div class="overlay" #overlay>
   <div class="overlay-content">

@@ -44,12 +44,8 @@ mat-toolbar {
   }
 }
 
-form {
-  button.btn {
-    background-color: #212121;
-    color: white;
-    width: 150px;
-  }
+#selectLang {
+  background-color: transparent;
 }
 
 .brand-fixed {
@@ -135,7 +131,6 @@ form {
   @include smallPhoneMixin {
     margin-left: 10.3rem;
   }
-
 }
 
 #email-login-input,

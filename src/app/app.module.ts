@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 // <Firebase Imports>
@@ -30,8 +30,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
 import { HttpLoaderComponent } from './shared/http-loader/http-loader.component';
+import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -47,6 +54,7 @@ import { HttpLoaderComponent } from './shared/http-loader/http-loader.component'
     CompaniesComponent,
     AdminPanelComponent,
     HttpLoaderComponent,
+    TermsOfServiceComponent
   ],
   imports: [
     BrowserModule,
@@ -67,8 +75,15 @@ import { HttpLoaderComponent } from './shared/http-loader/http-loader.component'
     MatButtonModule,
     LayoutModule,
     NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

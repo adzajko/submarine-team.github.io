@@ -1,9 +1,42 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
-p {
-  text-align: center;
-  padding: 1rem;
-  margin-bottom: 0;
+.footer-elements {
   background-color: #2d3436;
-  color: whitesmoke;
+  p {
+    text-align: center;
+    padding: 1rem;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    color: whitesmoke;
+  }
+  .divider {
+    width: 80%;
+    margin: auto;
+    height: 2px;
+    background-color: whitesmoke;
+  }
+  span.text-white {
+    position: relative;
+    padding: 0 10px;
+  }
+
+  span.text-white::before {
+    content: '';
+    bottom: 10%;
+    position: absolute;
+    height: 25px;
+    width: 1px;
+    background-color: whitesmoke;
+  }
+
+  .quick-links {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.4s;
+    }
+  }
 }
