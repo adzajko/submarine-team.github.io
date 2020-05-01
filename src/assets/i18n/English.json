@@ -1,8 +1,22 @@
 {
+  "HEADER": {},
+  "FOOTER": {},
+  "ABOUTPAGE": {},
+  "ADMIN_PANEL": {},
+  "COMPANIES_PAGE": {},
+  "CONTACT_PAGE": {},
   "HOMEPAGE": {
     "FEATURED_TITLE": "Featured Company",
     "SEE_MORE_BTN": "See More",
     "TOP_REVIEWED": "Top Reviewed Companies",
     "REVIEWS": "Reviews"
+  },
+  "LOGIN": {},
+  "MY_ACCOUNT": {},
+  "TERMS OF SERVICE": {},
+  "REVIEW_ELEMENT": {},
+  "TOASTR": {
+    "SUCCESS_TITLE": "Success!",
+    "ERROR_TITLE": "Error."
   }
 }
