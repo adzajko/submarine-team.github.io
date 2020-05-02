@@ -48,7 +48,7 @@
       </mat-label>
       <input matInput formControlName="linkedInAccount" />
     </mat-form-field>
-    <button mat-raised-button color="accent">
+    <button (click)="requestVerification()" mat-raised-button color="accent">
       {{ 'MY_ACCOUNT.CONNECT_BTN' | translate }}
     </button>
     <hr />
@@ -60,7 +60,7 @@
       </mat-label>
       <input matInput formControlName="changeEmailInput" />
     </mat-form-field>
-    <button mat-raised-button color="accent">
+    <button (click)="changeEmail()" mat-raised-button color="accent">
       {{ 'MY_ACCOUNT.EMAIL_BTN' | translate }}
     </button>
     <hr />
@@ -79,10 +79,11 @@
       </mat-label>
       <input matInput formControlName="newPassword" />
     </mat-form-field>
-    <button mat-raised-button color="accent">
+    <button (click)="updatePassword()" mat-raised-button color="accent">
       {{ 'MY_ACCOUNT.CHANGE_PASS_BTN' | translate }}
     </button>
     <hr />
+
     <!-- Notifications control -->
     <!-- company notifications -->
     <mat-form-field>
@@ -95,15 +96,20 @@
         }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-checkbox formControlName="myCompanyNotifications"
-      >{{ 'MY_ACCOUNT.COMPANY_REVIEWED_NOT' | translate }}</mat-checkbox
-    >
-    <mat-checkbox formControlName="companyAddedNotification"
-      >{{ 'MY_ACCOUNT.COMPANY_ADD_NOT' | translate }}</mat-checkbox
-    >
+    <mat-checkbox formControlName="myCompanyNotifications">{{
+      'MY_ACCOUNT.COMPANY_REVIEWED_NOT' | translate
+    }}</mat-checkbox>
+    <mat-checkbox formControlName="companyAddedNotification">{{
+      'MY_ACCOUNT.COMPANY_ADD_NOT' | translate
+    }}</mat-checkbox>
     <hr />
     <!--Forgot Password -->
-    <button class="mt-4" mat-raised-button color="warn">
+    <button
+      (click)="forgotPasswordDialog()"
+      class="mt-4"
+      mat-raised-button
+      color="accent"
+    >
       {{ 'MY_ACCOUNT.FORGOT_PASS_BTN' | translate }}
     </button>
   </form>

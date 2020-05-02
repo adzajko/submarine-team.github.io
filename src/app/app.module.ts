@@ -35,6 +35,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
 import { HttpLoaderComponent } from './shared/http-loader/http-loader.component';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
+import { VotesContainerComponent } from './components/reviews/votes-container/votes-container.component';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -54,7 +56,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CompaniesComponent,
     AdminPanelComponent,
     HttpLoaderComponent,
-    TermsOfServiceComponent
+    TermsOfServiceComponent,
+    VotesContainerComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

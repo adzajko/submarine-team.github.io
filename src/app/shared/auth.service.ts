@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
@@ -18,7 +19,8 @@ export class AuthService {
     public afAuth: AngularFireAuth,
     public router: Router,
     private toastr: ToastrService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private firestore: AngularFirestore
   ) {
     this.afAuth.onAuthStateChanged(user => {
       if (user) {
@@ -69,6 +71,23 @@ export class AuthService {
   async sendConfirmationEmail() {
     (await this.afAuth.currentUser).sendEmailVerification();
     this.router.navigate(['/']);
+  }
+
+  resetPassword(email: string) {
+    return from(
+      this.afAuth
+        .sendPasswordResetEmail(email)
+        .then(() => {
+          this.translateService.get('TOASTR').subscribe(response => {
+            this.toastr.success(response.PASS_RESET, response.SUCCESS_TITLE);
+          });
+        })
+        .catch(err => {
+          this.translateService.get('TOASTR').subscribe(response => {
+            this.toastr.success(err.message, response.ERROR_TITLE);
+          });
+        })
+    );
   }
 
   // Get the User

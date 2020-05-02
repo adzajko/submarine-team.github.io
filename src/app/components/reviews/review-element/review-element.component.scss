@@ -1,4 +1,4 @@
-@import '../../../../assets/scss_extendables/index';
+@import "../../../../assets/scss_extendables/index";
 
 .review-container {
   display: flex;
@@ -66,13 +66,12 @@
     width: 100px;
   }
   color: whitesmoke;
-  .votes-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
 }
-
+app-votes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 ngb-rating:focus {
   outline: none;
 }

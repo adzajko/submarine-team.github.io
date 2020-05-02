@@ -5,6 +5,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../../shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-my-account',
@@ -18,11 +21,13 @@ export class MyAccountComponent implements OnInit {
   private toastrMessages;
 
   constructor(
+    public dialog: MatDialog,
     private reviewService: ReviewService,
     private companyService: CompanyService,
     private authService: AuthService,
     private toastr: ToastrService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private af: AngularFirestore
   ) {}
 
   ngOnInit() {
@@ -45,6 +50,8 @@ export class MyAccountComponent implements OnInit {
 
     this.initForms();
   }
+
+  // <Create new review>
   create() {
     this.authService.showHTTPLoader(true);
     const review = this.inputForm.value;
@@ -61,6 +68,7 @@ export class MyAccountComponent implements OnInit {
       this.reviewService
         .postReview(review)
         .then(response => {
+          this.reviewService.upvoteReview(response.id, 0, '');
           this.authService.showHTTPLoader(false);
           this.toastr.success(
             this.toastrMessages.SUBMITTED_REVIEW,
@@ -72,6 +80,73 @@ export class MyAccountComponent implements OnInit {
           this.toastr.error(errorRes.message, this.toastrMessages.ERROR_TITLE);
         });
     });
+  }
+  // </Create new review>
+
+  requestVerification() {
+    if (this.accountChangesForm.value.linkedInAccount) {
+      this.authService.getUsername().subscribe(e => {
+        this.af.collection('verifications').add({
+          email: e.email,
+          linkedin: this.accountChangesForm.value.linkedInAccount
+        });
+      });
+      this.toastr.success('Verification request sent!', 'Thank You!');
+    } else {
+      this.toastr.error('You need to input your linkedin account!', 'Oops!');
+    }
+  }
+
+  changeEmail() {
+    this.toastr.info('Feature not yet implemented :(', 'Oops!');
+  }
+
+  resetPassword() {}
+
+  forgotPasswordDialog() {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '450px',
+      height: '175px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.authService.getUsername().subscribe(user => {
+          this.authService.resetPassword(user.email);
+        });
+      }
+    });
+  }
+
+  updatePassword() {
+    if (
+      this.accountChangesForm.value.newPassword &&
+      this.accountChangesForm.value.newPasswordConfirm
+    ) {
+      if (
+        this.accountChangesForm.value.newPassword ===
+        this.accountChangesForm.value.newPasswordConfirm
+      ) {
+        this.authService.getUsername().subscribe(e => {
+          e.updatePassword(this.accountChangesForm.value.newPassword)
+            .then(() => {
+              this.toastr.success(
+                `Your password has been updated!`,
+                'Success!'
+              );
+            })
+            .catch(err => {
+              this.toastr.error(err.message, 'Error!');
+            });
+        });
+      } else {
+        this.toastr.error(
+          'Password and confirmed password need to match!',
+          'Error'
+        );
+      }
+    } else {
+      this.toastr.error('You need to fill out both password fields!', 'Error');
+    }
   }
 
   initForms() {
@@ -90,8 +165,8 @@ export class MyAccountComponent implements OnInit {
 
     const linkedInAccount = '';
     const changeEmailInput = '';
-    const oldPassword = '';
     const newPassword = '';
+    const newPasswordConfirm = '';
     const companyAddedNotification = '';
     const myCompanyNotifications = '';
     const multipleCompanies = '';
@@ -99,8 +174,8 @@ export class MyAccountComponent implements OnInit {
     this.accountChangesForm = new FormGroup({
       linkedInAccount: new FormControl(linkedInAccount),
       changeEmailInput: new FormControl(changeEmailInput, Validators.email),
-      oldPassword: new FormControl(oldPassword),
       newPassword: new FormControl(newPassword),
+      newPasswordConfirm: new FormControl(newPasswordConfirm),
       companyAddedNotification: new FormControl(companyAddedNotification),
       myCompanyNotifications: new FormControl(myCompanyNotifications),
       multipleCompanies: new FormControl(multipleCompanies)

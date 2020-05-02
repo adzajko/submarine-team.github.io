@@ -10,11 +10,11 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
-  listOfReviews: any[];
+  listOfReviews: any[] = [];
   loggedIn = false;
   reviewList: any;
 
@@ -27,22 +27,21 @@ export class HomeComponent implements OnInit {
   ) {
     this.authForm = this.formBuilder.group({
       email: '',
-      password: ''
+      password: '',
     });
   }
 
   ngOnInit(): void {
     this.auth.showHTTPLoader(true);
     this.reviewService.getReviews().subscribe(
-      data => {
+      (data) => {
         this.auth.showHTTPLoader(false);
-        this.reviewList = data.map(e => e.payload.doc.data());
-        this.reviewList = this.reviewList.sort(
-          (f, s) => s.timeStamp - f.timeStamp
-        );
+        this.reviewList = data.map((e) => {
+          return { data: e.payload.doc.data(), id: e.payload.doc.id };
+        });
         this.render(this.reviewList);
       },
-      errorRes => {
+      (errorRes) => {
         this.toastr.error(errorRes.message, 'Error.');
         this.auth.showHTTPLoader(false);
       }
@@ -59,10 +58,10 @@ export class HomeComponent implements OnInit {
   }
 
   render(revs) {
-    revs.map(item => {
-      item.timeStamp = item.timeStamp.toDate();
-      item.timeStamp = moment(item.timeStamp).format('Do MMMM YY');
+    revs.forEach((e) => {
+      e.data.timeStamp = e.data.timeStamp.toDate();
+      e.data.timeStamp = moment(e.data.timeStamp).format('Do MMMM YY');
+      this.listOfReviews.push(e);
     });
-    this.listOfReviews = revs;
   }
 }
