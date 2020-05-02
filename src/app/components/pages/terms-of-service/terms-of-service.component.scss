@@ -11,6 +11,9 @@
     @include mediumPhoneMixin {
       font-size: 46px;
     }
+    @include smallPhoneMixin {
+      font-size: 26px;
+    }
   }
   h1::before {
     content: '';
@@ -25,5 +28,9 @@
   ol {
     width: fit-content;
     font-size: 22px;
+    @include mediumPhoneMixin {
+      width: 90%;
+      font-size: 18px;
+    }
   }
 }

@@ -11,7 +11,7 @@
     position: relative;
     padding: 10px;
     @include smallPhoneMixin {
-      font-size: 42px;
+      font-size: 32px;
     }
     @include largePhoneMixin {
       font-size: 48px;
@@ -127,11 +127,12 @@
         }
         .icon-toolbar {
           .company-info-item {
-            h6, i {
+            h6,
+            i {
               color: whitesmoke;
               font-size: 20px;
               @include smallPhoneMixin {
-              font-size: 18px;
+                font-size: 18px;
               }
             }
             @include smallPhoneMixin {
@@ -187,7 +188,7 @@
     display: block;
   }
 
-  @include smallDesktopMixin{
+  @include smallDesktopMixin {
     display: block;
   }
 
@@ -237,7 +238,6 @@
             @include tabletMixin {
               width: 150px;
             }
-
           }
         }
       }
@@ -379,7 +379,7 @@ app-review-element {
   @include smallPhoneMixin {
     width: fit-content;
   }
-  @include largePhoneMixin{
+  @include largePhoneMixin {
     width: 50%;
   }
   @include tabletMixin {
