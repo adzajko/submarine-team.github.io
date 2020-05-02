@@ -9,6 +9,8 @@ import {
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -22,8 +24,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('overlay', { static: false }) overlay: ElementRef;
   @ViewChild('subLogo', { static: false }) subLogo: ElementRef;
   public val: string;
-
-  @Output() openModal = new EventEmitter();
+  public activeUser = false;
 
   // Login Logic
   loginForm: FormGroup;
@@ -31,7 +32,9 @@ export class NavbarComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private afAuth: AngularFireAuth,
+    private sharedService: SharedService
   ) {
     this.loginForm = this.formBuilder.group({
       email: '',
@@ -40,6 +43,13 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.afAuth.user.subscribe(res => {
+      if (res) {
+        this.activeUser = true;
+      } else {
+        this.activeUser = false;
+      }
+    });
     this.val = localStorage.getItem('language');
     this.translateService.addLangs(['English', 'Macedonian']);
     this.translateService.setDefaultLang('English');
@@ -63,18 +73,16 @@ export class NavbarComponent implements OnInit {
   }
 
   triggerModal() {
-    this.openModal.emit(true);
+    this.sharedService.emitLoginModalState(true);
   }
 
   checkMyAccount() {
-    this.auth.authStateTrack().then(response => {
-      if (response.logged) {
-        this.toggleOverlay();
-      } else {
-        this.triggerModal();
-        this.toggleOverlay();
-      }
-    });
+    if (this.activeUser) {
+      this.toggleOverlay();
+    } else {
+      this.triggerModal();
+      this.toggleOverlay();
+    }
   }
 
   changeLanguage(value) {

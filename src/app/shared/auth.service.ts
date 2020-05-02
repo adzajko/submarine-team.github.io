@@ -14,6 +14,7 @@ export class AuthService {
   user: User;
   publishEmail: Subject<any> = new Subject<any>();
   triggerLoadingScreen: Subject<boolean> = new Subject<boolean>();
+  publishAuthState: Subject<any> = new Subject<any>();
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -52,20 +53,8 @@ export class AuthService {
     });
   }
 
-  async authStateTrack() {
-    let result: any;
-    await this.afAuth.onAuthStateChanged(user => {
-      if (user) {
-        if (user.emailVerified) {
-          result = { logged: true, verified: true };
-        } else {
-          result = { logged: true, verified: false };
-        }
-      } else {
-        result = { logged: false, verified: false };
-      }
-    });
-    return result;
+  authStateTrack() {
+    //
   }
 
   async sendConfirmationEmail() {

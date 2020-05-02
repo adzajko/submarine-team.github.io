@@ -1,5 +1,5 @@
 <header>
-  <app-navbar (openModal)="openModalFunction($event)"></app-navbar>
+  <app-navbar></app-navbar>
 </header>
 <main [@routeAnimations]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
@@ -8,5 +8,5 @@
   <app-footer></app-footer>
 </footer>
 
-<app-login (clMod)="closeModal($event)" *ngIf="shouldModalOpen"></app-login>
+<app-login *ngIf="shouldModalOpen"></app-login>
 <app-http-loader *ngIf="pendingHttpRequest"></app-http-loader>

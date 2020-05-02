@@ -70,14 +70,14 @@
       <mat-label>
         {{ 'MY_ACCOUNT.OLD_PASS' | translate }}
       </mat-label>
-      <input matInput formControlName="oldPassword" />
+      <input matInput formControlName="newPassword" type="password" />
     </mat-form-field>
 
     <mat-form-field class="mt-3">
       <mat-label>
         {{ 'MY_ACCOUNT.NEW_PASS' | translate }}
       </mat-label>
-      <input matInput formControlName="newPassword" />
+      <input matInput formControlName="newPasswordConfirm" type="password" />
     </mat-form-field>
     <button (click)="updatePassword()" mat-raised-button color="accent">
       {{ 'MY_ACCOUNT.CHANGE_PASS_BTN' | translate }}

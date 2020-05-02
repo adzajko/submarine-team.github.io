@@ -5,8 +5,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { MyAccountComponent } from './components/pages/my-account/my-account.component';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
-
-import { AuthGuardGuard } from './shared/auth-guard.guard';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { CompaniesComponent } from './components/pages/companies/companies.component';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 
@@ -25,14 +24,14 @@ const routes: Routes = [
   {
     path: 'my-account',
     component: MyAccountComponent,
-    data: { animationState: 'About' },
-    canActivate: [AuthGuardGuard]
+    canActivate: [AngularFireAuthGuard],
+    data: { animationState: 'About' }
   },
   {
     path: 'admin',
     component: AdminPanelComponent,
     data: { animationState: 'Contact' },
-    canActivate: [AuthGuardGuard]
+    canActivate: [AngularFireAuthGuard]
   },
   {
     path: 'companies',
@@ -48,6 +47,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AngularFireAuthGuard]
 })
 export class AppRoutingModule {}

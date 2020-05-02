@@ -21,22 +21,11 @@
         name="languages"
         id="langSelect"
         class="custom-select"
+        style="cursor: pointer;"
         (change)="changeLanguage($event.target.value)"
       >
-        <option value="English"
-          ><img
-            src="/assets/icons/enflag.png"
-            style="width: 50px; height: 50px;"
-            alt="english language change"
-          />en</option
-        >
-        <option value="Macedonian"
-          ><img
-            src="/assets/icons/mkd-flag.png"
-            style="width: 50px; height: 50px;"
-            alt="macedonian language change"
-          />мк</option
-        >
+        <option value="English" style="cursor: pointer;">en</option>
+        <option value="Macedonian" style="cursor: pointer;">мк</option>
       </select>
     </div>
     <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
@@ -50,6 +39,7 @@
     <a
       [routerLink]="['/my-account']"
       class="overlay-link"
+      *ngIf="activeUser"
       (click)="checkMyAccount()"
       ><i class="fa fa-user mr-2"></i>{{ 'HEADER.MY_ACCOUNT' | translate }}</a
     >

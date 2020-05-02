@@ -1,8 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { routeTransitionAnimations } from './shared/animations';
 import { AuthService } from './shared/auth.service';
 import { TranslateService } from '@ngx-translate/core';
+import { startWith, tap, delay } from 'rxjs/operators';
+import { SharedService } from './shared/shared.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +13,30 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
   animations: [routeTransitionAnimations]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'TSP';
-  @Input() openModal;
-  pendingHttpRequest = false;
+  public pendingHttpRequest = false;
+  private subscription: Subscription;
 
   shouldModalOpen = false;
 
   constructor(
     private auth: AuthService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit() {
-    this.auth.triggerLoadingScreen.subscribe(response => {
-      this.pendingHttpRequest = response;
-    });
+    this.subscription = this.sharedService.publishLoginModalState.subscribe(
+      response => {
+        this.shouldModalOpen = response;
+      }
+    );
+    this.auth.triggerLoadingScreen
+      .pipe(startWith(null), delay(0))
+      .subscribe(response => {
+        this.pendingHttpRequest = response;
+      });
     this.translateService.setDefaultLang('English');
 
     if (!localStorage.language) {
@@ -34,19 +45,15 @@ export class AppComponent implements OnInit {
     this.translateService.use(localStorage.language);
   }
 
-  openModalFunction(event) {
-    this.shouldModalOpen = event;
-  }
-
-  closeModal(event) {
-    this.shouldModalOpen = event;
-  }
-
   prepareRoute(outlet: RouterOutlet): boolean {
     return (
       outlet &&
       outlet.activatedRouteData &&
-      outlet.activatedRouteData['animationState']
+      outlet.activatedRouteData.animationState
     );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

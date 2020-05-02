@@ -1,6 +1,6 @@
 <div>
-  <h5>Warning!</h5>
-  <h6>Are you sure you wish to reset your password?</h6>
+  <h5>{{ 'CONFIRM_DIALOG.WARNING' | translate }}!</h5>
+  <h6>{{ 'CONFIRM_DIALOG.RESET_Q' | translate }}</h6>
   <hr />
   <button
     mat-dialog-close
@@ -9,7 +9,7 @@
     mat-raised-button
     color="primary"
   >
-    Yes
+    {{ 'CONFIRM_DIALOG.YES' | translate }}
   </button>
   <button
     mat-dialog-close
@@ -17,6 +17,6 @@
     mat-raised-button
     color="accent"
   >
-    Cancel
+    {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
   </button>
 </div>

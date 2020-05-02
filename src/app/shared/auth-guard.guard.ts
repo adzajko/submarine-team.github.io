@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { AuthService } from './auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -9,27 +9,28 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AuthGuardGuard implements CanActivate {
   constructor(
+    private af: AngularFireAuth,
     private router: Router,
-    private authService: AuthService,
-    private toastr: ToastrService,
+    private toastrService: ToastrService,
     private translateService: TranslateService
   ) {}
-  async canActivate() {
-    const state = await this.authService.authStateTrack();
-    if (state.logged) {
-      if (state.verified) {
+
+  canActivate() {
+    this.af.user.subscribe(res => {
+      if (res && res.emailVerified) {
+        console.log('YOU SPEAK DA TRU TRU');
+        console.log(res);
+        console.log(res.emailVerified);
         return true;
       } else {
         this.translateService.get('TOASTR').subscribe(response => {
-          this.toastr.error(response.UNVERIFIED, response.ERROR_TITLE);
+          this.toastrService.error(response.UNVERIFIED, response.ERROR_TITLE);
         });
+        console.log('DOnald Trump');
+        console.log(res);
         return false;
       }
-    } else {
-      this.translateService.get('TOASTR').subscribe(response => {
-        this.toastr.error(response.NOT_LOGGED_IN, response.ERROR_TITLE);
-      });
-      return false;
-    }
+    });
+    return false;
   }
 }

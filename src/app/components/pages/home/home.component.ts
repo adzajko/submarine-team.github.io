@@ -6,11 +6,12 @@ import { Review } from '../../reviews/review-element/Review.model';
 import { ReviewService } from '../../../shared/review.service';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
@@ -23,33 +24,40 @@ export class HomeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private reviewService: ReviewService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private afAuth: AngularFireAuth
   ) {
     this.authForm = this.formBuilder.group({
       email: '',
-      password: '',
+      password: ''
     });
   }
 
   ngOnInit(): void {
     this.auth.showHTTPLoader(true);
     this.reviewService.getReviews().subscribe(
-      (data) => {
+      data => {
         this.auth.showHTTPLoader(false);
-        this.reviewList = data.map((e) => {
+        this.reviewList = data.map(e => {
           return { data: e.payload.doc.data(), id: e.payload.doc.id };
         });
         this.render(this.reviewList);
       },
-      (errorRes) => {
+      errorRes => {
         this.toastr.error(errorRes.message, 'Error.');
         this.auth.showHTTPLoader(false);
       }
     );
   }
 
-  async checkIfLoggedIn() {
-    this.loggedIn = await this.auth.authStateTrack();
+  checkIfLoggedIn() {
+    this.afAuth.onAuthStateChanged(user => {
+      if (user) {
+        this.loggedIn = true;
+      } else {
+        this.loggedIn = false;
+      }
+    });
   }
 
   onSubmit(authData) {
@@ -58,7 +66,7 @@ export class HomeComponent implements OnInit {
   }
 
   render(revs) {
-    revs.forEach((e) => {
+    revs.forEach(e => {
       e.data.timeStamp = e.data.timeStamp.toDate();
       e.data.timeStamp = moment(e.data.timeStamp).format('Do MMMM YY');
       this.listOfReviews.push(e);

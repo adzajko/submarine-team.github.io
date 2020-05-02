@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReviewService } from '../../../shared/review.service';
 import { CompanyService } from 'src/app/shared/company.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -8,17 +8,19 @@ import { TranslateService } from '@ngx-translate/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../../../shared/confirmation-dialog/confirmation-dialog.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.scss']
 })
-export class MyAccountComponent implements OnInit {
+export class MyAccountComponent implements OnInit, OnDestroy {
   companies = [];
   inputForm: FormGroup;
   accountChangesForm: FormGroup;
   private toastrMessages;
+  private subscription: Subscription;
 
   constructor(
     public dialog: MatDialog,
@@ -35,7 +37,7 @@ export class MyAccountComponent implements OnInit {
       this.toastrMessages = response;
     });
     this.authService.showHTTPLoader(true);
-    this.companyService.getCompanies().subscribe(
+    this.subscription = this.companyService.getCompanies().subscribe(
       data => {
         this.authService.showHTTPLoader(false);
         data.map(e => {
@@ -64,6 +66,14 @@ export class MyAccountComponent implements OnInit {
       }
     });
     this.authService.getUsername().subscribe(e => {
+      if (!e.emailVerified) {
+        this.toastr.error(
+          this.toastrMessages.UNVERIFIED,
+          this.toastrMessages.ERROR_TITLE
+        );
+        this.authService.showHTTPLoader(false);
+        return;
+      }
       review.userName = e.email;
       this.reviewService
         .postReview(review)
@@ -91,17 +101,18 @@ export class MyAccountComponent implements OnInit {
           linkedin: this.accountChangesForm.value.linkedInAccount
         });
       });
-      this.toastr.success('Verification request sent!', 'Thank You!');
+      this.toastr.success(
+        this.toastrMessages.VERIFICATION_SENT,
+        this.toastrMessages.THANK
+      );
     } else {
-      this.toastr.error('You need to input your linkedin account!', 'Oops!');
+      this.toastr.error(this.toastrMessages.LINKEDIN, this.toastrMessages.OOPS);
     }
   }
 
   changeEmail() {
-    this.toastr.info('Feature not yet implemented :(', 'Oops!');
+    this.toastr.info(this.toastrMessages.COMING_SOON, this.toastrMessages.OOPS);
   }
-
-  resetPassword() {}
 
   forgotPasswordDialog() {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -109,7 +120,7 @@ export class MyAccountComponent implements OnInit {
       height: '175px'
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
+      if (result === 'true') {
         this.authService.getUsername().subscribe(user => {
           this.authService.resetPassword(user.email);
         });
@@ -130,22 +141,25 @@ export class MyAccountComponent implements OnInit {
           e.updatePassword(this.accountChangesForm.value.newPassword)
             .then(() => {
               this.toastr.success(
-                `Your password has been updated!`,
-                'Success!'
+                this.toastrMessages.UPDATE_PASS,
+                this.toastrMessages.SUCCESS_TITLE
               );
             })
             .catch(err => {
-              this.toastr.error(err.message, 'Error!');
+              this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
             });
         });
       } else {
         this.toastr.error(
-          'Password and confirmed password need to match!',
-          'Error'
+          this.toastrMessages.MATCHING,
+          this.toastrMessages.ERROR_TITLE
         );
       }
     } else {
-      this.toastr.error('You need to fill out both password fields!', 'Error');
+      this.toastr.error(
+        this.toastrMessages.FILL_PASSWORD,
+        this.toastrMessages.ERROR_TITLE
+      );
     }
   }
 
@@ -180,5 +194,9 @@ export class MyAccountComponent implements OnInit {
       myCompanyNotifications: new FormControl(myCompanyNotifications),
       multipleCompanies: new FormControl(multipleCompanies)
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

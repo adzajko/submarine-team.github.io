@@ -1,16 +1,11 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, NavigationStart } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -19,17 +14,19 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('logiRegi') logiRegi: ElementRef;
-  @Output() clMod = new EventEmitter();
   loginForm: FormGroup;
   registerForm: FormGroup;
   isLoggedIn = false;
   private toastrMessages;
+  private user;
 
   constructor(
     private auth: AuthService,
     private toastrService: ToastrService,
     private router: Router,
-    private translateService: TranslateService
+    private afAuth: AngularFireAuth,
+    private translateService: TranslateService,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -37,25 +34,13 @@ export class LoginComponent implements OnInit {
       this.toastrMessages = response;
     });
 
-    this.auth
-      .authStateTrack()
-      .then(
-        response => {
-          this.isLoggedIn = response.logged;
-        },
-        errRes => {
-          this.toastrService.error(
-            errRes.message,
-            this.toastrMessages.ERROR_TITLE
-          );
-        }
-      )
-      .catch(errorRes => {
-        this.toastrService.error(
-          errorRes.message,
-          this.toastrMessages.ERROR_TITLE
-        );
-      });
+    this.afAuth.user.subscribe(response => {
+      if (response) {
+        this.isLoggedIn = true;
+      } else {
+        this.isLoggedIn = false;
+      }
+    });
     this.initLoginForm();
     this.initRegisterForm();
 
@@ -83,7 +68,7 @@ export class LoginComponent implements OnInit {
         this.registerForm.value.registerPassword
       )
       .then(response => {
-        this.closeModal();
+        this.sharedService.emitLoginModalState(false);
         this.auth.showHTTPLoader(false);
       })
       .catch(error => {
@@ -113,7 +98,7 @@ export class LoginComponent implements OnInit {
           this.toastrMessages.SUCCESFULL_LOGIN,
           this.toastrMessages.SUCCESS_TITLE
         );
-        this.closeModal();
+        this.sharedService.emitLoginModalState(false);
         this.auth.showHTTPLoader(false);
       })
       .catch(error => {
@@ -134,11 +119,21 @@ export class LoginComponent implements OnInit {
   }
 
   logOut() {
-    this.auth.signOut();
-    this.clMod.emit(false);
+    this.afAuth
+      .signOut()
+      .then(response => {
+        this.sharedService.emitLoginModalState(false);
+        this.router.navigate(['/']);
+        this.translateService.get('TOASTR').subscribe(res => {
+          this.toastrService.success(res.SIGNED_OUT, res.SUCCESS_TITLE);
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   closeModal() {
-    this.clMod.emit(false);
+    this.sharedService.emitLoginModalState(false);
   }
 }
