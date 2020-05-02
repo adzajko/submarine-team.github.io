@@ -60,7 +60,19 @@
     "COMPANY_ADD_NOT": "Notify me when a company is added",
     "FORGOT_PASS_BTN": "Forgot Password"
   },
-  "TERMS OF SERVICE": {},
+  "TERMS_OF_SERVICE": {
+    "TITLE": "General Terms of Service",
+    "COOKIE_TITLE": "Cookie Policy:",
+    "COOKIE_BODY": "We do not store cookies on our page.",
+    "HATE_SPEECH_TITLE": "No Hate Speech:",
+    "HATE_SPEECH_BODY": "Hate speech of any kind will not be tolerated.",
+    "REVIEWS_TITLE": "Submitting Reviews:",
+    "REVIEWS_BODY": "Users need to have a verified account to post a review.",
+    "ANON_TITLE": "Complete anonymity:",
+    "ANON_BODY": "We will not share or expose your email address, and we do not show usernames at all.",
+    "RESERVED_1": " We reserve the right to remove reviews that violate rule 2.",
+    "RESERVED_2": "Serious offenders can have their accounts banned."
+  },
   "REVIEW_ELEMENT": {},
   "TOASTR": {
     "SUCCESS_TITLE": "Success!",
