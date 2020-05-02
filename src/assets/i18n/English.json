@@ -1,18 +1,58 @@
 {
-  "HEADER": {},
-  "FOOTER": {},
+  "HEADER": {
+    "HOME":"Home",
+    "MY_ACCOUNT":"My Account",
+    "COMPANIES":"Companies",
+    "ABOUT":"About",
+    "CONTACT":"Contact"
+  },
+  "FOOTER": {
+    "SERVICE_TERMS":"Terms of Service",
+    "ABOUT":"About Us"
+  },
   "ABOUTPAGE": {},
   "ADMIN_PANEL": {},
   "COMPANIES_PAGE": {},
-  "CONTACT_PAGE": {},
+  "CONTACT_PAGE": {
+    "SEND_MESSAGE": "Send Us A Message",
+    "REACH_US": "Reach Us",
+    "FULL_NAME":"FULL NAME",
+    "EMAIL": "EMAIL ADDRESS",
+    "MESSAGE": "MESSAGE",
+    "SEND_BTN": "SEND"
+  },
   "HOMEPAGE": {
     "FEATURED_TITLE": "Featured Company",
     "SEE_MORE_BTN": "See More",
     "TOP_REVIEWED": "Top Reviewed Companies",
     "REVIEWS": "Reviews"
   },
-  "LOGIN": {},
-  "MY_ACCOUNT": {},
+  "LOGIN": {
+    "LOGIN":"Log in",
+    "REGISTER":"Register",
+    "EMAIL":"Email",
+    "PASSWORD":"Password",
+    "FORGOT_PASS":"Forgot your password?",
+    "REGI_DESCRIPTION":"Don't have an account yet?",
+    "LOGI_DESCRIPTION":"Welcome Back"
+  },
+  "MY_ACCOUNT": {
+    "COMPANY":"Company",
+    "RATING":"Rating",
+    "DESCRIPTION":"Write Something...",
+    "SUBMIT_BTN":"Submit",
+    "LINKEDIN":"LinkedIn Account",
+    "CONNECT_BTN":"Connect",
+    "EMAIL":"Email",
+    "EMAIL_BTN":"Change Email",
+    "OLD_PASS":"Old Password",
+    "NEW_PASS":"New Password",
+    "CHANGE_PASS_BTN":"Change Password",
+    "COMPANIES":"Companies",
+    "COMPANY_REVIEWED_NOT":"Notify me when a company is reviewed",
+    "COMPANY_ADD_NOT":"Notify me when a company is added",
+    "FORGOT_PASS_BTN":"Forgot Password"
+  },
   "TERMS OF SERVICE": {},
   "REVIEW_ELEMENT": {},
   "TOASTR": {

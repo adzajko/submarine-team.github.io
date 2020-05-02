@@ -1,10 +1,10 @@
 <div class="footer-elements">
   <div class="quick-links pb-1">
     <a [routerLink]="['/terms-of-service']" class="animatedBefore"
-      >Terms Of Service
+      >{{ 'FOOTER.SERVICE_TERMS' | translate }}
     </a>
     <span class="text-white"></span>
-    <a [routerLink]="['/about']" class="animatedBefore">About Us</a>
+    <a [routerLink]="['/about']" class="animatedBefore">{{ 'FOOTER.ABOUT' | translate }}</a>
   </div>
   <div class="divider"></div>
   <p>&copy; The Submarine Team | 2020</p>
