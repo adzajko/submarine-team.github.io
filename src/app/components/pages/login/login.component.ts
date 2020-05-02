@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, NavigationStart } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -22,14 +23,20 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   registerForm: FormGroup;
   isLoggedIn = false;
+  private toastrMessages;
 
   constructor(
     private auth: AuthService,
     private toastrService: ToastrService,
-    private router: Router
+    private router: Router,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
+    this.translateService.get('TOASTR').subscribe(response => {
+      this.toastrMessages = response;
+    });
+
     this.auth
       .authStateTrack()
       .then(
@@ -37,11 +44,17 @@ export class LoginComponent implements OnInit {
           this.isLoggedIn = response.logged;
         },
         errRes => {
-          this.toastrService.error(errRes.message, 'Error.');
+          this.toastrService.error(
+            errRes.message,
+            this.toastrMessages.ERROR_TITLE
+          );
         }
       )
       .catch(errorRes => {
-        this.toastrService.error(errorRes.message, 'Error.');
+        this.toastrService.error(
+          errorRes.message,
+          this.toastrMessages.ERROR_TITLE
+        );
       });
     this.initLoginForm();
     this.initRegisterForm();
@@ -75,7 +88,10 @@ export class LoginComponent implements OnInit {
       })
       .catch(error => {
         this.auth.showHTTPLoader(false);
-        this.toastrService.error(error.message, 'An error has occurred.');
+        this.toastrService.error(
+          error.message,
+          this.toastrMessages.ERROR_TITLE
+        );
       });
   }
 
@@ -93,12 +109,18 @@ export class LoginComponent implements OnInit {
     this.auth
       .signIn(this.loginForm.value.email, this.loginForm.value.password)
       .then(response => {
-        this.toastrService.success('You have been logged in.', 'Success!');
+        this.toastrService.success(
+          this.toastrMessages.SUCCESFULL_LOGIN,
+          this.toastrMessages.SUCCESS_TITLE
+        );
         this.closeModal();
         this.auth.showHTTPLoader(false);
       })
       .catch(error => {
-        this.toastrService.error(error.message, 'An error has occurred.');
+        this.toastrService.error(
+          error.message,
+          this.toastrMessages.ERROR_TITLE
+        );
         this.auth.showHTTPLoader(false);
       });
   }

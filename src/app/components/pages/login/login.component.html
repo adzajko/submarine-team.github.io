@@ -79,13 +79,15 @@
 <section *ngIf="isLoggedIn">
   <div class="card">
     <div class="card-header">
-      <h6 class="acc-header">Account controls</h6>
+      <h6 class="acc-header">{{ 'LOGIN.ACC_CONTROLS' | translate }}</h6>
       <i class="fa fa-times white-icon" (click)="closeModal()"></i>
     </div>
     <div class="card-body">
-      <a [routerLink]="['/my-account']" class="btn btn-dark mr-2">My Account</a>
+      <a [routerLink]="['/my-account']" class="btn btn-dark mr-2">{{
+        'HEADER.MY_ACCOUNT' | translate
+      }}</a>
       <button class="btn btn-danger" (click)="logOut()">
-        Log Out
+        {{ 'LOGIN.LOG_OUT' | translate }}
       </button>
     </div>
   </div>

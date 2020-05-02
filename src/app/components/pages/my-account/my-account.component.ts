@@ -4,6 +4,7 @@ import { CompanyService } from 'src/app/shared/company.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-account',
@@ -14,15 +15,20 @@ export class MyAccountComponent implements OnInit {
   companies = [];
   inputForm: FormGroup;
   accountChangesForm: FormGroup;
+  private toastrMessages;
 
   constructor(
     private reviewService: ReviewService,
     private companyService: CompanyService,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit() {
+    this.translateService.get('TOASTR').subscribe(response => {
+      this.toastrMessages = response;
+    });
     this.authService.showHTTPLoader(true);
     this.companyService.getCompanies().subscribe(
       data => {
@@ -33,7 +39,7 @@ export class MyAccountComponent implements OnInit {
       },
       errorRes => {
         this.authService.showHTTPLoader(false);
-        this.toastr.error(errorRes, 'Error.');
+        this.toastr.error(errorRes.message, this.toastrMessages.ERROR_TITLE);
       }
     );
 
@@ -56,11 +62,14 @@ export class MyAccountComponent implements OnInit {
         .postReview(review)
         .then(response => {
           this.authService.showHTTPLoader(false);
-          this.toastr.success('Review submitted.', 'Success!');
+          this.toastr.success(
+            this.toastrMessages.SUBMITTED_REVIEW,
+            this.toastrMessages.SUCCESS_TITLE
+          );
         })
         .catch(errorRes => {
           this.authService.showHTTPLoader(false);
-          this.toastr.error(errorRes.message, 'An Error occurred.');
+          this.toastr.error(errorRes.message, this.toastrMessages.ERROR_TITLE);
         });
     });
   }

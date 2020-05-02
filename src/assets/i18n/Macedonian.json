@@ -1,22 +1,26 @@
 {
   "HEADER": {
-    "HOME":"Дома",
-    "MY_ACCOUNT":"Мој Профил",
-    "COMPANIES":"Компании",
-    "ABOUT":"За нас",
-    "CONTACT":"Контакт"
+    "HOME": "Дома",
+    "MY_ACCOUNT": "Мој Профил",
+    "COMPANIES": "Компании",
+    "ABOUT": "За нас",
+    "CONTACT": "Контакт"
   },
   "FOOTER": {
-    "SERVICE_TERMS":"Правила и Услови",
-    "ABOUT":"За Нас"
+    "SERVICE_TERMS": "Правила и Услови",
+    "ABOUT": "За Нас"
   },
-  "ABOUTPAGE": {},
+  "ABOUTPAGE": {
+    "TEAM": "Членови на тимот",
+    "INTRO_TEAM": "Ние сме група студенти на SEDC академијата. Овај проект е нашиот труд да ги откриеме тајните што ги кријат компаниите.",
+    "INTRO_ABOUT": "Постојат многу малку начини да се дознае како е всушност работното искуство во една компанија. Ова е нашиот обид да го решиме тој проблем со тоа што даваме платформа каде што корисниците можат сопствените приказни да ги раскажат, анонимно."
+  },
   "ADMIN_PANEL": {},
   "COMPANIES_PAGE": {},
   "CONTACT_PAGE": {
     "SEND_MESSAGE": "Пратете Порака",
     "REACH_US": "Контактирајте Не",
-    "FULL_NAME":"ИМЕ И ПРЕЗИМЕ",
+    "FULL_NAME": "ИМЕ И ПРЕЗИМЕ",
     "EMAIL": "E-MAIL АДРЕСА",
     "MESSAGE": "ПОРАКА",
     "SEND_BTN": "ПРАТИ"
@@ -25,38 +29,47 @@
     "FEATURED_TITLE": "Избрана Компанија",
     "SEE_MORE_BTN": "Повеќе",
     "TOP_REVIEWED": "Најдобро Оценети Компании",
-    "REVIEWS": "Рецензии"
+    "REVIEWS": "Рецензии",
+    "AVERAGE": "Просек"
   },
   "LOGIN": {
-    "LOGIN":"Најави се",
-    "REGISTER":"Регистрирај се",
-    "EMAIL":"E-mail Адреса",
-    "PASSWORD":"Лозинка",
-    "FORGOT_PASS":"Ја заборавивте вашата лозинка?",
-    "REGI_DESCRIPTION":"Немате профил сеуште?",
-    "LOGI_DESCRIPTION":"Добредојдовте назад"
+    "LOGIN": "Најави се",
+    "REGISTER": "Регистрирај се",
+    "EMAIL": "E-mail Адреса",
+    "PASSWORD": "Лозинка",
+    "FORGOT_PASS": "Ја заборавивте вашата лозинка?",
+    "REGI_DESCRIPTION": "Немате профил сеуште?",
+    "LOGI_DESCRIPTION": "Добредојдовте назад",
+    "LOG_OUT": "Одјави Се",
+    "ACC_CONTROLS": "Контроли"
   },
   "MY_ACCOUNT": {
-    "COMPANY":"Компанија",
-    "RATING":"Оцена",
-    "DESCRIPTION":"Напиши Нешто..",
-    "SUBMIT_BTN":"Поднеси",
-    "LINKEDIN":"LinkedIn Профил",
-    "CONNECT_BTN":"Конектирај се",
-    "EMAIL":"E-mail Адреса",
-    "EMAIL_BTN":"Промени E-mail",
-    "OLD_PASS":"Стара Лозинка",
-    "NEW_PASS":"Нова Лозинка",
-    "CHANGE_PASS_BTN":"Промени Лозинка",
-    "COMPANIES":"Компании",
-    "COMPANY_REVIEWED_NOT":"Извести ме кога некоја компанија е оценета",
-    "COMPANY_ADD_NOT":"Извести ме кога нова компанија е додадена",
-    "FORGOT_PASS_BTN":"Заборавена Лозинка"
+    "COMPANY": "Компанија",
+    "RATING": "Оцена",
+    "DESCRIPTION": "Напиши Нешто..",
+    "SUBMIT_BTN": "Поднеси",
+    "LINKEDIN": "LinkedIn Профил",
+    "CONNECT_BTN": "Конектирај се",
+    "EMAIL": "E-mail Адреса",
+    "EMAIL_BTN": "Промени E-mail",
+    "OLD_PASS": "Стара Лозинка",
+    "NEW_PASS": "Нова Лозинка",
+    "CHANGE_PASS_BTN": "Промени Лозинка",
+    "COMPANIES": "Компании",
+    "COMPANY_REVIEWED_NOT": "Извести ме кога некоја компанија е оценета",
+    "COMPANY_ADD_NOT": "Извести ме кога нова компанија е додадена",
+    "FORGOT_PASS_BTN": "Заборавена Лозинка"
   },
   "TERMS OF SERVICE": {},
   "REVIEW_ELEMENT": {},
   "TOASTR": {
     "SUCCESS_TITLE": "Успех!",
-    "ERROR_TITLE": "Грешка."
+    "ERROR_TITLE": "Грешка.",
+    "SUCCESFULL_LOGIN": "Успешно се најавивте.",
+    "SUBMITTED_REVIEW": "Рецензијата е поднесена.",
+    "UNVERIFIED": "Мора да го потврдите профилот пред да продолжите!",
+    "NOT_LOGGED_IN": "Не сте најавени!",
+    "SIGNED_OUT": "Корисникот е одјавен!",
+    "USER_CREATED": "Креиран нов корисник!"
   }
 }

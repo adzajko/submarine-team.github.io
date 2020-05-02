@@ -1,5 +1,5 @@
 <mat-toolbar class="navbar d-flex" color="warn">
-  <div #navBrand class="navbar-brand mt-sm-2 mt-lg-0" (click)="toggleOverlay()">
+  <div #navBrand class="navbar-brand mt-2" (click)="toggleOverlay()">
     <span #hamTop class="hamburger-line top"></span>
     <span #hamBot class="hamburger-line bottom"></span>
   </div>
@@ -16,13 +16,27 @@
   <div class="d-flex">
     <div class="mr-4">
       <select
+        #langSelectEl
+        [value]="val"
         name="languages"
         id="langSelect"
         class="custom-select"
         (change)="changeLanguage($event.target.value)"
       >
-        <option value="English">en</option>
-        <option value="Macedonian">мк</option>
+        <option value="English"
+          ><img
+            src="/assets/icons/enflag.png"
+            style="width: 50px; height: 50px;"
+            alt="english language change"
+          />en</option
+        >
+        <option value="Macedonian"
+          ><img
+            src="/assets/icons/mkd-flag.png"
+            style="width: 50px; height: 50px;"
+            alt="macedonian language change"
+          />мк</option
+        >
       </select>
     </div>
     <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
@@ -43,7 +57,8 @@
       [routerLink]="['/companies']"
       class="overlay-link"
       (click)="toggleOverlay()"
-      ><i class="fa fa-building-o mr-2"></i>{{ 'HEADER.COMPANIES' | translate }}</a
+      ><i class="fa fa-building-o mr-2"></i
+      >{{ 'HEADER.COMPANIES' | translate }}</a
     >
     <a [routerLink]="['/about']" class="overlay-link" (click)="toggleOverlay()"
       ><i class="fa fa-question mr-2"></i>{{ 'HEADER.ABOUT' | translate }}</a

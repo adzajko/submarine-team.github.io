@@ -1,22 +1,26 @@
 {
   "HEADER": {
-    "HOME":"Home",
-    "MY_ACCOUNT":"My Account",
-    "COMPANIES":"Companies",
-    "ABOUT":"About",
-    "CONTACT":"Contact"
+    "HOME": "Home",
+    "MY_ACCOUNT": "My Account",
+    "COMPANIES": "Companies",
+    "ABOUT": "About",
+    "CONTACT": "Contact"
   },
   "FOOTER": {
-    "SERVICE_TERMS":"Terms of Service",
-    "ABOUT":"About Us"
+    "SERVICE_TERMS": "Terms of Service",
+    "ABOUT": "About Us"
   },
-  "ABOUTPAGE": {},
+  "ABOUTPAGE": {
+    "TEAM": "The Submarine Project Team Members:",
+    "INTRO_TEAM": " We are a group of students at the SEDC academy. This project is our effort to dive into the secrets companies may keep.",
+    "INTRO_ABOUT": "There are very few ways of finding out how it's like to actually work at a company. We aim to rectify that problem by providing a platform where users can share their stories, anonymously."
+  },
   "ADMIN_PANEL": {},
   "COMPANIES_PAGE": {},
   "CONTACT_PAGE": {
     "SEND_MESSAGE": "Send Us A Message",
     "REACH_US": "Reach Us",
-    "FULL_NAME":"FULL NAME",
+    "FULL_NAME": "FULL NAME",
     "EMAIL": "EMAIL ADDRESS",
     "MESSAGE": "MESSAGE",
     "SEND_BTN": "SEND"
@@ -25,38 +29,47 @@
     "FEATURED_TITLE": "Featured Company",
     "SEE_MORE_BTN": "See More",
     "TOP_REVIEWED": "Top Reviewed Companies",
-    "REVIEWS": "Reviews"
+    "REVIEWS": "Reviews",
+    "AVERAGE": "Average"
   },
   "LOGIN": {
-    "LOGIN":"Log in",
-    "REGISTER":"Register",
-    "EMAIL":"Email",
-    "PASSWORD":"Password",
-    "FORGOT_PASS":"Forgot your password?",
-    "REGI_DESCRIPTION":"Don't have an account yet?",
-    "LOGI_DESCRIPTION":"Welcome Back"
+    "LOGIN": "Log in",
+    "REGISTER": "Register",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "FORGOT_PASS": "Forgot your password?",
+    "REGI_DESCRIPTION": "Don't have an account yet?",
+    "LOGI_DESCRIPTION": "Welcome Back",
+    "LOG_OUT": "Log Out",
+    "ACC_CONTROLS": "Account Controls"
   },
   "MY_ACCOUNT": {
-    "COMPANY":"Company",
-    "RATING":"Rating",
-    "DESCRIPTION":"Write Something...",
-    "SUBMIT_BTN":"Submit",
-    "LINKEDIN":"LinkedIn Account",
-    "CONNECT_BTN":"Connect",
-    "EMAIL":"Email",
-    "EMAIL_BTN":"Change Email",
-    "OLD_PASS":"Old Password",
-    "NEW_PASS":"New Password",
-    "CHANGE_PASS_BTN":"Change Password",
-    "COMPANIES":"Companies",
-    "COMPANY_REVIEWED_NOT":"Notify me when a company is reviewed",
-    "COMPANY_ADD_NOT":"Notify me when a company is added",
-    "FORGOT_PASS_BTN":"Forgot Password"
+    "COMPANY": "Company",
+    "RATING": "Rating",
+    "DESCRIPTION": "Write Something...",
+    "SUBMIT_BTN": "Submit",
+    "LINKEDIN": "LinkedIn Account",
+    "CONNECT_BTN": "Connect",
+    "EMAIL": "Email",
+    "EMAIL_BTN": "Change Email",
+    "OLD_PASS": "Old Password",
+    "NEW_PASS": "New Password",
+    "CHANGE_PASS_BTN": "Change Password",
+    "COMPANIES": "Companies",
+    "COMPANY_REVIEWED_NOT": "Notify me when a company is reviewed",
+    "COMPANY_ADD_NOT": "Notify me when a company is added",
+    "FORGOT_PASS_BTN": "Forgot Password"
   },
   "TERMS OF SERVICE": {},
   "REVIEW_ELEMENT": {},
   "TOASTR": {
     "SUCCESS_TITLE": "Success!",
-    "ERROR_TITLE": "Error."
+    "ERROR_TITLE": "Error.",
+    "SUCCESFULL_LOGIN": "You have been logged in.",
+    "SUBMITTED_REVIEW": "Review submitted.",
+    "UNVERIFIED": "You must verify your account before continuing!",
+    "NOT_LOGGED_IN": "You are not logged in!",
+    "SIGNED_OUT": "User signed out!",
+    "USER_CREATED": "User created!"
   }
 }

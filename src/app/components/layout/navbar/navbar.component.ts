@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('navBrand', { static: false }) navBrand: ElementRef;
   @ViewChild('overlay', { static: false }) overlay: ElementRef;
   @ViewChild('subLogo', { static: false }) subLogo: ElementRef;
+  public val: string;
 
   @Output() openModal = new EventEmitter();
 
@@ -39,6 +40,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.val = localStorage.getItem('language');
     this.translateService.addLangs(['English', 'Macedonian']);
     this.translateService.setDefaultLang('English');
     const browserLang = this.translateService.getBrowserLang();

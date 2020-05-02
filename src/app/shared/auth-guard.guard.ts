@@ -2,37 +2,33 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { AuthService } from './auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private translateService: TranslateService
   ) {}
   async canActivate() {
-    //   if (await this.authService.authStateTrack()) {
-    //     console.log('MOZES DA VLEZES ANGELU!');
-    //     return true;
-    //   } else {
-    //     console.log('ZASTANI ZAD MENE SATANO!');
-    //     this.router.navigate(['/']);
-    //     return false;
-    //   }
-    // }
-
     const state = await this.authService.authStateTrack();
     if (state.logged) {
       if (state.verified) {
         return true;
       } else {
-        this.toastr.error('You must verify your account before continuing!');
+        this.translateService.get('TOASTR').subscribe(response => {
+          this.toastr.error(response.UNVERIFIED, response.ERROR_TITLE);
+        });
         return false;
       }
     } else {
-      this.toastr.error('You are not logged in!');
+      this.translateService.get('TOASTR').subscribe(response => {
+        this.toastr.error(response.NOT_LOGGED_IN, response.ERROR_TITLE);
+      });
       return false;
     }
   }
