@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -16,9 +16,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('logiRegi') logiRegi: ElementRef;
   loginForm: FormGroup;
   registerForm: FormGroup;
-  isLoggedIn = false;
+  @Input() isLoggedIn = false;
   private toastrMessages;
-  private user;
 
   constructor(
     private auth: AuthService,
@@ -34,13 +33,6 @@ export class LoginComponent implements OnInit {
       this.toastrMessages = response;
     });
 
-    this.afAuth.user.subscribe(response => {
-      if (response) {
-        this.isLoggedIn = true;
-      } else {
-        this.isLoggedIn = false;
-      }
-    });
     this.initLoginForm();
     this.initRegisterForm();
 

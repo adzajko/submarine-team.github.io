@@ -17,6 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'TSP';
   public pendingHttpRequest = false;
   private subscription: Subscription;
+  public passLoggedStateInfo: boolean;
 
   shouldModalOpen = false;
 
@@ -32,6 +33,13 @@ export class AppComponent implements OnInit, OnDestroy {
         this.shouldModalOpen = response;
       }
     );
+    this.auth.afAuth.user.subscribe(res => {
+      if (res) {
+        this.passLoggedStateInfo = true;
+      } else {
+        this.passLoggedStateInfo = false;
+      }
+    });
     this.auth.triggerLoadingScreen
       .pipe(startWith(null), delay(0))
       .subscribe(response => {

@@ -8,5 +8,8 @@
   <app-footer></app-footer>
 </footer>
 
-<app-login *ngIf="shouldModalOpen"></app-login>
+<app-login
+  [isLoggedIn]="passLoggedStateInfo"
+  *ngIf="shouldModalOpen"
+></app-login>
 <app-http-loader *ngIf="pendingHttpRequest"></app-http-loader>
