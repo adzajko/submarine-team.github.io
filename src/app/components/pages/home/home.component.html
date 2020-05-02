@@ -1,13 +1,5 @@
-<div class="filter-options py-3 d-flex justify-content-center w-100 bg-light">
-  <select class="form-control bg-light" name="options" id="filter-options">
-    <option value="City">City</option>
-    <option value="Country">Country</option>
-    <option value="Rating">Rating</option>
-  </select>
-  <button class="btn filter-btn">Filter</button>
-</div>
 <section class="d-flex justify-content-between dark-bg">
-  <section class="main-section w-100 mr-sm-0 mr-lg-3">
+  <section class="main-section w-100">
     <section class=" hero-companies my-5">
       <h1 class="featured-companies-h">
         {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
@@ -157,41 +149,4 @@
       *ngFor="let review of listOfReviews"
     ></app-review-element>
   </section>
-  <aside class="account-controls d-none d-lg-block">
-    <div class="account-wrapper" *ngIf="!loggedIn">
-      <div class="avatar-wrapper">
-        <img
-          src="/assets/submarine.png"
-          alt="User Avatar"
-          class="img-fluid mt-5"
-        />
-      </div>
-      <div class="dropdown-divider mx-3"></div>
-      <h4 class="text-center my-3">
-        You need to create an account first.
-      </h4>
-      <div class="d-flex justify-content-center">
-        <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input type="text" matInput formControlName="email" />
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Password</mat-label>
-            <input type="password" matInput formControlName="password" />
-          </mat-form-field>
-
-          <br />
-          <button
-            type="submit"
-            class="btn btn-dark mx-auto d-block"
-            id="signup-btn-home"
-          >
-            Sign Up
-          </button>
-        </form>
-      </div>
-    </div>
-  </aside>
 </section>
