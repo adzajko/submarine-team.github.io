@@ -40,7 +40,9 @@
       <mat-label>Linkedin Acocunt</mat-label>
       <input matInput formControlName="linkedInAccount" />
     </mat-form-field>
-    <button mat-raised-button color="accent">Connect!</button>
+    <button (click)="requestVerification()" mat-raised-button color="accent">
+      Connect!
+    </button>
     <hr />
 
     <!--Change Email-->
@@ -48,21 +50,25 @@
       <mat-label>Email</mat-label>
       <input matInput formControlName="changeEmailInput" />
     </mat-form-field>
-    <button mat-raised-button color="accent">Change Email</button>
+    <button (click)="changeEmail()" mat-raised-button color="accent">
+      Change Email
+    </button>
     <hr />
 
     <!--Change Password-->
     <mat-form-field class="mt-3">
-      <mat-label>Old Password</mat-label>
-      <input matInput formControlName="oldPassword" />
-    </mat-form-field>
-
-    <mat-form-field class="mt-3">
       <mat-label>New Password</mat-label>
       <input matInput formControlName="newPassword" />
     </mat-form-field>
-    <button mat-raised-button color="accent">Change Password</button>
+    <mat-form-field class="mt-3">
+      <mat-label>Confirm New Password</mat-label>
+      <input matInput formControlName="newPasswordConfirm" />
+    </mat-form-field>
+    <button (click)="updatePassword()" mat-raised-button color="accent">
+      Change Password
+    </button>
     <hr />
+
     <!-- Notifications control -->
     <!-- company notifications -->
     <mat-form-field>
@@ -81,7 +87,12 @@
     >
     <hr />
     <!--Forgot Password -->
-    <button class="mt-4" mat-raised-button color="warn">
+    <button
+      (click)="forgotPasswordDialog()"
+      class="mt-4"
+      mat-raised-button
+      color="accent"
+    >
       Forgot Password!
     </button>
   </form>

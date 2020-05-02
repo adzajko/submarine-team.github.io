@@ -32,6 +32,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
 import { HttpLoaderComponent } from './shared/http-loader/http-loader.component';
+import { VotesContainerComponent } from './components/reviews/votes-container/votes-container.component';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { HttpLoaderComponent } from './shared/http-loader/http-loader.component'
     CompaniesComponent,
     AdminPanelComponent,
     HttpLoaderComponent,
+    VotesContainerComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

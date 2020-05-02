@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
@@ -6,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subject, from } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   user: User;
@@ -16,9 +17,10 @@ export class AuthService {
   constructor(
     public afAuth: AngularFireAuth,
     public router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private firestore: AngularFirestore
   ) {
-    this.afAuth.onAuthStateChanged(user => {
+    this.afAuth.onAuthStateChanged((user) => {
       if (user) {
         console.log('Logged In!');
       } else {
@@ -44,21 +46,9 @@ export class AuthService {
     this.toastr.success('User created!');
   }
 
-  // async authStateTrack() {
-  //   let result: any;
-  //   await this.afAuth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       result = true;
-  //     } else {
-  //       result = false;
-  //     }
-  //   });
-  //   return result;
-  // }
-
   async authStateTrack() {
     let result: any;
-    await this.afAuth.onAuthStateChanged(user => {
+    await this.afAuth.onAuthStateChanged((user) => {
       if (user) {
         if (user.emailVerified) {
           result = { logged: true, verified: true };
@@ -75,6 +65,19 @@ export class AuthService {
   async sendConfirmationEmail() {
     (await this.afAuth.currentUser).sendEmailVerification();
     this.router.navigate(['/']);
+  }
+
+  resetPassword(email: string) {
+    return from(
+      this.afAuth
+        .sendPasswordResetEmail(email)
+        .then(() => {
+          this.toastr.success('Password successfully changed!', 'Success!');
+        })
+        .catch((err) => {
+          this.toastr.success(err.message, 'Error!');
+        })
+    );
   }
 
   // Get the User

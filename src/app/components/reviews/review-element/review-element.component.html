@@ -2,17 +2,19 @@
   <div class="card-aside">
     <div class="img-container">
       <img
-        src="{{ reviewElement.imagePath }}"
-        alt="{{ reviewElement.companyName }}"
+        src="{{ reviewElement.data.imagePath }}"
+        alt="{{ reviewElement.data.companyName }}"
         class="img-fluid"
       />
     </div>
-    <p class="text-center my-sm-0 my-md-2 font-italic">{{ reviewElement.timeStamp }}</p>
+    <p class="text-center my-sm-0 my-md-2 font-italic">
+      {{ reviewElement.data.timeStamp }}
+    </p>
   </div>
   <div class="card">
     <div class="card-header">
       <a [routerLink]="['/companies/:id']" class="card-title">{{
-        reviewElement.companyName
+        reviewElement.data.companyName
       }}</a>
       <ngb-rating [(rate)]="currentRate">
         <ng-template let-fill="fill" let-index="index">
@@ -27,18 +29,17 @@
     </div>
     <div class="card-body d-flex justify-content-between">
       <div class="supporting-flex">
-        <p class="card-text">{{ reviewElement.textExcerpt }}</p>
+        <p class="card-text">{{ reviewElement.data.textExcerpt }}</p>
         <button class="see-more-btn" mat-raised-button color="primary">
           More
         </button>
       </div>
       <div class="votes-container">
-        <button type="button" class="btn fa fa-arrow-up" id="upVote"></button>
-        <button
-          type="button"
-          class="btn fa fa-arrow-down"
-          id="downVote"
-        ></button>
+        <!--votes container-->
+        <app-votes-container
+          [id]="reviewElement.id"
+          [username]="reviewElement.data.userName"
+        ></app-votes-container>
       </div>
     </div>
   </div>
