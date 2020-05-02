@@ -7,7 +7,6 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
-import { CompaniesComponent } from './components/pages/companies/companies.component';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 import { AuthGuardGuard } from './shared/auth-guard.guard';
 
