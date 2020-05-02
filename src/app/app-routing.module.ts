@@ -8,40 +8,46 @@ import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.
 
 import { AuthGuardGuard } from './shared/auth-guard.guard';
 import { CompaniesComponent } from './components/pages/companies/companies.component';
+import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animationState: 'Home' } },
   {
     path: 'about',
     component: AboutComponent,
-    data: { animationState: 'About' },
+    data: { animationState: 'About' }
   },
   {
     path: 'contact',
     component: ContactComponent,
-    data: { animationState: 'Contact' },
+    data: { animationState: 'Contact' }
   },
   {
     path: 'my-account',
     component: MyAccountComponent,
     data: { animationState: 'About' },
-    canActivate: [AuthGuardGuard],
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'admin',
     component: AdminPanelComponent,
     data: { animationState: 'Contact' },
-    canActivate: [AuthGuardGuard],
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'companies',
     component: CompaniesComponent,
-    data: { animationState: 'Contact' },
+    data: { animationState: 'Contact' }
   },
+  {
+    path: 'terms-of-service',
+    component: TermsOfServiceComponent,
+    data: { animationState: 'About' }
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

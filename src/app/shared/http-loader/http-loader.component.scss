@@ -12,14 +12,14 @@
 
 .lds-dual-ring {
   display: inline-block;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
 }
 .lds-dual-ring:after {
   content: ' ';
   display: block;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   margin: 8px;
   border-radius: 50%;
   border: 6px solid #fff;

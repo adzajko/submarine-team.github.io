@@ -9,7 +9,9 @@
 <section class="d-flex justify-content-between dark-bg">
   <section class="main-section w-100 mr-sm-0 mr-lg-3">
     <section class=" hero-companies my-5">
-      <h1 class="featured-companies-h">Featured Company</h1>
+      <h1 class="featured-companies-h">
+        {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
+      </h1>
       <div class="card dark-bg">
         <div class="card-header">
           <a [routerLink]="['/']">Hero Company</a>
@@ -24,8 +26,7 @@
             <div class="icon-toolbar d-sm-block d-xl-flex py-2 mb-3">
               <div class="company-info-item ">
                 <h6 class="company-info">
-                  <i class="fa fa-industry " aria-hidden="true"></i
-                  >Technology
+                  <i class="fa fa-industry " aria-hidden="true"></i>Technology
                 </h6>
               </div>
               <div class="company-info-item ">
@@ -36,8 +37,8 @@
               </div>
               <div class="company-info-item ">
                 <h6 class="company-info">
-                  <i class="fa fa-phone-square " aria-hidden="true"></i>+389
-                  77 500 000
+                  <i class="fa fa-phone-square " aria-hidden="true"></i>+389 77
+                  500 000
                 </h6>
               </div>
             </div>
@@ -50,14 +51,14 @@
               mat-raised-button
               color="primary"
               class="d-block mx-auto mt-5 w-50 td-none"
-              >See More</a
+              >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
             >
           </div>
         </div>
       </div>
       <div class="top-reviewed-companies mt-6">
         <h3 class="text-center text-white my-5 underlineBefore p-2">
-          Top Reviewed Companies
+          {{ 'HOMEPAGE.TOP_REVIEWED' | translate }}
         </h3>
         <div class="reviewed-companies-container">
           <div class="card mr-3 dark-bg">
@@ -82,7 +83,7 @@
                   mat-raised-button
                   color="primary"
                   class="d-block mx-auto mt-5 td-none"
-                  >See More</a
+                  >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
                 >
               </div>
             </div>
@@ -109,7 +110,7 @@
                   mat-raised-button
                   color="primary"
                   class="d-block mx-auto mt-5 td-none"
-                  >See More</a
+                  >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
                 >
               </div>
             </div>
@@ -136,7 +137,7 @@
                   mat-raised-button
                   color="primary"
                   class="d-block mx-auto mt-5 td-none"
-                  >See More</a
+                  >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
                 >
               </div>
             </div>
@@ -145,7 +146,7 @@
       </div>
     </section>
     <h3 class="text-center text-white mt-5 mb-3 underlineBefore p-2">
-      Reviews
+      {{ 'HOMEPAGE.REVIEWS' | translate }}
     </h3>
     <app-review-element
       class="my-3"

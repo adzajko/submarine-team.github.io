@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Review } from '../../reviews/review-element/Review.model';
 import { ReviewService } from '../../../shared/review.service';
 import * as moment from 'moment';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private auth: AuthService,
-    private reviewService: ReviewService
+    private reviewService: ReviewService,
+    private translateService: TranslateService
   ) {
     this.authForm = this.formBuilder.group({
       email: '',

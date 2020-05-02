@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -26,14 +27,25 @@ export class NavbarComponent implements OnInit {
   // Login Logic
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private auth: AuthService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private translateService: TranslateService
+  ) {
     this.loginForm = this.formBuilder.group({
       email: '',
       password: 'password'
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.translateService.addLangs(['English', 'Macedonian']);
+    this.translateService.setDefaultLang('English');
+    const browserLang = this.translateService.getBrowserLang();
+    this.translateService.use(
+      browserLang.match(/English|Macedonian/) ? browserLang : 'English'
+    );
+  }
 
   onSubmit(loginData) {
     this.auth.signIn(loginData.email, loginData.password);
@@ -61,5 +73,10 @@ export class NavbarComponent implements OnInit {
         this.toggleOverlay();
       }
     });
+  }
+
+  changeLanguage(value) {
+    localStorage.setItem('language', value);
+    this.translateService.use(value);
   }
 }
