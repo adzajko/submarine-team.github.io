@@ -32,6 +32,8 @@ import { TermsOfServiceComponent } from './components/pages/terms-of-service/ter
 import { VotesContainerComponent } from './components/reviews/votes-container/votes-container.component';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
+import { FullListComponent } from './components/reviews/full-list/full-list.component';
+import { ReviewFullComponent } from './components/reviews/review-full/review-full.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -54,7 +56,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     TermsOfServiceComponent,
     VotesContainerComponent,
     ConfirmationDialogComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    FullListComponent,
+    ReviewFullComponent
   ],
   imports: [
     BrowserModule,
