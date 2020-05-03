@@ -7,11 +7,25 @@ import { startWith, tap, delay } from 'rxjs/operators';
 import { SharedService } from './shared/shared.service';
 import { Subscription } from 'rxjs';
 
+import { trigger, transition, style, animate } from '@angular/animations';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [routeTransitionAnimations]
+  animations: [
+    routeTransitionAnimations,
+    trigger('enterAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'TSP';

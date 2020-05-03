@@ -297,7 +297,13 @@
   cursor: pointer;
   color: #1c1c1d;
   font-size: 36px;
+  transition: 0.4s;
 }
+.fa.fa-times:hover {
+  color: #dc3545;
+  transition: 0.4s;
+}
+
 .card-header {
   display: flex;
   justify-content: flex-end;
