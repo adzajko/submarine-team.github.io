@@ -9,6 +9,7 @@ import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 import { AuthGuardGuard } from './shared/auth-guard.guard';
+import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animationState: 'Home' } },
@@ -44,7 +45,8 @@ const routes: Routes = [
     path: 'terms-of-service',
     component: TermsOfServiceComponent,
     data: { animationState: 'TermsOfService' }
-  }
+  },
+  { path: '**', component: FourOhFourComponent }
 ];
 
 @NgModule({

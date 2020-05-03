@@ -31,6 +31,7 @@ import { HttpLoaderComponent } from './shared/http-loader/http-loader.component'
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 import { VotesContainerComponent } from './components/reviews/votes-container/votes-container.component';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -52,7 +53,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpLoaderComponent,
     TermsOfServiceComponent,
     VotesContainerComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,

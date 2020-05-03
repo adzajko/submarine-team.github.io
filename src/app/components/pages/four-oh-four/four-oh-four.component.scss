@@ -1,0 +1,17 @@
+@import '../../../../assets/scss_extendables/index';
+section {
+  background: linear-gradient(180deg, #2d3436, #2c3e50);
+  @extend .flex-column-center;
+  min-height: 100vh;
+  h1 {
+    font-size: 72px;
+  }
+  h1,
+  h6 {
+    color: whitesmoke;
+  }
+  a {
+    text-decoration: none;
+    width: 150px;
+  }
+}
