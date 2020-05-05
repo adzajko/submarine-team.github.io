@@ -66,7 +66,7 @@ export class NavbarComponent implements OnInit {
   toggleOverlay() {
     this.hamTop.nativeElement.classList.toggle('open');
     this.hamBot.nativeElement.classList.toggle('open');
-    this.overlay.nativeElement.classList.toggle('w-25');
+    this.overlay.nativeElement.classList.toggle('sidebar-width');
     this.overlay.nativeElement.classList.toggle('d-block');
   }
 

@@ -124,3 +124,14 @@ mat-toolbar {
 #email-login-input {
   margin-right: 8px;
 }
+
+.sidebar-width {
+  transition: 0.5s;
+  width: fit-content;
+  @include largeDesktopMixin {
+    width: 25%;
+  }
+  @include ExtraLargeDesktopMixin {
+    width: 25%;
+  }
+}
