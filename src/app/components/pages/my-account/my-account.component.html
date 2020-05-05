@@ -105,20 +105,40 @@
     <hr />
     <!--Forgot Password -->
     <button
-      (click)="forgotPasswordDialog()"
+      (click)="toggleDialog()"
       class="mt-4"
       mat-raised-button
       color="accent"
     >
       {{ 'MY_ACCOUNT.FORGOT_PASS_BTN' | translate }}
     </button>
+    <div class="dialog-container" *ngIf="showDialog">
+      <div>
+        <h5 mat-dialog-title>{{ 'CONFIRM_DIALOG.WARNING' | translate }}</h5>
+        <h6>{{ 'CONFIRM_DIALOG.RESET_Q' | translate }}</h6>
+        <hr />
+        <div mat-dialog-actions>
+          <button
+            mat-dialog-close
+            mat-dialog-close="true"
+            class="mr-3"
+            mat-raised-button
+            color="primary"
+            (click)="forgotPasswordDialog()"
+          >
+            {{ 'CONFIRM_DIALOG.YES' | translate }}
+          </button>
+          <button
+            mat-dialog-close
+            (click)="toggleDialog()"
+            mat-dialog-close="false"
+            mat-raised-button
+            color="accent"
+          >
+            {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
   </form>
-
-  <div class="d-flex flex-column container div3"></div>
-</div>
-
-<div class="parent">
-  <div class="div1"></div>
-  <div class="div2"></div>
-  <div class="div3"></div>
 </div>

@@ -4,7 +4,12 @@
     <span #hamBot class="hamburger-line bottom"></span>
   </div>
   <div class="img-logo">
-    <a [routerLink]="['/']" id="img-logo-container" #subLogo>
+    <a
+      routerLinkActive="active"
+      [routerLink]="['/']"
+      id="img-logo-container"
+      #subLogo
+    >
       <img
         src="/assets/submarine.png"
         alt="submarine-logo"
@@ -33,27 +38,43 @@
 </mat-toolbar>
 <div class="overlay" #overlay>
   <div class="overlay-content">
-    <a [routerLink]="['/']" class="overlay-link" (click)="toggleOverlay()"
+    <a
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/']"
+      class="overlay-link"
+      (click)="toggleOverlay()"
       ><i class="fa fa-home mr-2"></i>{{ 'HEADER.HOME' | translate }}</a
     >
     <a
       [routerLink]="['/my-account']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
       class="overlay-link"
       *ngIf="activeUser"
       (click)="checkMyAccount()"
       ><i class="fa fa-user mr-2"></i>{{ 'HEADER.MY_ACCOUNT' | translate }}</a
     >
     <a
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
       [routerLink]="['/companies']"
       class="overlay-link"
       (click)="toggleOverlay()"
       ><i class="fa fa-building-o mr-2"></i
       >{{ 'HEADER.COMPANIES' | translate }}</a
     >
-    <a [routerLink]="['/about']" class="overlay-link" (click)="toggleOverlay()"
+    <a
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/about']"
+      class="overlay-link"
+      (click)="toggleOverlay()"
       ><i class="fa fa-question mr-2"></i>{{ 'HEADER.ABOUT' | translate }}</a
     >
     <a
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
       [routerLink]="['/contact']"
       class="overlay-link"
       (click)="toggleOverlay()"

@@ -1,4 +1,4 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .parent {
   display: grid;
@@ -30,6 +30,17 @@
   background: linear-gradient(180deg, #2d3436, #2c3e50);
 }
 
+.dialog-container {
+  @extend .fixed-full-height;
+  background-color: getColor(box-shadow-color);
+  @extend .flex-column-center;
+  div {
+    background-color: #fafafa;
+    padding: 1rem;
+    border-radius: 15px;
+  }
+}
+
 input,
 select,
 textarea,
@@ -40,4 +51,11 @@ mat-checkbox {
 textarea:focus,
 input:focus {
   color: #ecf0f1;
+}
+
+.mb-small {
+  @include mediumPhoneMixin {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
 }

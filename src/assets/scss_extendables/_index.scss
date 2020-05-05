@@ -1,10 +1,9 @@
 $colors: (
-  'box-shadow-color': rgba(0, 0, 0, 1),
-  'lightYellowGradient': rgba(239, 214, 172, 1),
-  'darkMaroonGradient': rgba(67, 37, 52, 1),
+  'box-shadow-color': rgba(0, 0, 0, 0.4),
   'peachColor': rgba(212, 113, 113, 1),
   'greyDark': rgba(0, 0, 0, 0.7),
-  'whiteGrey': #fafafa
+  'blueHeader': #2c3e50,
+  'whiteGrey': whitesmoke
 );
 
 $fontSizes: (
@@ -73,9 +72,21 @@ $fontSizes: (
   height: 2px;
   background-color: whitesmoke;
 }
+.fixed-full-height {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+}
 
 .td-none {
   text-decoration: none;
+}
+
+.gradient-background {
+  background: linear-gradient(180deg, #2d3436, #2c3e50);
 }
 
 /* Extendable classes end */

@@ -6,8 +6,6 @@ import { AuthService } from '../../../shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from '../../../shared/confirmation-dialog/confirmation-dialog.component';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,11 +17,11 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   companies = [];
   inputForm: FormGroup;
   accountChangesForm: FormGroup;
+  public showDialog = false;
   private toastrMessages;
   private subscription: Subscription;
 
   constructor(
-    public dialog: MatDialog,
     private reviewService: ReviewService,
     private companyService: CompanyService,
     private authService: AuthService,
@@ -117,18 +115,14 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     this.toastr.info(this.toastrMessages.COMING_SOON, this.toastrMessages.OOPS);
   }
 
+  toggleDialog() {
+    this.showDialog = !this.showDialog;
+  }
+
   forgotPasswordDialog() {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: '450px',
-      height: '175px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === 'true') {
-        this.authService.showHTTPLoader(true);
-        this.authService.getUsername().subscribe(user => {
-          this.authService.resetPassword(user.email);
-        });
-      }
+    this.authService.showHTTPLoader(true);
+    this.authService.getUsername().subscribe(user => {
+      this.authService.resetPassword(user.email);
     });
   }
 

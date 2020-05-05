@@ -1,13 +1,13 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .review-container {
   display: flex;
   @include smallPhoneMixin {
     display: block;
   }
-  box-shadow: 5px 3px 3px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 3px 3px 0 getColor(box-shadow-color);
   width: 100%;
-  border: 1px solid #2c3e50;
+  border: 1px solid getColor(blueHeader);
   position: relative;
 }
 

@@ -3,6 +3,9 @@
 .contact-page-wrapper {
   background: linear-gradient(180deg, #2d3436, #2c3e50);
   padding: 8% 0;
+  @include mediumPhoneMixin {
+    padding: 75px 1rem 0 1rem;
+  }
   min-height: 100vh;
 }
 

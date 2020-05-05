@@ -7,82 +7,13 @@
     <p>
       {{ 'ABOUTPAGE.INTRO_ABOUT' | translate }}
     </p>
-    <h2 class="title">{{ 'ABOUTPAGE.TEAM' | translate }}</h2>
-  </section>
 
-  <section class="team-section pt-0">
-    <section class="row-upper">
-      <div class="member-img-container ">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Djajko"
-          class="img-fluid"
-        />
-      </div>
-      <div class="member-img-container ">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Vane"
-          class="img-fluid"
-        />
-      </div>
-      <div class="member-img-container ">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Babu6o"
-          class="img-fluid"
-        />
-      </div>
-      <div class="member-img-container ">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Ivana"
-          class="img-fluid"
-        />
-      </div>
-    </section>
-    <section class="row-lower">
-      <div class="member-img-container">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Blagio"
-          class="img-fluid"
-        />
-      </div>
-      <div class="member-img-container ">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Jovica"
-          class="img-fluid"
-        />
-      </div>
-      <div class="member-img-container ">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Matej"
-          class="img-fluid"
-        />
-      </div>
-      <div class="member-img-container ">
-        <img
-          src="/assets/submarine.png"
-          (click)="toggleInfo()"
-          alt="Damjan"
-          class="img-fluid"
-        />
-      </div>
-    </section>
-  </section>
-
-  <section class="rendered-bio" *ngIf="showInfo">
-    <h1>{{ teamMemberTitle }}</h1>
-    <p>{{ teamMemberText }}</p>
+    <div class="img-container">
+      <img
+        src="/assets/submarine.png"
+        alt="The Submarine Project Logo"
+        class="img-fluid"
+      />
+    </div>
   </section>
 </section>

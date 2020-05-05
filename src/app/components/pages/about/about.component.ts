@@ -6,12 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  public teamMemberText: string;
-  public teamMemberTitle: string;
-  public showInfo = false;
   constructor() {}
 
   ngOnInit(): void {}
-
-  toggleInfo() {}
 }

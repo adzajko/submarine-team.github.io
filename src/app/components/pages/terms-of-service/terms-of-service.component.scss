@@ -1,13 +1,14 @@
 @import '../../../../assets/scss_extendables/index';
 .terms-of-service-section {
-  background: linear-gradient(180deg, #2d3436, #2c3e50);
+  @extend .gradient-background;
   min-height: 100vh;
-  color: whitesmoke;
+  color: getColor(whiteGrey);
   h1 {
-    font-size: 72px;
+    font-size: getFontSize(h1);
     padding: 3rem 0;
+    padding-bottom: 1rem;
     margin: 0 2rem;
-    position: relative;
+    @extend .underlineBefore;
     @include mediumPhoneMixin {
       font-size: 46px;
     }
@@ -15,16 +16,7 @@
       font-size: 26px;
     }
   }
-  h1::before {
-    content: '';
-    position: absolute;
-    bottom: 10%;
-    left: 0;
-    width: 100%;
-    margin: auto;
-    height: 2px;
-    background-color: whitesmoke;
-  }
+
   ol {
     width: fit-content;
     font-size: 22px;

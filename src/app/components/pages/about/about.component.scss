@@ -4,6 +4,9 @@
   min-height: 100vh;
   background: rgb(250, 250, 250);
   background: linear-gradient(180deg, #2d3436, #2c3e50);
+  @include mediumPhoneMixin {
+    padding-top: 25px;
+  }
   color: whitesmoke;
   .intro-section {
     padding: 3rem;
@@ -12,94 +15,28 @@
     }
     .title {
       text-align: center;
-      margin: 2rem;
-      margin-bottom: 0;
+      margin: 0 2rem;
     }
     .title.page-title {
       margin-bottom: 2rem;
-    }
-  }
-}
-section.team-section {
-  padding: 2rem 5rem;
-
-  section.row-upper,
-  section.row-lower {
-    display: flex;
-    margin: 2rem;
-    padding: 2rem;
-    @include smallPhoneMixin {
-      margin: 1rem 0;
-      padding: 1rem 0;
-      flex-wrap: wrap;
-    }
-    @include largePhoneMixin {
-      margin: 1rem 0;
-      padding: 1rem 0;
-      flex-wrap: nowrap;
-    }
-    @include tabletMixin {
-      margin: 1rem 0;
-      padding: 1rem 0;
-      flex-wrap: wrap;
-    }
-    position: relative;
-    .member-img-container {
-      margin: auto;
-      display: flex;
+      position: relative;
+      padding: 1rem;
+      @extend .underlineBefore;
+      @include mediumPhoneMixin {
+        font-size: 32px;
+      }
       @include smallPhoneMixin {
-        margin-bottom: 1rem;
-        // margin-right: 1rem;
+        font-size: 26px;
       }
-      @include largePhoneMixin {
-        margin-bottom: 1rem;
-        margin-right: 1rem;
-      }
-      @include tabletMixin {
-        margin-bottom: 1rem;
-        margin-right: 1rem;
-      }
-      .img-fluid {
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 0 3px 0 getColor(boxShadowColor);
-        margin: auto;
-        width: 150px;
-        transition: 0.4s;
-        transform: scale(1);
-        @include smallPhoneMixin {
-          width: 100px;
-        }
-        @include largePhoneMixin {
-          width: 125px;
-        }
-        @include tabletMixin {
-          width: 150px;
-        }
-      }
-
-      .img-fluid:hover {
-        transition: 0.4s;
-        transform: scale(1.1);
+      @include ExtraLargeDesktopMixin {
+        font-size: 72px;
       }
     }
-  }
-
-  .row-upper::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    top: -10%;
-    background-color: whitesmoke;
-  }
-
-  .row-lower::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    bottom: -10%;
-    background-color: whitesmoke;
+    .img-container {
+      @extend .flex-column-center;
+      .img-fluid {
+        width: 300px;
+      }
+    }
   }
 }
