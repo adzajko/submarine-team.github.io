@@ -30,9 +30,10 @@
     <div class="card-body d-flex justify-content-between">
       <div class="supporting-flex">
         <p class="card-text">{{ reviewElement.data.textExcerpt }}</p>
-        <button class="see-more-btn" mat-raised-button color="primary">
-          {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
-        </button>
+        <app-review-full
+          [route]="reviewElement.id"
+          [revEl]="reviewElement.data"
+        ></app-review-full>
       </div>
       <div class="votes-container">
         <!--votes container-->

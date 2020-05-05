@@ -10,6 +10,8 @@ import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 import { AuthGuardGuard } from './shared/auth-guard.guard';
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
+import { FullListComponent } from './components/reviews/full-list/full-list.component';
+import { ReviewFullComponent } from './components/reviews/review-full/review-full.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animationState: 'Home' } },
@@ -31,16 +33,20 @@ const routes: Routes = [
   {
     path: 'my-account',
     component: MyAccountComponent,
-    canActivate: [AngularFireAuthGuard],
+    canActivate: [AuthGuardGuard],
     data: { animationState: 'MyAccount' }
   },
   {
     path: 'admin-panel',
     component: AdminPanelComponent,
     data: { animationState: 'Admin' },
-    canActivate: [AngularFireAuthGuard]
+    canActivate: [AuthGuardGuard]
   },
-
+  // {
+  //   path: 'reviews',
+  //   component: FullListComponent,
+  //    children: [{ path: ':id', component: ReviewFullComponent }]
+  // },
   {
     path: 'terms-of-service',
     component: TermsOfServiceComponent,
@@ -50,8 +56,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AngularFireAuthGuard]
+  providers: [AuthGuardGuard]
 })
 export class AppRoutingModule {}

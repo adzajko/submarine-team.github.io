@@ -53,10 +53,6 @@ export class AuthService {
     });
   }
 
-  authStateTrack() {
-    //
-  }
-
   async sendConfirmationEmail() {
     (await this.afAuth.currentUser).sendEmailVerification();
     this.router.navigate(['/']);
@@ -67,11 +63,13 @@ export class AuthService {
       this.afAuth
         .sendPasswordResetEmail(email)
         .then(() => {
+          this.showHTTPLoader(false);
           this.translateService.get('TOASTR').subscribe(response => {
             this.toastr.success(response.PASS_RESET, response.SUCCESS_TITLE);
           });
         })
         .catch(err => {
+          this.showHTTPLoader(false);
           this.translateService.get('TOASTR').subscribe(response => {
             this.toastr.success(err.message, response.ERROR_TITLE);
           });

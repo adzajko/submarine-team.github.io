@@ -95,17 +95,20 @@ export class MyAccountComponent implements OnInit, OnDestroy {
 
   requestVerification() {
     if (this.accountChangesForm.value.linkedInAccount) {
+      this.authService.showHTTPLoader(true);
       this.authService.getUsername().subscribe(e => {
         this.af.collection('verifications').add({
           email: e.email,
           linkedin: this.accountChangesForm.value.linkedInAccount
         });
       });
+      this.authService.showHTTPLoader(false);
       this.toastr.success(
         this.toastrMessages.VERIFICATION_SENT,
         this.toastrMessages.THANK
       );
     } else {
+      this.authService.showHTTPLoader(false);
       this.toastr.error(this.toastrMessages.LINKEDIN, this.toastrMessages.OOPS);
     }
   }
@@ -121,6 +124,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'true') {
+        this.authService.showHTTPLoader(true);
         this.authService.getUsername().subscribe(user => {
           this.authService.resetPassword(user.email);
         });
@@ -137,15 +141,18 @@ export class MyAccountComponent implements OnInit, OnDestroy {
         this.accountChangesForm.value.newPassword ===
         this.accountChangesForm.value.newPasswordConfirm
       ) {
+        this.authService.showHTTPLoader(true);
         this.authService.getUsername().subscribe(e => {
           e.updatePassword(this.accountChangesForm.value.newPassword)
             .then(() => {
+              this.authService.showHTTPLoader(false);
               this.toastr.success(
                 this.toastrMessages.UPDATE_PASS,
                 this.toastrMessages.SUCCESS_TITLE
               );
             })
             .catch(err => {
+              this.authService.showHTTPLoader(false);
               this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
             });
         });

@@ -40,7 +40,7 @@
     background-color: whitesmoke;
   }
 
-  border-right: 2px solid #2c3e50;
+  // border-right: 2px solid #2c3e50;
   @include smallPhoneMixin {
     border-right: none;
   }
@@ -51,9 +51,6 @@
 
   @include tabletMixin {
     border-right: none;
-  }
-  @include smallDesktopMixin {
-    border-right: 2px solid #2c3e50;
   }
 }
 
