@@ -10,7 +10,7 @@ import {
 
 export const routeTransitionAnimations = trigger('routeAnimations', [
   transition('Home => *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' }), {
+    query(':enter, :leave', style({ position: 'absolute', width: '100%' }), {
       optional: true
     }),
     group([
@@ -33,7 +33,7 @@ export const routeTransitionAnimations = trigger('routeAnimations', [
     ])
   ]),
   transition('MyAccount => *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' }), {
+    query(':enter, :leave', style({ position: 'absolute', width: '100%' }), {
       optional: true
     }),
     group([
@@ -56,7 +56,7 @@ export const routeTransitionAnimations = trigger('routeAnimations', [
     ])
   ]),
   transition('Companies => *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' }), {
+    query(':enter, :leave', style({ position: 'absolute', width: '100%' }), {
       optional: true
     }),
     group([
@@ -79,7 +79,7 @@ export const routeTransitionAnimations = trigger('routeAnimations', [
     ])
   ]),
   transition('About => *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' }), {
+    query(':enter, :leave', style({ position: 'absolute', width: '100%' }), {
       optional: true
     }),
     group([
@@ -102,7 +102,7 @@ export const routeTransitionAnimations = trigger('routeAnimations', [
     ])
   ]),
   transition('Contact => *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' }), {
+    query(':enter, :leave', style({ position: 'absolute', width: '100%' }), {
       optional: true
     }),
     group([
@@ -125,7 +125,7 @@ export const routeTransitionAnimations = trigger('routeAnimations', [
     ])
   ]),
   transition('TermsOfService => *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' }), {
+    query(':enter, :leave', style({ position: 'absolute', width: '100%' }), {
       optional: true
     }),
     group([
@@ -146,5 +146,5 @@ export const routeTransitionAnimations = trigger('routeAnimations', [
         { optional: true }
       )
     ])
-  ]),
+  ])
 ]);

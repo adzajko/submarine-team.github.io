@@ -33,20 +33,20 @@ const routes: Routes = [
   {
     path: 'my-account',
     component: MyAccountComponent,
-    canActivate: [AngularFireAuthGuard],
+    canActivate: [AuthGuardGuard],
     data: { animationState: 'MyAccount' }
   },
   {
     path: 'admin-panel',
     component: AdminPanelComponent,
     data: { animationState: 'Admin' },
-    canActivate: [AngularFireAuthGuard]
+    canActivate: [AuthGuardGuard]
   },
-  {
-    path: 'reviews',
-    component: FullListComponent,
-    children: [{ path: ':id', component: ReviewFullComponent }]
-  },
+  // {
+  //   path: 'reviews',
+  //   component: FullListComponent,
+  //    children: [{ path: ':id', component: ReviewFullComponent }]
+  // },
   {
     path: 'terms-of-service',
     component: TermsOfServiceComponent,
@@ -58,6 +58,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AngularFireAuthGuard]
+  providers: [AuthGuardGuard]
 })
 export class AppRoutingModule {}
