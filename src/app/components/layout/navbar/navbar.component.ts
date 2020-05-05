@@ -22,7 +22,6 @@ export class NavbarComponent implements OnInit {
   @ViewChild('hamBot', { static: false }) hamBot: ElementRef;
   @ViewChild('navBrand', { static: false }) navBrand: ElementRef;
   @ViewChild('overlay', { static: false }) overlay: ElementRef;
-  @ViewChild('subLogo', { static: false }) subLogo: ElementRef;
   public val: string;
   public activeUser = false;
 
@@ -65,11 +64,10 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleOverlay() {
-    this.subLogo.nativeElement.classList.toggle('v-none');
-    this.navBrand.nativeElement.classList.toggle('brand-fixed');
     this.hamTop.nativeElement.classList.toggle('open');
     this.hamBot.nativeElement.classList.toggle('open');
-    this.overlay.nativeElement.classList.toggle('h-100');
+    this.overlay.nativeElement.classList.toggle('w-25');
+    this.overlay.nativeElement.classList.toggle('d-block');
   }
 
   triggerModal() {

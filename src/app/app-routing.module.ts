@@ -6,12 +6,12 @@ import { CompaniesComponent } from './components/pages/companies/companies.compo
 import { AboutComponent } from './components/pages/about/about.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
-import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 import { AuthGuardGuard } from './shared/auth-guard.guard';
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
 import { FullListComponent } from './components/reviews/full-list/full-list.component';
 import { ReviewFullComponent } from './components/reviews/review-full/review-full.component';
+import { ExtraOptions } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animationState: 'Home' } },
@@ -52,11 +52,15 @@ const routes: Routes = [
     component: TermsOfServiceComponent,
     data: { animationState: 'TermsOfService' }
   },
-  { path: '**', component: FourOhFourComponent }
+  {
+    path: '**',
+    component: FourOhFourComponent,
+    data: { animationState: 'NotFound' }
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
   providers: [AuthGuardGuard]
 })
