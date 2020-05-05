@@ -65,7 +65,7 @@ mat-toolbar {
   z-index: 1;
   left: 0;
   top: 0;
-  background-color: #212121;
+  background-color: #18191a;
   overflow: hidden;
   transition: 0.4s;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.75);
@@ -127,7 +127,26 @@ mat-toolbar {
 
 .sidebar-width {
   transition: 0.5s;
-  width: fit-content;
+  width: 70%;
+  @include smallPhoneMixin {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @include largePhoneMixin {
+    width: 50%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @include tabletMixin {
+    width: 35%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @include smallDesktopMixin {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 30%;
+  }
   @include largeDesktopMixin {
     width: 25%;
   }
