@@ -1,6 +1,7 @@
 @import '../../../../assets/scss_extendables/index';
 
 .review-container {
+  height: 200px;
   display: flex;
   @include smallPhoneMixin {
     display: block;
