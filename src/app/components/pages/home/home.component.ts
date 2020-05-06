@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
   render(revs) {
     revs.forEach(e => {
       e.data.timeStamp = e.data.timeStamp.toDate();
-      e.data.timeStamp = moment(e.data.timeStamp).format('Do MMMM YY');
+      e.data.timeStamp = moment(e.data.timeStamp).format('DD. MM. YYYY');
       this.listOfReviews.push(e);
     });
   }

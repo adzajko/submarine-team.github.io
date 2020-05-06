@@ -1,0 +1,37 @@
+<div class="card dark-bg">
+  <div class="card-header">
+    <a>{{ ComponentListItem.name }}</a>
+  </div>
+  <div class="card-body">
+    <div class="card-aside">
+      <div class="img-wrapper">
+        <img
+          class="img-fluid"
+          src="{{ ComponentListItem.logo }}"
+          alt="BestReviewedCompany"
+        />
+      </div>
+    </div>
+    <div class="reviewed-body">
+      <div class="icon-bundle">
+        <h6>
+          <i class="fa fa-map-marker mr-2"></i>{{ ComponentListItem.location }}
+        </h6>
+        <h6 class="ml-2">
+          <i class="fa fa-star mr-2"></i>{{ 'HOMEPAGE.AVERAGE' | translate }} 5
+        </h6>
+        <h6>
+          <i class="fa fa-industry ml-2"></i>
+          {{ ComponentListItem.technology }}
+        </h6>
+      </div>
+      <a
+        href="#"
+        mat-raised-button
+        color="primary"
+        class="d-block mx-auto mt-5 td-none"
+        >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
+      >
+    </div>
+  </div>
+</div>

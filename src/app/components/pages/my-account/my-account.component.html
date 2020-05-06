@@ -5,19 +5,29 @@
       <mat-label>
         {{ 'MY_ACCOUNT.COMPANY' | translate }}
       </mat-label>
-      <mat-select formControlName="companyName">
+      <mat-select formControlName="companyName" required>
         <mat-option *ngFor="let company of companies" [value]="company.name">
           {{ company.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <!-- Company Rating -->
-    <mat-form-field class="mt-3">
-      <mat-label>
+    <div class="mt-3">
+      <p class="d-block w-100">
         {{ 'MY_ACCOUNT.RATING' | translate }}
-      </mat-label>
-      <input matInput type="number" formControlName="rating" />
-    </mat-form-field>
+      </p>
+      <mat-slider
+        required
+        thumbLabel="true"
+        step="1"
+        min="1"
+        class="w-100"
+        max="10"
+        type="range"
+        formControlName="rating"
+      >
+      </mat-slider>
+    </div>
     <!-- Review Text -->
     <mat-form-field>
       <mat-label>
@@ -25,6 +35,7 @@
       </mat-label>
       <textarea
         matInput
+        required
         style="resize: none;"
         formControlName="textExcerpt"
         cols="30"
@@ -112,6 +123,16 @@
     >
       {{ 'MY_ACCOUNT.FORGOT_PASS_BTN' | translate }}
     </button>
+
+    <button
+      (click)="toggleAccountDel()"
+      class="btn btn-danger mt-4 mb-small"
+      mat-raised-button
+    >
+      {{ 'MY_ACCOUNT.DELETE_ACC_BTN' | translate }}
+    </button>
+
+    <!-- Password change confirmation modal -->
     <div class="dialog-container" *ngIf="showDialog">
       <div>
         <h5 mat-dialog-title>{{ 'CONFIRM_DIALOG.WARNING' | translate }}</h5>
@@ -119,8 +140,6 @@
         <hr />
         <div mat-dialog-actions>
           <button
-            mat-dialog-close
-            mat-dialog-close="true"
             class="mr-3"
             mat-raised-button
             color="primary"
@@ -128,13 +147,29 @@
           >
             {{ 'CONFIRM_DIALOG.YES' | translate }}
           </button>
+          <button (click)="toggleDialog()" mat-raised-button color="accent">
+            {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--Delete Account confirmation modal-->
+    <div class="dialog-container" *ngIf="delAccDialog">
+      <div>
+        <h5 mat-dialog-title>{{ 'CONFIRM_DIALOG.WARNING' | translate }}</h5>
+        <h6>{{ 'CONFIRM_DIALOG.DELETE_Q' | translate }}</h6>
+        <hr />
+        <div mat-dialog-actions>
           <button
-            mat-dialog-close
-            (click)="toggleDialog()"
-            mat-dialog-close="false"
+            class="mr-3"
             mat-raised-button
-            color="accent"
+            color="primary"
+            (click)="deleteAccountDialog()"
           >
+            {{ 'CONFIRM_DIALOG.YES' | translate }}
+          </button>
+          <button (click)="toggleAccountDel()" mat-raised-button color="accent">
             {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
           </button>
         </div>

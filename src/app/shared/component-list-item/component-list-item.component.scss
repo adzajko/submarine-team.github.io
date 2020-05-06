@@ -1,0 +1,104 @@
+@import '../../../assets/scss_extendables/index';
+
+.card {
+  @extend .gradient-background;
+  border: none;
+  width: 100%;
+  @include smallPhoneMixin {
+    width: 90%;
+  }
+  box-shadow: 2px 3px 3px 0 getColor(box-shadow-color);
+  @include smallPhoneMixin {
+    margin: 1rem auto 0 1rem;
+  }
+  @include largePhoneMixin {
+    margin: 1rem auto;
+  }
+  @include tabletMixin {
+    margin: 1rem auto;
+  }
+  @include smallDesktopMixin {
+    margin: 1rem auto;
+  }
+  .card-header {
+    background-color: getColor(blueHeader);
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 32px;
+      color: whitesmoke;
+      @include smallPhoneMixin {
+        font-size: 24px;
+      }
+      @include largeDesktopMixin {
+        font-size: 24px;
+      }
+      @extend .animatedBefore;
+    }
+  }
+  .card-body {
+    display: flex;
+    @include mediumPhoneMixin {
+      display: block;
+    }
+    @include largeDesktopMixin {
+      display: block;
+    }
+    .card-aside {
+      .img-wrapper {
+        img {
+          width: 100px;
+          height: 100px;
+          display: block;
+          margin: auto;
+          @include tabletMixin {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+  .reviewed-body {
+    flex: 1;
+    @include largeDesktopMixin {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .icon-bundle {
+      @include smallPhoneMixin {
+        display: block;
+      }
+      @include largePhoneMixin {
+        display: flex;
+        justify-content: center;
+      }
+      @include smallDesktopMixin {
+        display: flex;
+        justify-content: center;
+      }
+      @include tabletMixin {
+        display: flex;
+        justify-content: center;
+      }
+      h6 {
+        text-align: center;
+        margin-top: 1rem;
+        color: whitesmoke;
+        @include largePhoneMixin {
+          margin-right: 10px;
+        }
+        @include tabletMixin {
+          margin-right: 10px;
+        }
+        @include smallDesktopMixin {
+          margin-right: 10px;
+        }
+        @include largeDesktopMixin {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}

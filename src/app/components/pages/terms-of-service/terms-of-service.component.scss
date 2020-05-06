@@ -20,6 +20,7 @@
   ol {
     width: fit-content;
     font-size: 22px;
+    margin-bottom: 0;
     @include mediumPhoneMixin {
       width: 90%;
       font-size: 18px;

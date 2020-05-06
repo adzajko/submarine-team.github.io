@@ -1,15 +1,15 @@
 $colors: (
-  'box-shadow-color': rgba(0, 0, 0, 0.4),
-  'peachColor': rgba(212, 113, 113, 1),
-  'greyDark': rgba(0, 0, 0, 0.7),
-  'blueHeader': #2c3e50,
-  'whiteGrey': whitesmoke
+  "box-shadow-color": rgba(0, 0, 0, 0.4),
+  "peachColor": rgba(212, 113, 113, 1),
+  "greyDark": rgba(0, 0, 0, 0.7),
+  "blueHeader": #2c3e50,
+  "whiteGrey": whitesmoke,
 );
 
 $fontSizes: (
-  'h1': 72px,
-  'h2': 36px,
-  'h3': 24px
+  "h1": 72px,
+  "h2": 36px,
+  "h3": 24px,
 );
 
 @function getColor($colorName) {
@@ -35,7 +35,7 @@ $fontSizes: (
 }
 
 .animatedBefore::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 2px;
@@ -46,7 +46,7 @@ $fontSizes: (
 }
 
 .animatedBefore:hover::before {
-  content: '';
+  content: "";
   width: 100%;
   transition: 0.4s;
 }
@@ -64,7 +64,7 @@ $fontSizes: (
 }
 
 .underlineBefore::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;

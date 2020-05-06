@@ -18,6 +18,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   inputForm: FormGroup;
   accountChangesForm: FormGroup;
   public showDialog = false;
+  public delAccDialog = false;
   private toastrMessages;
   private subscription: Subscription;
 
@@ -112,18 +113,61 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   }
 
   changeEmail() {
-    this.toastr.info(this.toastrMessages.COMING_SOON, this.toastrMessages.OOPS);
+    const email = this.accountChangesForm.value.changeEmailInput;
+    if (!email) {
+      this.toastr.error(
+        this.toastrMessages.NO_EMAIL,
+        this.toastrMessages.ERROR_TITLE
+      );
+    } else {
+      this.authService.afAuth.currentUser.then(user =>
+        user
+          .updateEmail(email)
+          .then(() => {
+            this.toastr.success(
+              this.toastrMessages.EMAIL_CHANGED,
+              this.toastrMessages.SUCCESS_TITLE
+            );
+          })
+          .catch(err => {
+            this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
+          })
+      );
+    }
   }
 
   toggleDialog() {
     this.showDialog = !this.showDialog;
   }
 
+  toggleAccountDel() {
+    this.delAccDialog = !this.delAccDialog;
+  }
+
   forgotPasswordDialog() {
     this.authService.showHTTPLoader(true);
     this.authService.getUsername().subscribe(user => {
       this.authService.resetPassword(user.email);
+      this.showDialog = false;
     });
+    this.toggleDialog();
+  }
+
+  deleteAccountDialog() {
+    this.authService.afAuth.currentUser.then(user =>
+      user
+        .delete()
+        .then(() => {
+          this.toastr.success(
+            this.toastrMessages.USER_DELETED,
+            this.toastrMessages.SUCCESS_TITLE
+          );
+        })
+        .catch(err => {
+          this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
+        })
+    );
+    this.toggleAccountDel();
   }
 
   updatePassword() {

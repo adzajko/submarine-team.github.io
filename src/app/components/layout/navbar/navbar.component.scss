@@ -6,6 +6,7 @@
 mat-toolbar {
   height: fit-content;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  background-color: getColor(blueHeader);
 }
 .navbar-brand {
   position: relative;
@@ -141,7 +142,7 @@ mat-toolbar {
 
 .sidebar-width {
   transition: 0.5s;
-  width: 70%;
+  width: 80%;
   @include smallPhoneMixin {
     padding-left: 1rem;
     padding-right: 1rem;

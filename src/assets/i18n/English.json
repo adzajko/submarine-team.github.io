@@ -16,7 +16,9 @@
     "INTRO_ABOUT": "There are very few ways of finding out how it's like to actually work at a company. We aim to rectify that problem by providing a platform where users can share their stories, anonymously."
   },
   "ADMIN_PANEL": {},
-  "COMPANIES_PAGE": {},
+  "COMPANIES_PAGE": {
+    "TITLE": "Companies"
+  },
   "CONTACT_PAGE": {
     "SEND_MESSAGE": "Send Us A Message",
     "REACH_US": "Reach Us",
@@ -30,7 +32,11 @@
     "SEE_MORE_BTN": "See More",
     "TOP_REVIEWED": "Top Reviewed Companies",
     "REVIEWS": "Reviews",
-    "AVERAGE": "Average"
+    "AVERAGE": "Average",
+    "SKOPJE": "Skopje",
+    "INDUSTRY": "Robotics",
+    "ADDRESS": "Vidoe Smilevski Bato 6",
+    "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio possimus error odit adipisci, commodi modi."
   },
   "LOGIN": {
     "LOGIN": "Log in",
@@ -58,7 +64,8 @@
     "COMPANIES": "Companies",
     "COMPANY_REVIEWED_NOT": "Notify me when a company is reviewed",
     "COMPANY_ADD_NOT": "Notify me when a company is added",
-    "FORGOT_PASS_BTN": "Forgot Password"
+    "FORGOT_PASS_BTN": "Forgot Password",
+    "DELETE_ACC_BTN": "Delete Account"
   },
   "TERMS_OF_SERVICE": {
     "TITLE": "General Terms of Service",
@@ -84,18 +91,22 @@
     "SIGNED_OUT": "User signed out!",
     "USER_CREATED": "User created!",
     "PASS_RESET": "Password reset mail sent!",
-    "VERIFICATION_SENT": "Verification request sent!",
+    "VERIFICATION_SENT": "Verification request sent, pending admin approval.",
     "THANK": "Thank You!",
     "LINKEDIN": "You need to input your linkedin account!",
     "OOPS": "Oops!",
     "COMING_SOON": "Feature not yet implemented :(",
     "UPDATE_PASS": "Your password has been updated!",
     "MATCHING": "Password and confirmed password need to match!",
-    "FILL_PASSWORD": "You need to fill out both password fields!"
+    "FILL_PASSWORD": "You need to fill out both password fields!",
+    "NO_EMAIL": "Please input an email!",
+    "EMAIL_CHANGED": "Email changed!",
+    "USER_DELETED": "User deleted!"
   },
   "CONFIRM_DIALOG": {
     "WARNING": "Warning!",
     "RESET_Q": "Are you sure you wish to reset your password?",
+    "DELETE_Q": "Are you sure you wish to delete your account?",
     "YES": "Yes",
     "CANCEL": "Cancel"
   },
