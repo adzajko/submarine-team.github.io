@@ -11,7 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
@@ -29,21 +29,21 @@ export class HomeComponent implements OnInit {
   ) {
     this.authForm = this.formBuilder.group({
       email: '',
-      password: '',
+      password: ''
     });
   }
 
   ngOnInit(): void {
     this.auth.showHTTPLoader(true);
     this.reviewService.getReviews().subscribe(
-      (data) => {
+      data => {
         this.auth.showHTTPLoader(false);
-        this.reviewList = data.map((e) => {
+        this.reviewList = data.map(e => {
           return { data: e.payload.doc.data(), id: e.payload.doc.id };
         });
         this.render(this.reviewList);
       },
-      (errorRes) => {
+      errorRes => {
         this.toastr.error(errorRes.message, 'Error.');
         this.auth.showHTTPLoader(false);
       }
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   checkIfLoggedIn() {
-    this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged(user => {
       if (user) {
         this.loggedIn = true;
       } else {
@@ -66,9 +66,9 @@ export class HomeComponent implements OnInit {
   }
 
   render(revs) {
-    revs.forEach((e) => {
+    revs.forEach(e => {
       e.data.timeStamp = e.data.timeStamp.toDate();
-      e.data.timeStamp = moment(e.data.timeStamp).format('Do MMMM YY');
+      e.data.timeStamp = moment(e.data.timeStamp).format('DD. MM. YYYY');
       this.listOfReviews.push(e);
     });
   }

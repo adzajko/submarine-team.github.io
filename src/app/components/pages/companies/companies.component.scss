@@ -1,8 +1,7 @@
-@import "../../../../assets//scss_extendables/index";
+@import '../../../../assets//scss_extendables/index';
 
 .company-wrapper {
-  @extend .flex-column-center;
-  flex-direction: row;
-  min-height: 100vh;
-  align-items: flex-start;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
 }

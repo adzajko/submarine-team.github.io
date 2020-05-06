@@ -21,7 +21,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatSliderModule } from '@angular/material/slider';
 import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
@@ -37,6 +37,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatNativeDateModule,
     MatInputModule,
     MatCardModule,
+    MatSliderModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSortModule,
@@ -67,6 +68,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatProgressSpinnerModule,
     MatSortModule,
     MatTabsModule,
+    MatSliderModule,
     MatDatepickerModule,
     MatDialogModule,
     MatCheckboxModule,

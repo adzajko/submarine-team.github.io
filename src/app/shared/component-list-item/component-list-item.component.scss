@@ -1,4 +1,4 @@
-@import "../../../assets/scss_extendables/index";
+@import '../../../assets/scss_extendables/index';
 
 .card {
   @extend .gradient-background;
@@ -42,6 +42,7 @@
       .img-fluid {
         img {
           width: 100px;
+          height: 100px;
           display: block;
           margin: auto;
           @include tabletMixin {

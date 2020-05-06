@@ -123,6 +123,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     this.authService.showHTTPLoader(true);
     this.authService.getUsername().subscribe(user => {
       this.authService.resetPassword(user.email);
+      this.showDialog = false;
     });
   }
 
