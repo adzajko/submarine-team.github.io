@@ -1,1 +1,8 @@
-<p>companies works!</p>
+<div class="company-wrapper flex-wrap gradient-background">
+  <app-component-list-item
+    class="mt-6 mx-auto"
+    [ComponentListItem]="component"
+    *ngFor="let component of companyList"
+  >
+  </app-component-list-item>
+</div>

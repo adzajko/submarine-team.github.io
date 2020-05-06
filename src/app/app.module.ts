@@ -33,6 +33,7 @@ import { VotesContainerComponent } from './components/reviews/votes-container/vo
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
 import { FullListComponent } from './components/reviews/full-list/full-list.component';
 import { ReviewFullComponent } from './components/reviews/review-full/review-full.component';
+import { ComponentListItemComponent } from './shared/component-list-item/component-list-item.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -56,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     VotesContainerComponent,
     FourOhFourComponent,
     FullListComponent,
-    ReviewFullComponent
+    ReviewFullComponent,
+    ComponentListItemComponent
   ],
   imports: [
     BrowserModule,

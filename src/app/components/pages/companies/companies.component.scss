@@ -1,0 +1,8 @@
+@import "../../../../assets//scss_extendables/index";
+
+.company-wrapper {
+  @extend .flex-column-center;
+  flex-direction: row;
+  min-height: 100vh;
+  align-items: flex-start;
+}
