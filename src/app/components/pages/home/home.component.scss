@@ -60,7 +60,7 @@
           img {
             width: 200px;
             @include smallPhoneMixin {
-              width: 100px;
+              width: 75px;
               margin: auto;
               display: block;
             }
@@ -206,7 +206,7 @@
       .card-aside {
         .img-fluid {
           img {
-            width: 100px;
+            width: 75px;
             display: block;
             margin: auto;
             @include tabletMixin {
