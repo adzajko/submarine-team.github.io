@@ -1,6 +1,8 @@
-<section class="gradient-background mt-75">
-  <h1 class="underlineBefore text-center">Companies</h1>
-  <div class="company-wrapper ">
+<section class="gradient-background mt-75 company-page">
+  <h1 class="underlineBefore text-center">
+    {{ 'COMPANIES_PAGE.TITLE' | translate }}
+  </h1>
+  <div class="companies-wrapper container">
     <app-component-list-item
       class="mt-6 mx-auto"
       [ComponentListItem]="component"

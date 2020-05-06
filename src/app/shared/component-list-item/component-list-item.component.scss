@@ -4,9 +4,12 @@
   @extend .gradient-background;
   border: none;
   width: 100%;
+  @include smallPhoneMixin {
+    width: 90%;
+  }
   box-shadow: 2px 3px 3px 0 getColor(box-shadow-color);
   @include smallPhoneMixin {
-    margin: 1rem auto;
+    margin: 1rem auto 0 1rem;
   }
   @include largePhoneMixin {
     margin: 1rem auto;
@@ -35,11 +38,14 @@
   }
   .card-body {
     display: flex;
+    @include mediumPhoneMixin {
+      display: block;
+    }
     @include largeDesktopMixin {
       display: block;
     }
     .card-aside {
-      .img-fluid {
+      .img-wrapper {
         img {
           width: 100px;
           height: 100px;
@@ -62,8 +68,7 @@
     }
     .icon-bundle {
       @include smallPhoneMixin {
-        display: flex;
-        justify-content: center;
+        display: block;
       }
       @include largePhoneMixin {
         display: flex;

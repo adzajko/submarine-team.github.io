@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
-  styleUrls: ['./my-account.component.scss'],
+  styleUrls: ['./my-account.component.scss']
 })
 export class MyAccountComponent implements OnInit, OnDestroy {
   companies = [];
@@ -32,18 +32,18 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.translateService.get('TOASTR').subscribe((response) => {
+    this.translateService.get('TOASTR').subscribe(response => {
       this.toastrMessages = response;
     });
     this.authService.showHTTPLoader(true);
     this.subscription = this.companyService.getCompanies().subscribe(
-      (data) => {
+      data => {
         this.authService.showHTTPLoader(false);
-        data.map((e) => {
+        data.map(e => {
           this.companies.push(e.payload.doc.data());
         });
       },
-      (errorRes) => {
+      errorRes => {
         this.authService.showHTTPLoader(false);
         this.toastr.error(errorRes.message, this.toastrMessages.ERROR_TITLE);
       }
@@ -59,12 +59,12 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     this.inputForm.reset();
     review.timeStamp = new Date();
 
-    this.companies.forEach((c) => {
+    this.companies.forEach(c => {
       if (c.name === review.companyName) {
         review.imagePath = c.logo;
       }
     });
-    this.authService.getUsername().subscribe((e) => {
+    this.authService.getUsername().subscribe(e => {
       if (!e.emailVerified) {
         this.toastr.error(
           this.toastrMessages.UNVERIFIED,
@@ -76,7 +76,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       review.userName = e.email;
       this.reviewService
         .postReview(review)
-        .then((response) => {
+        .then(response => {
           this.reviewService.upvoteReview(response.id, 0, '');
           this.authService.showHTTPLoader(false);
           this.toastr.success(
@@ -84,7 +84,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
             this.toastrMessages.SUCCESS_TITLE
           );
         })
-        .catch((errorRes) => {
+        .catch(errorRes => {
           this.authService.showHTTPLoader(false);
           this.toastr.error(errorRes.message, this.toastrMessages.ERROR_TITLE);
         });
@@ -95,10 +95,10 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   requestVerification() {
     if (this.accountChangesForm.value.linkedInAccount) {
       this.authService.showHTTPLoader(true);
-      this.authService.getUsername().subscribe((e) => {
+      this.authService.getUsername().subscribe(e => {
         this.af.collection('verifications').add({
           email: e.email,
-          linkedin: this.accountChangesForm.value.linkedInAccount,
+          linkedin: this.accountChangesForm.value.linkedInAccount
         });
       });
       this.authService.showHTTPLoader(false);
@@ -115,16 +115,22 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   changeEmail() {
     const email = this.accountChangesForm.value.changeEmailInput;
     if (!email) {
-      this.toastr.error('Please input an email!', 'Error');
+      this.toastr.error(
+        this.toastrMessages.NO_EMAIL,
+        this.toastrMessages.ERROR_TITLE
+      );
     } else {
-      this.authService.afAuth.currentUser.then((user) =>
+      this.authService.afAuth.currentUser.then(user =>
         user
           .updateEmail(email)
           .then(() => {
-            this.toastr.success('Email changed!', 'Success');
+            this.toastr.success(
+              this.toastrMessages.EMAIL_CHANGED,
+              this.toastrMessages.SUCCESS_TITLE
+            );
           })
-          .catch((err) => {
-            this.toastr.error(err.message, 'Error');
+          .catch(err => {
+            this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
           })
       );
     }
@@ -140,7 +146,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
 
   forgotPasswordDialog() {
     this.authService.showHTTPLoader(true);
-    this.authService.getUsername().subscribe((user) => {
+    this.authService.getUsername().subscribe(user => {
       this.authService.resetPassword(user.email);
       this.showDialog = false;
     });
@@ -148,14 +154,17 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   }
 
   deleteAccountDialog() {
-    this.authService.afAuth.currentUser.then((user) =>
+    this.authService.afAuth.currentUser.then(user =>
       user
         .delete()
         .then(() => {
-          this.toastr.success('User deleted!', 'Success!');
+          this.toastr.success(
+            this.toastrMessages.USER_DELETED,
+            this.toastrMessages.SUCCESS_TITLE
+          );
         })
-        .catch((err) => {
-          this.toastr.error(err.message, 'Error!');
+        .catch(err => {
+          this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
         })
     );
     this.toggleAccountDel();
@@ -171,7 +180,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
         this.accountChangesForm.value.newPasswordConfirm
       ) {
         this.authService.showHTTPLoader(true);
-        this.authService.getUsername().subscribe((e) => {
+        this.authService.getUsername().subscribe(e => {
           e.updatePassword(this.accountChangesForm.value.newPassword)
             .then(() => {
               this.authService.showHTTPLoader(false);
@@ -180,7 +189,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
                 this.toastrMessages.SUCCESS_TITLE
               );
             })
-            .catch((err) => {
+            .catch(err => {
               this.authService.showHTTPLoader(false);
               this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
             });
@@ -208,7 +217,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     this.inputForm = new FormGroup({
       companyName: new FormControl(companyName),
       rating: new FormControl(rating, Validators.required),
-      textExcerpt: new FormControl(textExcerpt, Validators.required),
+      textExcerpt: new FormControl(textExcerpt, Validators.required)
     });
 
     // Account Changes Form
@@ -228,7 +237,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       newPasswordConfirm: new FormControl(newPasswordConfirm),
       companyAddedNotification: new FormControl(companyAddedNotification),
       myCompanyNotifications: new FormControl(myCompanyNotifications),
-      multipleCompanies: new FormControl(multipleCompanies),
+      multipleCompanies: new FormControl(multipleCompanies)
     });
   }
 
