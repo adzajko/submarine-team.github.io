@@ -18,19 +18,20 @@
           <i class="fa fa-map-marker mr-2"></i>{{ ComponentListItem.location }}
         </h6>
         <h6 class="ml-2">
-          <i class="fa fa-star mr-2"></i>{{ 'HOMEPAGE.AVERAGE' | translate }} 5
+          <i class="fa fa-star mr-2"></i>{{ "HOMEPAGE.AVERAGE" | translate }} 5
         </h6>
         <h6>
           <i class="fa fa-industry ml-2"></i>
           {{ ComponentListItem.technology }}
         </h6>
+        <h6><i class="fa fa-pencil ml-2"></i> {{ numberOfReviews }}</h6>
       </div>
       <a
         href="#"
         mat-raised-button
         color="primary"
         class="d-block mx-auto mt-5 td-none"
-        >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
+        >{{ "HOMEPAGE.SEE_MORE_BTN" | translate }}</a
       >
     </div>
   </div>
