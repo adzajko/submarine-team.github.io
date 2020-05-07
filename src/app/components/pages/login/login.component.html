@@ -1,4 +1,4 @@
-<main class="henlo" *ngIf="!isLoggedIn">
+<main class="henlo" *ngIf="!isLoggedIn" (clickOutside)="closeModal()" [delayClickOutsideInit] = "true" [exclude]="'.fa'" [clickOutsideEvents]="'click,touchstart, onscroll'">
   <div class="login-register" id="logiRegiContainer" #logiRegi>
     <div class="form-container register-container">
       <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit()">
