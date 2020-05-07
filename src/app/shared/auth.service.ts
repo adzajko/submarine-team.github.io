@@ -8,7 +8,7 @@ import { Subject, from } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   user: User;
@@ -23,7 +23,7 @@ export class AuthService {
     private translateService: TranslateService,
     private firestore: AngularFirestore
   ) {
-    this.afAuth.onAuthStateChanged(user => {
+    this.afAuth.onAuthStateChanged((user) => {
       if (user) {
         console.log('Logged In!');
       } else {
@@ -40,7 +40,7 @@ export class AuthService {
   async signOut() {
     await this.afAuth.signOut();
     this.router.navigate(['/']);
-    this.translateService.get('TOASTR').subscribe(response => {
+    this.translateService.get('TOASTR').subscribe((response) => {
       this.toastr.success(response.SIGNED_OUT, response.SUCCESS_TITLE);
     });
   }
@@ -48,7 +48,7 @@ export class AuthService {
   async signUp(email: string, password: string) {
     await this.afAuth.createUserWithEmailAndPassword(email, password);
     this.sendConfirmationEmail();
-    this.translateService.get('TOASTR').subscribe(response => {
+    this.translateService.get('TOASTR').subscribe((response) => {
       this.toastr.success(response.USER_CREATED, response.SUCCESS_TITLE);
     });
   }
@@ -64,13 +64,13 @@ export class AuthService {
         .sendPasswordResetEmail(email)
         .then(() => {
           this.showHTTPLoader(false);
-          this.translateService.get('TOASTR').subscribe(response => {
+          this.translateService.get('TOASTR').subscribe((response) => {
             this.toastr.success(response.PASS_RESET, response.SUCCESS_TITLE);
           });
         })
-        .catch(err => {
+        .catch((err) => {
           this.showHTTPLoader(false);
-          this.translateService.get('TOASTR').subscribe(response => {
+          this.translateService.get('TOASTR').subscribe((response) => {
             this.toastr.success(err.message, response.ERROR_TITLE);
           });
         })
