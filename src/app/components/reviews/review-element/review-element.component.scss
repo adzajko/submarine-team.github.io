@@ -5,6 +5,7 @@
   display: flex;
   @include smallPhoneMixin {
     display: block;
+    height: 100%;
   }
   box-shadow: 5px 3px 3px 0 getColor(box-shadow-color);
   width: 100%;
