@@ -1,4 +1,11 @@
-<main class="henlo" *ngIf="!isLoggedIn" (clickOutside)="closeModal()" [delayClickOutsideInit] = "true" [exclude]="'.fa'" [clickOutsideEvents]="'click,touchstart, onscroll'">
+<main
+  class="henlo"
+  *ngIf="!isLoggedIn"
+  (clickOutside)="closeModal()"
+  [delayClickOutsideInit]="true"
+  [exclude]="'.fa'"
+  [clickOutsideEvents]="'click,touchstart, onscroll'"
+>
   <div class="login-register" id="logiRegiContainer" #logiRegi>
     <div class="form-container register-container">
       <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit()">
@@ -103,7 +110,12 @@
 </main>
 
 <section *ngIf="isLoggedIn">
-  <div class="card">
+  <div
+    class="card"
+    (clickOutside)="closeModal()"
+    [exclude]="'.fa'"
+    [clickOutsideEvents]="'click,touchstart, scroll'"
+  >
     <div class="card-header">
       <h6 class="acc-header">{{ 'LOGIN.ACC_CONTROLS' | translate }}</h6>
       <i class="fa fa-times white-icon" (click)="closeModal()"></i>

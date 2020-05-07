@@ -70,6 +70,12 @@ export class NavbarComponent implements OnInit {
     this.overlay.nativeElement.classList.toggle('d-block');
   }
 
+  closeOverlay() {
+    this.hamTop.nativeElement.classList.remove('open');
+    this.hamBot.nativeElement.classList.remove('open');
+    this.overlay.nativeElement.classList.remove('sidebar-width');
+  }
+
   triggerModal() {
     this.sharedService.emitLoginModalState(true);
   }

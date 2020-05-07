@@ -118,14 +118,18 @@
 
     <button
       (click)="toggleAccountDel()"
-      class="btn btn-danger mt-4 mb-small"
+      class="btn btn-danger mt-4 mb-small btnDelete"
       mat-raised-button
     >
       {{ 'MY_ACCOUNT.DELETE_ACC_BTN' | translate }}
     </button>
     <!--Delete Account confirmation modal-->
     <div class="dialog-container" *ngIf="delAccDialog">
-      <div>
+      <div
+        (clickOutside)="toggleAccountDel()"
+        [exclude]="'.btnDelete'"
+        [clickOutsideEvents]="'click,touchstart, scroll'"
+      >
         <h5 mat-dialog-title>{{ 'CONFIRM_DIALOG.WARNING' | translate }}</h5>
         <h6>{{ 'CONFIRM_DIALOG.DELETE_Q' | translate }}</h6>
         <hr />

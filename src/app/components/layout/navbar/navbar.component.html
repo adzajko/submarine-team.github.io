@@ -36,7 +36,12 @@
     <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
   </div>
 </mat-toolbar>
-<div class="overlay" #overlay>
+<div
+  class="overlay"
+  #overlay
+  (clickOutside)="closeOverlay()"
+  [exclude]="'.navbar-brand'"
+>
   <div class="overlay-content">
     <a
       routerLinkActive="active"
