@@ -89,6 +89,23 @@
   opacity: 0;
   z-index: 1;
 }
+.reset-link {
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.reset-link:hover {
+  transition: 0.4s;
+  color: #dc3545 !important;
+}
+
+.reset-password-modal {
+  @extend .fixed-full-height;
+  position: absolute;
+  z-index: 3000000;
+  background-color: rgba(0, 0, 0, 0.288);
+  @extend .flex-column-center;
+}
 
 .overlay-container {
   position: absolute;

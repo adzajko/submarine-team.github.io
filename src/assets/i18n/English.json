@@ -3,7 +3,7 @@
     "HOME": "Home",
     "MY_ACCOUNT": "My Account",
     "COMPANIES": "Companies",
-    "ABOUT": "About",
+    "ABOUT": "About Us",
     "CONTACT": "Contact"
   },
   "FOOTER": {
@@ -47,7 +47,9 @@
     "REGI_DESCRIPTION": "Don't have an account yet?",
     "LOGI_DESCRIPTION": "Welcome Back",
     "LOG_OUT": "Log Out",
-    "ACC_CONTROLS": "Account Controls"
+    "ACC_CONTROLS": "Account Controls",
+    "FORGOT_LABEL": "Forgot your password? Please enter your email address.",
+    "RESET_BTN": "Send Password Reset"
   },
   "MY_ACCOUNT": {
     "COMPANY": "Company",

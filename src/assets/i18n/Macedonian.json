@@ -47,7 +47,9 @@
     "REGI_DESCRIPTION": "Немате профил сеуште?",
     "LOGI_DESCRIPTION": "Добредојдовте назад",
     "LOG_OUT": "Одјави Се",
-    "ACC_CONTROLS": "Контроли"
+    "ACC_CONTROLS": "Контроли",
+    "FORGOT_LABEL": "Заборавена лозинка? Внесете ја вашата емаил адреса.",
+    "RESET_BTN": "Испрати барање"
   },
   "MY_ACCOUNT": {
     "COMPANY": "Компанија",
