@@ -35,6 +35,8 @@ import { FullListComponent } from './components/reviews/full-list/full-list.comp
 import { ReviewFullComponent } from './components/reviews/review-full/review-full.component';
 import { ComponentListItemComponent } from './shared/component-list-item/component-list-item.component';
 
+import { ClickOutsideModule } from 'ng-click-outside';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -74,6 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AngularFireDatabaseModule,
     LayoutModule,
     NgbModule,
+    ClickOutsideModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

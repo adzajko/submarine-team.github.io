@@ -155,3 +155,4 @@ export class LoginComponent implements OnInit {
     this.sharedService.emitLoginModalState(false);
   }
 }
+

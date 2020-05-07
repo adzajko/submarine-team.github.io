@@ -43,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.sharedService.publishLoginModalState.subscribe(
-      response => {
+      response => {console.log(response);
         this.shouldModalOpen = response;
       }
     );

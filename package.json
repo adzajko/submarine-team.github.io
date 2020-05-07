@@ -31,6 +31,7 @@
     "firebase": "^7.14.1",
     "font-awesome": "^4.7.0",
     "moment": "^2.24.0",
+    "ng-click-outside": "^6.0.0",
     "ngx-toastr": "^12.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
