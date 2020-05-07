@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, NavigationStart } from '@angular/router';
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   @Input() isLoggedIn = false;
   private toastrMessages;
+  public showDialog = false;
 
   constructor(
     private auth: AuthService,
@@ -67,6 +68,31 @@ export class LoginComponent implements OnInit {
         this.auth.showHTTPLoader(false);
         this.toastrService.error(
           error.message,
+          this.toastrMessages.ERROR_TITLE
+        );
+      });
+  }
+  forgetPasswordModal() {
+    this.showDialog = true;
+  }
+
+  forgotPasswordDialog(form: NgForm) {
+    const email: any = Object.values(form.form.value)[0];
+    this.auth.showHTTPLoader(true);
+    this.auth.afAuth
+      .sendPasswordResetEmail(email)
+      .then(res => {
+        this.auth.showHTTPLoader(false);
+        this.toastrService.success(
+          this.toastrMessages.PASS_RESET,
+          this.toastrMessages.SUCCESS_TITLE
+        );
+        this.showDialog = false;
+      })
+      .catch(errorRes => {
+        this.auth.showHTTPLoader(false);
+        this.toastrService.error(
+          errorRes.message,
           this.toastrMessages.ERROR_TITLE
         );
       });

@@ -40,9 +40,35 @@
           required
           placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
         />
-        <a href="#">
+        <a class="reset-link" (click)="forgetPasswordModal()">
           {{ 'LOGIN.FORGOT_PASS' | translate }}
         </a>
+        <div *ngIf="showDialog" class="reset-password-modal">
+          <form
+            #resetForm="ngForm"
+            (ngSubmit)="forgotPasswordDialog(resetForm)"
+          >
+            <label for="reset-email">{{
+              'LOGIN.FORGOT_LABEL' | translate
+            }}</label>
+            <input
+              matInput
+              ngModel
+              type="email"
+              name="reset-email"
+              required
+              placeholder="Your email"
+            />
+            <button
+              [disabled]="!resetForm.form.valid"
+              class="btn"
+              type="submit"
+              color="accent"
+            >
+              {{ 'LOGIN.RESET_BTN' | translate }}
+            </button>
+          </form>
+        </div>
         <button class="btn btn-dark" [disabled]="!loginForm.valid">
           {{ 'LOGIN.LOGIN' | translate }}
         </button>

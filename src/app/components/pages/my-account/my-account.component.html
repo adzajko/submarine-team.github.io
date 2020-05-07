@@ -115,14 +115,6 @@
     }}</mat-checkbox>
     <hr />
     <!--Forgot Password -->
-    <button
-      (click)="toggleDialog()"
-      class="mt-4 mb-small"
-      mat-raised-button
-      color="accent"
-    >
-      {{ 'MY_ACCOUNT.FORGOT_PASS_BTN' | translate }}
-    </button>
 
     <button
       (click)="toggleAccountDel()"
@@ -131,29 +123,6 @@
     >
       {{ 'MY_ACCOUNT.DELETE_ACC_BTN' | translate }}
     </button>
-
-    <!-- Password change confirmation modal -->
-    <div class="dialog-container" *ngIf="showDialog">
-      <div>
-        <h5 mat-dialog-title>{{ 'CONFIRM_DIALOG.WARNING' | translate }}</h5>
-        <h6>{{ 'CONFIRM_DIALOG.RESET_Q' | translate }}</h6>
-        <hr />
-        <div mat-dialog-actions>
-          <button
-            class="mr-3"
-            mat-raised-button
-            color="primary"
-            (click)="forgotPasswordDialog()"
-          >
-            {{ 'CONFIRM_DIALOG.YES' | translate }}
-          </button>
-          <button (click)="toggleDialog()" mat-raised-button color="accent">
-            {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
-          </button>
-        </div>
-      </div>
-    </div>
-
     <!--Delete Account confirmation modal-->
     <div class="dialog-container" *ngIf="delAccDialog">
       <div>

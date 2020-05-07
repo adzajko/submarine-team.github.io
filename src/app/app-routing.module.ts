@@ -60,7 +60,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'disabled' })
+  ],
   exports: [RouterModule],
   providers: [AuthGuardGuard]
 })
