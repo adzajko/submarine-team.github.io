@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ReviewService } from '../review.service';
 
 @Component({
   selector: 'app-component-list-item',
@@ -8,7 +9,25 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ComponentListItemComponent implements OnInit {
   @Input() ComponentListItem: any;
-  constructor(private translateService: TranslateService) {}
+  reviews: any[] = [];
+  numberOfReviews: number;
+  constructor(
+    private translateService: TranslateService,
+    public reviewService: ReviewService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getNumberOfReviews();
+  }
+
+  getNumberOfReviews() {
+    this.reviewService
+      .getReviewsForCompany(this.ComponentListItem.name)
+      .subscribe((item) => {
+        item.map((rev) => {
+          this.reviews.push(rev.payload.doc.data());
+        });
+        this.numberOfReviews = this.reviews.length;
+      });
+  }
 }

@@ -7,10 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.scss']
+  styleUrls: ['./companies.component.scss'],
 })
 export class CompaniesComponent implements OnInit {
   companyList: any[] = [];
+  companyId: string;
   constructor(
     public companyService: CompanyService,
     private auth: AuthService,
@@ -19,25 +20,22 @@ export class CompaniesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const list: any[] = [];
+    const complist: any[] = [];
     this.auth.showHTTPLoader(true);
     this.companyService.getCompanies().subscribe(
-      item => {
+      (item) => {
         this.auth.showHTTPLoader(false);
-        item.map(e => {
-          list.push(e.payload.doc.data());
+        item.map((e) => {
+          this.companyId = e.payload.doc.id;
+          complist.push(e.payload.doc.data());
         });
       },
-      errorRes => {
-        this.translate.get('TOASTR').subscribe(res => {
+      (errorRes) => {
+        this.translate.get('TOASTR').subscribe((res) => {
           this.toastr.error(errorRes.message, res.ERROR_TITLE);
         });
       }
     );
-    this.companyList = list;
-  }
-
-  render(comps) {
-    console.log(comps);
+    this.companyList = complist;
   }
 }
