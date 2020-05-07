@@ -36,7 +36,17 @@ export class ReviewService {
 
   getUpvotes(reviewId: string) {
     return this.firestore
-      .collection(`reviews/${reviewId}/upvotes`)
+      .collection(`reviews/${reviewId}/upvotes`, (ref) =>
+        ref.where('upvote', '==', 1)
+      )
+      .snapshotChanges();
+  }
+
+  getDownvotes(reviewId: string) {
+    return this.firestore
+      .collection(`reviews/${reviewId}/upvotes`, (ref) =>
+        ref.where('upvote', '==', -1)
+      )
       .snapshotChanges();
   }
 
