@@ -29,7 +29,9 @@
     </div>
     <div class="card-body d-flex justify-content-between">
       <div class="supporting-flex">
-        <p class="card-text">{{ reviewElement.data.textExcerpt }}</p>
+        <p class="card-text text-truncate" id="textTruncate">
+          {{ reviewElement.data.textExcerpt }}
+        </p>
         <app-review-full
           [route]="reviewElement.id"
           [revEl]="reviewElement.data"

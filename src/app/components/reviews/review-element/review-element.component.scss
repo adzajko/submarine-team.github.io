@@ -68,6 +68,18 @@
     width: 100px;
   }
   color: whitesmoke;
+  #textTruncate {
+    width: 700px;
+    @include mediumPhoneMixin {
+      width: 200px;
+    }
+    @include smallDesktopMixin {
+      width: 400px;
+    }
+    @include largeDesktopMixin {
+      width: 400px;
+    }
+  }
 }
 app-votes-container {
   position: relative;
