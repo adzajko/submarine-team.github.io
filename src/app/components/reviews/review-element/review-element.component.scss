@@ -56,6 +56,9 @@
   // background: linear-gradient(163deg, #2d3436, #2c3e50);
   background: #2c3e50;
   .card-title {
+    @include mediumPhoneMixin {
+      font-size: 26px;
+    }
     font-size: 30px;
     margin: 0;
     text-decoration: none;

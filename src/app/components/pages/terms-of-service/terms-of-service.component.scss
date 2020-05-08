@@ -1,5 +1,6 @@
 @import '../../../../assets/scss_extendables/index';
 .terms-of-service-section {
+  padding-bottom: 15px;
   @extend .gradient-background;
   min-height: 100vh;
   color: getColor(whiteGrey);
