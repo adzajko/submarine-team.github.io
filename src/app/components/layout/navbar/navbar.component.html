@@ -29,8 +29,8 @@
         style="cursor: pointer;"
         (change)="changeLanguage($event.target.value)"
       >
-        <option value="English" style="cursor: pointer;">en</option>
-        <option value="Macedonian" style="cursor: pointer;">мк</option>
+        <option value="English" style="cursor: pointer;">EN</option>
+        <option value="Macedonian" style="cursor: pointer;">МКД</option>
       </select>
     </div>
     <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
@@ -41,6 +41,7 @@
   #overlay
   (clickOutside)="closeOverlay()"
   [exclude]="'.navbar-brand'"
+  [clickOutsideEvents]="'click, touchstart, scroll'"
 >
   <div class="overlay-content">
     <a

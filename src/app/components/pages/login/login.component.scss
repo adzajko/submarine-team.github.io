@@ -273,6 +273,13 @@
   .overlay-login {
     transform: translateY(-20%);
   }
+  .panel-active {
+    @media only screen and (max-height: 420px) and (max-width: 767px) and (orientation: landscape) and (min-aspect-ratio: 13/9) {
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+  }
 
   .login-register.panel-active .login-container {
     transform: translateY(100%);
