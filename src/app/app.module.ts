@@ -36,6 +36,7 @@ import { ReviewFullComponent } from './components/reviews/review-full/review-ful
 import { ComponentListItemComponent } from './shared/component-list-item/component-list-item.component';
 
 import { ClickOutsideModule } from 'ng-click-outside';
+import { CompanyFullPageComponent } from './components/pages/companies/company-full-page/company-full-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -60,7 +61,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FourOhFourComponent,
     FullListComponent,
     ReviewFullComponent,
-    ComponentListItemComponent
+    ComponentListItemComponent,
+    CompanyFullPageComponent
   ],
   imports: [
     BrowserModule,

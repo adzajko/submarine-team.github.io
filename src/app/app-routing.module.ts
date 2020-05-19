@@ -12,13 +12,15 @@ import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-fou
 import { FullListComponent } from './components/reviews/full-list/full-list.component';
 import { ReviewFullComponent } from './components/reviews/review-full/review-full.component';
 import { ExtraOptions } from '@angular/router';
+import { CompanyFullPageComponent } from './components/pages/companies/company-full-page/company-full-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { animationState: 'Home' } },
   {
     path: 'companies',
     component: CompaniesComponent,
-    data: { animationState: 'Companies' }
+    data: { animationState: 'Companies' },
+    children: [{path: ':id', component: CompanyFullPageComponent}]
   },
   {
     path: 'about',
@@ -42,11 +44,11 @@ const routes: Routes = [
     data: { animationState: 'Admin' },
     canActivate: [AuthGuardGuard]
   },
-  // {
-  //   path: 'reviews',
-  //   component: FullListComponent,
-  //    children: [{ path: ':id', component: ReviewFullComponent }]
-  // },
+  {
+    path: 'reviews',
+    component: FullListComponent,
+     children: [{ path: ':id', component: ReviewFullComponent }]
+  },
   {
     path: 'terms-of-service',
     component: TermsOfServiceComponent,
