@@ -7,8 +7,6 @@ import { Review } from '../review-element/Review.model';
   styleUrls: ['./review-full.component.scss']
 })
 export class ReviewFullComponent implements OnInit {
-  @Input() route: string;
-  @Input() revEl: Review;
   constructor() {}
 
   ngOnInit(): void {}
