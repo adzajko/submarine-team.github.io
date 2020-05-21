@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Review } from '../review-element/Review.model';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ReviewService } from 'src/app/shared/review.service';
+import { AuthService } from 'src/app/shared/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-review-full',
@@ -7,7 +10,28 @@ import { Review } from '../review-element/Review.model';
   styleUrls: ['./review-full.component.scss']
 })
 export class ReviewFullComponent implements OnInit {
-  constructor() {}
+  activeReview: any;
+  currentReviewId = '';
+  constructor(
+    private router: Router,
+    private reviewService: ReviewService,
+    private auth: AuthService,
+    private toastr: ToastrService
+  ) {
+    this.currentReviewId = this.router.url.slice(9);
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth.showHTTPLoader(true);
+    this.reviewService.getReviewById(this.currentReviewId).subscribe(
+      res => {
+        this.auth.showHTTPLoader(false);
+        this.activeReview = res.payload.data();
+      },
+      errorRes => {
+        this.auth.showHTTPLoader(false);
+        this.toastr.error(errorRes.message);
+      }
+    );
+  }
 }

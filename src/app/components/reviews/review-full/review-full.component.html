@@ -1,3 +1,9 @@
 <section class="mt-75 gradient-background">
-  <p>HELLO THIS IS FULL REVIEW PAGE THANKS</p>
+  <img
+    src="{{ activeReview?.imagePath }}"
+    alt="{{ activeReview?.companyName }}"
+  />
+  <p>{{ activeReview?.companyName }}</p>
+  <p>{{ activeReview?.textExcerpt }}</p>
+  <p>{{ activeReview?.rating }}</p>
 </section>

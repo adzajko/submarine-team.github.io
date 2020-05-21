@@ -32,17 +32,12 @@ export class ReviewElementComponent implements OnInit {
   @Input() reviewElement: any;
   public currentRate: number;
   public reviewId: string;
-  constructor(config: NgbRatingConfig, reviewService: ReviewService) {
+  constructor(config: NgbRatingConfig, private reviewService: ReviewService) {
     config.readonly = true;
   }
 
   ngOnInit(): void {
-    this.formattedDate = this.formatDate(this.reviewElement);
+    this.formattedDate = this.reviewService.formatDate(this.reviewElement);
     this.currentRate = this.reviewElement.data.rating;
-  }
-
-  formatDate(element) {
-    element = element.data.timeStamp.toDate();
-    return moment(element).format('DD. MM. YYYY');
   }
 }

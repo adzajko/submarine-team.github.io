@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.scss'],
+  styleUrls: ['./companies.component.scss']
 })
 export class CompaniesComponent implements OnInit {
   companyList: any[] = [];
@@ -23,15 +23,15 @@ export class CompaniesComponent implements OnInit {
     const complist: any[] = [];
     this.auth.showHTTPLoader(true);
     this.companyService.getCompanies().subscribe(
-      (item) => {
+      item => {
         this.auth.showHTTPLoader(false);
-        item.map((e) => {
+        item.map(e => {
           this.companyId = e.payload.doc.id;
           complist.push(e.payload.doc.data());
         });
       },
-      (errorRes) => {
-        this.translate.get('TOASTR').subscribe((res) => {
+      errorRes => {
+        this.translate.get('TOASTR').subscribe(res => {
           this.toastr.error(errorRes.message, res.ERROR_TITLE);
         });
       }
