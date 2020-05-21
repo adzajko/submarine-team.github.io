@@ -3,6 +3,7 @@
 </header>
 <main #main [@routeAnimations]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
+  <router-outlet name="children-router"></router-outlet>
 </main>
 <footer>
   <app-footer></app-footer>
