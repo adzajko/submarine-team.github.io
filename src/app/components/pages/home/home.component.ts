@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
         this.reviewList = data.map(e => {
           return { data: e.payload.doc.data(), id: e.payload.doc.id };
         });
-        this.render(this.reviewList);
+        this.listOfReviews = this.reviewList;
       },
       errorRes => {
         this.toastr.error(errorRes.message, 'Error.');
@@ -63,13 +63,5 @@ export class HomeComponent implements OnInit {
   onSubmit(authData) {
     this.auth.signUp(authData.email, authData.password);
     this.authForm.reset();
-  }
-
-  render(revs) {
-    revs.forEach(e => {
-      e.data.timeStamp = e.data.timeStamp.toDate();
-      e.data.timeStamp = moment(e.data.timeStamp).format('DD. MM. YYYY');
-      this.listOfReviews.push(e);
-    });
   }
 }

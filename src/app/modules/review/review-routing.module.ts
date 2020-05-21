@@ -6,9 +6,9 @@ import { ReviewFullComponent } from 'src/app/components/reviews/review-full/revi
 const routes = [
   {
     path: 'reviews',
-    component: FullListComponent,
     children: [
-      { path: ':id', component: ReviewFullComponent, outlet: 'children-router' }
+      { path: '', component: FullListComponent },
+      { path: ':id', component: ReviewFullComponent }
     ]
   }
 ];

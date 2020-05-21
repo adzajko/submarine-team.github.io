@@ -8,14 +8,16 @@
       />
     </div>
     <p class="text-center my-sm-0 my-md-2 font-italic">
-      {{ reviewElement.data.timeStamp }}
+      {{ formattedDate }}
     </p>
   </div>
   <div class="card">
     <div class="card-header">
-      <a [routerLink]="['/companies/:id']" class="card-title">{{
-        reviewElement.data.companyName
-      }}</a>
+      <a
+        [routerLink]="['/companies/', reviewElement.data.companyName]"
+        class="card-title"
+        >{{ reviewElement.data.companyName }}</a
+      >
       <ngb-rating [(rate)]="currentRate">
         <ng-template let-fill="fill" let-index="index">
           <span
@@ -32,10 +34,9 @@
         <p class="card-text text-truncate" id="textTruncate">
           {{ reviewElement.data.textExcerpt }}
         </p>
-        <app-review-full
-          [route]="reviewElement.id"
-          [revEl]="reviewElement.data"
-        ></app-review-full>
+        <button mat-raised-button [routerLink]="['/reviews', reviewElement.id]">
+          {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
+        </button>
       </div>
       <div class="votes-container">
         <!--votes container-->

@@ -1,13 +1,12 @@
-<section class="review-page">
+<section class="review-page mt-75">
   <section class="review-list">
     <h1>All Reviews</h1>
-    <div class="review-container m-5">
+    <div class="review-container">
       <app-review-element
         class="review-item"
         [reviewElement]="review"
         *ngFor="let review of listOfReviews"
-      ></app-review-element
-      >
+      ></app-review-element>
     </div>
   </section>
 </section>

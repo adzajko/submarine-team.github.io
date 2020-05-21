@@ -1,0 +1,9 @@
+@import '../../../../assets/scss_extendables/index';
+
+section {
+  min-height: 100vh;
+  @extend .flex-column-center;
+  p {
+    color: getColor(whiteGrey);
+  }
+}

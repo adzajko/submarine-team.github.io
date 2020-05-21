@@ -6,9 +6,12 @@ import { CompanyFullPageComponent } from 'src/app/components/pages/companies/com
 const routes = [
   {
     path: 'companies',
-    component: CompaniesComponent,
     data: { animationState: 'Companies' },
     children: [
+      {
+        path: '',
+        component: CompaniesComponent
+      },
       {
         path: ':id',
         component: CompanyFullPageComponent
