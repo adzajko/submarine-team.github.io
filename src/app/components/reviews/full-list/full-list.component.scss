@@ -26,10 +26,8 @@ section.review-page {
 .review-container {
   margin: 2rem 10rem;
   display: grid;
-  grid-template-columns: 40% 40%;
-  justify-content: center;
+  grid-template-columns: 80%;
+  justify-content: stretch;
   column-gap: 5rem;
-  app-review-element {
-    width: 100%;
-  }
+  row-gap: 5rem;
 }
