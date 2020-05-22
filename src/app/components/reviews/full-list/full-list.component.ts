@@ -8,6 +8,7 @@ import { Review } from '../review-element/Review.model';
   styleUrls: ['./full-list.component.scss']
 })
 export class FullListComponent implements OnInit {
+  public options = ['Rating', 'Upvotes', 'Date Posted'];
   public listOfReviews: Review[] = [];
 
   constructor(private reviewService: ReviewService) {}

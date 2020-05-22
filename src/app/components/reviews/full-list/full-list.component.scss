@@ -23,9 +23,20 @@ section.review-page {
   }
 }
 
+form {
+  width: 50%;
+  margin: 3rem auto;
+  button {
+    width: 150px;
+    margin-left: 2rem;
+  }
+}
+
 .review-container {
   margin: 2rem 10rem;
-  .review-item {
-    width: 60%;
-  }
+  display: grid;
+  grid-template-columns: 80%;
+  justify-content: stretch;
+  column-gap: 5rem;
+  row-gap: 5rem;
 }
