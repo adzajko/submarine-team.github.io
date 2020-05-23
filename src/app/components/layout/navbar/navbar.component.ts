@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { SharedService } from 'src/app/shared/shared.service';
+import { ThemeService } from "src/app/theme/theme.service";
 
 @Component({
   selector: 'app-navbar',
@@ -33,7 +34,8 @@ export class NavbarComponent implements OnInit {
     private auth: AuthService,
     private translateService: TranslateService,
     private afAuth: AngularFireAuth,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private themeService: ThemeService
   ) {
     this.loginForm = this.formBuilder.group({
       email: '',
@@ -92,5 +94,13 @@ export class NavbarComponent implements OnInit {
   changeLanguage(value) {
     localStorage.setItem('language', value);
     this.translateService.use(value);
+  }
+
+  toggleTheme() {
+    if (this.themeService.isDarkTheme()) {
+      this.themeService.setLightTheme();
+    } else {
+      this.themeService.setDarkTheme();
+    }
   }
 }
