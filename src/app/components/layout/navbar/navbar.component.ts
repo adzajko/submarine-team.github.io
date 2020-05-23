@@ -1,16 +1,10 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { SharedService } from 'src/app/shared/shared.service';
+import { ThemeService } from 'src/app/theme/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -23,6 +17,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('navBrand', { static: false }) navBrand: ElementRef;
   @ViewChild('overlay', { static: false }) overlay: ElementRef;
   public val: string;
+  public activeTheme = false;
   public activeUser = false;
 
   // Login Logic
@@ -33,7 +28,8 @@ export class NavbarComponent implements OnInit {
     private auth: AuthService,
     private translateService: TranslateService,
     private afAuth: AngularFireAuth,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private themeService: ThemeService
   ) {
     this.loginForm = this.formBuilder.group({
       email: '',
@@ -42,6 +38,14 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.themeService.emitCurrentActiveTheme.subscribe(res => {
+      console.log(res);
+      if (res === 'dark') {
+        this.activeTheme = false;
+      } else {
+        this.activeTheme = true;
+      }
+    });
     this.afAuth.user.subscribe(res => {
       if (res) {
         this.activeUser = true;
@@ -92,5 +96,13 @@ export class NavbarComponent implements OnInit {
   changeLanguage(value) {
     localStorage.setItem('language', value);
     this.translateService.use(value);
+  }
+
+  toggleTheme() {
+    if (this.themeService.isDarkTheme()) {
+      this.themeService.setLightTheme();
+    } else {
+      this.themeService.setDarkTheme();
+    }
   }
 }

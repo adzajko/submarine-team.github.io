@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import 'app/shared/material-theme.scss';
+@import '~bootstrap/scss/bootstrap';
 
 * {
   box-sizing: border-box;
+}
+
+:root {
+  --navColor: #2c3e50;
 }
 
 html,
@@ -27,6 +32,3 @@ body {
     outline: 1px solid #212121;
   }
 }
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';

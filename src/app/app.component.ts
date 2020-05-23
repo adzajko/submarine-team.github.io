@@ -8,6 +8,7 @@ import { SharedService } from './shared/shared.service';
 import { Subscription } from 'rxjs';
 
 import { trigger, transition, style, animate } from '@angular/animations';
+import { ThemeService } from './theme/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -38,10 +39,13 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private auth: AuthService,
     private translateService: TranslateService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit() {
+    this.themeService.setActiveTheme(this.themeService.getLocalStorageTheme());
+
     this.subscription = this.sharedService.publishLoginModalState.subscribe(
       response => {
         this.shouldModalOpen = response;

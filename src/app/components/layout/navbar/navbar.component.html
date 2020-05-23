@@ -44,6 +44,10 @@
   [clickOutsideEvents]="'click, touchstart, scroll'"
 >
   <div class="overlay-content">
+    <mat-slide-toggle
+      [(ngModel)]="activeTheme"
+      (change)="toggleTheme()"
+    ></mat-slide-toggle>
     <a
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
