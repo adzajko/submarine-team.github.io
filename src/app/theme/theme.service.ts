@@ -24,6 +24,9 @@ export class ThemeService {
   }
 
   getLocalStorageTheme() {
+    if (!localStorage.getItem('activeTheme')) {
+      return light;
+    }
     if (localStorage.getItem('activeTheme') === 'dark') {
       return dark;
     } else if (localStorage.getItem('activeTheme') === 'light') {
