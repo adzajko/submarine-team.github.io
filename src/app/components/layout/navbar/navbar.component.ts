@@ -39,7 +39,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeService.emitCurrentActiveTheme.subscribe(res => {
-      console.log(res);
       if (res === 'dark') {
         this.activeTheme = false;
       } else {

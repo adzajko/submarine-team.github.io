@@ -27,6 +27,10 @@ export class CompanyFullPageComponent implements OnInit {
     this.companyService.getCompanyByName(this.currentCompanyName).subscribe(
       res => {
         this.auth.showHTTPLoader(false);
+        if (res.length < 1) {
+          this.router.navigate(['/404']);
+          return;
+        }
         res.forEach(element => {
           console.log(element.payload.doc.data());
           this.currentCompany = element.payload.doc.data();

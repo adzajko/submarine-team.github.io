@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Company } from '../components/pages/companies/Company.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +13,12 @@ export class CompanyService {
   getCompanyByName(name: string) {
     return this.firestore
       .collection('companies', ref => ref.where('name', '==', name))
+      .snapshotChanges();
+  }
+
+  getTopThreeCompanies() {
+    return this.firestore
+      .collection('companies', ref => ref.orderBy('name', 'desc').limit(3))
       .snapshotChanges();
   }
 }

@@ -7,6 +7,7 @@ import { ReviewService } from '../../../shared/review.service';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { CompanyService } from 'src/app/shared/company.service';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
   listOfReviews: any[] = [];
   loggedIn = false;
   reviewList: any;
+  topThreeCompanies = [];
 
   constructor(
     private toastr: ToastrService,
@@ -25,6 +27,7 @@ export class HomeComponent implements OnInit {
     private auth: AuthService,
     private reviewService: ReviewService,
     private translateService: TranslateService,
+    private companiesService: CompanyService,
     private afAuth: AngularFireAuth
   ) {
     this.authForm = this.formBuilder.group({
@@ -35,6 +38,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.showHTTPLoader(true);
+    this.companiesService.getTopThreeCompanies().subscribe(
+      res => {
+        res.forEach(element => {
+          this.topThreeCompanies.push(element.payload.doc.data());
+        });
+        this.auth.showHTTPLoader(false);
+      },
+      catchErr => {
+        this.auth.showHTTPLoader(false);
+        this.toastr.error(catchErr.message);
+      }
+    );
     this.reviewService.getReviews().subscribe(
       data => {
         this.auth.showHTTPLoader(false);

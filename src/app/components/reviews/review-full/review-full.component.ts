@@ -26,6 +26,10 @@ export class ReviewFullComponent implements OnInit {
     this.reviewService.getReviewById(this.currentReviewId).subscribe(
       res => {
         this.auth.showHTTPLoader(false);
+        if (!res.payload.data()) {
+          this.router.navigate(['/404']);
+          return;
+        }
         this.activeReview = res.payload.data();
       },
       errorRes => {
