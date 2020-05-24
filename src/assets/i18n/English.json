@@ -72,7 +72,7 @@
   "TERMS_OF_SERVICE": {
     "TITLE": "General Terms of Service",
     "COOKIE_TITLE": "Cookie Policy:",
-    "COOKIE_BODY": "We do not store cookies on our page.",
+    "COOKIE_BODY": "We store cookies on our page.",
     "HATE_SPEECH_TITLE": "No Hate Speech:",
     "HATE_SPEECH_BODY": "Hate speech of any kind will not be tolerated.",
     "REVIEWS_TITLE": "Submitting Reviews:",
@@ -82,7 +82,11 @@
     "RESERVED_1": " We reserve the right to remove reviews that violate rule 2.",
     "RESERVED_2": "Serious offenders can have their accounts banned."
   },
-  "REVIEW_ELEMENT": {},
+  "REVIEWS": {
+    "ALL_REVIEWS": "All Reviews",
+    "FILTER": "Filter Reviews",
+    "GO": "Go!"
+  },
   "TOASTR": {
     "SUCCESS_TITLE": "Success!",
     "ERROR_TITLE": "Error.",

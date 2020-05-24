@@ -55,82 +55,33 @@
           {{ 'HOMEPAGE.TOP_REVIEWED' | translate }}
         </h3>
         <div class="reviewed-companies-container">
-          <div class="card mr-3 dark-bg">
+          <div
+            *ngFor="let company of topThreeCompanies"
+            class="card mr-3 dark-bg"
+          >
             <div class="card-header">
-              <a>Lorem Ipsum</a>
+              <a [routerLink]="['/companies', company?.name]">{{
+                company?.name
+              }}</a>
             </div>
             <div class="card-body">
               <div class="card-aside">
                 <div class="img-fluid">
-                  <img src="/assets/submarine.png" alt="BestReviewedCompany" />
+                  <img src="{{ company?.logo }}" alt="{{ company?.name }}" />
                 </div>
               </div>
               <div class="reviewed-body">
                 <div class="icon-bundle">
-                  <h6><i class="fa fa-map-marker mr-2"></i>Skopje</h6>
+                  <h6>
+                    <i class="fa fa-map-marker mr-2"></i>{{ company?.location }}
+                  </h6>
                   <h6 class="ml-2">
                     <i class="fa fa-star mr-2"></i
                     >{{ 'HOMEPAGE.AVERAGE' | translate }}: 5
                   </h6>
                 </div>
                 <a
-                  href="#"
-                  mat-raised-button
-                  color="primary"
-                  class="d-block mx-auto mt-5 td-none"
-                  >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="card mr-3 dark-bg">
-            <div class="card-header">
-              <a>Lorem Ipsum</a>
-            </div>
-            <div class="card-body">
-              <div class="card-aside">
-                <div class="img-fluid">
-                  <img src="/assets/submarine.png" alt="BestReviewedCompany" />
-                </div>
-              </div>
-              <div class="reviewed-body">
-                <div class="icon-bundle">
-                  <h6><i class="fa fa-map-marker mr-2"></i>Skopje</h6>
-                  <h6 class="ml-2">
-                    <i class="fa fa-star mr-2"></i
-                    >{{ 'HOMEPAGE.AVERAGE' | translate }}: 5
-                  </h6>
-                </div>
-                <a
-                  href="#"
-                  mat-raised-button
-                  color="primary"
-                  class="d-block mx-auto mt-5 td-none"
-                  >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="card mr-3 dark-bg">
-            <div class="card-header">
-              <a>Lorem Ipsum</a>
-            </div>
-            <div class="card-body">
-              <div class="card-aside">
-                <div class="img-fluid">
-                  <img src="/assets/submarine.png" alt="BestReviewedCompany" />
-                </div>
-              </div>
-              <div class="reviewed-body">
-                <div class="icon-bundle">
-                  <h6><i class="fa fa-map-marker mr-2"></i>Skopje</h6>
-                  <h6 class="ml-2">
-                    <i class="fa fa-star mr-2"></i
-                    >{{ 'HOMEPAGE.AVERAGE' | translate }}: 5
-                  </h6>
-                </div>
-                <a
-                  href="#"
+                  [routerLink]="['/companies', company?.name]"
                   mat-raised-button
                   color="primary"
                   class="d-block mx-auto mt-5 td-none"
