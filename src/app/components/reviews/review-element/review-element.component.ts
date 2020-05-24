@@ -3,6 +3,8 @@ import { Review } from './Review.model';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ReviewService } from '../../../shared/review.service';
 import * as moment from 'moment';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-review-element',
@@ -29,15 +31,30 @@ import * as moment from 'moment';
 })
 export class ReviewElementComponent implements OnInit {
   formattedDate = '';
+  public showDialog = false;
   @Input() reviewElement: any;
   public currentRate: number;
   public reviewId: string;
-  constructor(config: NgbRatingConfig, private reviewService: ReviewService) {
+  constructor(
+    config: NgbRatingConfig,
+    private reviewService: ReviewService,
+    private toastr: ToastrService,
+    private translate: TranslateService
+  ) {
     config.readonly = true;
   }
 
   ngOnInit(): void {
     this.formattedDate = this.reviewService.formatDate(this.reviewElement);
     this.currentRate = this.reviewElement.data.rating;
+  }
+  openReportDialog() {
+    this.showDialog = !this.showDialog;
+  }
+  sendReport(id: string) {
+    this.translate.get('TOASTR').subscribe(res => {
+      this.toastr.success(res.REPORTED, res.SUCCESS_TITLE);
+      this.openReportDialog();
+    });
   }
 }

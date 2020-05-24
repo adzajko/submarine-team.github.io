@@ -37,6 +37,36 @@
         <button mat-raised-button [routerLink]="['/reviews', reviewElement.id]">
           {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
         </button>
+        <button
+          class="ml-3"
+          (click)="openReportDialog()"
+          mat-raised-button
+          color="warn"
+        >
+          {{ 'HOMEPAGE.REPORT' | translate }}
+        </button>
+      </div>
+      <div id="report-dialog" *ngIf="showDialog">
+        <div>
+          <h6 mat-dialog-title>{{ 'CONFIRM_DIALOG.REPORT_Q' | translate }}</h6>
+          <hr />
+          <div
+            mat-dialog-actions
+            class="btn-group d-flex justify-content-center"
+          >
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="sendReport('reviewElement.id')"
+              class="mr-3"
+            >
+              {{ 'CONFIRM_DIALOG.YES' | translate }}
+            </button>
+            <button (click)="openReportDialog()" mat-raised-button>
+              {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
+            </button>
+          </div>
+        </div>
       </div>
       <div class="votes-container">
         <!--votes container-->

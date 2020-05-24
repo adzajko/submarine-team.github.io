@@ -8,6 +8,7 @@ import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { CompanyService } from 'src/app/shared/company.service';
+import { Company } from '../companies/Company.model';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
   loggedIn = false;
   reviewList: any;
   topThreeCompanies = [];
+  featuredCompany: any;
 
   constructor(
     private toastr: ToastrService,
@@ -38,6 +40,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.showHTTPLoader(true);
+    this.companiesService.getFeaturedCompany().subscribe(res => {
+      res.forEach(
+        element => {
+          this.auth.showHTTPLoader(false);
+          this.featuredCompany = element.payload.doc.data();
+        },
+        catchErr => {
+          this.auth.showHTTPLoader(false);
+          this.toastr.error(catchErr.message);
+        }
+      );
+    });
     this.companiesService.getTopThreeCompanies().subscribe(
       res => {
         res.forEach(element => {

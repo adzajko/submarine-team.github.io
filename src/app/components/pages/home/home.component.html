@@ -4,14 +4,19 @@
       <h1 class="featured-companies-h">
         {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
       </h1>
-      <div class="card dark-bg">
+      <div class="card dark-bg" *ngIf="featuredCompany">
         <div class="card-header">
-          <a [routerLink]="['/']">Stark Industries</a>
+          <a [routerLink]="['/companies', featuredCompany?.name]">{{
+            featuredCompany?.name
+          }}</a>
         </div>
         <div class="card-body">
           <div class="card-aside">
             <div class="img-fluid">
-              <img src="/assets/submarine.png" alt="Hero Company Title" />
+              <img
+                src="{{ featuredCompany?.logo }}"
+                alt="{{ featuredCompany?.name }}"
+              />
             </div>
           </div>
           <div class="company-info">
@@ -21,13 +26,13 @@
               <div class="company-info-item">
                 <h6 class="company-info">
                   <i class="fa fa-industry " aria-hidden="true"></i
-                  >{{ 'HOMEPAGE.INDUSTRY' | translate }}
+                  >{{ featuredCompany?.technology }}
                 </h6>
               </div>
               <div class="company-info-item">
                 <h6 class="company-info">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>Vidoe
-                  Smilevski Bato 6
+                  <i class="fa fa-map-marker" aria-hidden="true"></i
+                  >{{ featuredCompany?.location }}
                 </h6>
               </div>
               <div class="company-info-item">
@@ -41,7 +46,7 @@
               {{ 'HOMEPAGE.DESCRIPTION' | translate }}
             </p>
             <a
-              href="#"
+              [routerLink]="['/companies', featuredCompany?.name]"
               mat-raised-button
               color="primary"
               class="d-block mx-auto mt-5 w-50 td-none"

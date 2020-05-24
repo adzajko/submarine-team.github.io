@@ -94,3 +94,19 @@ app-votes-container {
 ngb-rating:focus {
   outline: none;
 }
+
+div#report-dialog {
+  @extend .fixed-full-height;
+  background-color: getColor(box-shadow-color);
+  @extend .flex-column-center;
+  z-index: 100001;
+  div {
+    h6 {
+      color: black;
+      font-size: 18px;
+    }
+    background-color: #fafafa;
+    padding: 1rem;
+    border-radius: 15px;
+  }
+}

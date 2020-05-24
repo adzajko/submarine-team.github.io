@@ -36,7 +36,8 @@
     "SKOPJE": "Skopje",
     "INDUSTRY": "Robotics",
     "ADDRESS": "Vidoe Smilevski Bato 6",
-    "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio possimus error odit adipisci, commodi modi."
+    "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio possimus error odit adipisci, commodi modi.",
+    "REPORT": "Report"
   },
   "LOGIN": {
     "LOGIN": "Log in",
@@ -107,14 +108,16 @@
     "FILL_PASSWORD": "You need to fill out both password fields!",
     "NO_EMAIL": "Please input an email!",
     "EMAIL_CHANGED": "Email changed!",
-    "USER_DELETED": "User deleted!"
+    "USER_DELETED": "User deleted!",
+    "REPORTED": "Review reported."
   },
   "CONFIRM_DIALOG": {
     "WARNING": "Warning!",
     "RESET_Q": "Are you sure you wish to reset your password?",
     "DELETE_Q": "Are you sure you wish to delete your account?",
     "YES": "Yes",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "REPORT_Q": "Are you sure you wish to report this review?"
   },
   "404": {
     "CONTENT": "Requested content was not found.",
