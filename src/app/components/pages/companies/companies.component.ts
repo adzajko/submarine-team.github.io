@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CompaniesComponent implements OnInit {
   companyList: any[] = [];
-  companyId: string;
+
   constructor(
     public companyService: CompanyService,
     private auth: AuthService,
@@ -20,15 +20,16 @@ export class CompaniesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const complist: any[] = [];
     this.auth.showHTTPLoader(true);
     this.companyService.getCompanies().subscribe(
       item => {
         this.auth.showHTTPLoader(false);
-        item.map(e => {
-          this.companyId = e.payload.doc.id;
-          complist.push(e.payload.doc.data());
+        item.forEach(element => {
+          this.companyList.push(element.payload.doc.data());
         });
+        this.companyList = this.companyList.filter(
+          (v, i, a) => a.findIndex(t => t.name === v.name) === i
+        );
       },
       errorRes => {
         this.translate.get('TOASTR').subscribe(res => {
@@ -36,6 +37,5 @@ export class CompaniesComponent implements OnInit {
         });
       }
     );
-    this.companyList = complist;
   }
 }
