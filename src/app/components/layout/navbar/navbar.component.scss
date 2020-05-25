@@ -66,7 +66,11 @@ mat-toolbar {
   z-index: 1;
   left: 0;
   top: 0;
-  background-color: #18191a;
+  background: linear-gradient(
+    180deg,
+    rgba(52, 88, 128, 1) 0%,
+    rgba(48, 51, 65, 1) 100%
+  );
   overflow: hidden;
   transition: 0.4s;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.75);
@@ -80,32 +84,52 @@ mat-toolbar {
   }
 
   .overlay-link {
+    margin-bottom: 1rem;
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     position: relative;
     text-decoration: none;
-    font-size: 36px;
-    color: #818181;
+    font-size: 26px;
+    color: whitesmoke;
     display: block;
     transition: 0.45s;
   }
   .overlay-link::before {
+    transition: 0.5s;
     content: '';
     width: 0;
-    height: 2px;
+    height: 100%;
     position: absolute;
-    right: 0;
+    z-index: -1;
+    left: 0;
     bottom: 0;
-    background-color: whitesmoke;
+    border-radius: 7px;
+    background-color: rgba(#54668a, 0.9);
   }
   .overlay-link:hover::before {
     content: '';
-    width: 100%;
+    width: 90%;
+    transition: ease 0.5s;
+  }
+
+  .overlay-link::after {
+    content: '';
+    width: 5px;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: whitesmoke;
+  }
+  .overlay-link:hover::after {
+    content: '';
+    height: 100%;
     transition: ease 0.5s;
   }
   .overlay-link:hover,
   .overlay-link:focus {
     color: #f1f1f1;
+    transition: 0.5s;
   }
   .active {
     color: #f5f5f5 !important;
@@ -117,9 +141,18 @@ mat-toolbar {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #f5f5f5;
+    width: 90%;
+    height: 100%;
+    background-color: rgba(#54668a, 0.9);
+  }
+  .active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background-color: whitesmoke;
   }
 
   @media screen and (max-height: 450px) {
@@ -142,7 +175,7 @@ mat-toolbar {
 
 .sidebar-width {
   transition: 0.5s;
-  width: 80%;
+  width: 90%;
   @include smallPhoneMixin {
     padding-left: 1rem;
     padding-right: 1rem;

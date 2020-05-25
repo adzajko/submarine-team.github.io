@@ -44,17 +44,13 @@
   [clickOutsideEvents]="'click, touchstart, scroll'"
 >
   <div class="overlay-content">
-    <mat-slide-toggle
-      [(ngModel)]="activeTheme"
-      (change)="toggleTheme()"
-    ></mat-slide-toggle>
     <a
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
       [routerLink]="['/']"
       class="overlay-link"
       (click)="toggleOverlay()"
-      ><i class="fa fa-home mr-2"></i>{{ 'HEADER.HOME' | translate }}</a
+      ><i class="fa fa-home mr-4"></i>{{ 'HEADER.HOME' | translate }}</a
     >
     <a
       [routerLink]="['/my-account']"
@@ -63,7 +59,7 @@
       class="overlay-link"
       *ngIf="activeUser"
       (click)="checkMyAccount()"
-      ><i class="fa fa-user mr-2"></i>{{ 'HEADER.MY_ACCOUNT' | translate }}</a
+      ><i class="fa fa-user mr-4"></i>{{ 'HEADER.MY_ACCOUNT' | translate }}</a
     >
     <a
       routerLinkActive="active"
@@ -71,7 +67,7 @@
       [routerLink]="['/companies']"
       class="overlay-link"
       (click)="toggleOverlay()"
-      ><i class="fa fa-building-o mr-2"></i
+      ><i class="fa fa-th-large mr-4"></i
       >{{ 'HEADER.COMPANIES' | translate }}</a
     >
     <a
@@ -80,7 +76,7 @@
       [routerLink]="['/about']"
       class="overlay-link"
       (click)="toggleOverlay()"
-      ><i class="fa fa-question mr-2"></i>{{ 'HEADER.ABOUT' | translate }}</a
+      ><i class="fa fa-info-circle mr-4"></i>{{ 'HEADER.ABOUT' | translate }}</a
     >
     <a
       routerLinkActive="active"
@@ -88,7 +84,11 @@
       [routerLink]="['/contact']"
       class="overlay-link"
       (click)="toggleOverlay()"
-      ><i class="fa fa-phone mr-2"></i>{{ 'HEADER.CONTACT' | translate }}</a
+      ><i class="fa fa-envelope mr-4"></i>{{ 'HEADER.CONTACT' | translate }}</a
     >
+    <mat-slide-toggle
+      [(ngModel)]="activeTheme"
+      (change)="toggleTheme()"
+    ></mat-slide-toggle>
   </div>
 </div>
