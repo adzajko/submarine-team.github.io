@@ -32,3 +32,22 @@ body {
     outline: 1px solid #212121;
   }
 }
+.pre-load-wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  .pre-load-spinner {
+    animation: up-down;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    position: relative;
+  }
+}
+@keyframes up-down {
+  0% {left: 30px; top: 0px; }
+  50% {left: 15px; top: 15px; }
+  100% {left: 0px; top: 0px}
+}
+

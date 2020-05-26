@@ -1,3 +1,4 @@
+import { LandingPageComponent } from './components/pages/landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
     path: 'terms-of-service',
     component: TermsOfServiceComponent,
     data: { animationState: 'TermsOfService' }
+  },
+  {
+    path: 'landing',
+    component: LandingPageComponent
   },
   {
     path: '**',
