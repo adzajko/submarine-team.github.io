@@ -1,19 +1,19 @@
 @import '../../../../assets/scss_extendables/index';
 
 .footer-elements {
-  background-color: #2d3436;
+  background-color: var(--secondary);
   p {
     text-align: center;
     padding: 1rem;
     padding-bottom: 10px;
     margin-bottom: 0;
-    color: whitesmoke;
+    color: var(--font-color);
   }
   .divider {
     width: 80%;
     margin: auto;
     height: 0.5px;
-    background-color: whitesmoke;
+    background-color: var(--font-color);
   }
   span.text-white {
     position: relative;
@@ -26,7 +26,7 @@
     position: absolute;
     height: 25px;
     width: 1px;
-    background-color: whitesmoke;
+    background-color: var(--font-color);
   }
 
   .quick-links {

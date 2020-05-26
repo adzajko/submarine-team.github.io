@@ -2,12 +2,12 @@
 
 .about-page {
   min-height: 100vh;
-  background: rgb(250, 250, 250);
-  background: linear-gradient(180deg, #2d3436, #2c3e50);
+  background: var(--font-color);
+  background: linear-gradient(180deg, var(--secondary), var(--primary));
   @include mediumPhoneMixin {
     padding-top: 25px;
   }
-  color: whitesmoke;
+  color: var(--font-color);
   .intro-section {
     padding: 3rem;
     p {
@@ -42,7 +42,7 @@
       background-blend-mode: saturation;
       background-size: cover;
       background-repeat: no-repeat;
-      box-shadow: inset 0 0 5px 0 getColor(box-shadow-color);
+      box-shadow: inset 0 0 5px 0 var(--shadows);
       @extend .flex-column-center;
       .img-fluid {
         width: 50%;
