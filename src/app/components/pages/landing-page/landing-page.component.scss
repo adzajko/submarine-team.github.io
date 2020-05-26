@@ -1,0 +1,12 @@
+@import '../../../../assets/scss_extendables/index';
+
+section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: black;
+    z-index: 1000001;
+    bottom: 0;
+}
