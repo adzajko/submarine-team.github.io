@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { routeTransitionAnimations } from './shared/animations';
 import { AuthService } from './shared/auth.service';
 import { TranslateService } from '@ngx-translate/core';
-import { startWith, tap, delay } from 'rxjs/operators';
+import { startWith, delay } from 'rxjs/operators';
 import { SharedService } from './shared/shared.service';
 import { Subscription } from 'rxjs';
 
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public pendingHttpRequest = false;
   private subscription: Subscription;
   public passLoggedStateInfo: boolean;
-
+  displayTop = 0;
   shouldModalOpen = false;
 
   constructor(
@@ -44,6 +44,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    window.addEventListener('scroll', this.scrollEvent, true);
     this.themeService.setActiveTheme(this.themeService.getLocalStorageTheme());
 
     this.subscription = this.sharedService.publishLoginModalState.subscribe(
@@ -79,7 +80,16 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
+  scrollToTop() {
+    document.body.scrollTop = 0;
+  }
+
+  scrollEvent = (event: any): void => {
+    this.displayTop = event.srcElement.scrollTop;
+  };
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    window.removeEventListener('scroll', this.scrollEvent, true);
   }
 }
