@@ -8,7 +8,7 @@
     text-align: center;
     font-size: getFontSize(h1);
     @extend .underlineBefore;
-    color: getColor(whiteGrey);
+    color: var(--font-color);
     padding: 10px;
     @include smallPhoneMixin {
       font-size: 32px;
@@ -37,13 +37,13 @@
     margin-bottom: 2rem;
   }
   .card {
-    box-shadow: 2px 3px 3px 0 getColor(box-shadow-color);
+    box-shadow: 2px 3px 3px 0 var(--shadows);
     .card-header {
-      background-color: getColor(blueHeader);
+      background-color: var(--primary);
       a {
         text-decoration: none;
         font-size: 32px;
-        color: whitesmoke;
+        color: var(--font-color);
         @extend .animatedBefore;
       }
     }
@@ -103,7 +103,7 @@
           .company-info-item {
             h6,
             i {
-              color: whitesmoke;
+              color: var(--font-color);
               font-size: 20px;
               @include smallPhoneMixin {
                 font-size: 18px;
@@ -169,7 +169,7 @@
   .card {
     border: none;
     width: 100%;
-    box-shadow: 2px 3px 3px 0 getColor(box-shadow-color);
+    box-shadow: 2px 3px 3px 0 var(--shadows);
     @include smallPhoneMixin {
       margin: 1rem auto;
     }
@@ -183,12 +183,12 @@
       margin: 1rem auto;
     }
     .card-header {
-      background-color: getColor(blueHeader);
+      background-color: var(--primary);
       a {
         cursor: pointer;
         text-decoration: none;
         font-size: 32px;
-        color: whitesmoke;
+        color: var(--font-color);
         @include smallPhoneMixin {
           font-size: 24px;
         }
@@ -244,7 +244,7 @@
         h6 {
           text-align: center;
           margin-top: 1rem;
-          color: whitesmoke;
+          color: var(--font-color);
           @include largePhoneMixin {
             margin-right: 10px;
           }
@@ -280,7 +280,7 @@ app-review-element {
 }
 
 .dark-bg {
-  background: linear-gradient(180deg, #2d3436, getColor(blueHeader));
+  background: linear-gradient(180deg, var(--secondary), var(--primary));
 }
 
 .fa {

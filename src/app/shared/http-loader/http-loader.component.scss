@@ -1,6 +1,6 @@
 @import '../../../assets/scss_extendables/index';
 .loader-wrapper {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--shadowsOpacified);
   position: fixed;
   top: 0;
   left: 0;
@@ -22,8 +22,8 @@
   height: 150px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
+  border: 6px solid var(--font-color);
+  border-color: var(--font-color) transparent var(--font-color) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {

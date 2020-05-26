@@ -1,13 +1,13 @@
 @import '../../../../assets/scss_extendables/index';
 
 section.review-page {
-  background: linear-gradient(180deg, #2d3436, #2c3e50);
+  background: linear-gradient(180deg, var(--secondary), var(--primary));
   padding-bottom: 10px;
 }
 
 .review-list {
   h1 {
-    color: getColor(whiteGrey);
+    color: var(--font-color);
     text-align: center;
     font-size: getFontSize(h1);
     padding: 3rem 0;

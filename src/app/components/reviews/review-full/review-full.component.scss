@@ -4,6 +4,6 @@ section {
   min-height: 100vh;
   @extend .flex-column-center;
   p {
-    color: getColor(whiteGrey);
+    color: var(--font-color);
   }
 }

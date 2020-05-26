@@ -27,15 +27,15 @@
   grid-area: 5 / 3 / 7 / 6;
 }
 .body {
-  background: linear-gradient(180deg, #2d3436, #2c3e50);
+  background: linear-gradient(180deg, var(--secondary), var(--primary));
 }
 
 .dialog-container {
   @extend .fixed-full-height;
-  background-color: getColor(box-shadow-color);
+  background-color: var(--shadows);
   @extend .flex-column-center;
   div {
-    background-color: #fafafa;
+    background-color: var(--font-color);
     padding: 1rem;
     border-radius: 15px;
   }
@@ -45,16 +45,16 @@ input,
 select,
 textarea,
 mat-checkbox {
-  color: #ecf0f1;
+  color: var(--font-color);
 }
 
 p {
-  color: #abb0b0;
+  color: var(--outlines);
 }
 
 textarea:focus,
 input:focus {
-  color: #ecf0f1;
+  color: var(--outlines);
 }
 
 .mb-small {

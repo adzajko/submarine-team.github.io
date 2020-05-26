@@ -7,14 +7,14 @@
     display: block;
     height: 100%;
   }
-  box-shadow: 5px 3px 3px 0 getColor(box-shadow-color);
+  box-shadow: 5px 3px 3px 0 var(--shadows);
   width: 100%;
-  border: 1px solid getColor(blueHeader);
+  border: 1px solid var(--primary);
   position: relative;
 }
 
 .card-aside {
-  background-color: #dfe6e9;
+  background-color: var(--font-color);
   .img-container {
     .img-fluid {
       width: 150px;
@@ -29,7 +29,7 @@
     }
   }
   p.text-center.my-md-2.my-sm-0.font-italic {
-    color: rgba(0, 0, 0, 0.4);
+    color: var(--shadows);
     @include smallPhoneMixin {
       margin-bottom: 0;
     }
@@ -37,7 +37,7 @@
 }
 
 .card {
-  background: linear-gradient(163deg, #444a50 0%, #2c3e50 80%);
+  background: linear-gradient(163deg, var(--tertiary) 0%, var(--primary) 80%);
   flex: 1;
   border: 0;
   border-radius: 0px !important;
@@ -54,7 +54,7 @@
     display: block;
   }
   // background: linear-gradient(163deg, #2d3436, #2c3e50);
-  background: #2c3e50;
+  background: var(--primary);
   .card-title {
     @include mediumPhoneMixin {
       font-size: 26px;
@@ -70,7 +70,7 @@
   button.see-more-btn {
     width: 100px;
   }
-  color: whitesmoke;
+  color: var(--font-color);
   #textTruncate {
     width: 700px;
     @include mediumPhoneMixin {
@@ -97,15 +97,15 @@ ngb-rating:focus {
 
 div#report-dialog {
   @extend .fixed-full-height;
-  background-color: getColor(box-shadow-color);
+  background-color: var(--shadows);
   @extend .flex-column-center;
   z-index: 100001;
   div {
     h6 {
-      color: black;
+      color: var(--reverse-font-color);
       font-size: 18px;
     }
-    background-color: #fafafa;
+    background-color: var(--font-color);
     padding: 1rem;
     border-radius: 15px;
   }

@@ -1,6 +1,6 @@
 @import '../../../../assets/scss_extendables/index';
 section {
-  background: linear-gradient(180deg, #2d3436, #2c3e50);
+  background: linear-gradient(180deg, var(--secondary), var(--primary));
   @extend .flex-column-center;
   min-height: 100vh;
   h1 {
@@ -8,7 +8,7 @@ section {
   }
   h1,
   h6 {
-    color: whitesmoke;
+    color: var(--font-color);
   }
   a {
     text-decoration: none;
