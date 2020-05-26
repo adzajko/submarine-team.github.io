@@ -79,8 +79,15 @@ mat-toolbar {
     position: relative;
     top: 10%;
     width: 300px;
-    margin: 30px auto 0 auto;
+    margin: 15px auto;
     @extend .flex-column-center;
+    .divider {
+      width: 100%;
+      margin: auto;
+      height: 1px;
+      border-radius: 15px;
+      background-color: rgba(whitesmoke, 0.6);
+    }
   }
 
   .overlay-link {
@@ -186,7 +193,7 @@ mat-toolbar {
     padding-right: 1rem;
   }
   @include tabletMixin {
-    width: 35%;
+    width: 43%;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -196,10 +203,10 @@ mat-toolbar {
     width: 30%;
   }
   @include largeDesktopMixin {
-    width: 25%;
+    width: 27%;
   }
   @include ExtraLargeDesktopMixin {
-    width: 25%;
+    width: 21%;
   }
 }
 
