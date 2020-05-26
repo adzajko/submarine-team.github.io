@@ -32,6 +32,7 @@ export class CompaniesComponent implements OnInit {
         );
       },
       errorRes => {
+        this.auth.showHTTPLoader(false);
         this.translate.get('TOASTR').subscribe(res => {
           this.toastr.error(errorRes.message, res.ERROR_TITLE);
         });
