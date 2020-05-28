@@ -57,7 +57,7 @@
     <div *ngFor="let element of reviews" class="review-element">
       <p class="text-center">{{ element.textExcerpt }}</p>
       <a
-        class="d-block mx-auto w-25"
+        class="d-block mx-auto w-sm-100 w-lg-25"
         mat-raised-button
         color="warn"
         [routerLink]="['/reviews', element.id]"
