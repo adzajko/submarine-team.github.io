@@ -209,3 +209,28 @@ mat-toolbar {
   border: none;
   border-radius: 25px;
 }
+
+.themeToggle {
+  left: 42%;
+  position: absolute;
+  bottom: 40px;
+  color: var(--font-color);
+}
+
+.themeToggle::before,
+.themeToggle::after {
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
+}
+
+.themeToggle::before {
+  content: 'Dark';
+  left: 5rem;
+  opacity: var(--opacity1);
+}
+.themeToggle::after {
+  content: 'Light';
+  right: 5rem;
+  opacity: var(--opacity2);
+}

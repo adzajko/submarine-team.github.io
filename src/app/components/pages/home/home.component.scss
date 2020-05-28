@@ -81,6 +81,7 @@
       .company-info {
         width: 100%;
         margin-left: 2rem;
+        color: var(--font-color);
         @include smallPhoneMixin {
           margin-left: 10px;
         }
@@ -138,6 +139,7 @@
   h3 {
     width: fit-content;
     margin: auto;
+    color: var(--font-color);
     @include smallPhoneMixin {
       font-size: 22px;
     }
@@ -261,6 +263,10 @@
       }
     }
   }
+}
+
+.reviews {
+  color: var(--font-color);
 }
 
 app-review-element {
