@@ -72,4 +72,11 @@ export class ReviewService {
     element = element.data.timeStamp.toDate();
     return moment(element).format('DD. MM. YYYY');
   }
+
+  reportReview(id: string) {
+    return this.firestore
+      .collection('reviews')
+      .doc('reviews')
+      .update({ 'reviews.reportCounter': id });
+  }
 }

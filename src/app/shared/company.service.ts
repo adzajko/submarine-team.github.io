@@ -19,7 +19,9 @@ export class CompanyService {
 
   getTopThreeCompanies() {
     return this.firestore
-      .collection('companies', ref => ref.orderBy('name', 'desc').limit(3))
+      .collection('companies', ref =>
+        ref.orderBy('averageReview', 'desc').limit(3)
+      )
       .snapshotChanges();
   }
 
