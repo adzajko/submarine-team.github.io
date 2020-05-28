@@ -19,6 +19,14 @@
   "COMPANIES_PAGE": {
     "TITLE": "Компании"
   },
+  "COMPANY_FULL": {
+    "INDUSTRY": "Индустрија",
+    "LOCATION": "Локација",
+    "SEE_REVIEWS": "Рецензии",
+    "AVRG": "Просечна Оцена",
+    "EMPLOYEES": "Број на вработени",
+    "WEBSITE": "Веб страница"
+  },
   "CONTACT_PAGE": {
     "SEND_MESSAGE": "Пратете Порака",
     "REACH_US": "Контактирајте Не",

@@ -19,6 +19,14 @@
   "COMPANIES_PAGE": {
     "TITLE": "Companies"
   },
+  "COMPANY_FULL": {
+    "INDUSTRY": "Industry",
+    "LOCATION": "Location",
+    "SEE_REVIEWS": "See reviews",
+    "AVRG": "Average Grade",
+    "EMPLOYEES": "Number of employees",
+    "WEBSITE": "Website"
+  },
   "CONTACT_PAGE": {
     "SEND_MESSAGE": "Send Us A Message",
     "REACH_US": "Reach Us",
