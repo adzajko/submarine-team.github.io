@@ -52,9 +52,17 @@ export class ReviewElementComponent implements OnInit {
     this.showDialog = !this.showDialog;
   }
   sendReport(id: string) {
-    this.translate.get('TOASTR').subscribe(res => {
-      this.toastr.success(res.REPORTED, res.SUCCESS_TITLE);
-      this.openReportDialog();
-    });
+    this.reviewService
+      .reportReview(id)
+      .then(res => {
+        this.translate.get('TOASTR').subscribe(response => {
+          this.toastr.success(response.REPORTED, response.SUCCESS_TITLE);
+          this.openReportDialog();
+        });
+      })
+      .catch(err => {
+        this.toastr.error(err.message);
+        this.openReportDialog();
+      });
   }
 }
