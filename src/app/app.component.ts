@@ -79,6 +79,14 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
+  checkIfFirstTimeUser() {
+    if (!localStorage.getItem('firstTime')) {
+      return true;
+    } else  {
+      return false;
+    }
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
