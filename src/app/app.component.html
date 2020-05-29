@@ -4,6 +4,14 @@
 <main #main [@routeAnimations]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
 </main>
+<div
+  id="back-to-top"
+  [@enterAnimation]
+  *ngIf="displayTop > 150"
+  (click)="scrollToTop()"
+>
+  <i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+</div>
 <footer>
   <app-footer></app-footer>
 </footer>

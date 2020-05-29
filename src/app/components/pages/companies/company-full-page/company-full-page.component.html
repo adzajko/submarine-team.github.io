@@ -1,6 +1,68 @@
 <section class="gradient-background mt-75">
-  <img src="{{ currentCompany?.logo }}" alt="{{ currentCompany?.name }}" />
-  <p>{{ currentCompany?.name }}</p>
-  <p>{{ currentCompany?.location }}</p>
-  <p>{{ currentCompany?.technology }}</p>
+  <div class="main-container container mt-5">
+    <div class="main-body container">
+      <div class="company-header">
+        <h1>{{ currentCompany?.name }}</h1>
+      </div>
+      <div class="company-info my-5 d-flex justify-content-between">
+        <p>
+          <i class="fa fa-briefcase mr-2"></i>
+          {{ 'COMPANY_FULL.INDUSTRY' | translate }}:
+          {{ currentCompany?.technology }}
+        </p>
+        <p>
+          <i class="fa fa-map-marker mr-2"></i>
+          {{ 'COMPANY_FULL.LOCATION' | translate }}:
+          {{ currentCompany?.location }}
+        </p>
+      </div>
+      <div class="company-body">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta quae
+          voluptate temporibus impedit maiores esse aliquam culpa quisquam
+          voluptates magni!
+        </p>
+        <button
+          class="d-block mx-auto w-50 mt-5"
+          mat-raised-button
+          (click)="loadReviews()"
+        >
+          {{ 'COMPANY_FULL.SEE_REVIEWS' | translate }}
+        </button>
+      </div>
+    </div>
+    <div class="main-aside container">
+      <div class="img-container">
+        <img
+          class="img-fluid"
+          src="{{ currentCompany?.logo }}"
+          alt="{{ currentCompany?.name }}"
+        />
+      </div>
+      <p>
+        <i class="fa fa-star mr-2"></i> {{ 'COMPANY_FULL.AVRG' | translate }} :
+        {{ currentCompany?.averageReview }}
+      </p>
+      <p>
+        <i class="fa fa-users mr-2"></i>
+        {{ 'COMPANY_FULL.EMPLOYEES' | translate }}: 50
+      </p>
+      <a href="#" class="btn btn-danger d-block mx-auto">
+        <i class="fa fa-link mr-2"></i>
+        {{ 'COMPANY_FULL.WEBSITE' | translate }}</a
+      >
+    </div>
+  </div>
+  <div class="reviews-container container" *ngIf="canLoadReviews">
+    <div *ngFor="let element of reviews" class="review-element">
+      <p class="text-center">{{ element.textExcerpt }}</p>
+      <a
+        class="d-block mx-auto w-sm-100 w-lg-25"
+        mat-raised-button
+        color="warn"
+        [routerLink]="['/reviews', element.id]"
+        >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
+      >
+    </div>
+  </div>
 </section>

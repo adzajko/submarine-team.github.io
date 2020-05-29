@@ -42,7 +42,7 @@
                 </h6>
               </div>
             </div>
-            <p class="card-text text-white mt-2 text-sm-start text-xl-center">
+            <p class="card-text mt-2 text-sm-start text-xl-center">
               {{ 'HOMEPAGE.DESCRIPTION' | translate }}
             </p>
             <a
@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="top-reviewed-companies mt-6">
-        <h3 class="text-center text-white my-5 underlineBefore p-2">
+        <h3 class="text-center my-5 underlineBefore p-2">
           {{ 'HOMEPAGE.TOP_REVIEWED' | translate }}
         </h3>
         <div class="reviewed-companies-container">
@@ -82,7 +82,8 @@
                   </h6>
                   <h6 class="ml-2">
                     <i class="fa fa-star mr-2"></i
-                    >{{ 'HOMEPAGE.AVERAGE' | translate }}: 5
+                    >{{ 'HOMEPAGE.AVERAGE' | translate }}:
+                    {{ company?.averageReview }}
                   </h6>
                 </div>
                 <a
@@ -98,7 +99,7 @@
         </div>
       </div>
     </section>
-    <h3 class="text-center text-white mt-5 mb-3 underlineBefore p-2">
+    <h3 class="text-center mt-5 mb-3 underlineBefore p-2 reviews">
       {{ 'HOMEPAGE.REVIEWS' | translate }}
     </h3>
     <app-review-element
