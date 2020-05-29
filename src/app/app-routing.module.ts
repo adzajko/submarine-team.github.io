@@ -40,10 +40,6 @@ const routes: Routes = [
     data: { animationState: 'TermsOfService' }
   },
   {
-    path: 'landing',
-    component: LandingPageComponent
-  },
-  {
     path: '**',
     component: FourOhFourComponent,
     data: { animationState: 'NotFound' }

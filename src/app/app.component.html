@@ -15,7 +15,7 @@
 <footer>
   <app-footer></app-footer>
 </footer>
-
+<app-landing-page [@enterAnimation]  *ngIf="checkIfFirstTimeUser()"></app-landing-page>
 <app-login
   [@enterAnimation]
   [isLoggedIn]="passLoggedStateInfo"

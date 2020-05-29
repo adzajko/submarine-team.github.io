@@ -80,6 +80,14 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
+  checkIfFirstTimeUser() {
+    if (!localStorage.getItem('firstTime')) {
+      return true;
+    } else  {
+      return false;
+    }
+  }
+
   scrollToTop() {
     document.body.scrollTop = 0;
   }
