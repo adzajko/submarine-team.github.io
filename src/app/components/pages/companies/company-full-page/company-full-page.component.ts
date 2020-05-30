@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { ReviewService } from 'src/app/shared/review.service';
+import { Company } from './Company.model';
 
 @Component({
   selector: 'app-company-full-page',
@@ -13,7 +14,7 @@ import { ReviewService } from 'src/app/shared/review.service';
 export class CompanyFullPageComponent implements OnInit {
   currentCompany: any = {};
   currentCompanyName = '';
-  reviews = [];
+  reviews: Company[] = [];
   canLoadReviews = false;
 
   constructor(
@@ -54,7 +55,16 @@ export class CompanyFullPageComponent implements OnInit {
 
         this.auth.showHTTPLoader(false);
         res.forEach(element => {
-          this.reviews.push(element.payload.doc.data());
+          const el: Company = element.payload.doc.data() as Company;
+          this.reviews.push({
+            id: element.payload.doc.id,
+            companyName: el.companyName,
+            imagePath: el.imagePath,
+            rating: el.rating,
+            textExcerpt: el.textExcerpt,
+            timeStamp: el.timeStamp,
+            userName: el.userName
+          });
         });
       },
       err => {

@@ -32,15 +32,6 @@ section {
       font-size: 32px;
     }
   }
-  h1::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 2px;
-    background-color: var(--font-color);
-  }
 }
 
 .main-container {
@@ -57,17 +48,6 @@ section {
 .company-info {
   position: relative;
   padding-bottom: 25px;
-}
-
-.company-info::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 40%;
-  width: 25%;
-  height: 2px;
-  margin: auto;
-  background-color: var(--font-color);
 }
 
 .main-aside {
