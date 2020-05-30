@@ -25,6 +25,7 @@
         <button
           class="d-block mx-auto w-50 mt-5"
           mat-raised-button
+          [disabled]="disableLoadReviewsButton"
           (click)="loadReviews()"
         >
           {{ 'COMPANY_FULL.SEE_REVIEWS' | translate }}

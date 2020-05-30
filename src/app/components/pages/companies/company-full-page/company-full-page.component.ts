@@ -16,6 +16,7 @@ export class CompanyFullPageComponent implements OnInit {
   currentCompanyName = '';
   reviews: Company[] = [];
   canLoadReviews = false;
+  disableLoadReviewsButton = false;
 
   constructor(
     private companyService: CompanyService,
@@ -52,7 +53,7 @@ export class CompanyFullPageComponent implements OnInit {
     this.reviewService.getReviewsForCompany(this.currentCompanyName).subscribe(
       res => {
         this.canLoadReviews = true;
-
+        this.disableLoadReviewsButton = true;
         this.auth.showHTTPLoader(false);
         res.forEach(element => {
           const el: Company = element.payload.doc.data() as Company;
