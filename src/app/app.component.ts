@@ -83,13 +83,17 @@ export class AppComponent implements OnInit, OnDestroy {
   checkIfFirstTimeUser() {
     if (!localStorage.getItem('firstTime')) {
       return true;
-    } else  {
+    } else {
       return false;
     }
   }
 
   scrollToTop() {
     document.body.scrollTop = 0;
+  }
+
+  onActivate(event) {
+    this.scrollToTop();
   }
 
   scrollEvent = (event: any): void => {
