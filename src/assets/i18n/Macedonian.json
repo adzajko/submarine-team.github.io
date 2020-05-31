@@ -4,7 +4,9 @@
     "MY_ACCOUNT": "Мој Профил",
     "COMPANIES": "Компании",
     "ABOUT": "За нас",
-    "CONTACT": "Контакт"
+    "CONTACT": "Контакт",
+    "LIGHT": "Светла",
+    "DARK": "Темна"
   },
   "FOOTER": {
     "SERVICE_TERMS": "Правила и Услови",
@@ -18,6 +20,15 @@
   "ADMIN_PANEL": {},
   "COMPANIES_PAGE": {
     "TITLE": "Компании"
+  },
+  "COMPANY_FULL": {
+    "INDUSTRY": "Индустрија",
+    "LOCATION": "Локација",
+    "SEE_REVIEWS": "Рецензии",
+    "AVRG": "Просечна Оцена",
+    "EMPLOYEES": "Број на вработени",
+    "WEBSITE": "Веб страница",
+    "HIDE_REVIEWS": "Сокриј рецензии"
   },
   "CONTACT_PAGE": {
     "SEND_MESSAGE": "Пратете Порака",

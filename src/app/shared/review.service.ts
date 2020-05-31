@@ -84,7 +84,19 @@ export class ReviewService {
   }
 
   formatDate(element) {
-    element = element.data.timeStamp.toDate();
-    return moment(element).format('DD. MM. YYYY');
+    if (element.data) {
+      element = element.data.timeStamp.toDate();
+      return moment(element).format('DD. MM. YYYY');
+    } else {
+      element = element.toDate();
+      return moment(element).format('DD. MM. YYYY');
+    }
+  }
+
+  reportReview(id: string) {
+    return this.firestore
+      .collection('reviews')
+      .doc('reviews')
+      .update({ 'reviews.reportCounter': id });
   }
 }

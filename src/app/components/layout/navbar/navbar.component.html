@@ -86,10 +86,11 @@
       (click)="toggleOverlay()"
       ><i class="fa fa-envelope mr-4"></i>{{ 'HEADER.CONTACT' | translate }}</a
     >
-    <mat-slide-toggle
-      class="mb-4"
-      [(ngModel)]="activeTheme"
-      (change)="toggleTheme()"
-    ></mat-slide-toggle>
   </div>
+  <mat-slide-toggle
+    class="themeToggle"
+    [ngClass]="!isActiveLangMK ? '' : 'themeToggleMKD'"
+    [(ngModel)]="activeTheme"
+    (change)="toggleTheme()"
+  ></mat-slide-toggle>
 </div>

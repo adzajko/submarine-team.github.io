@@ -40,10 +40,6 @@ const routes: Routes = [
     data: { animationState: 'TermsOfService' }
   },
   {
-    path: 'landing',
-    component: LandingPageComponent
-  },
-  {
     path: '**',
     component: FourOhFourComponent,
     data: { animationState: 'NotFound' }
@@ -51,9 +47,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: 'disabled' })
-  ],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
   providers: [AuthGuardGuard]
 })

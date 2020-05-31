@@ -2,7 +2,10 @@
   <app-navbar></app-navbar>
 </header>
 <main #main [@routeAnimations]="prepareRoute(outlet)">
-  <router-outlet #outlet="outlet"></router-outlet>
+  <router-outlet
+    (activate)="onActivate($event)"
+    #outlet="outlet"
+  ></router-outlet>
 </main>
 <div
   id="back-to-top"
@@ -15,7 +18,10 @@
 <footer>
   <app-footer></app-footer>
 </footer>
-
+<app-landing-page
+  [@enterAnimation]
+  *ngIf="checkIfFirstTimeUser()"
+></app-landing-page>
 <app-login
   [@enterAnimation]
   [isLoggedIn]="passLoggedStateInfo"

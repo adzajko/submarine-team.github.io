@@ -1,3 +1,38 @@
-<section class="mt-75">
-    <p>Hello</p>
+<section>
+  <div class="flex-container d-sm-block d-lg-flex justify-content-between">
+    <div class="text-outside">
+      <h1>THE SUBMARINE PROJECT</h1>
+      <h2 class="my-6 text-italic">Ready to dive in?</h2>
+      <button class="d-block mx-auto btn-go" (click)="ngOnDestroy()">
+        GO!
+      </button>
+    </div>
+    <div class="form-wrapper">
+      <!-- TEST -->
+      <div class="form-container register-container">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit()">
+          <h2 class="register-text">
+            Create an account
+          </h2>
+          <input
+            class="email-input"
+            type="email"
+            formControlName="registerEmail"
+            required
+            placeholder="{{ 'LOGIN.EMAIL' | translate }}"
+          />
+          <input
+            formControlName="registerPassword"
+            type="password"
+            required
+            id="passwordInput"
+            placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
+          />
+          <button [disabled]="!registerForm.valid" class="btn">
+            {{ 'LOGIN.REGISTER' | translate }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,14 +1,21 @@
 @import '../../../../assets/scss_extendables/index';
 .terms-of-service-section {
   padding-bottom: 15px;
+  background: linear-gradient(
+    180deg,
+    rgba(29, 33, 65, 1) 0%,
+    rgba(199, 219, 191, 1) 100%
+  );
   @extend .gradient-background;
   min-height: 100vh;
-  color: var(--font-color);
+  color: var(--reverse-font-color);
   h1 {
-    font-size: getFontSize(h1);
-    padding: 3rem 0;
+    font-size: 40px;
+    padding-top: 1rem;
     padding-bottom: 1rem;
-    margin: 0 2rem;
+    text-align: center;
+    background-color: var(--test) !important;
+    color: white;
     @extend .underlineBefore;
     @include mediumPhoneMixin {
       font-size: 46px;
@@ -18,13 +25,41 @@
     }
   }
 
+  h1::before {
+    border: 5px;
+    box-shadow: 0px 2px 7px 1px var(--shadows);
+  }
+
   ol {
-    width: fit-content;
-    font-size: 22px;
-    margin-bottom: 0;
+    font-size: 20px;
+    z-index: -100;
+    color: var(--font-color);
+    background-color: var(--reverse-font-color);
     @include mediumPhoneMixin {
       width: 90%;
-      font-size: 18px;
+      font-size: 14px;
     }
+  }
+}
+
+div {
+  background-color: var(--reverse-font-color);
+  border: 5px solid var(--test);
+  border-radius: 15px;
+  width: 40%;
+  @include smallPhoneMixin {
+    width: 90%;
+  }
+  @include tabletMixin {
+    width: 70%;
+  }
+  @include largePhoneMixin {
+    width: 70%;
+  }
+  @include smallDesktopMixin {
+    width: 50%;
+  }
+  @include ExtraLargeDesktopMixin {
+    width: 40%;
   }
 }

@@ -1,12 +1,124 @@
 @import '../../../../assets/scss_extendables/index';
 
 section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background-color: black;
-    z-index: 1000001;
-    bottom: 0;
+  @extend .fixed-full-height;
+  @extend .flex-column-center;
+  min-height: 100vh;
+  z-index: 10000000;
+  background-image: url('/assets/landing-camec.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--font-color);
+
+  button {
+    background-color: transparent;
+    color: var(--font-color);
+    border: 1px var(--font-color) solid;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 var(--shadows);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  button:hover {
+    transition: 0.4s;
+    background-color: #fff;
+    color: var(--primary);
+  }
+
+  h1 {
+    font-size: 5rem;
+    @include mediumPhoneMixin {
+      font-size: 50px;
+      margin-top: 3rem;
+    }
+  }
+  h2 {
+    font-size: 2rem;
+    @include mediumPhoneMixin {
+      font-size: 32px;
+    }
+  }
+  .my-6 {
+    font-style: italic;
+    margin: 4rem 0;
+    @include mediumPhoneMixin {
+      margin: 2rem 0;
+    }
+  }
+  .text-outside {
+    width: 100%;
+    text-align: center;
+    .btn-go {
+      padding: 0.5rem;
+      font-size: 3rem;
+      border-radius: 15px;
+      width: 150px;
+      @include mediumPhoneMixin {
+        font-size: 26px;
+        background-color: var(--font-color);
+        color: var(--primary);
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  .form-wrapper {
+    width: 100%;
+    @extend .flex-column-center;
+  }
 }
+
+form {
+  border: solid var(--font-color) 1px;
+  padding: 3rem;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @include mediumPhoneMixin {
+    display: block;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  input,
+  button,
+  label {
+    display: block;
+  }
+  .register-text {
+    margin: 1rem;
+    text-align: center;
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    color: var(--font-color);
+    border-bottom: var(--font-color) solid;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    @include mediumPhoneMixin {
+      font-size: 20px;
+      margin-top: 0;
+    }
+  }
+  .btn {
+    font-size: 1.5rem;
+    border-radius: 15px;
+    width: 150px;
+    margin: auto;
+    margin-top: 1rem;
+    opacity: 1;
+    @include mediumPhoneMixin {
+      margin-bottom: 10px;
+      margin-top: 10px;
+      background-color: var(--font-color);
+      color: var(--primary);
+    }
+  }
+}
+
+//=========================================================
