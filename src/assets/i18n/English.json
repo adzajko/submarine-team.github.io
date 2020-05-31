@@ -37,7 +37,8 @@
     "INDUSTRY": "Robotics",
     "ADDRESS": "Vidoe Smilevski Bato 6",
     "DESCRIPTION": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio possimus error odit adipisci, commodi modi.",
-    "REPORT": "Report"
+    "REPORT": "Report",
+    "LOADMORE": "Get More Reviews"
   },
   "LOGIN": {
     "LOGIN": "Log in",

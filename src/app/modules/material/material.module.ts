@@ -23,6 +23,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSlideToggleModule,
     MatRadioModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule,
   ],
 
   exports: [
@@ -76,7 +78,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSlideToggleModule,
     MatGridListModule,
     MatRadioModule,
-    MatSelectModule
-  ]
+    MatSelectModule,
+    MatTooltipModule,
+  ],
 })
 export class MaterialModule {}

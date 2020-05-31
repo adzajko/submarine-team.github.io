@@ -5,27 +5,42 @@ import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ReviewService {
   constructor(private firestore: AngularFirestore, private ts: ToastrService) {}
 
   getReviews() {
     return this.firestore
-      .collection('reviews', revs => revs.orderBy('timeStamp', 'desc'))
+      .collection('reviews', (revs) => revs.orderBy('timeStamp', 'desc'))
       .snapshotChanges();
   }
 
   getReviewById(id: string) {
-    return this.firestore
-      .collection('reviews')
-      .doc(id)
-      .snapshotChanges();
+    return this.firestore.collection('reviews').doc(id).snapshotChanges();
   }
 
   getReviewsForCompany(companyName: string) {
     return this.firestore
-      .collection('reviews', ref => ref.where('companyName', '==', companyName))
+      .collection('reviews', (ref) =>
+        ref.where('companyName', '==', companyName)
+      )
+      .snapshotChanges();
+  }
+
+  getInitialReviewPage() {
+    return this.firestore
+      .collection('reviews', (revs) =>
+        revs.orderBy('timeStamp', 'desc').limit(3)
+      )
+      .snapshotChanges();
+  }
+
+  getNextReviewPage(param: any) {
+    return this.firestore
+      .collection('reviews', (revs) =>
+        revs.orderBy('timeStamp', 'desc').limit(3).startAfter(param)
+      )
       .snapshotChanges();
   }
 
@@ -39,14 +54,14 @@ export class ReviewService {
     this.firestore
       .collection(`reviews/${reviewId}/upvotes`)
       .add({ username: user, upvote: value })
-      .catch(error => {
+      .catch((error) => {
         this.ts.error(error.message, 'Error:');
       });
   }
 
   getUpvotes(reviewId: string) {
     return this.firestore
-      .collection(`reviews/${reviewId}/upvotes`, ref =>
+      .collection(`reviews/${reviewId}/upvotes`, (ref) =>
         ref.where('upvote', '==', 1)
       )
       .snapshotChanges();
@@ -54,7 +69,7 @@ export class ReviewService {
 
   getDownvotes(reviewId: string) {
     return this.firestore
-      .collection(`reviews/${reviewId}/upvotes`, ref =>
+      .collection(`reviews/${reviewId}/upvotes`, (ref) =>
         ref.where('upvote', '==', -1)
       )
       .snapshotChanges();

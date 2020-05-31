@@ -19,14 +19,14 @@ import { ThemeService } from './theme/theme.service';
     trigger('enterAnimation', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('200ms', style({ opacity: 1 }))
+        animate('200ms', style({ opacity: 1 })),
       ]),
       transition(':leave', [
         style({ opacity: 1 }),
-        animate('200ms', style({ opacity: 0 }))
-      ])
-    ])
-  ]
+        animate('200ms', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'TSP';
@@ -48,11 +48,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.themeService.setActiveTheme(this.themeService.getLocalStorageTheme());
 
     this.subscription = this.sharedService.publishLoginModalState.subscribe(
-      response => {
+      (response) => {
         this.shouldModalOpen = response;
       }
     );
-    this.auth.afAuth.user.subscribe(res => {
+    this.auth.afAuth.user.subscribe((res) => {
       if (res) {
         this.passLoggedStateInfo = true;
       } else {
@@ -61,7 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
     this.auth.triggerLoadingScreen
       .pipe(startWith(null), delay(0))
-      .subscribe(response => {
+      .subscribe((response) => {
         this.pendingHttpRequest = response;
       });
     this.translateService.setDefaultLang('English');

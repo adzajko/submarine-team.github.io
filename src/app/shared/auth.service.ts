@@ -48,9 +48,16 @@ export class AuthService {
   async signUp(email: string, password: string) {
     await this.afAuth.createUserWithEmailAndPassword(email, password);
     this.sendConfirmationEmail();
+    this.createUser(email);
     this.translateService.get('TOASTR').subscribe((response) => {
       this.toastr.success(response.USER_CREATED, response.SUCCESS_TITLE);
     });
+  }
+
+  createUser(email: string) {
+    this.firestore
+      .collection('users')
+      .add({ username: email, linkedin: null, f_linkedin: null });
   }
 
   async sendConfirmationEmail() {

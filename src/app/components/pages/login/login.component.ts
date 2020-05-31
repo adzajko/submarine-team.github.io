@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared/shared.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   @ViewChild('logiRegi') logiRegi: ElementRef;
@@ -30,14 +30,14 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.translateService.get('TOASTR').subscribe(response => {
+    this.translateService.get('TOASTR').subscribe((response) => {
       this.toastrMessages = response;
     });
 
     this.initLoginForm();
     this.initRegisterForm();
 
-    this.router.events.subscribe(eventChange => {
+    this.router.events.subscribe((eventChange) => {
       if (eventChange instanceof NavigationStart) {
         this.closeModal();
       }
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     const passWord = '';
     this.registerForm = new FormGroup({
       registerEmail: new FormControl(eMail, Validators.email),
-      registerPassword: new FormControl(passWord, Validators.required)
+      registerPassword: new FormControl(passWord, Validators.required),
     });
   }
 
@@ -60,11 +60,11 @@ export class LoginComponent implements OnInit {
         this.registerForm.value.registerEmail,
         this.registerForm.value.registerPassword
       )
-      .then(response => {
+      .then((response) => {
         this.sharedService.emitLoginModalState(false);
         this.auth.showHTTPLoader(false);
       })
-      .catch(error => {
+      .catch((error) => {
         this.auth.showHTTPLoader(false);
         this.toastrService.error(
           error.message,
@@ -72,6 +72,7 @@ export class LoginComponent implements OnInit {
         );
       });
   }
+
   forgetPasswordModal() {
     this.showDialog = true;
   }
@@ -81,7 +82,7 @@ export class LoginComponent implements OnInit {
     this.auth.showHTTPLoader(true);
     this.auth.afAuth
       .sendPasswordResetEmail(email)
-      .then(res => {
+      .then((res) => {
         this.auth.showHTTPLoader(false);
         this.toastrService.success(
           this.toastrMessages.PASS_RESET,
@@ -89,7 +90,7 @@ export class LoginComponent implements OnInit {
         );
         this.showDialog = false;
       })
-      .catch(errorRes => {
+      .catch((errorRes) => {
         this.auth.showHTTPLoader(false);
         this.toastrService.error(
           errorRes.message,
@@ -103,7 +104,7 @@ export class LoginComponent implements OnInit {
     const passWord = '';
     this.loginForm = new FormGroup({
       email: new FormControl(eMail, Validators.email),
-      password: new FormControl(passWord, Validators.required)
+      password: new FormControl(passWord, Validators.required),
     });
   }
 
@@ -111,7 +112,7 @@ export class LoginComponent implements OnInit {
     this.auth.showHTTPLoader(true);
     this.auth
       .signIn(this.loginForm.value.email, this.loginForm.value.password)
-      .then(response => {
+      .then((response) => {
         this.toastrService.success(
           this.toastrMessages.SUCCESFULL_LOGIN,
           this.toastrMessages.SUCCESS_TITLE
@@ -119,7 +120,7 @@ export class LoginComponent implements OnInit {
         this.sharedService.emitLoginModalState(false);
         this.auth.showHTTPLoader(false);
       })
-      .catch(error => {
+      .catch((error) => {
         this.toastrService.error(
           error.message,
           this.toastrMessages.ERROR_TITLE
@@ -139,14 +140,14 @@ export class LoginComponent implements OnInit {
   logOut() {
     this.afAuth
       .signOut()
-      .then(response => {
+      .then((response) => {
         this.sharedService.emitLoginModalState(false);
         this.router.navigate(['/']);
-        this.translateService.get('TOASTR').subscribe(res => {
+        this.translateService.get('TOASTR').subscribe((res) => {
           this.toastrService.success(res.SIGNED_OUT, res.SUCCESS_TITLE);
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
@@ -155,4 +156,3 @@ export class LoginComponent implements OnInit {
     this.sharedService.emitLoginModalState(false);
   }
 }
-

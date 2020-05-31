@@ -1,8 +1,8 @@
 <section class="d-flex justify-content-between dark-bg mt-75">
   <section class="main-section w-100">
-    <section class=" hero-companies my-5">
+    <section class="hero-companies my-5">
       <h1 class="featured-companies-h">
-        {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
+        {{ "HOMEPAGE.FEATURED_TITLE" | translate }}
       </h1>
       <div class="card dark-bg" *ngIf="featuredCompany">
         <div class="card-header">
@@ -25,7 +25,7 @@
             >
               <div class="company-info-item">
                 <h6 class="company-info">
-                  <i class="fa fa-industry " aria-hidden="true"></i
+                  <i class="fa fa-industry" aria-hidden="true"></i
                   >{{ featuredCompany?.technology }}
                 </h6>
               </div>
@@ -37,27 +37,27 @@
               </div>
               <div class="company-info-item">
                 <h6 class="company-info">
-                  <i class="fa fa-phone-square " aria-hidden="true"></i>+389 77
+                  <i class="fa fa-phone-square" aria-hidden="true"></i>+389 77
                   500 000
                 </h6>
               </div>
             </div>
             <p class="card-text text-white mt-2 text-sm-start text-xl-center">
-              {{ 'HOMEPAGE.DESCRIPTION' | translate }}
+              {{ "HOMEPAGE.DESCRIPTION" | translate }}
             </p>
             <a
               [routerLink]="['/companies', featuredCompany?.name]"
               mat-raised-button
               color="primary"
               class="d-block mx-auto mt-5 w-50 td-none"
-              >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
+              >{{ "HOMEPAGE.SEE_MORE_BTN" | translate }}</a
             >
           </div>
         </div>
       </div>
       <div class="top-reviewed-companies mt-6">
         <h3 class="text-center text-white my-5 underlineBefore p-2">
-          {{ 'HOMEPAGE.TOP_REVIEWED' | translate }}
+          {{ "HOMEPAGE.TOP_REVIEWED" | translate }}
         </h3>
         <div class="reviewed-companies-container">
           <div
@@ -82,7 +82,7 @@
                   </h6>
                   <h6 class="ml-2">
                     <i class="fa fa-star mr-2"></i
-                    >{{ 'HOMEPAGE.AVERAGE' | translate }}: 5
+                    >{{ "HOMEPAGE.AVERAGE" | translate }}: 5
                   </h6>
                 </div>
                 <a
@@ -90,7 +90,7 @@
                   mat-raised-button
                   color="primary"
                   class="d-block mx-auto mt-5 td-none"
-                  >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
+                  >{{ "HOMEPAGE.SEE_MORE_BTN" | translate }}</a
                 >
               </div>
             </div>
@@ -99,12 +99,18 @@
       </div>
     </section>
     <h3 class="text-center text-white mt-5 mb-3 underlineBefore p-2">
-      {{ 'HOMEPAGE.REVIEWS' | translate }}
+      {{ "HOMEPAGE.REVIEWS" | translate }}
     </h3>
     <app-review-element
       class="my-3"
       [reviewElement]="review"
       *ngFor="let review of listOfReviews"
     ></app-review-element>
+    <i
+      (click)="nextReviewPage()"
+      class="fa fa-chevron-circle-down mb-4 paginator"
+      matTooltip="{{ 'HOMEPAGE.LOADMORE' | translate }}"
+      matTooltipPosition="above"
+    ></i>
   </section>
 </section>
