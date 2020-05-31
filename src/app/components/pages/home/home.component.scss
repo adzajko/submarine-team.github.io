@@ -1,4 +1,4 @@
-@import '../../../../assets/scss_extendables/index';
+@import "../../../../assets/scss_extendables/index";
 
 .main-section {
   overflow: hidden;
@@ -324,5 +324,30 @@ app-review-element {
   }
   @include smallDesktopMixin {
     width: 50%;
+  }
+}
+
+.fa.paginator {
+  transition: 0.4s ease;
+  cursor: pointer;
+  color: var(--font-color);
+  font-size: 45px;
+}
+
+.fa.paginator:hover {
+  animation-fill-mode: both;
+  animation-name: backToTop;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes backToTop {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(12px);
   }
 }

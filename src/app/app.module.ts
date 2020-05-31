@@ -45,7 +45,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     HttpLoaderComponent,
     TermsOfServiceComponent,
     FourOhFourComponent,
-    LandingPageComponent
+    LandingPageComponent,
   ],
   imports: [
     SharedModule,
@@ -63,9 +63,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ReactiveFormsModule,
     AngularFireDatabaseModule,
     LayoutModule,
-    ClickOutsideModule
+    ClickOutsideModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

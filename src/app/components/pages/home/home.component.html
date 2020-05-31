@@ -1,6 +1,6 @@
 <section class="d-flex justify-content-between dark-bg mt-75">
   <section class="main-section w-100">
-    <section class=" hero-companies my-5">
+    <section class="hero-companies my-5">
       <h1 class="featured-companies-h">
         {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
       </h1>
@@ -25,7 +25,7 @@
             >
               <div class="company-info-item">
                 <h6 class="company-info">
-                  <i class="fa fa-industry " aria-hidden="true"></i
+                  <i class="fa fa-industry" aria-hidden="true"></i
                   >{{ featuredCompany?.technology }}
                 </h6>
               </div>
@@ -37,7 +37,7 @@
               </div>
               <div class="company-info-item">
                 <h6 class="company-info">
-                  <i class="fa fa-phone-square " aria-hidden="true"></i>+389 77
+                  <i class="fa fa-phone-square" aria-hidden="true"></i>+389 77
                   500 000
                 </h6>
               </div>
@@ -107,5 +107,11 @@
       [reviewElement]="review"
       *ngFor="let review of listOfReviews"
     ></app-review-element>
+    <i
+      (click)="nextReviewPage()"
+      class="fa fa-chevron-circle-down mb-4 paginator"
+      matTooltip="{{ 'HOMEPAGE.LOADMORE' | translate }}"
+      matTooltipPosition="above"
+    ></i>
   </section>
 </section>
