@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   public val: string;
   public activeTheme = false;
   public activeUser = false;
+  public isActiveLangMK = false;
 
   // Login Logic
   loginForm: FormGroup;
@@ -95,6 +96,11 @@ export class NavbarComponent implements OnInit {
   changeLanguage(value) {
     localStorage.setItem('language', value);
     this.translateService.use(value);
+    if (value === 'English') {
+      this.isActiveLangMK = false;
+    } else {
+      this.isActiveLangMK = true;
+    }
   }
 
   toggleTheme() {

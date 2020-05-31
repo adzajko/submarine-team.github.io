@@ -61,7 +61,7 @@
         </h3>
         <div class="reviewed-companies-container">
           <div
-            *ngFor="let company of topThreeCompanies"
+            *ngFor="let company of topThreeCompanies | slice: 0:3"
             class="card mr-3 dark-bg"
           >
             <div class="card-header">

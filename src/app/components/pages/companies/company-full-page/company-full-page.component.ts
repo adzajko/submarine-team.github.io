@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CompanyService } from 'src/app/shared/company.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
@@ -48,30 +48,42 @@ export class CompanyFullPageComponent implements OnInit {
     );
   }
 
-  loadReviews() {
-    this.auth.showHTTPLoader(true);
-    this.reviewService.getReviewsForCompany(this.currentCompanyName).subscribe(
-      res => {
-        this.canLoadReviews = true;
-        this.disableLoadReviewsButton = true;
-        this.auth.showHTTPLoader(false);
-        res.forEach(element => {
-          const el: Company = element.payload.doc.data() as Company;
-          this.reviews.push({
-            id: element.payload.doc.id,
-            companyName: el.companyName,
-            imagePath: el.imagePath,
-            rating: el.rating,
-            textExcerpt: el.textExcerpt,
-            timeStamp: el.timeStamp,
-            userName: el.userName
-          });
-        });
-      },
-      err => {
-        this.auth.showHTTPLoader(false);
-        this.toastr.error(err.message);
-      }
-    );
+  loadReviews(el?: HTMLElement) {
+    if (!this.disableLoadReviewsButton) {
+      this.auth.showHTTPLoader(true);
+      this.reviewService
+        .getReviewsForCompany(this.currentCompanyName)
+        .subscribe(
+          res => {
+            this.canLoadReviews = true;
+            this.disableLoadReviewsButton = true;
+            this.auth.showHTTPLoader(false);
+            this.scrollIntoView(el);
+            res.forEach(element => {
+              const ele: Company = element.payload.doc.data() as Company;
+              this.reviews.push({
+                id: element.payload.doc.id,
+                companyName: ele.companyName,
+                imagePath: ele.imagePath,
+                rating: ele.rating,
+                textExcerpt: ele.textExcerpt,
+                timeStamp: this.reviewService.formatDate(ele.timeStamp),
+                userName: ele.userName
+              });
+            });
+          },
+          err => {
+            this.auth.showHTTPLoader(false);
+            this.toastr.error(err.message);
+          }
+        );
+    } else {
+      this.reviews = [];
+      this.disableLoadReviewsButton = false;
+    }
+  }
+
+  scrollIntoView(el: HTMLElement) {
+    el.scrollIntoView(true);
   }
 }

@@ -4,7 +4,9 @@
     "MY_ACCOUNT": "My Account",
     "COMPANIES": "Companies",
     "ABOUT": "About Us",
-    "CONTACT": "Contact"
+    "CONTACT": "Contact",
+    "LIGHT": "Light",
+    "DARK": "Dark"
   },
   "FOOTER": {
     "SERVICE_TERMS": "Terms of Service",
@@ -25,7 +27,8 @@
     "SEE_REVIEWS": "See reviews",
     "AVRG": "Average Grade",
     "EMPLOYEES": "Number of employees",
-    "WEBSITE": "Website"
+    "WEBSITE": "Website",
+    "HIDE_REVIEWS": "Hide reviews"
   },
   "CONTACT_PAGE": {
     "SEND_MESSAGE": "Send Us A Message",
