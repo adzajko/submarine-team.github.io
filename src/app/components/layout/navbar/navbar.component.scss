@@ -234,3 +234,11 @@ mat-toolbar {
   right: 5rem;
   opacity: var(--opacity2);
 }
+
+.themeToggleMKD::before {
+  content: 'Темна';
+}
+
+.themeToggleMKD::after {
+  content: 'Светла';
+}

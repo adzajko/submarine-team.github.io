@@ -89,5 +89,8 @@ section {
     @include mediumPhoneMixin {
       width: 100%;
     }
+    a.d-block.mx-auto {
+      width: 150px;
+    }
   }
 }

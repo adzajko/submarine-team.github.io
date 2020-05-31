@@ -88,8 +88,9 @@
     >
   </div>
   <mat-slide-toggle
-      class="themeToggle"
-      [(ngModel)]="activeTheme"
-      (change)="toggleTheme()"
-    ></mat-slide-toggle>
+    class="themeToggle"
+    [ngClass]="isActiveLangMK ? '' : 'themeToggleMKD'"
+    [(ngModel)]="activeTheme"
+    (change)="toggleTheme()"
+  ></mat-slide-toggle>
 </div>
