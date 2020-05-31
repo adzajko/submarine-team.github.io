@@ -39,6 +39,7 @@
         </button>
         <button
           class="ml-3"
+          [disabled]="reviewReported"
           (click)="openReportDialog()"
           mat-raised-button
           color="warn"

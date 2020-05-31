@@ -35,6 +35,7 @@ export class ReviewElementComponent implements OnInit {
   @Input() reviewElement: any;
   public currentRate: number;
   public reviewId: string;
+  public reviewReported = false;
   constructor(
     config: NgbRatingConfig,
     private reviewService: ReviewService,
@@ -48,10 +49,13 @@ export class ReviewElementComponent implements OnInit {
     this.formattedDate = this.reviewService.formatDate(this.reviewElement);
     this.currentRate = this.reviewElement.data.rating;
   }
+
   openReportDialog() {
     this.showDialog = !this.showDialog;
   }
+
   sendReport(id: string) {
+    this.reviewReported = true;
     this.reviewService
       .reportReview(id)
       .then(res => {
