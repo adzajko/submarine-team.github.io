@@ -1,4 +1,4 @@
-@import "../../../../assets/scss_extendables/index";
+@import '../../../../assets/scss_extendables/index';
 
 .main-section {
   overflow: hidden;
@@ -82,14 +82,7 @@
         width: 100%;
         margin-left: 2rem;
         color: var(--font-color);
-        @include smallPhoneMixin {
-          margin-left: 10px;
-        }
-        @include largePhoneMixin {
-          margin-left: 10px;
-        }
-
-        @include tabletMixin {
+        @include mediumPhoneMixin {
           margin-left: 10px;
         }
 
@@ -110,13 +103,7 @@
                 font-size: 18px;
               }
             }
-            @include smallPhoneMixin {
-              margin-bottom: 10px;
-            }
-            @include largePhoneMixin {
-              margin-bottom: 10px;
-            }
-            @include tabletMixin {
+            @include mediumPhoneMixin {
               margin-bottom: 10px;
             }
             @include largeDesktopMixin {
@@ -152,15 +139,7 @@
 .reviewed-companies-container {
   display: flex;
   justify-content: space-between;
-  @include smallPhoneMixin {
-    display: block;
-  }
-
-  @include largePhoneMixin {
-    display: block;
-  }
-
-  @include tabletMixin {
+  @include mediumPhoneMixin {
     display: block;
   }
 
@@ -172,13 +151,7 @@
     border: none;
     width: 100%;
     box-shadow: 2px 3px 3px 0 var(--shadows);
-    @include smallPhoneMixin {
-      margin: 1rem auto;
-    }
-    @include largePhoneMixin {
-      margin: 1rem auto;
-    }
-    @include tabletMixin {
+    @include mediumPhoneMixin {
       margin: 1rem auto;
     }
     @include smallDesktopMixin {
@@ -227,11 +200,7 @@
         align-items: center;
       }
       .icon-bundle {
-        @include smallPhoneMixin {
-          display: flex;
-          justify-content: center;
-        }
-        @include largePhoneMixin {
+        @include mediumPhoneMixin {
           display: flex;
           justify-content: center;
         }
@@ -239,10 +208,7 @@
           display: flex;
           justify-content: center;
         }
-        @include tabletMixin {
-          display: flex;
-          justify-content: center;
-        }
+
         h6 {
           text-align: center;
           margin-top: 1rem;
@@ -272,15 +238,7 @@
 app-review-element {
   margin: auto;
   width: 70%;
-  @include smallPhoneMixin {
-    width: 90%;
-  }
-
-  @include largePhoneMixin {
-    width: 90%;
-  }
-
-  @include tabletMixin {
+  @include mediumPhoneMixin {
     width: 90%;
   }
 }
@@ -313,14 +271,11 @@ app-review-element {
 
 .d-block.mx-auto.mt-5.td-none {
   width: 75%;
+  @include mediumPhoneMixin {
+    width: 50%;
+  }
   @include smallPhoneMixin {
     width: fit-content;
-  }
-  @include largePhoneMixin {
-    width: 50%;
-  }
-  @include tabletMixin {
-    width: 50%;
   }
   @include smallDesktopMixin {
     width: 50%;
