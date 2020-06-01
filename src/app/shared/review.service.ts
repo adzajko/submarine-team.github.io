@@ -44,7 +44,7 @@ export class ReviewService {
       .snapshotChanges();
   }
 
-  postReview(review: Review) {
+  postReview(review: any) {
     return this.firestore.collection('reviews').add(review);
   }
 

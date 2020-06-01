@@ -44,6 +44,32 @@
       </textarea>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label style="color: var(--nephritis);">Pros</mat-label>
+      <textarea
+        matInput
+        cols="30"
+        rows="10"
+        style="resize: none;"
+        cols="30"
+        rows="2"
+        formControlName="reviewPros"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label style="color: var(--warn);">Cons</mat-label>
+      <textarea
+        matInput
+        cols="30"
+        rows="10"
+        style="resize: none;"
+        cols="30"
+        rows="2"
+        formControlName="reviewCons"
+      ></textarea>
+    </mat-form-field>
+
     <button [disabled]="!inputForm.valid" mat-raised-button (click)="create()">
       {{ "MY_ACCOUNT.SUBMIT_BTN" | translate }}
     </button>

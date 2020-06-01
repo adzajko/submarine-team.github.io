@@ -5,7 +5,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatRadioModule } from '@angular/material/radio';
+import {
+  MatRadioModule,
+  MatRadioGroup,
+  MatRadioButton,
+} from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -78,6 +82,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSlideToggleModule,
     MatGridListModule,
     MatRadioModule,
+    MatRadioGroup,
+    MatRadioButton,
     MatSelectModule,
     MatTooltipModule,
   ],
