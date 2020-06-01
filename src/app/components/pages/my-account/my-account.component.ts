@@ -23,16 +23,6 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   private toastrMessages;
   private subscription: Subscription;
 
-  public reviewPros: string;
-  public reviewCons: string;
-  public prosConsList = [
-    'Wage',
-    'Atmosphere',
-    'Working Conditions',
-    'Organization',
-    'Mentorship Program',
-  ];
-
   constructor(
     private reviewService: ReviewService,
     private companyService: CompanyService,
@@ -86,6 +76,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       }
       review.userName = e.email;
       review.reportCounter = 0;
+
       this.reviewService
         .postReview(review)
         .then((response) => {
@@ -123,7 +114,6 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       this.toastr.error(this.toastrMessages.LINKEDIN, this.toastrMessages.OOPS);
     }
   }
-
   changeEmail() {
     const email = this.accountChangesForm.value.changeEmailInput;
     if (!email) {
@@ -216,11 +206,15 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     const companyName = '';
     const rating = '';
     const textExcerpt = '';
+    const reviewPros = '';
+    const reviewCons = '';
 
     this.inputForm = new FormGroup({
       companyName: new FormControl(companyName),
       rating: new FormControl(rating, Validators.required),
       textExcerpt: new FormControl(textExcerpt, Validators.required),
+      reviewPros: new FormControl(reviewPros),
+      reviewCons: new FormControl(reviewCons),
     });
 
     // Account Changes Form
