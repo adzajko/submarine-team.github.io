@@ -33,6 +33,7 @@
     "moment": "^2.24.0",
     "ng-click-outside": "^6.0.0",
     "ngx-toastr": "^12.0.1",
+    "roboto-fontface": "^0.10.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

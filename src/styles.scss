@@ -1,10 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import "app/shared/material-theme.scss";
-@import "~bootstrap/scss/bootstrap";
+
+@import 'app/shared/material-theme.scss';
+@import '~bootstrap/scss/bootstrap';
 
 * {
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 }
 
 :root {
@@ -30,7 +35,7 @@ html,
 body {
   margin: 0;
   scroll-behavior: smooth;
-  font-family: "Monsterrat", sans-serif;
+  font-family: 'Roboto', sans-serif !important;
   height: 100%;
   overflow-x: hidden;
   body::-webkit-scrollbar {
