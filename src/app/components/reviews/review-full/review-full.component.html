@@ -1,9 +1,56 @@
 <section class="mt-75 gradient-background">
-  <img
+  <!-- <img
     src="{{ activeReview?.imagePath }}"
     alt="{{ activeReview?.companyName }}"
   />
   <p>{{ activeReview?.companyName }}</p>
   <p>{{ activeReview?.textExcerpt }}</p>
-  <p>{{ activeReview?.rating }}</p>
+  <p>{{ activeReview?.rating }}</p> -->
+  <div class="main-container container mt-5">
+    <div class="review container">
+      <div class="company-header">
+        <h1>{{ activeReview?.companyName }}</h1>
+      </div>
+      <div class="review-info my-5 d-flex justify-content-between">
+        <p>
+          <i class="fa fa-calendar mr-2"></i>
+          {{activeReview?.timeStamp.seconds*1000 | date}}
+        </p>
+        <p>
+          <i class="fa fa-user mr-2"></i>
+          {{activeReview?.userName}}
+        </p>
+        <p>
+          <i class="fa fa-star mr-2"></i>
+          {{activeReview?.rating}}
+        </p>
+      </div>
+      <div class="review-text">
+        <p>
+          {{activeReview?.textExcerpt}}
+        </p>
+      </div>
+    </div> 
+  <div class="company container">
+    <div class="img-container">
+      <img
+        class="img-fluid"
+        src="{{ activeReview?.imagePath }}"
+        alt="{{ activeReview?.companyName }}"
+      />
+    </div>
+    <p>
+      <i class="fa fa-star mr-2"></i> {{ 'COMPANY_FULL.AVRG' | translate }} :
+      {{ activeReview?.rating }}
+    </p>
+    <p>
+      <i class="fa fa-users mr-2"></i>
+      {{ 'COMPANY_FULL.EMPLOYEES' | translate }}: 50
+    </p>
+    <a href="#" class="btn btn-danger d-block mx-auto">
+      <i class="fa fa-link mr-2"></i>
+      {{ 'COMPANY_FULL.WEBSITE' | translate }}</a
+    >
+  </div>
+</div>
 </section>
