@@ -17,10 +17,7 @@ import { Observable } from 'rxjs';
 export class AuthGuardGuard implements CanActivate {
   constructor(
     private af: AngularFireAuth,
-    private router: Router,
-    private toastrService: ToastrService,
-    private translateService: TranslateService,
-    private authService: AuthService
+    private router: Router
   ) {}
 
   canActivate(

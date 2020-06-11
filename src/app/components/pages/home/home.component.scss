@@ -2,14 +2,19 @@
 
 .main-section {
   overflow: hidden;
-  @extend .flex-column-center;
+  background-image: url('../../../../assets/Waves.png');
+  background-size: 1920px;
+  background-repeat: no-repeat;
+  background-position-y: -10rem;
 
   h1 {
-    text-align: center;
     font-size: getFontSize(h1);
     @extend .underlineBefore;
-    color: var(--font-color);
+    color: whitesmoke;
+    font-weight: 200;
     padding: 10px;
+    margin-top: 10rem;
+    left: 10%;
     @include smallPhoneMixin {
       font-size: 32px;
     }
@@ -29,103 +34,72 @@
       font-size: 66px;
     }
   }
+  h1::before {
+    background-color: whitesmoke !important;
+  }
 }
 
-.hero-companies {
-  width: 80%;
-  h1 {
+.featured-company {
+  color: var(--font-color);
+  padding: 3rem;
+  margin-top: 6rem;
+  width: 67%;
+  box-shadow: 0 0 3px 0 #212121;
+  background-color: var(--home-cards);
+  border-radius: 15px;
+  .featured-company-card-holder {
+    padding: 2rem;
+    position: relative;
+    width: 100%;
+    box-shadow: 1px 1px 3px 0 var(--reverse-font-color);
+    border-radius: 15px;
+    .img-container {
+      position: absolute;
+      top: -15%;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 1px 1px 5px 0 #212121;
+      .img-fluid {
+        width: 110px;
+      }
+    }
+  }
+}
+
+.featured-company-left {
+  a {
+    @extend .animatedBefore;
+    text-decoration: none;
+    font-size: 4rem;
     margin-bottom: 2rem;
+    display: inline-block;
   }
-  .card {
-    box-shadow: 2px 3px 3px 0 var(--shadows);
-    .card-header {
-      background-color: var(--primary);
-      a {
-        text-decoration: none;
-        font-size: 32px;
-        color: var(--font-color);
-        @extend .animatedBefore;
-      }
-    }
-    .card-body {
-      display: flex;
-      @include smallPhoneMixin {
-        display: block;
-      }
-      @include smallDesktopMixin {
-        display: block;
-      }
-      .card-aside {
-        .img-fluid {
-          img {
-            width: 200px;
-            @include smallPhoneMixin {
-              width: 75px;
-              margin: auto;
-              display: block;
-            }
-            @include largePhoneMixin {
-              width: 150px;
-            }
-            @include smallDesktopMixin {
-              width: 150px;
-              margin: auto;
-              display: block;
-            }
-            @include largeDesktopMixin {
-              width: 175px;
-            }
-          }
-        }
-      }
-      .company-info {
-        width: 100%;
-        margin-left: 2rem;
-        color: var(--font-color);
-        @include mediumPhoneMixin {
-          margin-left: 10px;
-        }
-
-        @include smallDesktopMixin {
-          margin-left: 10px;
-        }
-
-        @include largeDesktopMixin {
-          margin-left: 10px;
-        }
-        .icon-toolbar {
-          .company-info-item {
-            h6,
-            i {
-              color: var(--font-color);
-              font-size: 20px;
-              @include smallPhoneMixin {
-                font-size: 18px;
-              }
-            }
-            @include mediumPhoneMixin {
-              margin-bottom: 10px;
-            }
-            @include largeDesktopMixin {
-              h6 {
-                font-size: 16px;
-                margin-right: 5px;
-              }
-              i {
-                margin-right: 5px;
-              }
-            }
-          }
-        }
-      }
-    }
+  .text-small {
+    font-size: 16px;
+    font-weight: 300;
   }
+}
+
+.featured-company-info {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.featured-company-info::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 5px;
+  background-color: red;
 }
 
 .top-reviewed-companies {
   h3 {
     width: fit-content;
-    margin: auto;
+    left: 10%;
+    font-weight: 200;
     color: var(--font-color);
     @include smallPhoneMixin {
       font-size: 22px;
@@ -134,105 +108,53 @@
       font-size: 24px;
     }
   }
+  h3::before {
+    left: -45%;
+    width: 142%;
+  }
 }
 
-.reviewed-companies-container {
-  display: flex;
-  justify-content: space-between;
-  @include mediumPhoneMixin {
-    display: block;
+.owl-container {
+  margin: 5rem;
+}
+ng-template {
+  position: relative;
+}
+.carousel-img-container {
+  .img-fluid {
+    width: 300px;
   }
+}
 
-  @include smallDesktopMixin {
-    display: block;
+.carousel-content {
+  a.animatedBefore {
+    text-decoration: none;
+    font-size: 46px;
   }
+}
 
-  .card {
-    border: none;
-    width: 100%;
-    box-shadow: 2px 3px 3px 0 var(--shadows);
-    @include mediumPhoneMixin {
-      margin: 1rem auto;
-    }
-    @include smallDesktopMixin {
-      margin: 1rem auto;
-    }
-    .card-header {
-      background-color: var(--primary);
-      a {
-        cursor: pointer;
-        text-decoration: none;
-        font-size: 32px;
-        color: var(--font-color);
-        @include smallPhoneMixin {
-          font-size: 24px;
-        }
-        @include largeDesktopMixin {
-          font-size: 24px;
-        }
-        @extend .animatedBefore;
-      }
-    }
-    .card-body {
-      display: flex;
-      @include largeDesktopMixin {
-        display: block;
-      }
-      .card-aside {
-        .img-fluid {
-          img {
-            width: 75px;
-            display: block;
-            margin: auto;
-            @include tabletMixin {
-              width: 150px;
-            }
-          }
-        }
-      }
-    }
-    .reviewed-body {
-      flex: 1;
-      @include largeDesktopMixin {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      .icon-bundle {
-        @include mediumPhoneMixin {
-          display: flex;
-          justify-content: center;
-        }
-        @include smallDesktopMixin {
-          display: flex;
-          justify-content: center;
-        }
+.carousel {
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: var(--home-cards);
+  color: var(--font-color);
+  height: 375px;
+  width: 70%;
+  margin: auto;
+}
 
-        h6 {
-          text-align: center;
-          margin-top: 1rem;
-          color: var(--font-color);
-          @include largePhoneMixin {
-            margin-right: 10px;
-          }
-          @include tabletMixin {
-            margin-right: 10px;
-          }
-          @include smallDesktopMixin {
-            margin-right: 10px;
-          }
-          @include largeDesktopMixin {
-            font-size: 22px;
-          }
-        }
-      }
-    }
-  }
+.mt-home {
+  margin-top: 200px;
 }
 
 .reviews {
   color: var(--font-color);
+  left: 20%;
+  font-weight: 200;
+}
+
+.reviews::before {
+  width: 68%;
 }
 
 app-review-element {
@@ -244,33 +166,11 @@ app-review-element {
 }
 
 .dark-bg {
-  background: linear-gradient(180deg, var(--secondary), var(--primary));
-}
-
-.fa {
-  margin-right: 1rem;
-  @include smallPhoneMixin {
-    font-size: 16px;
-  }
-  @include largePhoneMixin {
-    font-size: 18px;
-  }
-
-  @include tabletMixin {
-    font-size: 20px;
-  }
-
-  @include smallDesktopMixin {
-    font-size: 20px;
-  }
-
-  @include largeDesktopMixin {
-    font-size: 20px;
-  }
+  background-color: var(--primary);
 }
 
 .d-block.mx-auto.mt-5.td-none {
-  width: 75%;
+  width: 150px;
   @include mediumPhoneMixin {
     width: 50%;
   }
@@ -305,4 +205,13 @@ app-review-element {
   to {
     transform: translateY(12px);
   }
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.w-56 {
+  width: 45px;
 }

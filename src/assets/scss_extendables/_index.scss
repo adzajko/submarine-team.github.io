@@ -61,12 +61,13 @@ $fontSizes: (
 
 .underlineBefore {
   position: relative;
+  text-align: left;
 }
 
 .underlineBefore::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: -60%;
   bottom: 0;
   width: 100%;
   height: 2px;
