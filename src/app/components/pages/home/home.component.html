@@ -1,117 +1,134 @@
-<section class="d-flex justify-content-between dark-bg mt-75">
+<section class="dark-bg">
   <section class="main-section w-100">
     <section class="hero-companies my-5">
       <h1 class="featured-companies-h">
         {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
       </h1>
-      <div class="card dark-bg" *ngIf="featuredCompany">
-        <div class="card-header">
-          <a [routerLink]="['/companies', featuredCompany?.name]">{{
-            featuredCompany?.name
-          }}</a>
+      <div
+        [@enterAnimation]
+        class="featured-company mx-auto row justify-content-center"
+        *ngIf="featuredCompany"
+      >
+        <div class="featured-company-left col-sm-12 col-lg-6">
+          <a
+            class="featured-company-title"
+            [routerLink]="['/companies', featuredCompany?.name]"
+            >{{ featuredCompany?.name }}</a
+          >
+          <p class="text-small">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta
+            magnam qui velit, optio odio harum nam ea vero maxime dolore veniam
+            tenetur alias suscipit exercitationem autem fugit adipisci tempora
+            esse?
+          </p>
         </div>
-        <div class="card-body">
-          <div class="card-aside">
-            <div class="img-fluid">
+        <div class="featured-company-right col-sm-12 col-lg-6">
+          <div class="featured-company-card-holder">
+            <div class="img-container">
               <img
                 src="{{ featuredCompany?.logo }}"
                 alt="{{ featuredCompany?.name }}"
+                class="img-fluid"
               />
             </div>
-          </div>
-          <div class="company-info">
-            <div
-              class="icon-toolbar d-sm-block d-xl-flex justify-content-center py-2 mb-3"
-            >
-              <div class="company-info-item">
-                <h6 class="company-info">
-                  <i class="fa fa-industry" aria-hidden="true"></i
-                  >{{ featuredCompany?.technology }}
-                </h6>
-              </div>
-              <div class="company-info-item">
-                <h6 class="company-info">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i
-                  >{{ featuredCompany?.location }}
-                </h6>
-              </div>
-              <div class="company-info-item">
-                <h6 class="company-info">
-                  <i class="fa fa-phone-square" aria-hidden="true"></i>+389 77
-                  500 000
-                </h6>
-              </div>
+            <div class="featured-company-info mt-5">
+              <p class="font-weight-bold mb-0">
+                {{ 'HOMEPAGE.LOCATION' | translate }}
+              </p>
+              <p>{{ featuredCompany?.location }}</p>
             </div>
-            <p class="card-text mt-2 text-sm-start text-xl-center">
-              {{ 'HOMEPAGE.DESCRIPTION' | translate }}
-            </p>
-            <a
-              [routerLink]="['/companies', featuredCompany?.name]"
+            <div class="featured-company-info my-5">
+              <p class="font-weight-bold mb-0">
+                {{ 'HOMEPAGE.CONTACT' | translate }}
+              </p>
+              <p>075 / 500 - 000</p>
+            </div>
+            <div class="featured-company-info">
+              <p class="font-weight-bold mb-0">
+                {{ 'HOMEPAGE.INDUSTRY' | translate }}
+              </p>
+              <p>{{ featuredCompany?.technology }}</p>
+            </div>
+            <button
+              class="d-block ml-auto"
               mat-raised-button
-              color="primary"
-              class="d-block mx-auto mt-5 w-50 td-none"
-              >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
+              [routerLink]="['/companies', featuredCompany?.name]"
             >
+              {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
+            </button>
           </div>
         </div>
       </div>
-      <div class="top-reviewed-companies mt-6">
-        <h3 class="text-center my-5 underlineBefore p-2">
+      <div class="top-reviewed-companies mt-home">
+        <h3 class="my-5 underlineBefore p-2">
           {{ 'HOMEPAGE.TOP_REVIEWED' | translate }}
         </h3>
-        <div class="reviewed-companies-container">
-          <div
-            *ngFor="let company of topThreeCompanies | slice: 0:3"
-            class="card mr-3 dark-bg"
-          >
-            <div class="card-header">
-              <a [routerLink]="['/companies', company?.name]">{{
-                company?.name
-              }}</a>
-            </div>
-            <div class="card-body">
-              <div class="card-aside">
-                <div class="img-fluid">
-                  <img src="{{ company?.logo }}" alt="{{ company?.name }}" />
+        <div class="owl-container">
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let company of topThreeCompanies | slice: 0:3"
+              ><ng-template carouselSlide [dotContent]="circleContent">
+                <div class="carousel d-flex justify-content-around">
+                  <div class="carousel-img-container">
+                    <img
+                      class="img-fluid"
+                      src="{{ company?.logo }}"
+                      alt="{{ company?.name }}"
+                    />
+                  </div>
+                  <div class="carousel-content">
+                    <a
+                      class="animatedBefore"
+                      [owlRouterLink]="['/companies', company?.name]"
+                      >{{ company?.name }}</a
+                    >
+
+                    <div class="icon-bundle">
+                      <div class="featured-company-info mt-2">
+                        <p class="font-weight-bold mb-0">
+                          {{ 'HOMEPAGE.LOCATION' | translate }}
+                        </p>
+                        <p>{{ company?.location }}</p>
+                      </div>
+                      <div class="featured-company-info mt-5">
+                        <p class="font-weight-bold mb-0">
+                          {{ 'HOMEPAGE.AVERAGE' | translate }}
+                        </p>
+                        <p>{{ company?.averageReview }}</p>
+                      </div>
+                    </div>
+                    <a
+                      [routerLink]="['/companies', company?.name]"
+                      mat-raised-button
+                      color="primary"
+                      class="d-block mx-auto mt-5 td-none"
+                      >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
+                    >
+                  </div>
                 </div>
-              </div>
-              <div class="reviewed-body">
-                <div class="icon-bundle">
-                  <h6>
-                    <i class="fa fa-map-marker mr-2"></i>{{ company?.location }}
-                  </h6>
-                  <h6 class="ml-2">
-                    <i class="fa fa-star mr-2"></i
-                    >{{ 'HOMEPAGE.AVERAGE' | translate }}:
-                    {{ company?.averageReview }}
-                  </h6>
-                </div>
-                <a
-                  [routerLink]="['/companies', company?.name]"
-                  mat-raised-button
-                  color="primary"
-                  class="d-block mx-auto mt-5 td-none"
-                  >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
-                >
-              </div>
-            </div>
-          </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
         </div>
       </div>
     </section>
-    <h3 class="text-center mt-5 mb-3 underlineBefore p-2 reviews">
+    <h3 class="mt-home mb-3 underlineBefore p-2 reviews">
       {{ 'HOMEPAGE.REVIEWS' | translate }}
     </h3>
-    <app-review-element
-      class="my-3"
-      [reviewElement]="review"
-      *ngFor="let review of listOfReviews"
-    ></app-review-element>
-    <i
-      (click)="nextReviewPage()"
-      class="fa fa-chevron-circle-down mb-4 paginator"
-      matTooltip="{{ 'HOMEPAGE.LOADMORE' | translate }}"
-      matTooltipPosition="above"
-    ></i>
+    <section class="reviews-container">
+      <app-review-element
+        [@enterAnimation]
+        class="my-3"
+        [reviewElement]="review"
+        *ngFor="let review of listOfReviews"
+      ></app-review-element>
+    </section>
+    <div class="mx-auto w-56">
+      <i
+        (click)="nextReviewPage()"
+        class="fa fa-chevron-circle-down mb-4 paginator"
+        matTooltip="{{ 'HOMEPAGE.LOADMORE' | translate }}"
+        matTooltipPosition="above"
+      ></i>
+    </div>
   </section>
 </section>

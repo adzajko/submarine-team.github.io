@@ -2,19 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Review } from '../../reviews/review-element/Review.model';
 import { ReviewService } from '../../../shared/review.service';
-import * as moment from 'moment';
-import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { CompanyService } from 'src/app/shared/company.service';
-import { Company } from '../companies/Company.model';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('enterAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
@@ -25,20 +34,51 @@ export class HomeComponent implements OnInit {
   topThreeCompanies = [];
   featuredCompany: any;
   lastVisible: any;
+  circleContent = '<i class="carousel-fa text-danger fa fa-circle-o"></i>';
+
+  // Owl Carousel settings
+
+  customOptions: OwlOptions = {
+    loop: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    navText: [
+      '<i class="carousel-fa text-danger fa fa-chevron-left"></i>',
+      '<i class="carousel-fa text-danger fa fa-chevron-right"></i>'
+    ],
+    dotsData: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: true,
+    autoplayHoverPause: true,
+    center: true,
+    navSpeed: 700,
+    responsive: {
+      0: {
+        items: 1
+      },
+      940: {
+        items: 1
+      },
+      1200: {
+        items: 1
+      }
+    },
+    nav: true
+  };
 
   constructor(
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private reviewService: ReviewService,
-    private translateService: TranslateService,
     private companiesService: CompanyService,
-    private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private afAuth: AngularFireAuth
   ) {
     this.authForm = this.formBuilder.group({
       email: '',
-      password: '',
+      password: ''
     });
   }
 
@@ -47,13 +87,13 @@ export class HomeComponent implements OnInit {
     this.auth.showHTTPLoader(true);
 
     // GET Featured Company
-    this.companiesService.getFeaturedCompany().subscribe((res) => {
+    this.companiesService.getFeaturedCompany().subscribe(res => {
       res.forEach(
-        (element) => {
+        element => {
           this.auth.showHTTPLoader(false);
           this.featuredCompany = element.payload.doc.data();
         },
-        (catchErr) => {
+        catchErr => {
           this.auth.showHTTPLoader(false);
           this.toastr.error(catchErr.message);
         }
@@ -62,44 +102,29 @@ export class HomeComponent implements OnInit {
 
     // GET Top Three Companies
     this.companiesService.getTopThreeCompanies().subscribe(
-      (res) => {
-        res.forEach((element) => {
+      res => {
+        res.forEach(element => {
           this.topThreeCompanies.push(element.payload.doc.data());
         });
         this.auth.showHTTPLoader(false);
       },
-      (catchErr) => {
+      catchErr => {
         this.auth.showHTTPLoader(false);
         this.toastr.error(catchErr.message);
       }
     );
 
-    // GET All Rviews
-    // this.reviewService.getReviews().subscribe(
-    //   (data) => {
-    //     this.auth.showHTTPLoader(false);
-    //     this.reviewList = data.map((e) => {
-    //       return { data: e.payload.doc.data(), id: e.payload.doc.id };
-    //     });
-    //     this.listOfReviews = this.reviewList;
-    //   },
-    //   (errorRes) => {
-    //     this.toastr.error(errorRes.message, 'Error.');
-    //     this.auth.showHTTPLoader(false);
-    //   }
-    // );
-
     // Get Initial Three Reviews
     this.reviewService.getInitialReviewPage().subscribe(
-      (data) => {
+      data => {
         this.auth.showHTTPLoader(false);
-        this.paginatedReviewList = data.map((e) => {
+        this.paginatedReviewList = data.map(e => {
           this.lastVisible = e.payload.doc;
           return { data: e.payload.doc.data(), id: e.payload.doc.id };
         });
         this.listOfReviews = this.paginatedReviewList;
       },
-      (errorRes) => {
+      errorRes => {
         this.toastr.error(errorRes.message, 'Error.');
         this.auth.showHTTPLoader(false);
       }
@@ -107,7 +132,7 @@ export class HomeComponent implements OnInit {
   }
 
   checkIfLoggedIn() {
-    this.afAuth.onAuthStateChanged((user) => {
+    this.afAuth.onAuthStateChanged(user => {
       if (user) {
         this.loggedIn = true;
       } else {
@@ -122,12 +147,12 @@ export class HomeComponent implements OnInit {
   }
 
   nextReviewPage() {
-    this.reviewService.getNextReviewPage(this.lastVisible).subscribe((data) => {
-      data.map((e) => {
+    this.reviewService.getNextReviewPage(this.lastVisible).subscribe(data => {
+      data.map(e => {
         this.lastVisible = e.payload.doc;
         this.listOfReviews.push({
           data: e.payload.doc.data(),
-          id: e.payload.doc.id,
+          id: e.payload.doc.id
         });
       });
     });

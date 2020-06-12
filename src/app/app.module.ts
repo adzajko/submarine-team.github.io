@@ -30,6 +30,7 @@ import { ReviewModule } from './modules/review/review.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { LandingPageComponent } from './components/pages/landing-page/landing-page.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     HttpLoaderComponent,
     TermsOfServiceComponent,
     FourOhFourComponent,
-    LandingPageComponent,
+    LandingPageComponent
   ],
   imports: [
     SharedModule,
@@ -54,6 +55,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ScrollingModule,
     BrowserModule,
     AppRoutingModule,
+    CarouselModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
@@ -63,9 +65,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ReactiveFormsModule,
     AngularFireDatabaseModule,
     LayoutModule,
-    ClickOutsideModule,
+    ClickOutsideModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

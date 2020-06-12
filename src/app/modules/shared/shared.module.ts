@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { MaterialModule } from '../material/material.module';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -16,6 +17,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     NgbModule,
     MaterialModule,
+    CarouselModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

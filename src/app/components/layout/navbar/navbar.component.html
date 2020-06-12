@@ -33,7 +33,11 @@
         <option value="Macedonian" style="cursor: pointer;">МКД</option>
       </select>
     </div>
-    <i class="fa fa-user" id="fa-fa-user" (click)="triggerModal()"></i>
+    <i
+      class="fa fa-user login-modal"
+      id="fa-fa-user"
+      (click)="triggerModal()"
+    ></i>
   </div>
 </mat-toolbar>
 <div
@@ -60,6 +64,14 @@
       *ngIf="activeUser"
       (click)="checkMyAccount()"
       ><i class="fa fa-user mr-4"></i>{{ 'HEADER.MY_ACCOUNT' | translate }}</a
+    >
+    <a
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/reviews']"
+      class="overlay-link"
+      (click)="toggleOverlay()"
+      ><i class="fa fa-archive mr-4"></i>{{ 'HOMEPAGE.REVIEWS' | translate }}</a
     >
     <a
       routerLinkActive="active"

@@ -13,7 +13,7 @@
 }
 
 :root {
-  --primary: #2c3e50;
+  --primary: #000617;
   --secondary: #2d3436;
   --tertiary: #a489785e;
   --accent: #212121;
@@ -29,6 +29,7 @@
   --gradient-two: rgba(48, 51, 65, 1);
   --opacity1: none;
   --opacity2: 0.4;
+  --header: #00657e;
 }
 
 html,
@@ -51,4 +52,32 @@ body {
     background-color: #212121;
     outline: 1px solid #212121;
   }
+}
+
+.owl-dots {
+  display: flex;
+  justify-content: center;
+  .fa {
+    margin-right: 16px;
+  }
+}
+
+.owl-nav {
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 37%;
+  }
+
+  .owl-next {
+    right: 0;
+  }
+}
+i.carousel-fa {
+  font-size: 32px;
+}
+
+i.fa.carousel-fa.fa-chevron-left,
+i.fa.carousel-fa.fa-chevron-right {
+  font-size: 40px;
 }

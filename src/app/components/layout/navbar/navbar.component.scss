@@ -6,7 +6,7 @@
 mat-toolbar {
   height: fit-content;
   box-shadow: 0px 0px 20px 0px var(--shadowsOpacified);
-  background-color: var(--primary);
+  background-color: var(--header);
 }
 .navbar-brand {
   position: relative;
@@ -37,6 +37,7 @@ mat-toolbar {
     transform: rotate(45deg);
     width: 50px;
     top: 48%;
+    background-color: whitesmoke;
   }
   .hamburger-line.bottom.open {
     transform: rotate(-45deg);
@@ -90,7 +91,7 @@ mat-toolbar {
     position: relative;
     text-decoration: none;
     font-size: 26px;
-    color: var(--font-color);
+    color: whitesmoke;
     display: block;
     transition: 0.45s;
   }
@@ -119,7 +120,7 @@ mat-toolbar {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: var(--font-color);
+    background-color: whitesmoke;
   }
   .overlay-link:hover::after {
     content: '';
@@ -128,11 +129,11 @@ mat-toolbar {
   }
   .overlay-link:hover,
   .overlay-link:focus {
-    color: var(--font-color);
+    color: whitesmoke;
     transition: 0.5s;
   }
   .active {
-    color: var(--font-color) !important;
+    color: whitesmoke !important;
     position: relative !important;
   }
 
@@ -152,7 +153,7 @@ mat-toolbar {
     right: 0;
     width: 5px;
     height: 100%;
-    background-color: var(--font-color);
+    background-color: whitesmoke;
   }
 
   @media screen and (max-height: 450px) {
@@ -164,7 +165,7 @@ mat-toolbar {
 
 #fa-fa-user {
   font-size: 36px;
-  color: var(--font-color);
+  color: whitesmoke;
   cursor: pointer;
 }
 
@@ -205,7 +206,7 @@ mat-toolbar {
 
 #langSelect {
   background-color: var(--accent);
-  color: var(--font-color);
+  color: whitesmoke;
   border: none;
   border-radius: 25px;
 }
@@ -214,7 +215,7 @@ mat-toolbar {
   left: 42%;
   position: absolute;
   bottom: 40px;
-  color: var(--font-color);
+  color: whitesmoke;
 }
 
 .themeToggle::before,
@@ -241,4 +242,8 @@ mat-toolbar {
 
 .themeToggleMKD::after {
   content: 'Светла';
+}
+
+i#fa-fa-user.fa.fa-user.login-modal {
+  color: var(--font-color);
 }

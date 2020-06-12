@@ -9,12 +9,12 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  color: var(--font-color);
+  color: whitesmoke;
 
   button {
     background-color: transparent;
-    color: var(--font-color);
-    border: 1px var(--font-color) solid;
+    color: whitesmoke;
+    border: 1px whitesmoke solid;
     border-radius: 5px;
     box-shadow: 0 0 5px 0 var(--shadows);
     cursor: pointer;
@@ -23,7 +23,7 @@ section {
   button:hover {
     transition: 0.4s;
     background-color: #fff;
-    color: var(--primary);
+    color: #2c3e50;
   }
 
   h1 {
@@ -56,8 +56,8 @@ section {
       width: 150px;
       @include mediumPhoneMixin {
         font-size: 26px;
-        background-color: var(--font-color);
-        color: var(--primary);
+        background-color: whitesmoke;
+        color: #2c3e50;
         margin-bottom: 3rem;
       }
     }
@@ -69,7 +69,7 @@ section {
 }
 
 form {
-  border: solid var(--font-color) 1px;
+  border: solid whitesmoke 1px;
   padding: 3rem;
   border-radius: 5px;
   justify-content: center;
@@ -95,8 +95,8 @@ form {
   input {
     background-color: transparent;
     border: none;
-    color: var(--font-color);
-    border-bottom: var(--font-color) solid;
+    color: whitesmoke;
+    border-bottom: whitesmoke solid;
     padding: 1rem;
     margin: 1rem;
     font-size: 1.5rem;
@@ -115,8 +115,8 @@ form {
     @include mediumPhoneMixin {
       margin-bottom: 10px;
       margin-top: 10px;
-      background-color: var(--font-color);
-      color: var(--primary);
+      background-color: whitesmoke;
+      color: #2c3e50;
     }
   }
 }

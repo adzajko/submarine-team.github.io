@@ -1,20 +1,47 @@
-$colors: (
-  'box-shadow-color': rgba(0, 0, 0, 0.4),
-  'peachColor': rgba(212, 113, 113, 1),
-  'greyDark': rgba(0, 0, 0, 0.7),
-  'blueHeader': #2c3e50,
-  'whiteGrey': whitesmoke
-);
-
 $fontSizes: (
   'h1': 72px,
   'h2': 36px,
   'h3': 24px
 );
 
-@function getColor($colorName) {
-  @return map-get($colors, $colorName);
+/* Responsive Mixins */
+
+@mixin smallPhoneMixin {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
 }
+@mixin mediumPhoneMixin {
+  @media only screen and (min-width: 325px) and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin largePhoneMixin {
+  @media only screen and (min-width: 600px) and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin tabletMixin {
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin smallDesktopMixin {
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin largeDesktopMixin {
+  @media only screen and (min-width: 1200px) and (max-width: 1440px) {
+    @content;
+  }
+}
+@mixin ExtraLargeDesktopMixin {
+  @media only screen and (min-width: 1440px) {
+    @content;
+  }
+}
+/*Responsive Mixins END */
 
 @function getFontSize($font) {
   @return map-get($fontSizes, $font);
@@ -61,16 +88,20 @@ $fontSizes: (
 
 .underlineBefore {
   position: relative;
+  text-align: left;
 }
 
 .underlineBefore::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: -60%;
   bottom: 0;
   width: 100%;
   height: 2px;
   background-color: var(--font-color);
+  @include mediumPhoneMixin {
+    left: -17%;
+  }
 }
 .fixed-full-height {
   position: fixed;
@@ -90,42 +121,3 @@ $fontSizes: (
 }
 
 /* Extendable classes end */
-
-/* Responsive Mixins */
-
-@mixin smallPhoneMixin {
-  @media only screen and (max-width: 600px) {
-    @content;
-  }
-}
-@mixin mediumPhoneMixin {
-  @media only screen and (min-width: 325px) and (max-width: 992px) {
-    @content;
-  }
-}
-@mixin largePhoneMixin {
-  @media only screen and (min-width: 600px) and (max-width: 768px) {
-    @content;
-  }
-}
-@mixin tabletMixin {
-  @media only screen and (min-width: 768px) and (max-width: 992px) {
-    @content;
-  }
-}
-@mixin smallDesktopMixin {
-  @media only screen and (min-width: 992px) and (max-width: 1200px) {
-    @content;
-  }
-}
-@mixin largeDesktopMixin {
-  @media only screen and (min-width: 1200px) and (max-width: 1440px) {
-    @content;
-  }
-}
-@mixin ExtraLargeDesktopMixin {
-  @media only screen and (min-width: 1440px) {
-    @content;
-  }
-}
-/*Responsive Mixins END */
