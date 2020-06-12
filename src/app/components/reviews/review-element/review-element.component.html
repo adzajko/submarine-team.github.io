@@ -1,5 +1,5 @@
-<div class="review-container my-3">
-  <div class="card-aside">
+<div class="review-container">
+  <div class="review-container-left">
     <div class="img-container">
       <img
         src="{{ reviewElement.data.imagePath }}"
@@ -7,46 +7,41 @@
         class="img-fluid"
       />
     </div>
-    <p class="text-center my-sm-0 my-md-2 font-italic">
-      {{ formattedDate }}
-    </p>
-  </div>
-  <div class="card">
-    <div class="card-header">
+    <div class="company-info">
       <a
         [routerLink]="['/companies/', reviewElement.data.companyName]"
-        class="card-title"
+        class="company-name-link animatedBefore"
         >{{ reviewElement.data.companyName }}</a
       >
-      <ngb-rating [(rate)]="currentRate">
-        <ng-template let-fill="fill" let-index="index">
-          <span
-            class="star"
-            [class.filled]="fill === 100"
-            [class.bad]="index < 3"
-            >&#9733;</span
-          >
-        </ng-template>
-      </ngb-rating>
-    </div>
-    <div class="card-body d-flex justify-content-between">
-      <div class="supporting-flex">
-        <p class="card-text text-truncate" id="textTruncate">
-          {{ reviewElement.data.textExcerpt }}
-        </p>
-        <button mat-raised-button [routerLink]="['/reviews', reviewElement.id]">
-          {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
-        </button>
-        <button
-          class="ml-3"
-          [disabled]="reviewReported"
-          (click)="openReportDialog()"
-          mat-raised-button
-          color="warn"
-        >
-          {{ 'HOMEPAGE.REPORT' | translate }}
-        </button>
+      <div class="stars-container">
+        <i class="fa fa-star" *ngFor="let star of currentRate"></i>
       </div>
+      <p class="timestamp">{{ formattedDate }}</p>
+    </div>
+  </div>
+  <div class="review-container-right">
+    <p id="textTruncate">
+      {{ reviewElement.data.textExcerpt }}
+    </p>
+    <div class="votes-container">
+      <app-votes-container
+        [id]="reviewElement.id"
+        [username]="reviewElement.data.userName"
+      ></app-votes-container>
+    </div>
+    <div class="btn-group">
+      <button mat-raised-button [routerLink]="['/reviews', reviewElement.id]">
+        {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
+      </button>
+      <button
+        class="ml-3"
+        [disabled]="reviewReported"
+        (click)="openReportDialog()"
+        mat-raised-button
+        color="warn"
+      >
+        {{ 'HOMEPAGE.REPORT' | translate }}
+      </button>
       <div id="report-dialog" *ngIf="showDialog">
         <div>
           <h6 mat-dialog-title>{{ 'CONFIRM_DIALOG.REPORT_Q' | translate }}</h6>
@@ -68,13 +63,6 @@
             </button>
           </div>
         </div>
-      </div>
-      <div class="votes-container">
-        <!--votes container-->
-        <app-votes-container
-          [id]="reviewElement.id"
-          [username]="reviewElement.data.userName"
-        ></app-votes-container>
       </div>
     </div>
   </div>

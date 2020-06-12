@@ -6,11 +6,24 @@ import { ReviewService } from '../../../shared/review.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { CompanyService } from 'src/app/shared/company.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('enterAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
   authForm: FormGroup;
@@ -21,6 +34,7 @@ export class HomeComponent implements OnInit {
   topThreeCompanies = [];
   featuredCompany: any;
   lastVisible: any;
+  circleContent = '<i class="carousel-fa text-danger fa fa-circle-o"></i>';
 
   // Owl Carousel settings
 
@@ -28,14 +42,18 @@ export class HomeComponent implements OnInit {
     loop: true,
     autoplay: true,
     autoplaySpeed: 2000,
+    navText: [
+      '<i class="carousel-fa text-danger fa fa-chevron-left"></i>',
+      '<i class="carousel-fa text-danger fa fa-chevron-right"></i>'
+    ],
     dotsData: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
     dots: true,
+    autoplayHoverPause: true,
     center: true,
     navSpeed: 700,
-    navText: ['', ''],
     responsive: {
       0: {
         items: 1

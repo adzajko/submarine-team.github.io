@@ -6,6 +6,7 @@
   background-size: 1920px;
   background-repeat: no-repeat;
   background-position-y: -10rem;
+  background-attachment: fixed;
 
   h1 {
     font-size: getFontSize(h1);
@@ -47,8 +48,15 @@
   box-shadow: 0 0 3px 0 #212121;
   background-color: var(--home-cards);
   border-radius: 15px;
+  @include mediumPhoneMixin {
+    width: 90%;
+    padding: 1rem;
+  }
   .featured-company-card-holder {
     padding: 2rem;
+    @include mediumPhoneMixin {
+      padding: 1rem;
+    }
     position: relative;
     width: 100%;
     box-shadow: 1px 1px 3px 0 var(--reverse-font-color);
@@ -80,9 +88,18 @@
   }
 }
 
+.featured-company-right {
+  @include mediumPhoneMixin {
+    padding-top: 4rem;
+  }
+}
+
 .featured-company-info {
   position: relative;
   padding-left: 2rem;
+  @include mediumPhoneMixin {
+    padding-left: 1rem;
+  }
 }
 
 .featured-company-info::before {
@@ -116,31 +133,55 @@
 
 .owl-container {
   margin: 5rem;
+  @include mediumPhoneMixin {
+    margin: 5rem 1rem;
+  }
 }
 ng-template {
   position: relative;
 }
 .carousel-img-container {
+  @include mediumPhoneMixin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .img-fluid {
     width: 300px;
+    @include mediumPhoneMixin {
+      width: 120px;
+    }
   }
 }
 
 .carousel-content {
+  @include mediumPhoneMixin {
+    padding-left: 10px;
+  }
   a.animatedBefore {
     text-decoration: none;
     font-size: 46px;
+    @include mediumPhoneMixin {
+      font-size: 32px;
+    }
   }
 }
 
 .carousel {
   padding: 2rem;
   border-radius: 15px;
+  box-shadow: 0 0 5px 0 var(--shadows);
   background-color: var(--home-cards);
   color: var(--font-color);
   height: 375px;
   width: 70%;
-  margin: auto;
+  margin: 2rem auto;
+  @include mediumPhoneMixin {
+    padding: 1rem;
+    width: 80%;
+    height: auto;
+  }
 }
 
 .mt-home {
@@ -159,9 +200,10 @@ ng-template {
 
 app-review-element {
   margin: auto;
-  width: 70%;
+  width: 100%;
   @include mediumPhoneMixin {
     width: 90%;
+    margin: auto;
   }
 }
 
@@ -208,8 +250,19 @@ app-review-element {
 }
 
 .reviews-container {
+  margin-top: 10rem;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 40%;
+  justify-content: center;
+  gap: 5rem;
+  row-gap: 7rem;
+  @include mediumPhoneMixin {
+    grid-template-columns: 100%;
+    row-gap: 10rem;
+  }
+  @include smallDesktopMixin {
+    grid-template-columns: 100%;
+  }
 }
 
 .w-56 {

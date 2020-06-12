@@ -53,3 +53,31 @@ body {
     outline: 1px solid #212121;
   }
 }
+
+.owl-dots {
+  display: flex;
+  justify-content: center;
+  .fa {
+    margin-right: 16px;
+  }
+}
+
+.owl-nav {
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 37%;
+  }
+
+  .owl-next {
+    right: 0;
+  }
+}
+i.carousel-fa {
+  font-size: 32px;
+}
+
+i.fa.carousel-fa.fa-chevron-left,
+i.fa.carousel-fa.fa-chevron-right {
+  font-size: 40px;
+}

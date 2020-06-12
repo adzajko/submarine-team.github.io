@@ -68,6 +68,14 @@
     <a
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
+      [routerLink]="['/reviews']"
+      class="overlay-link"
+      (click)="toggleOverlay()"
+      ><i class="fa fa-archive mr-4"></i>{{ 'HOMEPAGE.REVIEWS' | translate }}</a
+    >
+    <a
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
       [routerLink]="['/companies']"
       class="overlay-link"
       (click)="toggleOverlay()"

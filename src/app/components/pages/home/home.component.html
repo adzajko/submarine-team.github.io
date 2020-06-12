@@ -5,6 +5,7 @@
         {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
       </h1>
       <div
+        [@enterAnimation]
         class="featured-company mx-auto row justify-content-center"
         *ngIf="featuredCompany"
       >
@@ -18,8 +19,7 @@
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta
             magnam qui velit, optio odio harum nam ea vero maxime dolore veniam
             tenetur alias suscipit exercitationem autem fugit adipisci tempora
-            esse? Sint atque dicta totam harum consectetur ab, nulla eos veniam
-            sit quibusdam accusantium.
+            esse?
           </p>
         </div>
         <div class="featured-company-right col-sm-12 col-lg-6">
@@ -66,7 +66,7 @@
         <div class="owl-container">
           <owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let company of topThreeCompanies | slice: 0:3"
-              ><ng-template carouselSlide>
+              ><ng-template carouselSlide [dotContent]="circleContent">
                 <div class="carousel d-flex justify-content-around">
                   <div class="carousel-img-container">
                     <img
@@ -116,6 +116,7 @@
     </h3>
     <section class="reviews-container">
       <app-review-element
+        [@enterAnimation]
         class="my-3"
         [reviewElement]="review"
         *ngFor="let review of listOfReviews"

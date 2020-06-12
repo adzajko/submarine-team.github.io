@@ -25,7 +25,8 @@ export const light: Theme = {
     '--tos-bg-color': '#2E2D2D',
     '--test': '#1d2141',
     '--header': '#00657e',
-    '--home-cards': '#1C2541'
+    '--home-cards': '#1C2541',
+    '--footer': '#000617'
   }
 };
 
@@ -51,6 +52,7 @@ export const dark: Theme = {
     '--tos-bg-color': '#A0A0A0',
     '--test': '#1d2141',
     '--header': '#f5f5f5',
-    '--home-cards': '#f5f5f5'
+    '--home-cards': '#f5f5f5',
+    '--footer': '#f5f5f5'
   }
 };

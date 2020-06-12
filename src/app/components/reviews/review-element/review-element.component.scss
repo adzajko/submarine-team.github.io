@@ -1,24 +1,46 @@
 @import '../../../../assets/scss_extendables/index';
 
 .review-container {
-  height: 200px;
+  background-color: var(--home-cards);
+  height: 300px;
   display: flex;
+  justify-content: space-around;
+  @include mediumPhoneMixin {
+    height: auto;
+  }
   @include smallPhoneMixin {
     display: block;
     height: 100%;
   }
   box-shadow: 5px 3px 3px 0 var(--shadows);
   width: 100%;
-  border: 1px solid var(--primary);
+  padding: 20px;
   position: relative;
+  color: var(--font-color);
 }
 
-.card-aside {
-  background-color: var(--font-color);
+.review-container-left {
+  width: 50%;
+  @include mediumPhoneMixin {
+    width: 100%;
+  }
   .img-container {
+    position: absolute;
+    top: -30%;
+    left: 5%;
+    width: 150px;
+    height: 150px;
+    @include mediumPhoneMixin {
+      top: -16%;
+      width: 120px;
+      height: 120px;
+    }
+    @extend .flex-column-center;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 3px 0 var(--shadows);
     .img-fluid {
-      width: 150px;
-      padding: 10px;
+      width: 110px;
       @include smallPhoneMixin {
         width: 100px;
         display: block;
@@ -28,71 +50,68 @@
       }
     }
   }
-  p.text-center.my-md-2.my-sm-0.font-italic {
-    color: var(--shadows);
-    @include smallPhoneMixin {
-      margin-bottom: 0;
-    }
-  }
-}
 
-.card {
-  background: linear-gradient(163deg, var(--tertiary) 0%, var(--primary) 80%);
-  flex: 1;
-  border: 0;
-  border-radius: 0px !important;
-}
-
-.card-header:first-child {
-  border-radius: 0px !important;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  @include smallPhoneMixin {
-    display: block;
-  }
-  // background: linear-gradient(163deg, #2d3436, #2c3e50);
-  background: var(--primary);
-  .card-title {
+  .company-info {
+    margin-top: 4rem;
+    position: relative;
+    padding-left: 2rem;
     @include mediumPhoneMixin {
-      font-size: 26px;
+      padding-left: 1rem;
     }
-    font-size: 30px;
-    margin: 0;
-    text-decoration: none;
-    @extend .animatedBefore;
+    .company-name-link {
+      font-size: 36px;
+      text-decoration: none;
+    }
+    .stars-container {
+      margin: 2rem 0;
+    }
+    .timestamp {
+      font-weight: lighter;
+      font-style: italic;
+    }
+  }
+
+  .company-info::after {
+    content: '';
+    position: absolute;
+    right: 7%;
+    bottom: 0;
+    height: 200px;
+    width: 1px;
+    background-color: var(--font-color);
+    @include mediumPhoneMixin {
+      right: 14%;
+      bottom: -10%;
+    }
   }
 }
 
-.card-body {
-  button.see-more-btn {
-    width: 100px;
+.review-container-right {
+  width: 50%;
+  @extend .flex-column-center;
+  justify-content: space-around;
+  @include mediumPhoneMixin {
+    width: 100%;
   }
-  color: var(--font-color);
   #textTruncate {
-    width: 700px;
+    flex: 1;
+    width: 100%;
+    padding-top: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     @include mediumPhoneMixin {
-      width: 200px;
-    }
-    @include smallDesktopMixin {
-      width: 400px;
-    }
-    @include largeDesktopMixin {
-      width: 400px;
+      text-align: center;
     }
   }
 }
+
 app-votes-container {
-  position: relative;
-  bottom: 15%;
+  position: absolute;
+  top: 25%;
+  right: 5%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
-ngb-rating:focus {
-  outline: none;
 }
 
 div#report-dialog {
@@ -102,11 +121,17 @@ div#report-dialog {
   z-index: 100001;
   div {
     h6 {
-      color: var(--reverse-font-color);
+      color: #212121;
       font-size: 18px;
     }
-    background-color: var(--font-color);
+    background-color: whitesmoke;
     padding: 1rem;
     border-radius: 15px;
   }
+}
+
+i.fa.fa-star {
+  color: #ffa000;
+  margin-right: 5px;
+  font-size: 16px;
 }
