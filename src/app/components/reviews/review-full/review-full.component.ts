@@ -31,6 +31,7 @@ export class ReviewFullComponent implements OnInit {
           return;
         }
         this.activeReview = res.payload.data();
+        console.log(this.activeReview);
       },
       errorRes => {
         this.auth.showHTTPLoader(false);
