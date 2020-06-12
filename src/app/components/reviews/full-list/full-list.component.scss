@@ -8,14 +8,16 @@ section.review-page {
 .review-list {
   h1 {
     color: var(--font-color);
-    text-align: center;
     font-size: getFontSize(h1);
     padding: 3rem 0;
     padding-bottom: 1rem;
     margin: 0 2rem;
     @extend .underlineBefore;
+    position: relative;
+    left: 30%;
     @include mediumPhoneMixin {
       font-size: 46px;
+      left: 0;
     }
     @include smallPhoneMixin {
       font-size: 26px;
@@ -25,7 +27,7 @@ section.review-page {
 
 form {
   width: 50%;
-  margin: 3rem auto;
+  margin: 7rem auto;
   button {
     width: 150px;
     margin-left: 2rem;
@@ -33,10 +35,14 @@ form {
 }
 
 .review-container {
-  margin: 2rem 10rem;
+  margin: 5rem 10rem;
   display: grid;
-  grid-template-columns: 80%;
+  grid-template-columns: 50% 50%;
+  @include mediumPhoneMixin {
+    grid-template-columns: 100%;
+    margin: 5rem 1rem;
+  }
   justify-content: stretch;
   column-gap: 5rem;
-  row-gap: 5rem;
+  row-gap: 10rem;
 }

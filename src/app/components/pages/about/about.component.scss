@@ -10,9 +10,6 @@
   color: var(--font-color);
   .intro-section {
     padding: 3rem;
-    p {
-      text-align: center;
-    }
     .title {
       text-align: center;
       margin: 0 2rem;
@@ -49,4 +46,8 @@
       }
     }
   }
+}
+
+.mt-10 {
+  margin-top: 10rem;
 }
