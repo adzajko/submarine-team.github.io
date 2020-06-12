@@ -10,14 +10,18 @@
     padding-bottom: 1rem;
     margin: 0 2rem;
     @extend .underlineBefore;
+    position: relative;
+    left: 20%;
     @include mediumPhoneMixin {
       font-size: 46px;
+      left: 0;
     }
     @include smallPhoneMixin {
       font-size: 26px;
     }
   }
   .companies-wrapper {
+    margin-top: 5rem;
     display: grid;
     grid-template-columns: 30% 30% 30%;
     justify-content: space-around;
