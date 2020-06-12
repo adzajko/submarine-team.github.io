@@ -2,12 +2,7 @@
 
 .main-section {
   overflow: hidden;
-  background-image: url('../../../../assets/Waves.png');
-  background-size: 1920px;
-  background-repeat: no-repeat;
-  background-position-y: -10rem;
-  background-attachment: fixed;
-
+  @extend .wavey-background;
   h1 {
     font-size: getFontSize(h1);
     @extend .underlineBefore;

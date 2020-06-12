@@ -1,14 +1,9 @@
 @import '../../../../assets/scss_extendables/index';
 .terms-of-service-section {
   padding-bottom: 15px;
-  background: linear-gradient(
-    180deg,
-    rgba(29, 33, 65, 1) 0%,
-    rgba(199, 219, 191, 1) 100%
-  );
-  @extend .gradient-background;
+  @extend .wavey-background;
   min-height: 100vh;
-  color: var(--reverse-font-color);
+  color: var(--font-color);
   h1 {
     font-size: 40px;
     padding-top: 1rem;
@@ -28,13 +23,13 @@
   h1::before {
     border: 5px;
     box-shadow: 0px 2px 7px 1px var(--shadows);
+    left: 0;
   }
 
   ol {
     font-size: 20px;
     z-index: -100;
     color: var(--font-color);
-    background-color: var(--reverse-font-color);
     @include mediumPhoneMixin {
       width: 90%;
       font-size: 14px;
@@ -43,7 +38,7 @@
 }
 
 div {
-  background-color: var(--reverse-font-color);
+  background-color: var(--tos-bg-color);
   border: 5px solid var(--test);
   border-radius: 15px;
   width: 40%;

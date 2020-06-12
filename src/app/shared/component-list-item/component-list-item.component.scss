@@ -1,7 +1,7 @@
 @import '../../../assets/scss_extendables/index';
 
 .card {
-  @extend .gradient-background;
+  background-color: var(--home-cards);
   border: none;
   width: 100%;
   @include smallPhoneMixin {
@@ -21,7 +21,6 @@
     margin: 1rem auto;
   }
   .card-header {
-    background-color: var(--primary);
     a {
       cursor: pointer;
       text-decoration: none;

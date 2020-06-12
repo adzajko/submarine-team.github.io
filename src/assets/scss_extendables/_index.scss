@@ -120,4 +120,13 @@ $fontSizes: (
   background: linear-gradient(180deg, var(--secondary), var(--primary));
 }
 
+.wavey-background {
+  background-image: url('/assets/Waves.png');
+  background-size: 1920px;
+  background-repeat: no-repeat;
+  background-position-y: -10rem;
+  background-attachment: fixed;
+  background-color: var(--primary);
+}
+
 /* Extendable classes end */

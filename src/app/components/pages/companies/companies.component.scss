@@ -1,16 +1,19 @@
 @import '../../../../assets//scss_extendables/index';
 
 .company-page {
-  @extend .gradient-background;
+  @extend .wavey-background;
+  background-color: var(--primary);
   min-height: 100vh;
   color: var(--font-color);
   h1 {
     font-size: getFontSize(h1);
     padding: 3rem 0;
+    font-weight: 200;
     padding-bottom: 1rem;
     margin: 0 2rem;
     @extend .underlineBefore;
     position: relative;
+    color: whitesmoke;
     left: 20%;
     @include mediumPhoneMixin {
       font-size: 46px;

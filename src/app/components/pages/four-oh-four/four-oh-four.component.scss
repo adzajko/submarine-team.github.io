@@ -1,6 +1,6 @@
 @import '../../../../assets/scss_extendables/index';
 section {
-  background: linear-gradient(180deg, var(--secondary), var(--primary));
+  @extend .wavey-background;
   @extend .flex-column-center;
   min-height: 100vh;
   h1 {

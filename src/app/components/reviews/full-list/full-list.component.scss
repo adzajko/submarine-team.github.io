@@ -1,7 +1,7 @@
 @import '../../../../assets/scss_extendables/index';
 
 section.review-page {
-  background: linear-gradient(180deg, var(--secondary), var(--primary));
+  @extend .wavey-background;
   padding-bottom: 10px;
 }
 
@@ -10,6 +10,7 @@ section.review-page {
     color: var(--font-color);
     font-size: getFontSize(h1);
     padding: 3rem 0;
+    font-weight: 200;
     padding-bottom: 1rem;
     margin: 0 2rem;
     @extend .underlineBefore;

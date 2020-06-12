@@ -1,7 +1,7 @@
 @import '../../../../assets/scss_extendables/index';
 
 .contact-page-wrapper {
-  background: linear-gradient(180deg, var(--secondary), var(--primary));
+  @extend .wavey-background;
   padding: 8% 0;
   @include mediumPhoneMixin {
     padding: 75px 1rem 15px 1rem;
