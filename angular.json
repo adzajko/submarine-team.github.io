@@ -25,6 +25,7 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "node_modules/aos/dist/aos.css",
               "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",

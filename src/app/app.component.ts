@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { startWith, delay } from 'rxjs/operators';
 import { SharedService } from './shared/shared.service';
 import { Subscription } from 'rxjs';
-
+import * as AOS from 'aos';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { ThemeService } from './theme/theme.service';
 
@@ -19,14 +19,14 @@ import { ThemeService } from './theme/theme.service';
     trigger('enterAnimation', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('200ms', style({ opacity: 1 })),
+        animate('200ms', style({ opacity: 1 }))
       ]),
       transition(':leave', [
         style({ opacity: 1 }),
-        animate('200ms', style({ opacity: 0 })),
-      ]),
-    ]),
-  ],
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'TSP';
@@ -46,13 +46,16 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     window.addEventListener('scroll', this.scrollEvent, true);
     this.themeService.setActiveTheme(this.themeService.getLocalStorageTheme());
-
+    AOS.init({
+      once: true,
+      duration: 1200
+    });
     this.subscription = this.sharedService.publishLoginModalState.subscribe(
-      (response) => {
+      response => {
         this.shouldModalOpen = response;
       }
     );
-    this.auth.afAuth.user.subscribe((res) => {
+    this.auth.afAuth.user.subscribe(res => {
       if (res) {
         this.passLoggedStateInfo = true;
       } else {
@@ -61,7 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
     this.auth.triggerLoadingScreen
       .pipe(startWith(null), delay(0))
-      .subscribe((response) => {
+      .subscribe(response => {
         this.pendingHttpRequest = response;
       });
     this.translateService.setDefaultLang('English');
@@ -89,7 +92,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   scrollToTop() {
-    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
   }
 
   onActivate(event) {
@@ -97,7 +100,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   scrollEvent = (event: any): void => {
-    this.displayTop = event.srcElement.scrollTop;
+    this.displayTop = event.currentTarget.pageYOffset;
   };
 
   ngOnDestroy() {

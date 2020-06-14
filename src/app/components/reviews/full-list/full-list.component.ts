@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewService } from 'src/app/shared/review.service';
 import { Review } from '../review-element/Review.model';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-full-list',
@@ -8,10 +10,18 @@ import { Review } from '../review-element/Review.model';
   styleUrls: ['./full-list.component.scss']
 })
 export class FullListComponent implements OnInit {
-  public options = ['Rating', 'Upvotes', 'Date Posted'];
+  public options = ['Best Rated', 'Worst Rated', 'Oldest', 'Newest'];
   public listOfReviews: Review[] = [];
+  reviewFilterGroup: FormGroup;
 
-  constructor(private reviewService: ReviewService) {}
+  constructor(
+    private reviewService: ReviewService,
+    private toastr: ToastrService
+  ) {
+    this.reviewFilterGroup = new FormGroup({
+      sortOption: new FormControl('', Validators.required)
+    });
+  }
 
   ngOnInit(): void {
     this.reviewService.getReviews().subscribe((response: any) => {
@@ -19,5 +29,71 @@ export class FullListComponent implements OnInit {
         return { data: e.payload.doc.data(), id: e.payload.doc.id };
       });
     });
+  }
+
+  orderReviews() {
+    const param = this.reviewFilterGroup.value.sortOption;
+    switch (param) {
+      case 'Worst Rated': {
+        this.reviewService.filterReviewsByRating().subscribe(
+          res => {
+            const ratingFilterArray = [];
+            res.docs.forEach(e => {
+              ratingFilterArray.push({ data: e.data(), id: e.data().id });
+            });
+            this.listOfReviews = ratingFilterArray;
+          },
+          err => {
+            this.toastr.error(err.message);
+          }
+        );
+        break;
+      }
+      case 'Oldest': {
+        this.reviewService.filterReviewsByDate().subscribe(
+          res => {
+            const timeStampFilterArray = [];
+            res.docs.forEach(e => {
+              timeStampFilterArray.push({ data: e.data(), id: e.data().id });
+            });
+            this.listOfReviews = timeStampFilterArray;
+          },
+          err => {
+            this.toastr.error(err.message);
+          }
+        );
+        break;
+      }
+      case 'Newest': {
+        this.reviewService.filterNewest().subscribe(
+          res => {
+            const timeStampFilterArray = [];
+            res.docs.forEach(e => {
+              timeStampFilterArray.push({ data: e.data(), id: e.data().id });
+            });
+            this.listOfReviews = timeStampFilterArray;
+          },
+          err => {
+            this.toastr.error(err.message);
+          }
+        );
+        break;
+      }
+      case 'Best Rated': {
+        this.reviewService.filterBestReviewed().subscribe(
+          res => {
+            const bestRatings = [];
+            res.docs.forEach(e => {
+              bestRatings.push({ data: e.data(), id: e.data().id });
+            });
+            this.listOfReviews = bestRatings;
+          },
+          err => {
+            this.toastr.error(err.message);
+          }
+        );
+        break;
+      }
+    }
   }
 }

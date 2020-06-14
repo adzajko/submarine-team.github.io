@@ -6,6 +6,7 @@ import { VotesContainerComponent } from 'src/app/components/reviews/votes-contai
 import { FullListComponent } from 'src/app/components/reviews/full-list/full-list.component';
 import { ReviewRoutingModule } from './review-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,13 @@ import { SharedModule } from '../shared/shared.module';
     VotesContainerComponent,
     FullListComponent
   ],
-  imports: [CommonModule, ReviewRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    ReviewRoutingModule,
+    SharedModule,
+    FormsModule
+  ],
   exports: [
     ReviewElementComponent,
     ReviewFullComponent,
