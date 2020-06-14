@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
-@import 'app/shared/material-theme.scss';
 @import '~bootstrap/scss/bootstrap';
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 * {
   box-sizing: border-box;

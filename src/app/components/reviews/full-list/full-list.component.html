@@ -2,16 +2,22 @@
   <section class="review-list">
     <h1>{{ 'REVIEWS.ALL_REVIEWS' | translate }}</h1>
     <div class="filter-field">
-      <form>
+      <form [formGroup]="reviewFilterGroup" (ngSubmit)="orderReviews()">
         <mat-form-field>
           <mat-label>{{ 'REVIEWS.FILTER' | translate }}</mat-label>
-          <mat-select>
+          <mat-select formControlName="sortOption">
             <mat-option *ngFor="let option of options" [value]="option">{{
               option
             }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-raised-button>{{ 'REVIEWS.GO' | translate }}</button>
+        <button
+          mat-raised-button
+          type="submit"
+          [disabled]="!reviewFilterGroup.valid"
+        >
+          {{ 'REVIEWS.GO' | translate }}
+        </button>
       </form>
     </div>
     <div class="review-container">

@@ -3,7 +3,7 @@
     <!-- Company Input -->
     <mat-form-field class="mt-4">
       <mat-label>
-        {{ "MY_ACCOUNT.COMPANY" | translate }}
+        {{ 'MY_ACCOUNT.COMPANY' | translate }}
       </mat-label>
       <mat-select formControlName="companyName" required>
         <mat-option *ngFor="let company of companies" [value]="company.name">
@@ -14,7 +14,7 @@
     <!-- Company Rating -->
     <div class="mt-3">
       <p class="d-block w-100">
-        {{ "MY_ACCOUNT.RATING" | translate }}
+        {{ 'MY_ACCOUNT.RATING' | translate }}
       </p>
       <mat-slider
         required
@@ -31,7 +31,7 @@
     <!-- Review Text -->
     <mat-form-field>
       <mat-label>
-        {{ "MY_ACCOUNT.DESCRIPTION" | translate }}
+        {{ 'MY_ACCOUNT.DESCRIPTION' | translate }}
       </mat-label>
       <textarea
         matInput
@@ -71,7 +71,7 @@
     </mat-form-field>
 
     <button [disabled]="!inputForm.valid" mat-raised-button (click)="create()">
-      {{ "MY_ACCOUNT.SUBMIT_BTN" | translate }}
+      {{ 'MY_ACCOUNT.SUBMIT_BTN' | translate }}
     </button>
   </form>
 
@@ -82,43 +82,43 @@
     <!-- Linkedin Account -->
     <mat-form-field class="mt-3">
       <mat-label>
-        {{ "MY_ACCOUNT.LINKEDIN" | translate }}
+        {{ 'MY_ACCOUNT.LINKEDIN' | translate }}
       </mat-label>
       <input matInput formControlName="linkedInAccount" />
     </mat-form-field>
-    <button (click)="requestVerification()" mat-raised-button color="accent">
-      {{ "MY_ACCOUNT.CONNECT_BTN" | translate }}
+    <button (click)="requestVerification()" mat-raised-button>
+      {{ 'MY_ACCOUNT.CONNECT_BTN' | translate }}
     </button>
     <hr />
 
     <!--Change Email-->
     <mat-form-field class="mt-3">
       <mat-label>
-        {{ "MY_ACCOUNT.EMAIL" | translate }}
+        {{ 'MY_ACCOUNT.EMAIL' | translate }}
       </mat-label>
       <input matInput formControlName="changeEmailInput" />
     </mat-form-field>
-    <button (click)="changeEmail()" mat-raised-button color="accent">
-      {{ "MY_ACCOUNT.EMAIL_BTN" | translate }}
+    <button (click)="changeEmail()" mat-raised-button>
+      {{ 'MY_ACCOUNT.EMAIL_BTN' | translate }}
     </button>
     <hr />
 
     <!--Change Password-->
     <mat-form-field class="mt-3">
       <mat-label>
-        {{ "MY_ACCOUNT.OLD_PASS" | translate }}
+        {{ 'MY_ACCOUNT.OLD_PASS' | translate }}
       </mat-label>
       <input matInput formControlName="newPassword" type="password" />
     </mat-form-field>
 
     <mat-form-field class="mt-3">
       <mat-label>
-        {{ "MY_ACCOUNT.NEW_PASS" | translate }}
+        {{ 'MY_ACCOUNT.NEW_PASS' | translate }}
       </mat-label>
       <input matInput formControlName="newPasswordConfirm" type="password" />
     </mat-form-field>
-    <button (click)="updatePassword()" mat-raised-button color="accent">
-      {{ "MY_ACCOUNT.CHANGE_PASS_BTN" | translate }}
+    <button (click)="updatePassword()" mat-raised-button>
+      {{ 'MY_ACCOUNT.CHANGE_PASS_BTN' | translate }}
     </button>
     <hr />
 
@@ -126,7 +126,7 @@
     <!-- company notifications -->
     <mat-form-field>
       <mat-label>
-        {{ "MY_ACCOUNT.COMPANIES" | translate }}
+        {{ 'MY_ACCOUNT.COMPANIES' | translate }}
       </mat-label>
       <mat-select formControlName="multipleCompanies" multiple>
         <mat-option *ngFor="let company of companies" [value]="company.name">{{
@@ -135,10 +135,10 @@
       </mat-select>
     </mat-form-field>
     <mat-checkbox formControlName="myCompanyNotifications">{{
-      "MY_ACCOUNT.COMPANY_REVIEWED_NOT" | translate
+      'MY_ACCOUNT.COMPANY_REVIEWED_NOT' | translate
     }}</mat-checkbox>
     <mat-checkbox formControlName="companyAddedNotification">{{
-      "MY_ACCOUNT.COMPANY_ADD_NOT" | translate
+      'MY_ACCOUNT.COMPANY_ADD_NOT' | translate
     }}</mat-checkbox>
     <hr />
     <!--Forgot Password -->
@@ -148,7 +148,7 @@
       class="btn btn-danger mt-4 mb-small btnDelete"
       mat-raised-button
     >
-      {{ "MY_ACCOUNT.DELETE_ACC_BTN" | translate }}
+      {{ 'MY_ACCOUNT.DELETE_ACC_BTN' | translate }}
     </button>
     <!--Delete Account confirmation modal-->
     <div class="dialog-container" *ngIf="delAccDialog">
@@ -157,8 +157,8 @@
         [exclude]="'.btnDelete'"
         [clickOutsideEvents]="'click,touchstart, scroll'"
       >
-        <h5 mat-dialog-title>{{ "CONFIRM_DIALOG.WARNING" | translate }}</h5>
-        <h6>{{ "CONFIRM_DIALOG.DELETE_Q" | translate }}</h6>
+        <h5 mat-dialog-title>{{ 'CONFIRM_DIALOG.WARNING' | translate }}</h5>
+        <h6>{{ 'CONFIRM_DIALOG.DELETE_Q' | translate }}</h6>
         <hr />
         <div mat-dialog-actions>
           <button
@@ -167,10 +167,10 @@
             color="primary"
             (click)="deleteAccountDialog()"
           >
-            {{ "CONFIRM_DIALOG.YES" | translate }}
+            {{ 'CONFIRM_DIALOG.YES' | translate }}
           </button>
-          <button (click)="toggleAccountDel()" mat-raised-button color="accent">
-            {{ "CONFIRM_DIALOG.CANCEL" | translate }}
+          <button (click)="toggleAccountDel()" mat-raised-button>
+            {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
           </button>
         </div>
       </div>
