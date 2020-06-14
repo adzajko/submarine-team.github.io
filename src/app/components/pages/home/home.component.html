@@ -1,16 +1,25 @@
 <section class="dark-bg">
   <section class="main-section w-100">
     <section class="hero-companies my-5">
-      <h1 class="featured-companies-h">
+      <h1
+        class="featured-companies-h"
+        data-aos="fade-right"
+        data-aos-delay="200"
+      >
         {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
       </h1>
       <div
+        data-aos="fade-up"
+        data-aos-delay="200"
         [@enterAnimation]
         class="featured-company mx-auto row justify-content-center"
-        *ngIf="featuredCompany"
       >
-        <div class="featured-company-left col-sm-12 col-lg-6">
+        <div
+          class="featured-company-left col-sm-12 col-lg-6"
+          data-aos="fade-up"
+        >
           <a
+            *ngIf="featuredCompany"
             class="featured-company-title"
             [routerLink]="['/companies', featuredCompany?.name]"
             >{{ featuredCompany?.name }}</a
@@ -23,7 +32,7 @@
           </p>
         </div>
         <div class="featured-company-right col-sm-12 col-lg-6">
-          <div class="featured-company-card-holder">
+          <div class="featured-company-card-holder" data-aos="fade-up">
             <div class="img-container">
               <img
                 src="{{ featuredCompany?.logo }}"
@@ -60,10 +69,14 @@
         </div>
       </div>
       <div class="top-reviewed-companies mt-home">
-        <h3 class="my-5 underlineBefore p-2">
+        <h3
+          class="my-5 underlineBefore p-2"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
           {{ 'HOMEPAGE.TOP_REVIEWED' | translate }}
         </h3>
-        <div class="owl-container">
+        <div class="owl-container" data-aos="fade-up">
           <owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let company of topThreeCompanies | slice: 0:3"
               ><ng-template carouselSlide [dotContent]="circleContent">
@@ -110,11 +123,16 @@
         </div>
       </div>
     </section>
-    <h3 class="mt-home mb-3 underlineBefore p-2 reviews">
+    <h3
+      class="mt-home mb-3 underlineBefore p-2 reviews"
+      data-aos="fade-right"
+      data-aos-delay="200"
+    >
       {{ 'HOMEPAGE.REVIEWS' | translate }}
     </h3>
-    <section class="reviews-container">
+    <section class="reviews-container" data-aos="fade-up">
       <app-review-element
+        data-aos="fade-up"
         [@enterAnimation]
         class="my-3"
         [reviewElement]="review"

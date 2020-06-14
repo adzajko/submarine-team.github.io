@@ -2,9 +2,12 @@
   <div class="main-container container mt-5">
     <div class="main-body container">
       <div class="company-header">
-        <h1>{{ currentCompany?.name }}</h1>
+        <h1 data-aos="fade-right">{{ currentCompany?.name }}</h1>
       </div>
-      <div class="company-info my-5 d-flex justify-content-between">
+      <div
+        class="company-info my-5 d-flex justify-content-between"
+        data-aos="fade-up"
+      >
         <p>
           <i class="fa fa-briefcase mr-2"></i>
           {{ 'COMPANY_FULL.INDUSTRY' | translate }}:
@@ -16,7 +19,7 @@
           {{ currentCompany?.location }}
         </p>
       </div>
-      <div class="company-body">
+      <div class="company-body" data-aos="fade-up">
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta quae
           voluptate temporibus impedit maiores esse aliquam culpa quisquam
@@ -40,7 +43,7 @@
         </button>
       </div>
     </div>
-    <div class="main-aside container">
+    <div class="main-aside container" data-aos="fade-up">
       <div class="img-container">
         <img
           class="img-fluid"
@@ -62,9 +65,13 @@
       >
     </div>
   </div>
-  <div class="reviews-container container" #revContainer>
+  <div class="reviews-container container" #revContainer data-aos="fade-up">
     <div *ngIf="canLoadReviews">
-      <div *ngFor="let element of reviews" class=" card review-element">
+      <div
+        *ngFor="let element of reviews"
+        class=" card review-element"
+        data-aos="fade-up"
+      >
         <div class="card-header d-flex justify-content-between">
           <p>{{ element.timeStamp }}</p>
           <p><i class="fa fa-star"></i> {{ element.rating }} / 10</p>

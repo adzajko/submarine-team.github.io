@@ -1,23 +1,26 @@
 <section class="contact-page-wrapper mt-75">
-  <div class="main-contact">
+  <div class="main-contact" data-aos="fade-up">
     <div class="contact-form">
-      <h1>
+      <h1 data-aos="fade-right">
         {{ 'CONTACT_PAGE.SEND_MESSAGE' | translate }}
       </h1>
       <form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()">
         <input
+          data-aos="fade-up"
           formControlName="name"
           type="text"
           required
           placeholder="{{ 'CONTACT_PAGE.FULL_NAME' | translate }}"
         />
         <input
+          data-aos="fade-up"
           formControlName="email"
           type="email"
           required
           placeholder="{{ 'CONTACT_PAGE.EMAIL' | translate }}"
         />
         <textarea
+          data-aos="fade-up"
           name="message"
           required
           cols="30"
@@ -27,6 +30,7 @@
           style="resize: none;"
         ></textarea>
         <button
+          data-aos="fade-up"
           [disabled]="!contactForm.valid"
           class="btn btn-dark submit-btn"
           type="submit"
@@ -37,14 +41,18 @@
     </div>
     <div class="contact-address">
       <div class="content">
-        <h1>
+        <h1 data-aos="fade-right">
           {{ 'CONTACT_PAGE.REACH_US' | translate }}
         </h1>
-        <p>
+        <p data-aos="fade-up">
           <i class="fa fa-map-marker mr-2"></i> 512 Main St, West Yarmouth, MA
         </p>
-        <p><i class="fa fa-envelope mr-2"></i> submarine@mail.com</p>
-        <p><i class="fa fa-volume-control-phone mr-2"></i> (666) 678-4590</p>
+        <p data-aos="fade-up">
+          <i class="fa fa-envelope mr-2"></i> submarine@mail.com
+        </p>
+        <p data-aos="fade-up">
+          <i class="fa fa-volume-control-phone mr-2"></i> (666) 678-4590
+        </p>
       </div>
     </div>
   </div>

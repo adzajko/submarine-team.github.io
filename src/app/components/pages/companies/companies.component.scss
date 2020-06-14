@@ -5,6 +5,7 @@
   background-color: var(--primary);
   min-height: 100vh;
   color: var(--font-color);
+  overflow-x: hidden;
   h1 {
     font-size: getFontSize(h1);
     padding: 3rem 0;

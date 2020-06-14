@@ -1,18 +1,22 @@
 <div class="body parent mt-75">
-  <form [formGroup]="inputForm" class="d-flex flex-column container div1">
+  <form
+    [formGroup]="inputForm"
+    class="d-flex flex-column container div1"
+    data-aos="fade-up"
+  >
     <!-- Company Input -->
-    <mat-form-field class="mt-4">
+    <mat-form-field class="mt-4" data-aos="fade-up">
       <mat-label>
         {{ 'MY_ACCOUNT.COMPANY' | translate }}
       </mat-label>
-      <mat-select formControlName="companyName" required>
+      <mat-select formControlName="companyName" required data-aos="fade-up">
         <mat-option *ngFor="let company of companies" [value]="company.name">
           {{ company.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <!-- Company Rating -->
-    <div class="mt-3">
+    <div class="mt-3" data-aos="fade-up">
       <p class="d-block w-100">
         {{ 'MY_ACCOUNT.RATING' | translate }}
       </p>
@@ -29,7 +33,7 @@
       </mat-slider>
     </div>
     <!-- Review Text -->
-    <mat-form-field>
+    <mat-form-field data-aos="fade-up">
       <mat-label>
         {{ 'MY_ACCOUNT.DESCRIPTION' | translate }}
       </mat-label>
@@ -44,7 +48,7 @@
       </textarea>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field data-aos="fade-up">
       <mat-label style="color: var(--nephritis);">Pros</mat-label>
       <textarea
         matInput
@@ -57,7 +61,7 @@
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field data-aos="fade-up">
       <mat-label style="color: var(--warn);">Cons</mat-label>
       <textarea
         matInput
@@ -70,7 +74,12 @@
       ></textarea>
     </mat-form-field>
 
-    <button [disabled]="!inputForm.valid" mat-raised-button (click)="create()">
+    <button
+      [disabled]="!inputForm.valid"
+      mat-raised-button
+      (click)="create()"
+      data-aos="fade-up"
+    >
       {{ 'MY_ACCOUNT.SUBMIT_BTN' | translate }}
     </button>
   </form>
@@ -80,70 +89,81 @@
     class="d-flex flex-column container div2"
   >
     <!-- Linkedin Account -->
-    <mat-form-field class="mt-3">
+    <mat-form-field class="mt-3" data-aos="fade-up">
       <mat-label>
         {{ 'MY_ACCOUNT.LINKEDIN' | translate }}
       </mat-label>
       <input matInput formControlName="linkedInAccount" />
     </mat-form-field>
-    <button (click)="requestVerification()" mat-raised-button>
+    <button
+      (click)="requestVerification()"
+      mat-raised-button
+      data-aos="fade-up"
+    >
       {{ 'MY_ACCOUNT.CONNECT_BTN' | translate }}
     </button>
     <hr />
 
     <!--Change Email-->
-    <mat-form-field class="mt-3">
+    <mat-form-field class="mt-3" data-aos="fade-up">
       <mat-label>
         {{ 'MY_ACCOUNT.EMAIL' | translate }}
       </mat-label>
       <input matInput formControlName="changeEmailInput" />
     </mat-form-field>
-    <button (click)="changeEmail()" mat-raised-button>
+    <button (click)="changeEmail()" mat-raised-button data-aos="fade-up">
       {{ 'MY_ACCOUNT.EMAIL_BTN' | translate }}
     </button>
     <hr />
 
     <!--Change Password-->
-    <mat-form-field class="mt-3">
+    <mat-form-field class="mt-3" data-aos="fade-up">
       <mat-label>
         {{ 'MY_ACCOUNT.OLD_PASS' | translate }}
       </mat-label>
       <input matInput formControlName="newPassword" type="password" />
     </mat-form-field>
 
-    <mat-form-field class="mt-3">
+    <mat-form-field class="mt-3" data-aos="fade-up">
       <mat-label>
         {{ 'MY_ACCOUNT.NEW_PASS' | translate }}
       </mat-label>
       <input matInput formControlName="newPasswordConfirm" type="password" />
     </mat-form-field>
-    <button (click)="updatePassword()" mat-raised-button>
+    <button (click)="updatePassword()" mat-raised-button data-aos="fade-up">
       {{ 'MY_ACCOUNT.CHANGE_PASS_BTN' | translate }}
     </button>
     <hr />
 
     <!-- Notifications control -->
     <!-- company notifications -->
-    <mat-form-field>
+    <mat-form-field data-aos="fade-up">
       <mat-label>
         {{ 'MY_ACCOUNT.COMPANIES' | translate }}
       </mat-label>
-      <mat-select formControlName="multipleCompanies" multiple>
+      <mat-select
+        formControlName="multipleCompanies"
+        multiple
+        data-aos="fade-up"
+      >
         <mat-option *ngFor="let company of companies" [value]="company.name">{{
           company.name
         }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-checkbox formControlName="myCompanyNotifications">{{
+    <mat-checkbox data-aos="fade-up" formControlName="myCompanyNotifications">{{
       'MY_ACCOUNT.COMPANY_REVIEWED_NOT' | translate
     }}</mat-checkbox>
-    <mat-checkbox formControlName="companyAddedNotification">{{
-      'MY_ACCOUNT.COMPANY_ADD_NOT' | translate
-    }}</mat-checkbox>
+    <mat-checkbox
+      data-aos="fade-up"
+      formControlName="companyAddedNotification"
+      >{{ 'MY_ACCOUNT.COMPANY_ADD_NOT' | translate }}</mat-checkbox
+    >
     <hr />
     <!--Forgot Password -->
 
     <button
+      data-aos="fade-up"
       (click)="toggleAccountDel()"
       class="btn btn-danger mt-4 mb-small btnDelete"
       mat-raised-button

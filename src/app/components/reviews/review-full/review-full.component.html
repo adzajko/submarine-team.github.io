@@ -2,33 +2,33 @@
   <div class="main-container container mt-5">
     <div class="review container">
       <div class="company-header">
-        <h1>{{ activeReview?.companyName }}</h1>
+        <h1 data-aos="fade-right">{{ activeReview?.companyName }}</h1>
       </div>
       <div class="review-info my-5 d-flex justify-content-between">
-        <p>
+        <p data-aos="fade-up">
           <i class="fa fa-calendar mr-2"></i>
           {{ activeReview?.timeStamp.seconds * 1000 | date }}
         </p>
-        <p>
+        <p data-aos="fade-up">
           <i class="fa fa-star mr-2"></i>
           {{ activeReview?.rating }}
         </p>
       </div>
-      <div class="review-text">
+      <div class="review-text" data-aos="fade-up">
         <p>
           {{ activeReview?.textExcerpt }}
         </p>
       </div>
     </div>
     <div class="company container">
-      <div class="img-container">
+      <div class="img-container" data-aos="fade-up">
         <img
           class="img-fluid"
           src="{{ activeReview?.imagePath }}"
           alt="{{ activeReview?.companyName }}"
         />
       </div>
-      <p>
+      <p data-aos="fade-up">
         <i class="fa fa-star mr-2"></i> {{ 'COMPANY_FULL.AVRG' | translate }} :
         {{ activeReview?.rating }}
       </p>
@@ -36,7 +36,7 @@
         <i class="fa fa-users mr-2"></i>
         {{ 'COMPANY_FULL.EMPLOYEES' | translate }}: 50
       </p>
-      <a href="#" class="btn btn-danger d-block mx-auto">
+      <a href="#" class="btn btn-danger d-block mx-auto" data-aos="fade-up">
         <i class="fa fa-link mr-2"></i>
         {{ 'COMPANY_FULL.WEBSITE' | translate }}</a
       >
