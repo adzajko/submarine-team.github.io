@@ -36,6 +36,8 @@ section {
 }
 
 .main-container {
+  padding: 2rem;
+  border-radius: 15px;
   display: flex;
   @include mediumPhoneMixin {
     display: block;

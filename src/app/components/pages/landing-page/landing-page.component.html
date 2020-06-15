@@ -4,7 +4,8 @@
       <h1 data-aos="fade-right">THE SUBMARINE PROJECT</h1>
       <h2 class="my-6 text-italic" data-aos="fade-right">Ready to dive in?</h2>
       <button
-        class="d-block mx-auto btn-go"
+        class="d-block mx-auto mb-5"
+        mat-raised-button
         (click)="ngOnDestroy()"
         data-aos="fade-up"
       >
@@ -18,26 +19,35 @@
           <h2 class="register-text" data-aos="fade-left">
             Create an account
           </h2>
-          <input
-            data-aos="fade-up"
-            class="email-input"
-            type="email"
-            formControlName="registerEmail"
-            required
-            placeholder="{{ 'LOGIN.EMAIL' | translate }}"
-          />
-          <input
-            data-aos="fade-up"
-            formControlName="registerPassword"
-            type="password"
-            required
-            id="passwordInput"
-            placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
-          />
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              data-aos="fade-up"
+              class="email-input"
+              type="email"
+              formControlName="registerEmail"
+              required
+              placeholder="{{ 'LOGIN.EMAIL' | translate }}"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              data-aos="fade-up"
+              formControlName="registerPassword"
+              type="password"
+              required
+              id="passwordInput"
+              placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
+            />
+          </mat-form-field>
           <button
             [disabled]="!registerForm.valid"
-            class="btn"
+            mat-raised-button
             data-aos="fade-up"
+            class="d-block mx-auto"
           >
             {{ 'LOGIN.REGISTER' | translate }}
           </button>

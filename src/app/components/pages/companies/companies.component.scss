@@ -24,6 +24,9 @@
       font-size: 26px;
     }
   }
+  h1::before {
+    background-color: whitesmoke;
+  }
   .companies-wrapper {
     margin-top: 5rem;
     display: grid;

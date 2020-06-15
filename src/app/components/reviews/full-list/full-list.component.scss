@@ -8,7 +8,7 @@ section.review-page {
 
 .review-list {
   h1 {
-    color: var(--font-color);
+    color: whitesmoke;
     font-size: getFontSize(h1);
     padding: 3rem 0;
     font-weight: 200;
@@ -24,6 +24,9 @@ section.review-page {
     @include smallPhoneMixin {
       font-size: 26px;
     }
+  }
+  h1::before {
+    background-color: whitesmoke;
   }
 }
 
@@ -47,4 +50,14 @@ form {
   justify-content: stretch;
   column-gap: 5rem;
   row-gap: 10rem;
+}
+/* Border */
+.mat-form-field-appearance-outline .mat-form-field-outline,
+mat-select {
+  color: var(--font-color);
+}
+/* Font color */
+input.mat-input-element,
+mat-label {
+  color: var(--font-color);
 }

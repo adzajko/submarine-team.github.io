@@ -35,7 +35,7 @@
   text-align: center;
   padding: 30px;
   font-size: 30px;
-  color: var(--gradient-two);
+  color: #212121;
 }
 
 .contact-form form input,
@@ -73,8 +73,8 @@
   // background: (#2d3436);
   background: linear-gradient(
     163deg,
-    var(--tertiary) 0%,
-    var(--gradient-two) 42%
+    var(--gradient-one) 0%,
+    var(--gradient-two) 100%
   );
 }
 
