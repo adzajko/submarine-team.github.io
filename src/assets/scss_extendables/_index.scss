@@ -127,6 +127,9 @@ $fontSizes: (
   background-position-y: -10rem;
   background-attachment: fixed;
   background-color: var(--primary);
+  @media only screen and (min-width: 1920px) {
+    background-size: 100vw;
+  }
 }
 
 /* Extendable classes end */

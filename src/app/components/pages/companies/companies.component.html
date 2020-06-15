@@ -8,11 +8,11 @@
     data-aos-delay="200"
   >
     <app-component-list-item
-      data-aos="fade-left"
-      data-aos-delay="200"
+      data-aos="fade-right"
       class="mt-6 mx-auto"
       [ComponentListItem]="component"
-      *ngFor="let component of companyList"
+      *ngFor="let component of companyList; let i = index"
+      [attr.data-aos-delay]="200 + i * 15"
     >
     </app-component-list-item>
   </div>

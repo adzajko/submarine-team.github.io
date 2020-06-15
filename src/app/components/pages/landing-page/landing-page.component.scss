@@ -11,19 +11,20 @@ section {
   background-position: center;
   color: whitesmoke;
 
+  // button {
+  //   background-color: transparent;
+  //   color: whitesmoke;
+  //   box-shadow: 0 0 5px 0 var(--shadows);
+  //   cursor: pointer;
+  //   transition: 0.4s;
+  // }
+  // button:hover {
+  //   transition: 0.4s;
+  //   background-color: #fff;
+  //   color: #2c3e50;
+  // }
   button {
-    background-color: transparent;
-    color: whitesmoke;
-    border: 1px whitesmoke solid;
-    border-radius: 5px;
-    box-shadow: 0 0 5px 0 var(--shadows);
-    cursor: pointer;
-    transition: 0.4s;
-  }
-  button:hover {
-    transition: 0.4s;
-    background-color: #fff;
-    color: #2c3e50;
+    width: 150px;
   }
 
   h1 {
@@ -49,18 +50,6 @@ section {
   .text-outside {
     width: 100%;
     text-align: center;
-    .btn-go {
-      padding: 0.5rem;
-      font-size: 3rem;
-      border-radius: 15px;
-      width: 150px;
-      @include mediumPhoneMixin {
-        font-size: 26px;
-        background-color: whitesmoke;
-        color: #2c3e50;
-        margin-bottom: 3rem;
-      }
-    }
   }
   .form-wrapper {
     width: 100%;
@@ -92,32 +81,9 @@ form {
     margin: 1rem;
     text-align: center;
   }
-  input {
-    background-color: transparent;
-    border: none;
-    color: whitesmoke;
-    border-bottom: whitesmoke solid;
-    padding: 1rem;
-    margin: 1rem;
-    font-size: 1.5rem;
-    @include mediumPhoneMixin {
-      font-size: 20px;
-      margin-top: 0;
-    }
-  }
-  .btn {
-    font-size: 1.5rem;
-    border-radius: 15px;
-    width: 150px;
-    margin: auto;
-    margin-top: 1rem;
-    opacity: 1;
-    @include mediumPhoneMixin {
-      margin-bottom: 10px;
-      margin-top: 10px;
-      background-color: whitesmoke;
-      color: #2c3e50;
-    }
+  mat-form-field {
+    width: 100%;
+    margin: 15px 0;
   }
 }
 

@@ -10,12 +10,16 @@
       >
         <p>
           <i class="fa fa-briefcase mr-2"></i>
-          {{ 'COMPANY_FULL.INDUSTRY' | translate }}:
+          <span class="font-weight-bold"
+            >{{ 'COMPANY_FULL.INDUSTRY' | translate }}:</span
+          >
           {{ currentCompany?.technology }}
         </p>
         <p>
           <i class="fa fa-map-marker mr-2"></i>
-          {{ 'COMPANY_FULL.LOCATION' | translate }}:
+          <span class="font-weight-bold"
+            >{{ 'COMPANY_FULL.LOCATION' | translate }}:</span
+          >
           {{ currentCompany?.location }}
         </p>
       </div>
@@ -52,12 +56,18 @@
         />
       </div>
       <p>
-        <i class="fa fa-star mr-2"></i> {{ 'COMPANY_FULL.AVRG' | translate }} :
+        <i class="fa fa-star mr-2"></i>
+        <span class="font-weight-bold"
+          >{{ 'COMPANY_FULL.AVRG' | translate }} :
+        </span>
         {{ currentCompany?.averageReview }}
       </p>
       <p>
         <i class="fa fa-users mr-2"></i>
-        {{ 'COMPANY_FULL.EMPLOYEES' | translate }}: 50
+        <span class="font-weight-bold"
+          >{{ 'COMPANY_FULL.EMPLOYEES' | translate }}:
+        </span>
+        50
       </p>
       <a href="#" class="btn btn-danger d-block mx-auto">
         <i class="fa fa-link mr-2"></i>

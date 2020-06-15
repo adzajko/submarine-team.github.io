@@ -98,8 +98,11 @@
     flex: 1;
     width: 100%;
     padding-top: 2rem;
+    padding-right: 4rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    position: relative;
+    @extend .flex-column-center;
     @include mediumPhoneMixin {
       text-align: center;
     }
@@ -117,7 +120,8 @@ app-votes-container {
 
 div#report-dialog {
   @extend .fixed-full-height;
-  background-color: var(--shadows);
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
   @extend .flex-column-center;
   z-index: 100001;
   div {
