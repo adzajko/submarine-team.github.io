@@ -1,7 +1,11 @@
-<header>
+<header *ngIf="!checkIfFirstTimeUser()">
   <app-navbar></app-navbar>
 </header>
-<main #main [@routeAnimations]="prepareRoute(outlet)">
+<main
+  #main
+  [@routeAnimations]="prepareRoute(outlet)"
+  *ngIf="!checkIfFirstTimeUser()"
+>
   <router-outlet
     (activate)="onActivate($event)"
     #outlet="outlet"
@@ -15,7 +19,7 @@
 >
   <i class="fa fa-chevron-circle-up" aria-hidden="true"></i>
 </div>
-<footer>
+<footer *ngIf="!checkIfFirstTimeUser()">
   <app-footer></app-footer>
 </footer>
 <app-landing-page

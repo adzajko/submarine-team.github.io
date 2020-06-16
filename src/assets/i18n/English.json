@@ -80,7 +80,9 @@
     "COMPANY_REVIEWED_NOT": "Notify me when a company is reviewed",
     "COMPANY_ADD_NOT": "Notify me when a company is added",
     "FORGOT_PASS_BTN": "Forgot Password",
-    "DELETE_ACC_BTN": "Delete Account"
+    "DELETE_ACC_BTN": "Delete Account",
+    "PROS": "Pros",
+    "CONS": "Cons"
   },
   "TERMS_OF_SERVICE": {
     "TITLE": "General Terms of Service",

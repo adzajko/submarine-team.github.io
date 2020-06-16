@@ -3,9 +3,9 @@
 .parent {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  padding-bottom: 5rem;
   @include smallPhoneMixin {
     display: block;
   }
@@ -64,6 +64,7 @@ input:focus {
   }
 }
 
-mat-label {
-  color: var(--font-color);
+mat-label,
+mat-slider {
+  color: var(--font-color) !important;
 }

@@ -53,4 +53,8 @@ export class ContactComponent implements OnInit {
         this.toastrService.error(errorRes.message, 'Error.');
       });
   }
+
+  scrollToIframe() {
+    window.scrollTo(0, 500);
+  }
 }

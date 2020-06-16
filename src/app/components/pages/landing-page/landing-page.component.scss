@@ -1,28 +1,16 @@
 @import '../../../../assets/scss_extendables/index';
 
 section {
+  overflow: hidden;
   @extend .fixed-full-height;
   @extend .flex-column-center;
-  min-height: 100vh;
+  height: 100%;
   z-index: 10000000;
   background-image: url('/assets/landing-camec.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   color: whitesmoke;
-
-  // button {
-  //   background-color: transparent;
-  //   color: whitesmoke;
-  //   box-shadow: 0 0 5px 0 var(--shadows);
-  //   cursor: pointer;
-  //   transition: 0.4s;
-  // }
-  // button:hover {
-  //   transition: 0.4s;
-  //   background-color: #fff;
-  //   color: #2c3e50;
-  // }
   button {
     width: 150px;
   }

@@ -42,7 +42,7 @@
       >
         {{ 'HOMEPAGE.REPORT' | translate }}
       </button>
-      <div id="report-dialog" *ngIf="showDialog">
+      <div id="report-dialog" *ngIf="showDialog" [@enterAnimation]>
         <div>
           <h6 mat-dialog-title>{{ 'CONFIRM_DIALOG.REPORT_Q' | translate }}</h6>
           <hr />

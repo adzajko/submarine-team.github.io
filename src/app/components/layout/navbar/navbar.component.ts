@@ -41,9 +41,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.emitCurrentActiveTheme.subscribe(res => {
       if (res === 'dark') {
-        this.activeTheme = false;
-      } else {
         this.activeTheme = true;
+      } else {
+        this.activeTheme = false;
       }
     });
     this.afAuth.user.subscribe(res => {

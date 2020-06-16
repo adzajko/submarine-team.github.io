@@ -3,8 +3,8 @@ export interface Theme {
   properties: any;
 }
 
-export const light: Theme = {
-  name: 'light',
+export const dark: Theme = {
+  name: 'dark',
   properties: {
     '--primary': '#000617',
     '--secondary': '#2d3436',
@@ -31,8 +31,8 @@ export const light: Theme = {
   }
 };
 
-export const dark: Theme = {
-  name: 'dark',
+export const light: Theme = {
+  name: 'light',
   properties: {
     '--primary': '#D4E4E8',
     '--secondary': '#2d3436',
