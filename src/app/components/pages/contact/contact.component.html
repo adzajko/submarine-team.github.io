@@ -1,5 +1,5 @@
 <section class="contact-page-wrapper mt-75">
-  <div class="main-contact" data-aos="fade-up">
+  <div class="main-contact" data-aos="fade-right">
     <div class="contact-form">
       <h1 data-aos="fade-right">
         {{ 'CONTACT_PAGE.SEND_MESSAGE' | translate }}
@@ -41,19 +41,31 @@
     </div>
     <div class="contact-address">
       <div class="content">
-        <h1 data-aos="fade-right">
+        <h1 data-aos="fade-left">
           {{ 'CONTACT_PAGE.REACH_US' | translate }}
         </h1>
-        <p data-aos="fade-up">
+        <p data-aos="fade-up" id="map-marker" (click)="scrollToIframe()">
           <i class="fa fa-map-marker mr-2"></i> 512 Main St, West Yarmouth, MA
         </p>
         <p data-aos="fade-up">
           <i class="fa fa-envelope mr-2"></i> submarine@mail.com
         </p>
         <p data-aos="fade-up">
-          <i class="fa fa-volume-control-phone mr-2"></i> (666) 678-4590
+          <i class="fa fa-phone mr-2"></i> (666) 678-4590
         </p>
       </div>
     </div>
+  </div>
+  <div class="divider" data-aos="fade-up"></div>
+  <div class="d-flex justify-content-center" data-aos="fade-left">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13683.405257598348!2d-97.78605276962381!3d30.97463120485389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864534d103838f89%3A0x9bdb6ce32533d174!2sDing%20Dong%2C%20TX%2076542%2C%20USA!5e0!3m2!1sen!2smk!4v1592327548779!5m2!1sen!2smk"
+      height="300"
+      frameborder="0"
+      style="border:0;"
+      allowfullscreen="false"
+      aria-hidden="false"
+      tabindex="0"
+    ></iframe>
   </div>
 </section>

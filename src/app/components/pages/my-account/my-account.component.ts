@@ -7,12 +7,24 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
-import { MaterialModule } from '../../../modules/material/material.module';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.scss'],
+  animations: [
+    trigger('enterAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class MyAccountComponent implements OnInit, OnDestroy {
   companies = [];
@@ -33,18 +45,18 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.translateService.get('TOASTR').subscribe((response) => {
+    this.translateService.get('TOASTR').subscribe(response => {
       this.toastrMessages = response;
     });
     this.authService.showHTTPLoader(true);
     this.subscription = this.companyService.getCompanies().subscribe(
-      (data) => {
+      data => {
         this.authService.showHTTPLoader(false);
-        data.map((e) => {
+        data.map(e => {
           this.companies.push(e.payload.doc.data());
         });
       },
-      (errorRes) => {
+      errorRes => {
         this.authService.showHTTPLoader(false);
         this.toastr.error(errorRes.message, this.toastrMessages.ERROR_TITLE);
       }
@@ -60,12 +72,12 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     this.inputForm.reset();
     review.timeStamp = new Date();
 
-    this.companies.forEach((c) => {
+    this.companies.forEach(c => {
       if (c.name === review.companyName) {
         review.imagePath = c.logo;
       }
     });
-    this.authService.getUsername().subscribe((e) => {
+    this.authService.getUsername().subscribe(e => {
       if (!e.emailVerified) {
         this.toastr.error(
           this.toastrMessages.UNVERIFIED,
@@ -79,7 +91,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
 
       this.reviewService
         .postReview(review)
-        .then((response) => {
+        .then(response => {
           this.reviewService.upvoteReview(response.id, 0, '');
           this.authService.showHTTPLoader(false);
           this.toastr.success(
@@ -87,7 +99,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
             this.toastrMessages.SUCCESS_TITLE
           );
         })
-        .catch((errorRes) => {
+        .catch(errorRes => {
           this.authService.showHTTPLoader(false);
           this.toastr.error(errorRes.message, this.toastrMessages.ERROR_TITLE);
         });
@@ -98,10 +110,10 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   requestVerification() {
     if (this.accountChangesForm.value.linkedInAccount) {
       this.authService.showHTTPLoader(true);
-      this.authService.getUsername().subscribe((e) => {
+      this.authService.getUsername().subscribe(e => {
         this.af.collection('verifications').add({
           email: e.email,
-          linkedin: this.accountChangesForm.value.linkedInAccount,
+          linkedin: this.accountChangesForm.value.linkedInAccount
         });
       });
       this.authService.showHTTPLoader(false);
@@ -122,7 +134,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
         this.toastrMessages.ERROR_TITLE
       );
     } else {
-      this.authService.afAuth.currentUser.then((user) =>
+      this.authService.afAuth.currentUser.then(user =>
         user
           .updateEmail(email)
           .then(() => {
@@ -131,7 +143,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
               this.toastrMessages.SUCCESS_TITLE
             );
           })
-          .catch((err) => {
+          .catch(err => {
             this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
           })
       );
@@ -147,7 +159,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   }
 
   deleteAccountDialog() {
-    this.authService.afAuth.currentUser.then((user) =>
+    this.authService.afAuth.currentUser.then(user =>
       user
         .delete()
         .then(() => {
@@ -156,7 +168,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
             this.toastrMessages.SUCCESS_TITLE
           );
         })
-        .catch((err) => {
+        .catch(err => {
           this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
         })
     );
@@ -173,7 +185,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
         this.accountChangesForm.value.newPasswordConfirm
       ) {
         this.authService.showHTTPLoader(true);
-        this.authService.getUsername().subscribe((e) => {
+        this.authService.getUsername().subscribe(e => {
           e.updatePassword(this.accountChangesForm.value.newPassword)
             .then(() => {
               this.authService.showHTTPLoader(false);
@@ -182,7 +194,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
                 this.toastrMessages.SUCCESS_TITLE
               );
             })
-            .catch((err) => {
+            .catch(err => {
               this.authService.showHTTPLoader(false);
               this.toastr.error(err.message, this.toastrMessages.ERROR_TITLE);
             });
@@ -214,7 +226,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       rating: new FormControl(rating, Validators.required),
       textExcerpt: new FormControl(textExcerpt, Validators.required),
       reviewPros: new FormControl(reviewPros),
-      reviewCons: new FormControl(reviewCons),
+      reviewCons: new FormControl(reviewCons)
     });
 
     // Account Changes Form
@@ -234,7 +246,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       newPasswordConfirm: new FormControl(newPasswordConfirm),
       companyAddedNotification: new FormControl(companyAddedNotification),
       myCompanyNotifications: new FormControl(myCompanyNotifications),
-      multipleCompanies: new FormControl(multipleCompanies),
+      multipleCompanies: new FormControl(multipleCompanies)
     });
   }
 

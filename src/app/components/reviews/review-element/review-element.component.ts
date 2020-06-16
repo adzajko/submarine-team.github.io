@@ -2,11 +2,24 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ReviewService } from '../../../shared/review.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-review-element',
   templateUrl: './review-element.component.html',
-  styleUrls: ['./review-element.component.scss']
+  styleUrls: ['./review-element.component.scss'],
+  animations: [
+    trigger('enterAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('200ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('200ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class ReviewElementComponent implements OnInit {
   formattedDate = '';

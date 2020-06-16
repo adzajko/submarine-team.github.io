@@ -1,6 +1,7 @@
 @import '../../../../assets/scss_extendables/index';
 
 .contact-page-wrapper {
+  overflow-x: hidden;
   @extend .wavey-background;
   padding: 8% 0;
   @include mediumPhoneMixin {
@@ -134,4 +135,28 @@
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border: 1px solid var(--warn);
+}
+
+div iframe {
+  margin-top: 5rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.divider {
+  width: 80%;
+  margin: 9rem auto 4rem auto;
+  height: 5px;
+  background-color: var(--font-color);
+}
+
+#map-marker {
+  cursor: pointer;
+  transition: 0.4s;
+  transform: scale(1);
+}
+
+#map-marker:hover {
+  transition: 0.4s;
+  transform: scale(1.1);
 }

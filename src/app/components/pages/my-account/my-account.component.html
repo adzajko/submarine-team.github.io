@@ -49,7 +49,9 @@
     </mat-form-field>
 
     <mat-form-field data-aos="fade-up">
-      <mat-label style="color: var(--nephritis);">Pros</mat-label>
+      <mat-label style="color: var(--nephritis);">{{
+        'MY_ACCOUNT.PROS' | translate
+      }}</mat-label>
       <textarea
         matInput
         cols="30"
@@ -62,7 +64,9 @@
     </mat-form-field>
 
     <mat-form-field data-aos="fade-up">
-      <mat-label style="color: var(--warn);">Cons</mat-label>
+      <mat-label style="color: var(--warn);">{{
+        'MY_ACCOUNT.CONS' | translate
+      }}</mat-label>
       <textarea
         matInput
         cols="30"
@@ -171,7 +175,7 @@
       {{ 'MY_ACCOUNT.DELETE_ACC_BTN' | translate }}
     </button>
     <!--Delete Account confirmation modal-->
-    <div class="dialog-container" *ngIf="delAccDialog">
+    <div [@enterAnimation] class="dialog-container" *ngIf="delAccDialog">
       <div
         (clickOutside)="toggleAccountDel()"
         [exclude]="'.btnDelete'"
