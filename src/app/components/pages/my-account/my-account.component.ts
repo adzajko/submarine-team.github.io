@@ -225,8 +225,8 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       companyName: new FormControl(companyName),
       rating: new FormControl(rating, Validators.required),
       textExcerpt: new FormControl(textExcerpt, Validators.required),
-      reviewPros: new FormControl(reviewPros),
-      reviewCons: new FormControl(reviewCons)
+      reviewPros: new FormControl(reviewPros, Validators.required),
+      reviewCons: new FormControl(reviewCons, Validators.required)
     });
 
     // Account Changes Form

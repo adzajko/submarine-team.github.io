@@ -1,9 +1,10 @@
 export interface Review {
-  reviewId: string;
   companyName: string;
-  rating: number;
-  textExcerpt: string;
-  userName: string;
   imagePath: string;
-  timeStamp: string;
+  rating: number;
+  reportCounter: number;
+  reviewCons: string;
+  reviewPros: string;
+  textExcerpt: string;
+  timeStamp: Date;
 }
