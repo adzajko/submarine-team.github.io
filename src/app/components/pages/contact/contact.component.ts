@@ -46,7 +46,7 @@ export class ContactComponent implements OnInit {
       .postComment(comment)
       .then(response => {
         this.authService.showHTTPLoader(false);
-        this.toastrService.success('Thank You!');
+        this.toastrService.success('Your message has been sent.', 'Thank You!');
       })
       .catch(errorRes => {
         this.authService.showHTTPLoader(false);

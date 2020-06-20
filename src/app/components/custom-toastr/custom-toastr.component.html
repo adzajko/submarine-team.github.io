@@ -1,0 +1,12 @@
+<div class="custom-toast-container">
+  <div
+    class="mark-container"
+    [ngClass]="
+      toastPackage.toastType === 'toast-error' ? 'toast-error' : 'toast-success'
+    "
+  ></div>
+  <div class="custom-toast-content">
+    <h6>{{ title }}</h6>
+    <p>{{ message }}</p>
+  </div>
+</div>

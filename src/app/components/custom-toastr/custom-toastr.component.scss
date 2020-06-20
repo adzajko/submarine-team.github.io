@@ -1,0 +1,39 @@
+:host {
+  background-color: whitesmoke;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  border-radius: 3px 3px 3px 3px;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.custom-toast-container {
+  position: relative;
+  h6 {
+    text-align: center;
+    color: #212121;
+  }
+  p {
+    color: #212121;
+    margin: 0;
+    font-size: 14px;
+    margin-left: 65px;
+    text-align: center;
+  }
+}
+
+.mark-container {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 18px;
+  z-index: 10;
+  background-color: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 3px 0 var(--font-color);
+}

@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 // <Firebase Imports>
 import { AngularFireModule } from '@angular/fire';
@@ -31,6 +31,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { LandingPageComponent } from './components/pages/landing-page/landing-page.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CustomToastrComponent } from './components/custom-toastr/custom-toastr.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     HttpLoaderComponent,
     TermsOfServiceComponent,
     FourOhFourComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    CustomToastrComponent
   ],
   imports: [
     SharedModule,
@@ -58,7 +60,11 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     CarouselModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    ToastContainerModule,
+    ToastrModule.forRoot({
+      toastComponent: CustomToastrComponent,
+      positionClass: 'inline'
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FormsModule,
@@ -68,6 +74,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ClickOutsideModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CustomToastrComponent]
 })
 export class AppModule {}
