@@ -1,45 +1,68 @@
 <section class="mt-75">
-  <div class="main-container container mt-5">
-    <div class="review container">
-      <div class="company-header">
-        <h1 data-aos="fade-right">{{ activeReview?.companyName }}</h1>
+  <div class="review-container" data-aos="fade-up">
+    <div class="company-logo-container">
+      <img
+        src="{{ activeReview?.imagePath }}"
+        alt="{{ activeReview?.companyName }}"
+        class="img-fluid"
+      />
+    </div>
+    <div class="main-review-container">
+      <div class="review-body-container">
+        <a
+          data-aos="fade-right"
+          [routerLink]="['/companies', activeReview?.companyName]"
+          *ngIf="activeReview"
+          >{{ activeReview?.companyName }}</a
+        >
+        <div class="info-container" data-aos="fade-up">
+          <div class="rating-container">
+            <i class="fa fa-star mr-2" *ngFor="let star of starRating"></i>
+          </div>
+          <p class="font-italic">
+            <i class="fa fa-calendar mr-2"></i>{{ transformedTimeStamp }}
+          </p>
+        </div>
+        <p class="text-center">{{ activeReview?.textExcerpt }}</p>
       </div>
-      <div class="review-info my-5 d-flex justify-content-between">
-        <p data-aos="fade-up">
-          <i class="fa fa-calendar mr-2"></i>
-          {{ activeReview?.timeStamp.seconds * 1000 | date }}
-        </p>
-        <p data-aos="fade-up">
-          <i class="fa fa-star mr-2"></i>
-          {{ activeReview?.rating }}
-        </p>
-      </div>
-      <div class="review-text" data-aos="fade-up">
-        <p>
-          {{ activeReview?.textExcerpt }}
-        </p>
+      <div class="pros-cons-container">
+        <div class="pros-container" data-aos="fade-up">
+          <h6 class="title pros-title">PROS:</h6>
+          <p>{{ activeReview?.reviewPros }}</p>
+        </div>
+        <div class="cons-container" data-aos="fade-up">
+          <h6 class="title cons-title">CONS:</h6>
+          <p>{{ activeReview?.reviewCons }}</p>
+        </div>
       </div>
     </div>
-    <div class="company container">
-      <div class="img-container" data-aos="fade-up">
-        <img
-          class="img-fluid"
-          src="{{ activeReview?.imagePath }}"
-          alt="{{ activeReview?.companyName }}"
-        />
+    <div
+      class="votes-report-container d-flex justify-content-around"
+      data-aos="fade-up"
+    >
+      <app-votes-container></app-votes-container>
+      <button mat-raised-button color="warn" (click)="openReviewDialog()">
+        Report
+      </button>
+    </div>
+    <div class="report-dialog" *ngIf="reportReview" [@enterAnimation]>
+      <div>
+        <h6 mat-dialog-title>{{ 'CONFIRM_DIALOG.REPORT_Q' | translate }}</h6>
+        <hr />
+        <div mat-dialog-actions class="btn-group d-flex justify-content-center">
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="sendReport()"
+            class="mr-3"
+          >
+            {{ 'CONFIRM_DIALOG.YES' | translate }}
+          </button>
+          <button (click)="openReviewDialog()" mat-raised-button>
+            {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
+          </button>
+        </div>
       </div>
-      <p data-aos="fade-up">
-        <i class="fa fa-star mr-2"></i> {{ 'COMPANY_FULL.AVRG' | translate }} :
-        {{ activeReview?.rating }}
-      </p>
-      <p>
-        <i class="fa fa-users mr-2"></i>
-        {{ 'COMPANY_FULL.EMPLOYEES' | translate }}: 50
-      </p>
-      <a href="#" class="btn btn-danger d-block mx-auto" data-aos="fade-up">
-        <i class="fa fa-link mr-2"></i>
-        {{ 'COMPANY_FULL.WEBSITE' | translate }}</a
-      >
     </div>
   </div>
 </section>

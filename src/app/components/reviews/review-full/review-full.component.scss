@@ -1,71 +1,183 @@
 @import '../../../../assets/scss_extendables/index';
 
-section {
+section.mt-75 {
   min-height: 100vh;
   padding-bottom: 15px;
   @extend .wavey-background;
-  p,
-  h1 {
-    color: var(--font-color);
-  }
-  p {
-    margin: 0;
-  }
-  p,
-  a {
-    font-size: 20px;
-    @include mediumPhoneMixin {
-      font-size: 16px;
-    }
-  }
-  i.fa {
-    font-size: 26px;
-    @include mediumPhoneMixin {
-      font-size: 20px;
-    }
-  }
+  color: var(--font-color);
+  @extend .flex-column-center;
+}
 
-  h1 {
-    position: relative;
-    font-size: 52px;
-    padding-bottom: 10px;
-    @include mediumPhoneMixin {
-      font-size: 32px;
-    }
+.review-container {
+  padding: 1rem;
+  width: 70%;
+  height: 500px;
+  background-color: var(--home-cards);
+  box-shadow: 3px 3px 5px 0 var(--shadows);
+  border-radius: 15px;
+  position: relative;
+  @include mediumPhoneMixin {
+    width: 90%;
+    height: auto;
+    margin-top: 8rem;
   }
 }
 
-.main-container {
+.company-logo-container {
+  position: absolute;
+  top: -15%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px 0 var(--shadows);
+  @extend .flex-column-center;
+  .img-fluid {
+    width: 110px;
+  }
+}
+
+.main-review-container {
   display: flex;
+  height: 85%;
+  justify-content: space-between;
   @include mediumPhoneMixin {
     display: block;
   }
 }
 
-.img-fluid {
-  width: 150px;
-}
-
-.review-info {
-  position: relative;
-  padding-bottom: 25px;
-}
-
-.company {
-  p {
-    margin: 1rem 0;
-  }
-  @extend .flex-column-center;
-  border: 1px solid var(--font-color);
-  margin-left: 5rem;
-  border-radius: 15px;
-  box-shadow: inset 0 0 3px 0 var(--font-color);
+.review-body-container {
+  width: 65%;
   @include mediumPhoneMixin {
-    margin: 3rem 0 1rem 0;
+    width: 100%;
   }
-  a.btn {
+  a {
+    text-align: center;
+    display: block;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-size: 42px;
+    @extend .animatedBefore;
+    text-decoration: none;
     @include mediumPhoneMixin {
-      margin-bottom: 1rem;
+      margin-top: 2rem;
     }
+  }
+}
+
+i.fa.fa-star {
+  font-size: 26px;
+  color: #ffa000;
+  @include mediumPhoneMixin {
+    font-size: 18px;
+  }
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 3rem auto;
+  @include smallPhoneMixin {
+    font-size: 13px;
+    display: block;
+    text-align: center;
+  }
+  .font-italic {
+    @include smallPhoneMixin {
+      margin-top: 2rem;
+      font-size: 16px;
+    }
+  }
+}
+
+.pros-cons-container {
+  width: 35%;
+  position: relative;
+  margin-top: 4rem;
+  @include mediumPhoneMixin {
+    width: 100%;
+  }
+  .pros-container,
+  .cons-container {
+    margin-left: 5rem;
+    @include mediumPhoneMixin {
+      margin-left: 0;
+      text-align: center;
+    }
+    .title {
+      font-size: 36px;
+      @include mediumPhoneMixin {
+        font-size: 25px;
+      }
+    }
+    .title.pros-title {
+      color: #00796b;
+    }
+    .title.cons-title {
+      color: #d32f2f;
+    }
+  }
+  .cons-container {
+    margin-top: 4rem;
+  }
+  .pros-container {
+    @include mediumPhoneMixin {
+      padding-top: 2rem;
+    }
+  }
+}
+
+.pros-cons-container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--font-color);
+  @include mediumPhoneMixin {
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+  }
+}
+
+.votes-report-container {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+  @include mediumPhoneMixin {
+    width: 100%;
+    margin-top: 3rem;
+  }
+  app-votes-container {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+  }
+
+  button {
+    font-size: 24px;
+    font-weight: 300;
+    height: fit-content;
+    align-self: center;
+  }
+}
+
+div.report-dialog {
+  @extend .fixed-full-height;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  @extend .flex-column-center;
+  z-index: 100001;
+  div {
+    h6 {
+      color: #212121;
+      font-size: 18px;
+    }
+    background-color: whitesmoke;
+    padding: 1rem;
+    border-radius: 15px;
   }
 }
