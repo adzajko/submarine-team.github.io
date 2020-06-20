@@ -10,9 +10,4 @@ export class AboutComponent implements OnInit {
   constructor(private toastr: ToastrService) {}
 
   ngOnInit(): void {}
-
-  triggerToast() {
-    this.toastr.success('Success');
-    this.toastr.error('Error');
-  }
 }
