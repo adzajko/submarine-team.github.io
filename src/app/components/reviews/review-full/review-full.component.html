@@ -40,7 +40,10 @@
       class="votes-report-container d-flex justify-content-around"
       data-aos="fade-up"
     >
-      <app-votes-container></app-votes-container>
+      <app-votes-container
+        [id]="currentReviewId"
+        [username]="activeReview?.userName"
+      ></app-votes-container>
       <button mat-raised-button color="warn" (click)="openReviewDialog()">
         {{ 'HOMEPAGE.REPORT' | translate }}
       </button>

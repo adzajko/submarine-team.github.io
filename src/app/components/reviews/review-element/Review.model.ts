@@ -7,4 +7,5 @@ export interface Review {
   reviewPros: string;
   textExcerpt: string;
   timeStamp: Date;
+  userName: string;
 }

@@ -49,13 +49,15 @@ section.mt-75 {
 
 .review-body-container {
   width: 65%;
+  padding-right: 10px;
   @include mediumPhoneMixin {
     width: 100%;
+    padding-right: 0;
   }
   a {
     text-align: center;
-    display: block;
-    margin-left: 1rem;
+    display: inline-block;
+    margin-left: 18rem;
     cursor: pointer;
     font-size: 42px;
     @extend .animatedBefore;
