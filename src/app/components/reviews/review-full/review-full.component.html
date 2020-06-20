@@ -27,11 +27,11 @@
       </div>
       <div class="pros-cons-container">
         <div class="pros-container" data-aos="fade-up">
-          <h6 class="title pros-title">PROS:</h6>
+          <h6 class="title pros-title">{{ 'MY_ACCOUNT.PROS' | translate }}:</h6>
           <p>{{ activeReview?.reviewPros }}</p>
         </div>
         <div class="cons-container" data-aos="fade-up">
-          <h6 class="title cons-title">CONS:</h6>
+          <h6 class="title cons-title">{{ 'MY_ACCOUNT.CONS' | translate }}:</h6>
           <p>{{ activeReview?.reviewCons }}</p>
         </div>
       </div>
@@ -42,7 +42,7 @@
     >
       <app-votes-container></app-votes-container>
       <button mat-raised-button color="warn" (click)="openReviewDialog()">
-        Report
+        {{ 'HOMEPAGE.REPORT' | translate }}
       </button>
     </div>
     <div class="report-dialog" *ngIf="reportReview" [@enterAnimation]>
