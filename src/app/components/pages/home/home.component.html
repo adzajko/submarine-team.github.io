@@ -1,11 +1,7 @@
 <section class="dark-bg">
   <section class="main-section w-100">
     <section class="hero-companies my-5">
-      <h1
-        class="featured-companies-h"
-        data-aos="fade-right"
-        data-aos-delay="200"
-      >
+      <h1 class="featured-companies-h" data-aos="fade-right">
         {{ 'HOMEPAGE.FEATURED_TITLE' | translate }}
       </h1>
       <div
@@ -69,11 +65,7 @@
         </div>
       </div>
       <div class="top-reviewed-companies mt-home">
-        <h3
-          class="my-5 underlineBefore p-2"
-          data-aos="fade-right"
-          data-aos-delay="200"
-        >
+        <h3 class="my-5 underlineBefore p-2" data-aos="fade-right">
           {{ 'HOMEPAGE.TOP_REVIEWED' | translate }}
         </h3>
         <div class="owl-container" data-aos="fade-up">
@@ -109,12 +101,13 @@
                         <p>{{ company?.averageReview }}</p>
                       </div>
                     </div>
-                    <a
+                    <button
                       [routerLink]="['/companies', company?.name]"
                       mat-raised-button
                       class="d-block mx-auto mt-5 td-none"
-                      >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
                     >
+                      {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
+                    </button>
                   </div>
                 </div>
               </ng-template>
@@ -123,11 +116,7 @@
         </div>
       </div>
     </section>
-    <h3
-      class="mt-home mb-3 underlineBefore p-2 reviews"
-      data-aos="fade-right"
-      data-aos-delay="200"
-    >
+    <h3 class="mt-home mb-3 underlineBefore p-2 reviews" data-aos="fade-right">
       {{ 'HOMEPAGE.REVIEWS' | translate }}
     </h3>
     <section class="reviews-container" data-aos="fade-up">

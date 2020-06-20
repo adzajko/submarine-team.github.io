@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/scss/bootstrap';
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import './assets/scss_extendables/index';
 
 * {
   box-sizing: border-box;
@@ -84,4 +85,31 @@ i.carousel-fa {
 i.fa.carousel-fa.fa-chevron-left,
 i.fa.carousel-fa.fa-chevron-right {
   font-size: 40px;
+}
+
+.toast-container.inline {
+  position: fixed;
+  top: 3%;
+  right: 1%;
+}
+
+.toast-container .ngx-toastr {
+  border: 3px solid var(--primary);
+  margin-top: 1rem;
+  margin-right: 2rem;
+  display: inline-block;
+  box-shadow: 4px 4px 4px 0 var(--shadows);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.toast-container .ngx-toastr::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 25%;
+  height: 100%;
+  background-color: var(--primary);
+  z-index: 0;
 }
