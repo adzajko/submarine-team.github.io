@@ -36,16 +36,27 @@ section {
 }
 
 .main-container {
+  background-color: var(--home-cards);
+  box-shadow: 3px 3px 5px 0 var(--shadows);
   padding: 2rem;
   border-radius: 15px;
   display: flex;
   @include mediumPhoneMixin {
     display: block;
+    width: 90%;
+    margin: auto;
   }
 }
 
-.img-fluid {
+.img-container {
   width: 150px;
+  height: 150px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px 0 var(--shadows);
+  .img-fluid {
+    width: 150px;
+  }
 }
 
 .company-info {
@@ -58,12 +69,13 @@ section {
     margin: 1rem 0;
   }
   @extend .flex-column-center;
-  border: 1px solid var(--font-color);
+  border-left: 3px solid var(--font-color);
   margin-left: 5rem;
-  border-radius: 15px;
-  box-shadow: inset 0 0 3px 0 var(--font-color);
   @include mediumPhoneMixin {
     margin: 3rem 0 1rem 0;
+    padding-top: 1rem;
+    border-left: none;
+    border-top: 3px solid var(--font-color);
   }
   a.btn {
     @include mediumPhoneMixin {
@@ -76,18 +88,27 @@ section {
   margin-top: 5rem;
   padding-top: 2rem;
   border-top: 3px solid var(--font-color);
+  @include mediumPhoneMixin {
+    width: 90%;
+  }
+
+  .review-grid-container {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+    gap: 2rem;
+    @include mediumPhoneMixin {
+      display: block;
+    }
+  }
 
   .review-element {
-    background: linear-gradient(
-      163deg,
-      var(--tertiary) 0%,
-      var(--primary) 100%
-    );
+    background-color: var(--home-cards);
     padding: 1rem;
     box-shadow: 0 0 5px 0 var(--shadows);
     border-radius: 5px;
     margin-bottom: 2rem;
-    width: 50%;
+    width: 100%;
     overflow: hidden;
     @include mediumPhoneMixin {
       width: 100%;

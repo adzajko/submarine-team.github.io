@@ -76,7 +76,7 @@
     </div>
   </div>
   <div class="reviews-container container" #revContainer data-aos="fade-up">
-    <div *ngIf="canLoadReviews">
+    <div *ngIf="canLoadReviews" class="review-grid-container">
       <div
         *ngFor="let element of reviews"
         class=" card review-element"
@@ -88,13 +88,14 @@
         </div>
         <div class="card-body">
           <p class="mt-2 mb-5">{{ element.textExcerpt }}</p>
-          <a
+          <button
             class="d-block mx-auto"
             mat-raised-button
             color="warn"
             [routerLink]="['/reviews', element.id]"
-            >{{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}</a
           >
+            {{ 'HOMEPAGE.SEE_MORE_BTN' | translate }}
+          </button>
         </div>
       </div>
     </div>
