@@ -36,6 +36,9 @@ section.mt-75 {
   .img-fluid {
     width: 110px;
   }
+  @include smallPhoneMixin {
+    top: -10%;
+  }
 }
 
 .main-review-container {
@@ -64,6 +67,7 @@ section.mt-75 {
     text-decoration: none;
     @include mediumPhoneMixin {
       margin-top: 2rem;
+      margin-left: 0;
     }
   }
 }
@@ -181,5 +185,12 @@ div.report-dialog {
     background-color: whitesmoke;
     padding: 1rem;
     border-radius: 15px;
+  }
+}
+
+.mx-bojana {
+  margin: 0 4rem;
+  @include mediumPhoneMixin {
+    margin: 0;
   }
 }

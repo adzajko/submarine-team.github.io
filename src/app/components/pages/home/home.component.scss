@@ -54,11 +54,12 @@
     }
     position: relative;
     width: 100%;
-    box-shadow: 1px 1px 3px 0 var(--reverse-font-color);
-    border-radius: 15px;
+    border-top: 1px solid var(--font-color);
+    border-left: 1px solid var(--font-color);
     .img-container {
       position: absolute;
       top: -15%;
+      left: -10%;
       border-radius: 50%;
       background-color: white;
       box-shadow: 1px 1px 5px 0 #212121;

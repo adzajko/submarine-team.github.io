@@ -21,7 +21,7 @@
   </div>
   <div class="review-container-right">
     <p id="textTruncate">
-      {{ reviewElement.data.textExcerpt }}
+      {{ reviewElement.data.textExcerpt | slice: 0:64 }}...
     </p>
     <div class="votes-container">
       <app-votes-container
