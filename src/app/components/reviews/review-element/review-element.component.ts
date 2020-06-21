@@ -48,6 +48,9 @@ export class ReviewElementComponent implements OnInit {
     for (let i = 1; i <= value; i++) {
       transformedArray.push(i);
     }
+    while (transformedArray.length < 10) {
+      transformedArray.push(11);
+    }
     return transformedArray;
   }
 
