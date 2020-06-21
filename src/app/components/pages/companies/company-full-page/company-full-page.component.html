@@ -1,5 +1,5 @@
 <section class="mt-75">
-  <div class="main-container container mt-5">
+  <div class="main-container container mt-5" data-aos="fade-up">
     <div class="main-body container">
       <div class="company-header">
         <h1 data-aos="fade-right">{{ currentCompany?.name }}</h1>
@@ -87,7 +87,7 @@
           <p><i class="fa fa-star"></i> {{ element.rating }} / 10</p>
         </div>
         <div class="card-body">
-          <p class="mt-2 mb-5">{{ element.textExcerpt }}</p>
+          <p class="mt-2 mb-5">{{ element.textExcerpt | slice: 0:64 }}...</p>
           <button
             class="d-block mx-auto"
             mat-raised-button
