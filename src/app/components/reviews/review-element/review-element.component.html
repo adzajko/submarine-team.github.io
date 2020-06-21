@@ -14,7 +14,11 @@
         >{{ reviewElement.data.companyName }}</a
       >
       <div class="stars-container">
-        <i class="fa fa-star" *ngFor="let star of currentRate"></i>
+        <i
+          class="fa fa-star"
+          *ngFor="let star of currentRate"
+          [ngStyle]="star > 10 ? { opacity: 0.2 } : { opacity: 1 }"
+        ></i>
       </div>
       <p class="timestamp">{{ formattedDate }}</p>
     </div>

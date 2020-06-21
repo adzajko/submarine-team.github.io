@@ -17,7 +17,11 @@
         >
         <div class="info-container" data-aos="fade-up">
           <div class="rating-container">
-            <i class="fa fa-star mr-2" *ngFor="let star of starRating"></i>
+            <i
+              class="fa fa-star mr-2"
+              *ngFor="let star of starRating"
+              [ngStyle]="star > 10 ? { opacity: 0.2 } : { opacity: 1 }"
+            ></i>
           </div>
           <p class="font-italic">
             <i class="fa fa-calendar mr-2"></i>{{ transformedTimeStamp }}
