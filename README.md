@@ -6,6 +6,8 @@ Check out our site at :
 
 ### [AWS S3 Mirror](http://thesubmarineproject.s3-website.eu-central-1.amazonaws.com)
 
+### [GitHub Pages Mirror](http://adzajko.github.io)
+
 ## The Submarine Team
 
 ### Product Owner, Team Lead, DevOps
