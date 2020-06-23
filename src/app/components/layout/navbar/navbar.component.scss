@@ -44,10 +44,6 @@ mat-toolbar {
   }
 }
 
-#selectLang {
-  background-color: transparent;
-}
-
 .navbar-nav {
   max-width: 50%;
 }
@@ -58,6 +54,18 @@ mat-toolbar {
 #sub-to-home:hover {
   transform: scale(1.1);
   transition: 0.4s;
+}
+
+#lang-acc-controls {
+  mat-form-field {
+    width: 100px;
+    @include smallPhoneMixin {
+      width: 75px;
+    }
+  }
+  i {
+    align-self: center;
+  }
 }
 
 .overlay {
@@ -248,4 +256,9 @@ mat-toolbar {
 
 i#fa-fa-user.fa.fa-user.login-modal {
   color: var(--font-color);
+}
+
+.custom-panel.mat-select-panel {
+  color: var(--font-color);
+  background-color: var(--primary);
 }

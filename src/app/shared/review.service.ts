@@ -50,7 +50,12 @@ export class ReviewService {
     return this.firestore.collection('reviews').add(review);
   }
 
-  updateReview(review: Review) {}
+  updateReview(reviewId: string, review: Review) {
+    return this.firestore
+      .collection('reviews')
+      .doc(reviewId)
+      .set(review, { merge: true });
+  }
 
   upvoteReview(reviewId: string, value: number, user: string) {
     this.firestore
@@ -78,7 +83,10 @@ export class ReviewService {
   }
 
   deleteReview(reviewId: string) {
-    this.firestore.doc('reviews/' + reviewId).delete();
+    return this.firestore
+      .collection('reviews')
+      .doc(`${reviewId}`)
+      .delete();
   }
 
   resolvePayload(e: any) {

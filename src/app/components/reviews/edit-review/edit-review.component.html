@@ -1,0 +1,85 @@
+<div class="edit-container" data-aos="fade-up">
+  <form [formGroup]="editWindowForm" (ngSubmit)="submitEditReviewForm()">
+    <div class="mt-3" data-aos="fade-up">
+      <div class="w-100">
+        <p class="d-block w-100">{{ 'MY_ACCOUNT.RATING' | translate }}*</p>
+        <mat-slider
+          required
+          thumbLabel="true"
+          step="1"
+          min="1"
+          class="w-100"
+          max="10"
+          type="range"
+          formControlName="rating"
+        >
+        </mat-slider>
+      </div>
+    </div>
+    <!-- Review Text -->
+    <mat-form-field data-aos="fade-up">
+      <mat-label>
+        Review Text
+      </mat-label>
+      <textarea
+        matInput
+        required
+        style="resize: none;"
+        formControlName="textExcerpt"
+        cols="30"
+        rows="10"
+      >
+      </textarea>
+    </mat-form-field>
+
+    <mat-form-field data-aos="fade-up">
+      <mat-label style="color: var(--nephritis);">{{
+        'MY_ACCOUNT.PROS' | translate
+      }}</mat-label>
+      <textarea
+        matInput
+        cols="30"
+        rows="10"
+        required
+        style="resize: none;"
+        cols="30"
+        rows="2"
+        formControlName="reviewPros"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field data-aos="fade-up">
+      <mat-label style="color: var(--warn);">{{
+        'MY_ACCOUNT.CONS' | translate
+      }}</mat-label>
+      <textarea
+        matInput
+        cols="30"
+        rows="10"
+        style="resize: none;"
+        cols="30"
+        rows="2"
+        required
+        formControlName="reviewCons"
+      ></textarea>
+    </mat-form-field>
+    <div class="btn-group">
+      <button
+        type="submit"
+        mat-raised-button
+        color="warn"
+        [disabled]="!editWindowForm.valid"
+      >
+        Finish editing
+      </button>
+      <button
+        type="button"
+        (click)="discardWindow()"
+        mat-raised-button
+        color="accent"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

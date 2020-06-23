@@ -46,7 +46,8 @@ header {
   width: 100%;
 }
 
-app-login {
+app-login,
+app-edit-review {
   background-color: var(--shadowsOpacified);
   @extend .fixed-full-height;
   z-index: 20;

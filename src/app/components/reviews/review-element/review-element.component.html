@@ -24,6 +24,10 @@
     </div>
   </div>
   <div class="review-container-right">
+    <div class="review-controls" *ngIf="isCurrentUserOwner">
+      <i class="fa fa-edit" (click)="editReview()"></i>
+      <i class="fa fa-trash" (click)="deleteReviewDialog()"></i>
+    </div>
     <p id="textTruncate">
       {{ reviewElement.data.textExcerpt | slice: 0:64 }}...
     </p>
@@ -63,6 +67,30 @@
               {{ 'CONFIRM_DIALOG.YES' | translate }}
             </button>
             <button (click)="openReportDialog()" mat-raised-button>
+              {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="delete-dialog" *ngIf="showDeleteDialog" [@enterAnimation]>
+        <div>
+          <h6 mat-dialog-title>
+            {{ 'CONFIRM_DIALOG.DELETE_REVIEW_Q' | translate }}
+          </h6>
+          <hr />
+          <div
+            mat-dialog-actions
+            class="btn-group d-flex justify-content-center"
+          >
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="deleteReview()"
+              class="mr-3"
+            >
+              {{ 'CONFIRM_DIALOG.YES' | translate }}
+            </button>
+            <button (click)="deleteReviewDialog()" mat-raised-button>
               {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
             </button>
           </div>

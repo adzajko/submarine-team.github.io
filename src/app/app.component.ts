@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import * as AOS from 'aos';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { ThemeService } from './theme/theme.service';
+import { Review } from './components/reviews/review-element/Review.model';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +36,9 @@ export class AppComponent implements OnInit, OnDestroy {
   public passLoggedStateInfo: boolean;
   displayTop = 0;
   shouldModalOpen = false;
+  editReviewData: Review;
+  editReviewId: string;
+  showEditWindow = false;
 
   constructor(
     private auth: AuthService,
@@ -73,6 +77,21 @@ export class AppComponent implements OnInit, OnDestroy {
       localStorage.setItem('language', 'English');
     }
     this.translateService.use(localStorage.language);
+
+    this.sharedService.editWindowSubject.subscribe(res => {
+      if (res === true) {
+        this.sharedService.editWindowData.subscribe(response => {
+          if (response !== null) {
+            this.editReviewData = response[0];
+            this.editReviewId = response[1];
+            this.showEditWindow = true;
+          }
+        });
+      } else {
+        this.editReviewData = null;
+        this.showEditWindow = false;
+      }
+    });
   }
 
   prepareRoute(outlet: RouterOutlet): boolean {

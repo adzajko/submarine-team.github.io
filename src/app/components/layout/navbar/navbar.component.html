@@ -18,20 +18,18 @@
       />
     </a>
   </div>
-  <div class="d-flex">
+  <div class="d-flex" id="lang-acc-controls">
     <div class="mr-4">
-      <select
-        #langSelectEl
-        [value]="val"
-        name="languages"
-        id="langSelect"
-        class="custom-select"
-        style="cursor: pointer;"
-        (change)="changeLanguage($event.target.value)"
-      >
-        <option value="English" style="cursor: pointer;">EN</option>
-        <option value="Macedonian" style="cursor: pointer;">МКД</option>
-      </select>
+      <mat-form-field>
+        <mat-select
+          (valueChange)="changeLanguage($event)"
+          [(value)]="val"
+          panelClass="custom-panel"
+        >
+          <mat-option value="English">EN</mat-option>
+          <mat-option value="Macedonian">МК</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <i
       class="fa fa-user login-modal"
