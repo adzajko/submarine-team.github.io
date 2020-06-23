@@ -57,7 +57,14 @@ mat-toolbar {
 }
 
 #lang-acc-controls {
+  div.mr-4 {
+    position: relative;
+    height: 50px;
+  }
   mat-form-field {
+    color: var(--font-color);
+    position: relative;
+    top: -15px;
     width: 100px;
     @include smallPhoneMixin {
       width: 75px;

@@ -194,3 +194,42 @@ div.report-dialog {
     margin: 0;
   }
 }
+.review-controls {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  @include mediumPhoneMixin {
+    justify-content: center;
+  }
+  i.fa {
+    font-size: 32px;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  i.fa:hover {
+    transition: 0.4s;
+  }
+
+  i.fa.fa-trash:hover {
+    color: #ff5252;
+  }
+
+  i.fa.fa-edit:hover {
+    color: #f9a825;
+  }
+}
+.review-controls::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  right: 10px;
+  background-color: var(--font-color);
+  width: 30%;
+  height: 3px;
+  @include mediumPhoneMixin {
+    right: initial;
+  }
+}
