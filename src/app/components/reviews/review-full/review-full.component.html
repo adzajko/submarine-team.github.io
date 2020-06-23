@@ -15,6 +15,10 @@
           *ngIf="activeReview"
           >{{ activeReview?.companyName }}</a
         >
+        <div class="review-controls" *ngIf="isCurrentUserOwner">
+          <i class="fa fa-edit" (click)="openEditWindow()"></i>
+          <i class="fa fa-trash" (click)="openDeleteDialog()"></i>
+        </div>
         <div class="info-container" data-aos="fade-up">
           <div class="rating-container">
             <i
@@ -66,6 +70,27 @@
             {{ 'CONFIRM_DIALOG.YES' | translate }}
           </button>
           <button (click)="openReviewDialog()" mat-raised-button>
+            {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="report-dialog" *ngIf="showDeleteDialog" [@enterAnimation]>
+      <div>
+        <h6 mat-dialog-title>
+          {{ 'CONFIRM_DIALOG.DELETE_REVIEW_Q' | translate }}
+        </h6>
+        <hr />
+        <div mat-dialog-actions class="btn-group d-flex justify-content-center">
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteReview()"
+            class="mr-3"
+          >
+            {{ 'CONFIRM_DIALOG.YES' | translate }}
+          </button>
+          <button (click)="openDeleteDialog()" mat-raised-button>
             {{ 'CONFIRM_DIALOG.CANCEL' | translate }}
           </button>
         </div>

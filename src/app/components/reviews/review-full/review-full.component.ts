@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Review } from '../review-element/Review.model';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-review-full',
@@ -29,11 +30,14 @@ export class ReviewFullComponent implements OnInit {
   starRating: number[] = [];
   transformedTimeStamp: string;
   reportReview = false;
+  showDeleteDialog = false;
+  isCurrentUserOwner = false;
   constructor(
     private router: Router,
     private reviewService: ReviewService,
     private auth: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private sharedService: SharedService
   ) {
     this.currentReviewId = this.router.url.slice(9);
   }
@@ -52,6 +56,7 @@ export class ReviewFullComponent implements OnInit {
         this.transformedTimeStamp = this.reviewService.formatDate(
           this.activeReview.timeStamp
         );
+        this.checkIfOwner();
       },
       errorRes => {
         this.auth.showHTTPLoader(false);
@@ -78,5 +83,38 @@ export class ReviewFullComponent implements OnInit {
   sendReport() {
     this.toastr.success('Review Reported.', 'Success!');
     this.openReviewDialog();
+  }
+
+  openDeleteDialog() {
+    this.showDeleteDialog = !this.showDeleteDialog;
+  }
+
+  openEditWindow() {
+    this.sharedService.nextEditModalState(true);
+    this.sharedService.nextReviewData(this.activeReview, this.currentReviewId);
+  }
+
+  deleteReview() {
+    this.reviewService
+      .deleteReview(this.currentReviewId)
+      .then(res => {
+        this.toastr.success('Review deleted.', 'Success!');
+        this.openDeleteDialog();
+      })
+      .catch(err => {
+        this.toastr.error(err.message, err.error);
+      });
+  }
+
+  checkIfOwner() {
+    this.auth.afAuth.user.subscribe(res => {
+      if (res !== null) {
+        if (this.activeReview.userName === res.email) {
+          this.isCurrentUserOwner = true;
+        } else {
+          this.isCurrentUserOwner = false;
+        }
+      }
+    });
   }
 }
