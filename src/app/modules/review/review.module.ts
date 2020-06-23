@@ -7,13 +7,15 @@ import { FullListComponent } from 'src/app/components/reviews/full-list/full-lis
 import { ReviewRoutingModule } from './review-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditReviewComponent } from 'src/app/components/reviews/edit-review/edit-review.component';
 
 @NgModule({
   declarations: [
     ReviewElementComponent,
     ReviewFullComponent,
     VotesContainerComponent,
-    FullListComponent
+    FullListComponent,
+    EditReviewComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReviewElementComponent,
     ReviewFullComponent,
     VotesContainerComponent,
-    FullListComponent
+    FullListComponent,
+    EditReviewComponent
   ]
 })
 export class ReviewModule {}

@@ -131,7 +131,8 @@
     "DELETE_Q": "Are you sure you wish to delete your account?",
     "YES": "Yes",
     "CANCEL": "Cancel",
-    "REPORT_Q": "Are you sure you wish to report this review?"
+    "REPORT_Q": "Are you sure you wish to report this review?",
+    "DELETE_REVIEW_Q": "Are you sure you wish to delete your review?"
   },
   "404": {
     "CONTENT": "Requested content was not found.",

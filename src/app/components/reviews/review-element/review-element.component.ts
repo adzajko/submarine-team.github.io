@@ -3,6 +3,8 @@ import { ReviewService } from '../../../shared/review.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthService } from 'src/app/shared/auth.service';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-review-element',
@@ -28,15 +30,29 @@ export class ReviewElementComponent implements OnInit {
   public currentRate: number[];
   public reviewId: string;
   public reviewReported = false;
+  public isCurrentUserOwner = false;
+  public showDeleteDialog = false;
+
   constructor(
     private reviewService: ReviewService,
     private toastr: ToastrService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private authService: AuthService,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
     this.formattedDate = this.reviewService.formatDate(this.reviewElement);
     this.currentRate = this.transformIntoArray(this.reviewElement.data.rating);
+    this.authService.afAuth.user.subscribe(res => {
+      if (res !== null) {
+        if (res.email === this.reviewElement.data.userName) {
+          this.isCurrentUserOwner = true;
+        } else {
+          this.isCurrentUserOwner = false;
+        }
+      }
+    });
   }
 
   openReportDialog() {
@@ -68,5 +84,29 @@ export class ReviewElementComponent implements OnInit {
         this.toastr.error(err.message);
         this.openReportDialog();
       });
+  }
+
+  editReview() {
+    this.sharedService.nextEditModalState(true);
+    this.sharedService.nextReviewData(
+      this.reviewElement.data,
+      this.reviewElement.id
+    );
+  }
+
+  deleteReviewDialog() {
+    this.showDeleteDialog = !this.showDeleteDialog;
+  }
+
+  deleteReview() {
+    this.reviewService
+      .deleteReview(this.reviewElement.id)
+      .then(res => {
+        this.toastr.success('Review deleted!', 'Success.');
+      })
+      .catch(err => {
+        this.toastr.error(err.message, err.error);
+      });
+    this.showDeleteDialog = !this.showDeleteDialog;
   }
 }

@@ -32,3 +32,9 @@
   *ngIf="shouldModalOpen"
 ></app-login>
 <app-http-loader *ngIf="pendingHttpRequest"></app-http-loader>
+<app-edit-review
+  [@enterAnimation]
+  [reviewId]="editReviewId"
+  [reviewData]="editReviewData"
+  *ngIf="showEditWindow"
+></app-edit-review>

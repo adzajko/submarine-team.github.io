@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation
+} from '@angular/core';
 import { AuthService } from '../../../shared/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
