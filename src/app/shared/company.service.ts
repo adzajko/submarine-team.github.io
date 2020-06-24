@@ -27,7 +27,7 @@ export class CompanyService {
 
   getFeaturedCompany() {
     return this.firestore
-      .collection('companies', ref => ref.where('name', '==', 'Charmin'))
+      .collection('companies', ref => ref.where('name', '==', 'Starbucks'))
       .snapshotChanges();
   }
 }
