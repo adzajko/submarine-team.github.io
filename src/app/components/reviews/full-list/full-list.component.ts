@@ -3,6 +3,7 @@ import { ReviewService } from 'src/app/shared/review.service';
 import { Review } from '../review-element/Review.model';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-full-list',
@@ -13,10 +14,12 @@ export class FullListComponent implements OnInit {
   public options = ['Best Rated', 'Worst Rated', 'Oldest', 'Newest'];
   public listOfReviews: Review[] = [];
   reviewFilterGroup: FormGroup;
+  private currentUser: string;
 
   constructor(
     private reviewService: ReviewService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthService
   ) {
     this.reviewFilterGroup = new FormGroup({
       sortOption: new FormControl('', Validators.required)
@@ -28,6 +31,12 @@ export class FullListComponent implements OnInit {
       this.listOfReviews = response.map(e => {
         return { data: e.payload.doc.data(), id: e.payload.doc.id };
       });
+    });
+    this.authService.afAuth.user.subscribe(res => {
+      this.currentUser = res.email;
+      if (res !== null) {
+        this.options.push('Your Reviews');
+      }
     });
   }
 
@@ -91,6 +100,12 @@ export class FullListComponent implements OnInit {
           err => {
             this.toastr.error(err.message);
           }
+        );
+        break;
+      }
+      case 'Your Reviews': {
+        this.listOfReviews = this.listOfReviews.filter(
+          (e: any) => e.data.userName === this.currentUser
         );
         break;
       }
