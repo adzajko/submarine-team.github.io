@@ -3,7 +3,7 @@
     {{ 'COMPANIES_PAGE.TITLE' | translate }}
   </h1>
   <div class="search-bar d-flex justify-content-center mt-5">
-    <mat-form-field>
+    <mat-form-field data-aos="fade-up">
       <mat-label>Search Companies</mat-label>
       <input type="text" matInput (keyup)="filterCompaniesByName($event)" />
       <mat-icon matSuffix>search</mat-icon>
