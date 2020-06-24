@@ -2,6 +2,9 @@
   class="henlo"
   *ngIf="!isLoggedIn"
   (clickOutside)="closeModal()"
+  data-aos="fade-down"
+  data-aos-delay="0"
+  data-aos-duration="500"
   [delayClickOutsideInit]="true"
   [exclude]="'.fa'"
   [clickOutsideEvents]="'click,touchstart, scroll'"
@@ -109,7 +112,12 @@
   <i class="fa fa-times" (click)="closeModal()"></i>
 </main>
 
-<section *ngIf="isLoggedIn">
+<section
+  *ngIf="isLoggedIn"
+  data-aos="fade-down"
+  data-aos-duration="500"
+  data-aos-delay="0"
+>
   <div
     class="card"
     (clickOutside)="closeModal()"

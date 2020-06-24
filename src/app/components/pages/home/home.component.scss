@@ -58,13 +58,19 @@
     border-left: 1px solid var(--font-color);
     .img-container {
       position: absolute;
-      top: -15%;
+      top: -20%;
       left: -10%;
       border-radius: 50%;
       background-color: white;
       box-shadow: 1px 1px 5px 0 #212121;
+      @include smallPhoneMixin {
+        top: -15%;
+      }
       .img-fluid {
-        width: 110px;
+        width: 150px;
+        @include smallPhoneMixin {
+          width: 110px;
+        }
       }
     }
   }
