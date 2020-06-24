@@ -1,11 +1,6 @@
 import { OnInit, Component, Input } from '@angular/core';
 import { Review } from '../review-element/Review.model';
-import {
-  FormGroup,
-  FormControl,
-  FormControlName,
-  Validators
-} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SharedService } from 'src/app/shared/shared.service';
 import { ReviewService } from 'src/app/shared/review.service';
 import { ToastrService } from 'ngx-toastr';

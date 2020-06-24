@@ -24,7 +24,6 @@ import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.
 import { HttpLoaderComponent } from './shared/http-loader/http-loader.component';
 import { TermsOfServiceComponent } from './components/pages/terms-of-service/terms-of-service.component';
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
-import { ClickOutsideModule } from 'ng-click-outside';
 import { CompanyModule } from './modules/company/company.module';
 import { ReviewModule } from './modules/review/review.module';
 import { SharedModule } from './modules/shared/shared.module';
@@ -70,8 +69,7 @@ import { CustomToastrComponent } from './components/custom-toastr/custom-toastr.
     FormsModule,
     ReactiveFormsModule,
     AngularFireDatabaseModule,
-    LayoutModule,
-    ClickOutsideModule
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],

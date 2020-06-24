@@ -51,7 +51,11 @@
         {{ 'HOMEPAGE.REPORT' | translate }}
       </button>
       <div id="report-dialog" *ngIf="showDialog" [@enterAnimation]>
-        <div>
+        <div
+          (clickOutside)="openReportDialog()"
+          [clickOutsideEvents]="'click,touchstart'"
+          [delayClickOutsideInit]="true"
+        >
           <h6 mat-dialog-title>{{ 'CONFIRM_DIALOG.REPORT_Q' | translate }}</h6>
           <hr />
           <div
@@ -73,7 +77,11 @@
         </div>
       </div>
       <div id="delete-dialog" *ngIf="showDeleteDialog" [@enterAnimation]>
-        <div>
+        <div
+          (clickOutside)="deleteReviewDialog()"
+          [clickOutsideEvents]="'click,touchstart'"
+          [delayClickOutsideInit]="true"
+        >
           <h6 mat-dialog-title>
             {{ 'CONFIRM_DIALOG.DELETE_REVIEW_Q' | translate }}
           </h6>

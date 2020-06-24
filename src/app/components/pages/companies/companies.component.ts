@@ -42,7 +42,7 @@ export class CompaniesComponent implements OnInit {
   filterCompaniesByName(event: InputEvent) {
     const helperArray = this.companyList;
     const inputValue = event.target as HTMLInputElement;
-    return helperArray.filter(e =>
+    this.companyList = helperArray.filter(e =>
       e.name.toLowerCase().includes(inputValue.value.toLowerCase())
     );
   }

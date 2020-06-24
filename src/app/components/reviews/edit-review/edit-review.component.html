@@ -1,4 +1,10 @@
-<div class="edit-container" data-aos="fade-up">
+<div
+  class="edit-container"
+  data-aos="fade-up"
+  (clickOutside)="discardWindow()"
+  [clickOutsideEvents]="'click,touchstart'"
+  [delayClickOutsideInit]="true"
+>
   <form [formGroup]="editWindowForm" (ngSubmit)="submitEditReviewForm()">
     <div class="mt-3" data-aos="fade-up">
       <div class="w-100">

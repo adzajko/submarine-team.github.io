@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { MaterialModule } from '../material/material.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -18,6 +19,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbModule,
     MaterialModule,
     CarouselModule,
+    ClickOutsideModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -26,6 +28,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  exports: [CommonModule, NgbModule, TranslateModule, MaterialModule]
+  exports: [
+    CommonModule,
+    NgbModule,
+    TranslateModule,
+    MaterialModule,
+    ClickOutsideModule
+  ]
 })
 export class SharedModule {}
