@@ -60,9 +60,10 @@
     "REGI_DESCRIPTION": "Don't have an account yet?",
     "LOGI_DESCRIPTION": "Welcome Back",
     "LOG_OUT": "Log Out",
-    "ACC_CONTROLS": "Account Controls",
+    "ACC_CONTROLS": "Quick Links",
     "FORGOT_LABEL": "Forgot your password? Please enter your email address.",
-    "RESET_BTN": "Send Password Reset"
+    "RESET_BTN": "Send Password Reset",
+    "WRITE_REVIEW": "Write a review"
   },
   "MY_ACCOUNT": {
     "COMPANY": "Company",
@@ -137,5 +138,10 @@
   "404": {
     "CONTENT": "Requested content was not found.",
     "BTN": "Home"
+  },
+  "CRUD": {
+    "TEXT": "Content",
+    "FINISH_EDITING": "Finish Editing",
+    "CANCEL": "Cancel"
   }
 }

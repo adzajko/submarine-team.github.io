@@ -9,6 +9,7 @@ export class SharedService {
   public publishLoginModalState: Subject<any> = new Subject<any>();
   public editWindowSubject = new BehaviorSubject<boolean>(false);
   public editWindowData = new BehaviorSubject<any[]>(null);
+  public createReviewWindow = new BehaviorSubject<boolean>(false);
   constructor() {}
 
   emitLoginModalState(value: boolean) {
@@ -21,5 +22,9 @@ export class SharedService {
 
   nextReviewData(review: Review, reviewId: string) {
     this.editWindowData.next([review, reviewId]);
+  }
+
+  showCreateReviewWindow(value: boolean) {
+    this.createReviewWindow.next(value);
   }
 }

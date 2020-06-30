@@ -47,7 +47,8 @@ header {
 }
 
 app-login,
-app-edit-review {
+app-edit-review,
+app-create-review {
   background-color: var(--shadowsOpacified);
   @extend .fixed-full-height;
   z-index: 20;

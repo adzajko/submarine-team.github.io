@@ -119,21 +119,27 @@
   data-aos-delay="0"
 >
   <div
-    class="card"
+    class="quick-links-container"
     (clickOutside)="closeModal()"
     [exclude]="'.fa'"
     [clickOutsideEvents]="'click,touchstart, scroll'"
   >
-    <div class="card-header">
+    <div class="ql-header">
       <h6 class="acc-header">{{ 'LOGIN.ACC_CONTROLS' | translate }}</h6>
       <i class="fa fa-times white-icon" (click)="closeModal()"></i>
     </div>
-    <div class="card-body">
-      <a [routerLink]="['/my-account']" class="btn btn-dark mr-2">{{
-        'HEADER.MY_ACCOUNT' | translate
-      }}</a>
-      <button class="btn btn-danger" (click)="logOut()">
-        {{ 'LOGIN.LOG_OUT' | translate }}
+    <div class="ql-body mt-5">
+      <button mat-raised-button color="accent" (click)="triggerCreateReview()">
+        <i class="fa fa-edit mr-2"></i
+        ><span>{{ 'LOGIN.WRITE_REVIEW' | translate }}</span>
+      </button>
+      <button [routerLink]="['/my-account']" mat-raised-button>
+        <i class="fa fa-user mr-2"></i
+        ><span>{{ 'HEADER.MY_ACCOUNT' | translate }}</span>
+      </button>
+      <button mat-raised-button color="warn" (click)="logOut()">
+        <i class="fa fa-sign-out mr-2" aria-hidden="true"></i
+        ><span>{{ 'LOGIN.LOG_OUT' | translate }}</span>
       </button>
     </div>
   </div>

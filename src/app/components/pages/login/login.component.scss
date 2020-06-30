@@ -315,17 +315,33 @@
   transition: 0.4s;
 }
 
-.card-header {
-  display: flex;
-  justify-content: flex-end;
+.quick-links-container {
+  background-color: var(--home-cards);
+  padding: 2rem;
 
-  .acc-header {
-    position: absolute;
-    top: 15%;
-    left: 15%;
+  border-radius: 15px;
+  height: 350px;
+  box-shadow: 3px 3px 5px 0 var(--shadows);
+  .ql-header {
+    border-bottom: 1px solid var(--font-color);
+    h6 {
+      font-size: 36px;
+      color: var(--font-color);
+    }
+    .fa.fa-times {
+      font-size: 22px;
+      right: 3%;
+      top: 1%;
+    }
   }
-  .fa.fa-times.white-icon {
-    position: static;
+
+  .ql-body {
+    @extend .flex-column-center;
+    button {
+      display: block;
+      margin-bottom: 2rem;
+      width: 200px;
+    }
   }
 }
 

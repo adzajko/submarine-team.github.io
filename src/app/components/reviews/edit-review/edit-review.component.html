@@ -25,7 +25,7 @@
     <!-- Review Text -->
     <mat-form-field data-aos="fade-up">
       <mat-label>
-        Review Text
+        {{ 'CRUD.TEXT' | translate }}
       </mat-label>
       <textarea
         matInput
@@ -76,7 +76,7 @@
         color="warn"
         [disabled]="!editWindowForm.valid"
       >
-        Finish editing
+        {{ 'CRUD.FINISH_EDITING' | translate }}
       </button>
       <button
         type="button"
@@ -84,7 +84,7 @@
         mat-raised-button
         color="accent"
       >
-        Cancel
+        {{ 'CRUD.CANCEL' | translate }}
       </button>
     </div>
   </form>

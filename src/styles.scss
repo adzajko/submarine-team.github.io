@@ -113,3 +113,28 @@ i.fa.carousel-fa.fa-chevron-right {
   background-color: var(--primary);
   z-index: 0;
 }
+
+// Material overrides
+
+.mat-option {
+  color: var(--font-color);
+  background-color: var(--primary);
+}
+
+.mat-option.mat-active {
+  color: #dc3545 !important;
+  background-color: var(--primary) !important;
+}
+
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled) {
+  background-color: var(--home-cards) !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: var(--font-color);
+}
+
+.mat-slider {
+  color: var(--font-color) !important;
+}
