@@ -39,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
   editReviewData: Review;
   editReviewId: string;
   showEditWindow = false;
+  showCreateReviewWindow = false;
 
   constructor(
     private auth: AuthService,
@@ -91,6 +92,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.editReviewData = null;
         this.showEditWindow = false;
       }
+    });
+
+    this.sharedService.createReviewWindow.subscribe(res => {
+      this.showCreateReviewWindow = res;
     });
   }
 

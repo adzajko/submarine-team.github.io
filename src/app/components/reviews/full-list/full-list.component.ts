@@ -11,7 +11,12 @@ import { AuthService } from 'src/app/shared/auth.service';
   styleUrls: ['./full-list.component.scss']
 })
 export class FullListComponent implements OnInit {
-  public options = ['Best Rated', 'Worst Rated', 'Oldest', 'Newest'];
+  public options = [
+    'Best Rated',
+    'Worst Rated',
+    'Oldest to Newest',
+    'Newest to Oldest'
+  ];
   public listOfReviews: Review[] = [];
   reviewFilterGroup: FormGroup;
   private currentUser: string;
@@ -58,7 +63,7 @@ export class FullListComponent implements OnInit {
         );
         break;
       }
-      case 'Oldest': {
+      case 'Oldest to Newest': {
         this.reviewService.filterReviewsByDate().subscribe(
           res => {
             const timeStampFilterArray = [];
@@ -73,7 +78,7 @@ export class FullListComponent implements OnInit {
         );
         break;
       }
-      case 'Newest': {
+      case 'Newest to Oldest': {
         this.reviewService.filterNewest().subscribe(
           res => {
             const timeStampFilterArray = [];
