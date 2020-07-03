@@ -3,12 +3,10 @@
 </header>
 <main
   #main
-  [@routeAnimations]="prepareRoute(outlet)"
+
   *ngIf="!checkIfFirstTimeUser()"
 >
   <router-outlet
-    (activate)="onActivate($event)"
-    #outlet="outlet"
   ></router-outlet>
 </main>
 <div

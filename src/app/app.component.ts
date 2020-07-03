@@ -1,6 +1,4 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { routeTransitionAnimations } from './shared/animations';
 import { AuthService } from './shared/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { startWith, delay } from 'rxjs/operators';
@@ -16,7 +14,6 @@ import { Review } from './components/reviews/review-element/Review.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    routeTransitionAnimations,
     trigger('enterAnimation', [
       transition(':enter', [
         style({ opacity: 0 }),
@@ -98,15 +95,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.showCreateReviewWindow = res;
     });
   }
-
-  prepareRoute(outlet: RouterOutlet): boolean {
-    return (
-      outlet &&
-      outlet.activatedRouteData &&
-      outlet.activatedRouteData.animationState
-    );
-  }
-
   checkIfFirstTimeUser() {
     if (!localStorage.getItem('firstTime')) {
       return true;
