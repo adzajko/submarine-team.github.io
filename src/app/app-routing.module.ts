@@ -11,38 +11,33 @@ import { AuthGuardGuard } from './shared/auth-guard.guard';
 import { FourOhFourComponent } from './components/pages/four-oh-four/four-oh-four.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { animationState: 'Home' } },
+  { path: '', component: HomeComponent },
   {
     path: 'about',
-    component: AboutComponent,
-    data: { animationState: 'About' }
+    component: AboutComponent
   },
   {
     path: 'contact',
-    component: ContactComponent,
-    data: { animationState: 'Contact' }
+    component: ContactComponent
   },
   {
     path: 'my-account',
     component: MyAccountComponent,
-    canActivate: [AuthGuardGuard],
-    data: { animationState: 'MyAccount' }
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'admin-panel',
     component: AdminPanelComponent,
-    data: { animationState: 'Admin' },
+
     canActivate: [AuthGuardGuard]
   },
   {
     path: 'terms-of-service',
-    component: TermsOfServiceComponent,
-    data: { animationState: 'TermsOfService' }
+    component: TermsOfServiceComponent
   },
   {
     path: '**',
-    component: FourOhFourComponent,
-    data: { animationState: 'NotFound' }
+    component: FourOhFourComponent
   }
 ];
 
